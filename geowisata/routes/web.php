@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +21,4 @@ Route::get('/', function () {
 
 // Routing Dashboard Admin
 Route::get('/dashboard',[AdminController::class,'dashboard'])->name('dashboard');
+
