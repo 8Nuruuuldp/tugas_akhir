@@ -58,7 +58,7 @@
                                         <td>{{$wisata->longitude}}</td>
                                         <td>
                                             <a href="/wisata/{{$wisata->id}}/delete" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data {{$wisata->nama_tempat}}?')">Hapus</a>
-                                            <a href="/wisata/{{$wisata->id}}/edit" class="btn btn-warning">Hapus</a>
+                                            <a href="/wisata/{{$wisata->id}}/edit" class="btn btn-warning">Edit</a>
                                         </td>
                                     </tr>
                                     @endforeach
