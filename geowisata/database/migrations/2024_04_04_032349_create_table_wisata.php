@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('alamat');
             $table->string('deskripsi');
             $table->text('gambar');
-            $table->decimal('latitude',10,7);
-            $table->decimal('longitude', 10,7);
+            $table->decimal('latitude', 17, 16);
+            $table->decimal('longitude', 17, 14);
             $table->timestamps();
         });
     }

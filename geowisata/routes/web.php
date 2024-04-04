@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\WisataController;
 
 
 /*
@@ -21,4 +22,8 @@ Route::get('/', function () {
 
 // Routing Dashboard Admin
 Route::get('/dashboard',[AdminController::class,'dashboard'])->name('dashboard');
+
+//Routing CRUD Data Wisata
+//Routing Create Data Wisata
+Route::get('/wisata',[WisataController::class,'index']);
 

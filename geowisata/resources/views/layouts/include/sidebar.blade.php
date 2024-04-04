@@ -64,18 +64,18 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-edit"></i>
+                            <a href="/wisata" class="nav-link">
+                                <i class="nav-icon fas fa-table"></i>
                                 <p>
-                                    Tambah Wisata
+                                    Lihat Wisata
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-table"></i>
+                                <i class="nav-icon fas fa-edit"></i>
                                 <p>
-                                    Lihat Wisata
+                                    Tambah Wisata
                                 </p>
                             </a>
                         </li>

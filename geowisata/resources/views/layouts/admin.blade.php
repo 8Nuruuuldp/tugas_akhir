@@ -27,6 +27,11 @@
     <link rel="stylesheet" href="Admin/plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="Admin/plugins/summernote/summernote-bs4.min.css">
+
+    <!-- DataTables -->
+    <link rel="stylesheet" href="Admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="Admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="Admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -34,7 +39,8 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="Admin/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+            <img class="animation__shake" src="Admin/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60"
+                width="60">
         </div>
 
         <!-- Navbar -->
@@ -45,12 +51,8 @@
         @include('layouts.include.sidebar')
 
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-            <div class="container-fluid">
-                @yield('content')
-            </div>
-        </div>
-        
+        @yield('content')
+
         <!-- /.content-wrapper -->
         @include('layouts.include.footer')
 
@@ -96,6 +98,49 @@
     <script src="Admin/dist/js/demo.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="Admin/dist/js/pages/dashboard.js"></script>
+
+    <!-- jQuery -->
+    <script src="Admin/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="Admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- DataTables  & Plugins -->
+    <script src="Admin/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="Admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="Admin/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="Admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="Admin/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="Admin/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="Admin/plugins/jszip/jszip.min.js"></script>
+    <script src="Admin/plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="Admin/plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="Admin/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="Admin/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="Admin/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="Admin/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="Admin/dist/js/demo.js"></script>
+    <!-- Page specific script -->
+    <script>
+    $(function() {
+        $("#example1").DataTable({
+            "responsive": true,
+            "lengthChange": false,
+            "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        $('#example2').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
+    });
+    </script>
+
 </body>
 
 </html>
