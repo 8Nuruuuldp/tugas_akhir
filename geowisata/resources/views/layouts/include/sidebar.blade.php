@@ -112,10 +112,18 @@
                 </li>
                 <li class="nav-header">Halaman</li>
                 <li class="nav-item">
+                    <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
+                        <i class="nav-icon fas fa-cog"></i>
+                        <p>
+                            Pengaturan
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="pages/calendar.html" class="nav-link">
                         <i class="nav-icon fas fa-sign-out-alt"></i>
                         <p>
-                            Logout
+                            Keluar
                         </p>
                     </a>
                 </li>
