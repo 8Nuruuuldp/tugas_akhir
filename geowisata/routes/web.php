@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\WisataController;
 
 
@@ -19,11 +20,12 @@ use App\Http\Controllers\WisataController;
 Route::get('/', function () {
     return view('welcome');
 });
+//Routing Login
+Route::get('/login', [LoginController::class, 'index']);
 
 // Routing Dashboard Admin
-Route::get('/dashboard',[AdminController::class,'dashboard'])->name('dashboard');
+Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
 //Routing CRUD Data Wisata
 //Routing Create Data Wisata
-Route::get('/wisata',[WisataController::class,'index']);
-
+Route::get('/wisata', [WisataController::class, 'index']);
