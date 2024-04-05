@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dasbor | Admin</title>
+    <title>AdminLTE 3 | Dashboard</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -27,7 +27,6 @@
     <link rel="stylesheet" href="Admin/plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="Admin/plugins/summernote/summernote-bs4.min.css">
-
     <!-- DataTables -->
     <link rel="stylesheet" href="Admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="Admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
@@ -99,10 +98,6 @@
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="Admin/dist/js/pages/dashboard.js"></script>
 
-    <!-- jQuery -->
-    <script src="Admin/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="Admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- DataTables  & Plugins -->
     <script src="Admin/plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="Admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -116,10 +111,7 @@
     <script src="Admin/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
     <script src="Admin/plugins/datatables-buttons/js/buttons.print.min.js"></script>
     <script src="Admin/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="Admin/dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="Admin/dist/js/demo.js"></script>
+
     <!-- Page specific script -->
     <script>
     $(function() {
@@ -140,6 +132,9 @@
         });
     });
     </script>
+</body>
+
+</html>
 
 </body>
 

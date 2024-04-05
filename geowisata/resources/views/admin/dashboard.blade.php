@@ -47,7 +47,10 @@
 
                         <div class="info-box-content">
                             <span class="info-box-text">Jumlah Wisata</span>
-                            <span class="info-box-number">41,410</span>
+                            <span class="info-box-number">
+                                {{App\Models\Wisata::count()}}
+                                <small><a href="/wisata">Objek Wisata</a></small>
+                            </span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
