@@ -36,13 +36,13 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama Wisata</th>
+                                        <th style="width: 100px">Nama Wisata</th>
                                         <th>Alamat</th>
                                         <th>Deskripsi</th>
                                         <th>Gambar</th>
                                         <th>Latitude</th>
                                         <th>Longitude</th>
-                                        <th>Aksi</th>
+                                        <th style="width: 70px">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -60,8 +60,8 @@
                                         <td>{{$wisata->latitude}}</td>
                                         <td>{{$wisata->longitude}}</td>
                                         <td>
-                                            <a href="/wisata/{{$wisata->id}}/delete" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data {{$wisata->nama_tempat}}?')">Hapus</a>
-                                            <a href="/wisata/{{$wisata->id}}/edit" class="btn btn-warning">Edit</a>
+                                            <a href="/wisata/{{$wisata->id}}/delete" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data {{$wisata->nama_tempat}}?')"><i class="fas fa-trash-alt"></i></a>
+                                            <a href="/wisata/{{$wisata->id}}/edit" class="btn btn-warning"><i class="fas fa-edit"></i></a>
                                         </td>
                                     </tr>
                                     @endforeach
