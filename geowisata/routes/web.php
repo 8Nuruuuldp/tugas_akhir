@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\WisataController;
 
 
@@ -28,6 +29,9 @@ Route::get('register', [RegisterController::class, 'index']);
 // Routing Dashboard Admin
 Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
+//Routing Read Data User
+Route::get('/user', [UserController::class, 'index']);
+
 //Routing CRUD Data Wisata
-//Routing Create Data Wisata
+//Routing Read Data Wisata
 Route::get('/wisata', [WisataController::class, 'index']);
