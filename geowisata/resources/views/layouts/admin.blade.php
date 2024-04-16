@@ -26,12 +26,8 @@
     <!-- Daterange picker -->
     <link rel="stylesheet" href="/Admin/plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
-<<<<<<< HEAD
     <link rel="stylesheet" href="/Admin/plugins/summernote/summernote-bs4.min.css">
 
-=======
-    <link rel="stylesheet" href="Admin/plugins/summernote/summernote-bs4.min.css">
->>>>>>> ea5526321c4d388d8f8fab2d856d2c74eb804c23
     <!-- DataTables -->
     <link rel="stylesheet" href="/Admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="/Admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
@@ -103,7 +99,6 @@
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="/Admin/dist/js/pages/dashboard.js"></script>
 
-<<<<<<< HEAD
     <!-- jQuery -->
     <script src="/Admin/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
@@ -125,22 +120,6 @@
     <script src="/Admin/dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="/Admin/dist/js/demo.js"></script>
-=======
-    <!-- DataTables  & Plugins -->
-    <script src="Admin/plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="Admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <script src="Admin/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="Admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-    <script src="Admin/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="Admin/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-    <script src="Admin/plugins/jszip/jszip.min.js"></script>
-    <script src="Admin/plugins/pdfmake/pdfmake.min.js"></script>
-    <script src="Admin/plugins/pdfmake/vfs_fonts.js"></script>
-    <script src="Admin/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-    <script src="Admin/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-    <script src="Admin/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-
->>>>>>> ea5526321c4d388d8f8fab2d856d2c74eb804c23
     <!-- Page specific script -->
     <script>
     $(function() {
