@@ -45,6 +45,8 @@
                       <div class="input-group-append">
                         <span class="input-group-text">Upload</span>
                       </div>
+                      
+                    </div>
                       <div class="form-group">
                     <label for="latitude">Latitude</label>
                     <input type="text" class="form-control" id="latitude" placeholder="Masukan latitude tempat wisata">
