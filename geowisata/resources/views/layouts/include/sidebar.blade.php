@@ -77,15 +77,15 @@
                             <a href="/wisata" class="nav-link">
                                 <i class="nav-icon fas fa-table"></i>
                                 <p>
-                                    Lihat Wisata
+                                    Lihat Data Wisata
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{url('/wisata/create')}}" class="nav-link">
                                 <i class="nav-icon fas fa-edit"></i>
                                 <p>
-                                    Tambah Wisata
+                                    Tambah Data Wisata
                                 </p>
                             </a>
                         </li>

@@ -33,6 +33,8 @@ Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard
 Route::get('/user', [UserController::class, 'index']);
 
 //Routing CRUD Data Wisata
+Route::get('/wisata/create', [WisataController::class, 'create']);
+
 //Routing Read Data Wisata
 Route::get('/wisata', [WisataController::class, 'index']);
 
