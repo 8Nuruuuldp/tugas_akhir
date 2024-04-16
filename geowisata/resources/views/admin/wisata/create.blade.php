@@ -11,29 +11,51 @@
               <form>
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <label for="kategori">Kategori Wisata</label>
+                    <select id="kategori" class="form-control">
+                        <option value="">Pilih Kategori</option>
+                        <option value="makanan">Wisata Alam</option>
+                        <option value="minuman">Wisata Pendidikan dan Sejarah</option>
+                        <option value="fashion">Wisata Budaya</option>
+                        <option value="fashion">Wisata Rekreatif</option>
+                        <option value="minuman">Wisata Agro</option>
+                        <option value="fashion">Wisata Religi</option>
+                        <option value="fashion">Kampung Wisata Kreatif</option>
+                    </select>
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <label for="nama_tempat">Nama Tempat Wisata</label>
+                    <input type="text" class="form-control" id="nama_tempat" placeholder="Masukan nama tempat wisata">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputFile">File input</label>
+                    <label for="alamat">Alamat</label>
+                    <input type="text" class="form-control" id="alamat" placeholder="Masukan alamat tempat wisata">
+                  </div>
+                  <div class="form-group">
+                    <label for="deskripsi">Deskripsi</label>
+                    <input type="text" class="form-control" id="deskripsi" placeholder="Masukan deskripsi tempat wisata">
+                  </div>
+                  <div class="form-group">
+                    <label for="gambar">Foto atau Gambar Tempat Wisata</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                        <input type="file" class="custom-file-input" id="gambar">
+                        <label class="custom-file-label" for="gambar">Pilih berkas</label>
                       </div>
                       <div class="input-group-append">
                         <span class="input-group-text">Upload</span>
                       </div>
+                      <div class="form-group">
+                    <label for="latitude">Latitude</label>
+                    <input type="text" class="form-control" id="latitude" placeholder="Masukan latitude tempat wisata">
+                  </div>
+                  <div class="form-group">
+                    <label for="longitude">Longitude</label>
+                    <input type="text" class="form-control" id="longitude" placeholder="Masukan longitude tempat wisata">
+                  </div>
                     </div>
                   </div>
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                  </div>
+                  
                 </div>
                 <!-- /.card-body -->
 
