@@ -18,7 +18,7 @@ use App\Http\Controllers\WisataController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view ('welcome');
 });
 //Routing Login
 Route::get('/login', [LoginController::class, 'index']);
@@ -29,3 +29,7 @@ Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard
 //Routing CRUD Data Wisata
 //Routing Create Data Wisata
 Route::get('/wisata', [WisataController::class, 'index']);
+
+//Edit data wisata
+Route::get('/wisata/{id}/edit', [WisataController::class, 'edit']);
+Route::post('/wisata/{id}/update', [WisataController::class, 'update']);

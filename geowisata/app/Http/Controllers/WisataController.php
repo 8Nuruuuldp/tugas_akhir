@@ -45,7 +45,8 @@ class WisataController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $wisata = Wisata::find($id);
+        return view('admin.wisata.edit',['wisata' => $wisata]);
     }
 
     /**
@@ -53,7 +54,26 @@ class WisataController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $this->validate($request,[
+            'nama_tempat' => 'required',
+            'alamat'    => 'required',
+            'deskripsi' => 'required',
+            'gambar'    => 'required',
+            'latitude'  => 'required',
+            'longitude' => 'required'
+        ]);
+
+        $wisata = Wisata::find($id);
+        $wisata->nama_tempat    = $request->nama_tempat;
+        $wisata->alamat     = $request->alamat;
+        $wisata->deskripsi  = $request->deskripsi;
+        $wisata->gambar     = $request->gambar;
+        $wisata->latitude   = $request->latitude;
+        $wisata->longitude  = $request->longitude;
+
+        $wisata->save();
+
+        return redirect('/wisata');
     }
 
     /**

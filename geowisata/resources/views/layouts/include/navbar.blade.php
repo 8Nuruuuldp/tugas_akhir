@@ -23,7 +23,7 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel">
                 <div class="image">
-                    <img src="Admin/dist/img/avatar2.png" class="img-circle" alt="User Image">
+                    <img src="/Admin/dist/img/avatar2.png" class="img-circle" alt="User Image">
                 </div>
             </div>
         </li>
