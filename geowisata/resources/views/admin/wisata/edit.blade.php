@@ -12,7 +12,7 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="/">Beranda</a></li>
+                <li class="breadcrumb-item"><a href="/dashboard">Dasbor</a></li>
                 <li class="breadcrumb-item"><a href="/wisata">Data Wisata</a></li>
                 <li class="breadcrumb-item active">Edit Data</li>
                 </ol>
