@@ -9,12 +9,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Data Wisata</h1>
+                    <h1>Data Pengguna</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/">Beranda</a></li>
-                        <li class="breadcrumb-item active">Data Wisata</li>
+                        <li class="breadcrumb-item active">Data Pengguna</li>
                     </ol>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Data Objek Wisata Kota Bandung</h3>
+                            <h3 class="card-title">Data Pengguna Website Bandung Geowisata</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -36,32 +36,25 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th style="width: 100px">Nama Wisata</th>
-                                        <th>Alamat</th>
-                                        <th>Deskripsi</th>
-                                        <th>Gambar</th>
-                                        <th>Latitude</th>
-                                        <th>Longitude</th>
-                                        <th style="width: 70px">Aksi</th>
+                                        <th>Nama Pengguna</th>
+                                        <th>Email</th>
+                                        <th>Kata Sandi</th>
+                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @php
-                                        use Illuminate\Support\Str;
                                         $no = 1;
                                     @endphp
-                                    @foreach ($table_wisata as $wisata)
+                                    @foreach ($users as $user)
                                     <tr>
                                         <td>{{$no++}}</td>
-                                        <td>{{$wisata->nama_tempat}}</td>
-                                        <td>{{illuminate\Support\Str::limit($wisata->alamat, 30)}}</td>
-                                        <td>{{illuminate\Support\Str::limit($wisata->deskripsi, 30)}}</td>
-                                        <td><img src="{{$wisata->gambar}}" height="100px" widht="100px"></td>
-                                        <td>{{$wisata->latitude}}</td>
-                                        <td>{{$wisata->longitude}}</td>
+                                        <td>{{$user->name}}</td>
+                                        <td>{{$user->email}}</td>
+                                        <td>{{$user->password}}</td>
                                         <td>
-                                            <a href="/wisata/{{$wisata->id}}/delete" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data {{$wisata->nama_tempat}}?')"><i class="fas fa-trash-alt"></i></a>
-                                            <a href="/wisata/{{$wisata->id}}/edit" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                            <a href="/user/{{$user->id}}/delete" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data {{$user->name}}?')"><i class="fas fa-trash-alt"></i></a>
+                                            <a href="/user/{{$user->id}}/edit" class="btn btn-warning"><i class="fas fa-edit"></i></a>
                                         </td>
                                     </tr>
                                     @endforeach

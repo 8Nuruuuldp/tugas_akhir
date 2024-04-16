@@ -8,11 +8,21 @@
     </a>
 
     <!-- Sidebar -->
-    <div class="sidebar mt-3">
+    <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="Admin/dist/img/avatar5.png" class="img-circle" alt="User Image">
+            </div>
+            <div class="info">
+                <a href="#" class="d-block">Admin</a>
+            </div>
+        </div>
+
         <!-- SidebarSearch Form -->
         <div class="form-inline">
             <div class="input-group" data-widget="sidebar-search">
-                <input class="form-control form-control-sidebar" type="search" placeholder="Cari" aria-label="Search">
+                <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
                 <div class="input-group-append">
                     <button class="btn btn-sidebar">
                         <i class="fas fa-search fa-fw"></i>
@@ -39,16 +49,16 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-user"></i>
                         <p>
-                            Data User
+                            Data Pengguna
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="/user" class="nav-link">
                                 <i class="nav-icon fas fa-table"></i>
                                 <p>
-                                    Lihat User
+                                    Lihat Pengguna
                                 </p>
                             </a>
                         </li>
@@ -101,14 +111,6 @@
                     </ul>
                 </li>
                 <li class="nav-header">Halaman</li>
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
-                        <i class="nav-icon fas fa-cog"></i>
-                        <p>
-                            Pengaturan
-                        </p>
-                    </a>
-                </li>
                 <li class="nav-item">
                     <a href="pages/calendar.html" class="nav-link">
                         <i class="nav-icon fas fa-sign-out-alt"></i>
