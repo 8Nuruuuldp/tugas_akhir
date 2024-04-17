@@ -12,7 +12,7 @@
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
         crossorigin=""></script>
      <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
-    
+
 </head>
 <body>
 
@@ -21,13 +21,13 @@
 
     <div class="flex md:hidden">
         <button id="hamburger">
-            <img class="toggle block" 
+            <img class="toggle block"
                 src="https://img.icons8.com/fluent-systems-regular/2x/menu-squared-2.png" width="40" height="40" />
             <img class="toggle hidden" src="https://img.icons8.com/fluent-systems-regular/2x/close-window.png" width="40" height="40" />
         </button>
     </div>
 
-    <div class="toggle hidden md:flex w-full md:w-auto text-right text-bold mt-5 md:mt-0 border-t-2 border-blue-900 md:border-none">        
+    <div class="toggle hidden md:flex w-full md:w-auto text-right text-bold mt-5 md:mt-0 border-t-2 border-blue-900 md:border-none">
         <a href="#" class="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Beranda</a>
         <a href="#" class="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Tentang</a>
         <a href="#" class="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Rekomendasi</a>
@@ -49,8 +49,8 @@
                 <a href="#" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-gray-900 rounded-lg border border-gray-300 hover:bg-green-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-white dark:hover:bg-green-700 dark:focus:ring-green-800">
                     Lihat Peta
                 <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                </a> 
-            </div>               
+                </a>
+            </div>
         </div>
     </section>
 
@@ -61,7 +61,7 @@
                     <h1 class="mb-4 max-w-2xl text-4xl font-extrabold leading-none md:text-5xl xl:text-6xl dark:text-slate-800">
                         Tentang Kota Bandung</h1>
                     <p class="items-center mb-6 max-w-2xl font-light text-slate-700 lg:mb-8 md:text-lg lg:text-xl dark:text-slate-800">
-                    Sajauh ning panginditan Satebih hing lelengkahan Heup dimana diri miara Mulang tetep ka salira Dina teuteup unggal juru Aya carita nu nyentuh kalbu Kagagas kabayang bayang Saban wayah mawa tenang</p> 
+                    Sajauh ning panginditan Satebih hing lelengkahan Heup dimana diri miara Mulang tetep ka salira Dina teuteup unggal juru Aya carita nu nyentuh kalbu Kagagas kabayang bayang Saban wayah mawa tenang</p>
                 </div>
                 <div class="">
 
@@ -88,12 +88,12 @@
                             <p>Bintang ini nantinya
                             <p class="text-gray-700 text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.</p>
-                        
-                        
+
+
                         </div>
-                        
+
                         <button type="button" class="text-slate-800 text-sm hover:bg-green-800 hover:text-white border border-slate-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 text-center inline-flex items-center">
-                            Lihat Selengkapnya 
+                            Lihat Selengkapnya
                             <svg class="w-3.5 h-3.5 ms-2 text-gray-800 dark:text-slate-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"/>
                             </svg>
@@ -117,7 +117,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-white rounded flex flex-col justify-between leading-normal">                
+                <div class="bg-white rounded flex flex-col justify-between leading-normal">
                 <img src="https://images.unsplash.com/photo-1683471619890-fb7e51c3201c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-500">
                     <div class="p-4 pt-2">
                         <div class="mb-8">
@@ -133,7 +133,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-white rounded flex flex-col justify-between leading-normal">                
+                <div class="bg-white rounded flex flex-col justify-between leading-normal">
                 <img src="https://images.unsplash.com/photo-1683471619890-fb7e51c3201c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-500">
                     <div class="p-4 pt-2">
                         <div class="mb-8">
@@ -149,14 +149,14 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
 
             <h1 class="text-center mb-8 text-2xl font-extrabold leading-none md:text-4xl xl:text-5xl text-white">
                 Rekomendasi Destinasi
             </h1>
             <p class="text-center pb-2 text-white">
-            Sajauh ning panginditan Satebih hing lelengkahan Heup dimana diri miara Mulang tetep ka salira Dina teuteup unggal juru Aya carita nu nyentuh kalbu Kagagas kabayang bayang Saban wayah mawa tenang</p> 
+            Sajauh ning panginditan Satebih hing lelengkahan Heup dimana diri miara Mulang tetep ka salira Dina teuteup unggal juru Aya carita nu nyentuh kalbu Kagagas kabayang bayang Saban wayah mawa tenang</p>
             </p>
 
         </div>
@@ -172,15 +172,21 @@
         <form class="flex flex-col md:flex-row gap-3">
             <div class="flex gap-2">
 
-                <input type="text" placeholder="Nama Tempat wisata"
+                <input name="name" type="text" placeholder="Nama Tempat wisata" value="{{isset($_GET['name']) ? $_GET['name'] : ''}}"
                     class="w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500">
+                <select name="category" type="text" placeholder="Kategori" class="w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500">
+                    <option value="">-</option>
+                    <option value="address" selected="{{isset($_GET['address']) ? $_GET['address'] : ''}}">Alamat</option>
 
-                <input type="text" placeholder="Kategori"
-                    class="w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500">
-                    
+                </select>
+                <select name="category" type="text" placeholder="Kategori" class="w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500">
+                    <option value="">-</option>
+                    <option value="description" selected="{{isset($_GET['description']) ? $_GET['description'] : ''}}">Deskripsi</option>
+                </select>
                 <button type="submit" class="bg-green-500 text-white rounded px-2 md:px-3 py-0 md:py-1">Search</button>
             </div>
         </form>
+
 
         <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
 
@@ -211,9 +217,9 @@
     </script>
 
     <style>
-        #map { 
+        #map {
             height: 100vh;
-            width: 100%; 
+            width: 100%;
         }
     </style>
 
