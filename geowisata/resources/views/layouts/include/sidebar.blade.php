@@ -47,7 +47,7 @@
                 <li class="nav-header">DATA</li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-user"></i>
+                        <i class="nav-icon fas fa-users"></i>
                         <p>
                             Data Pengguna
                             <i class="fas fa-angle-left right"></i>
@@ -85,7 +85,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-comment"></i>
+                        <i class="nav-icon fas fa-comments"></i>
                         <p>
                             Data Ulasan
                             <i class="fas fa-angle-left right"></i>

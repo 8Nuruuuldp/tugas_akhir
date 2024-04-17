@@ -29,7 +29,7 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="text-left">
-                                <h3 class="card-title">Data Objek Wisata Kota Bandung</h3>
+                                <h3 class="card-title pt-1">Data Objek Wisata Kota Bandung</h3>
                             </div>
                             <div class="text-right">
                                 <a href="/wisata/create" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i>&nbsp; Tambah Wisata</a>
