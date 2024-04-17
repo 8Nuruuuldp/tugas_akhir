@@ -172,17 +172,16 @@
         <form class="flex flex-col md:flex-row gap-3">
             <div class="flex gap-2">
 
-                <input name="name" type="text" placeholder="Nama Tempat wisata" value="{{isset($_GET['']) ? $_GET['name'] : ''}}"
+                <input name="name" type="text" placeholder="Nama Tempat wisata" value="{{isset($_GET['name']) ? $_GET['name'] : ''}}"
                     class="w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500">
                 <select name="category" type="text" placeholder="Kategori" class="w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500">
                     <option value="">-</option>
-                    <option value="" selected="{{isset($_GET['']) ? $_GET[''] : ''}}">-</option>
-                    <option value="" selected="{{isset($_GET['']) ? $_GET[''] : ''}}">-</option>
+                    <option value="address" selected="{{isset($_GET['address']) ? $_GET['address'] : ''}}">Alamat</option>
+
                 </select>
                 <select name="category" type="text" placeholder="Kategori" class="w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500">
                     <option value="">-</option>
-                    <option value="" selected="{{isset($_GET['']) ? $_GET[''] : ''}}">-</option>
-                    <option value="" selected="{{isset($_GET['']) ? $_GET[''] : ''}}">-</option>
+                    <option value="description" selected="{{isset($_GET['description']) ? $_GET['description'] : ''}}">Deskripsi</option>
                 </select>
                 <button type="submit" class="bg-green-500 text-white rounded px-2 md:px-3 py-0 md:py-1">Search</button>
             </div>
