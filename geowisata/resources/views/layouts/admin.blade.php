@@ -99,10 +99,6 @@
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="/Admin/dist/js/pages/dashboard.js"></script>
 
-    <!-- jQuery -->
-    <script src="/Admin/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="/Admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- DataTables  & Plugins -->
     <script src="/Admin/plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="/Admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -116,10 +112,6 @@
     <script src="/Admin/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
     <script src="/Admin/plugins/datatables-buttons/js/buttons.print.min.js"></script>
     <script src="/Admin/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="/Admin/dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="/Admin/dist/js/demo.js"></script>
     <!-- Page specific script -->
     <script>
     $(function() {
