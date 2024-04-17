@@ -71,28 +71,25 @@
                                 <div class="input-group-append">
                                     <span class="input-group-text">Upload</span>
                                 </div>
-
-                            </div>
-                            <div class="form-group">
-                                <label for="latitude">Latitude</label>
-                                <input type="text" class="form-control" id="latitude"
-                                    placeholder="Masukan latitude tempat wisata">
-                            </div>
-                            <div class="form-group">
-                                <label for="longitude">Longitude</label>
-                                <input type="text" class="form-control" id="longitude"
-                                    placeholder="Masukan longitude tempat wisata">
                             </div>
                         </div>
-                    </div>
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <div class="form-group">
+                            <label for="latitude">Latitude</label>
+                            <input type="text" class="form-control" id="latitude"
+                                placeholder="Masukan latitude tempat wisata">
+                        </div>
+                        <div class="form-group">
+                            <label for="longitude">Longitude</label>
+                            <input type="text" class="form-control" id="longitude"
+                                placeholder="Masukan longitude tempat wisata">
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
                     </div>
                 </form>
             </div>
         </div>
-        <!-- /.card-body -->
-        <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
 </div>
