@@ -12,7 +12,7 @@ class WisataController extends Controller
      */
     public function index()
     {
-        $wisata = Wisata::all(); 
+        $wisata = Wisata::all();
         return view('admin.wisata.index',['table_wisata'=>$wisata]);
     }
 
@@ -79,8 +79,13 @@ class WisataController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $wisata = Wisata::find($id);
+        $wisata->delete();
+
+        return redirect()->back()->with(['message'=> 'Sukses', 'Data Berhasil Di hapus']);
     }
+
+
 }
