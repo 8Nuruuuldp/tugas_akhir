@@ -74,6 +74,28 @@
                     <!-- /.info-box -->
                 </div>
             </div>
+            <div class="col-sm-6">
+                <h3 class="m-16">Peta Wisata</h3>
+            </div>
+            <div class="map" id="map">
+                <script>
+        
+                    var map = L.map('map').setView([-6.914744, 107.609810], 13);
+            
+                    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        maxZoom: 50,
+                        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                    }).addTo(map);
+
+                </script>
+            
+                <style>
+                    #map {
+                        height: 100vh;
+                        width: 100%;
+                    }
+                </style>
+            </div>
         </div>
     </section>
     <!-- /.row -->

@@ -43,7 +43,7 @@ class WisataController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Request $request, $id)
     {
         $wisata = Wisata::find($id);
         return view('admin.wisata.edit',['wisata' => $wisata]);
@@ -52,10 +52,11 @@ class WisataController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        $this->validate($request,[
-            'nama_tempat' => 'required',
+        $this->validate($request, [
+            'kategori'  => 'required',
+            'nama_tempat'  => 'required',
             'alamat'    => 'required',
             'deskripsi' => 'required',
             'gambar'    => 'required',
@@ -64,7 +65,9 @@ class WisataController extends Controller
         ]);
 
         $wisata = Wisata::find($id);
-        $wisata->nama_tempat    = $request->nama_tempat;
+
+        $wisata->kategori   = $request->kategori;
+        $wisata->nama_tempat = $request->nama_tempat;
         $wisata->alamat     = $request->alamat;
         $wisata->deskripsi  = $request->deskripsi;
         $wisata->gambar     = $request->gambar;

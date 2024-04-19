@@ -41,7 +41,15 @@ Route::get('/wisata', [WisataController::class, 'index']);
 //Edit data wisata
 Route::get('/wisata/{id}/edit', [WisataController::class, 'edit']);
 Route::post('/wisata/{id}/update', [WisataController::class, 'update']);
+
 Route::get('/wisata/{id}/delete', [WisataController::class, 'destroy']);
 
+
+//DATA USER
 // delete data user
 Route::get('/user/{id}/delete', [UserController::class, 'destroy']);
+
+//edit user
+Route::get('/user/{id}/edit', [UserController::class, 'edit']);
+Route::post('/user/{id}/update', [UserController::class, 'update']);
+
