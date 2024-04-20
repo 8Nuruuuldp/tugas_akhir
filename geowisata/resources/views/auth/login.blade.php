@@ -71,7 +71,7 @@
                         </div>
                         <!-- /.col -->
                         <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">Masuk</button>
+                            <button type="submit" class="btn btn-success btn-block">Masuk</button>
                         </div>
                         <!-- /.col -->
                     </div>
@@ -82,7 +82,7 @@
                 <a href="forgot-password.html">Lupa password ?</a>
             </p>
             <p class="mb-0">
-                Belum punya akun ?, <a href="register.html" class="text-center">Daftar</a>
+                Belum punya akun ? <a href="/register" class="text-center">Daftar</a>
             </p>
         </div>
         <!-- /.card-body -->
