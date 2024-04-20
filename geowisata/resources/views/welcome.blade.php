@@ -35,7 +35,7 @@
         <a href="#" class="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Kontak</a>
     </div>
 
-    <a href="#" class="toggle hidden md:flex w-full md:w-auto px-4 py-2 text-right bg-green-700 hover:bg-green-500 text-white md:rounded">Masuk</a>
+    <a href="/login" class="toggle hidden md:flex w-full md:w-auto px-4 py-2 text-right bg-green-700 hover:bg-green-500 text-white md:rounded">Masuk</a>
 
     </nav>
 
@@ -63,7 +63,7 @@
                         Tentang Kota Bandung</h1>
                     <p class="items-center mb-6 max-w-2xl font-light text-slate-700 lg:mb-8 md:text-lg lg:text-xl dark:text-slate-800">
                     Bandung, kota yang dijuluki "Kota Kembang" dan "Paris Van Java", merupakan ibukota Jawa Barat dan metropolitan terbesar di provinsi tersebut.
-                    Dikelilingi pegunungan, Bandung menawarkan suasana sejuk dan nyaman dengan udara pegunungan. Keindahan alamnya yang memukau, budaya Sunda yang kaya, 
+                    Dikelilingi pegunungan, Bandung menawarkan suasana sejuk dan nyaman dengan udara pegunungan. Keindahan alamnya yang memukau, budaya Sunda yang kaya,
                     dan kulinernya yang lezat menjadikannya tujuan wisata populer bagi wisatawan domestik dan internasional
                     </p>
                 </div>
@@ -191,7 +191,7 @@
 
                     </div>
                 </div>
-                
+
 
             </div>
 
@@ -199,7 +199,7 @@
                 Rekomendasi Destinasi
             </h1>
             <p class="text-center pb-2 text-white">
-                Bandung siap menyambut Anda dengan berbagai pesonanya. Jelajahi destinasi wisata favorit Anda dan ciptakan 
+                Bandung siap menyambut Anda dengan berbagai pesonanya. Jelajahi destinasi wisata favorit Anda dan ciptakan
                 kenangan indah di Kota Kembang. Berikut ekomendasi yang dapat Anda kunjungi.
             </p>
 
@@ -252,7 +252,7 @@
                     </a>
                 </div>
             <div class="grid grid-cols-2 px-16 py-8 lg:py-8 md:grid-cols-4">
-                
+
                 <div>
                     <h2 class="mb-6  font-semibold text-gray-900 uppercase dark:text-slate-900">Kontak Kami</h2>
                     <ul class="text-gray-500 dark:text-gray-600 font-medium">
