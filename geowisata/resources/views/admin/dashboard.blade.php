@@ -77,15 +77,38 @@
             <div class="col-sm-6">
                 <h3 class="m-16">Peta Wisata</h3>
             </div>
-            <div class="map" id="map">
+            <div id="map">
                 <script>
         
-                    var map = L.map('map').setView([-6.914744, 107.609810], 13);
+                    var map = L.map('map').setView([-6.914744, 107.609810], 10);
+
+                    map.zoomControl.setPosition('bottomright')
             
-                    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                        maxZoom: 50,
+                    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                        maxZoom: 19,
                         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                     }).addTo(map);
+
+                    var popup = L.popup();
+                        function onMapClick(data) {
+                        popup
+                        .setLatLng(data.latlng)
+                        .setContent(data.latlng.toString())
+                        .openOn(map);
+                    }
+
+                    map.on('click', onMapClick);
+
+                    $( document ).ready(function() {
+                        $.getJSON('point/json', function(data) {
+                            $.each(data, function(index){
+
+                                L.marker ([parseFloat(data[index].latitude),parseFloat(data[index].longitude)])
+                                .addTo(map)
+                                .bindPopup((data[index].nama_tempat));
+                            });
+                        });
+                    });
 
                 </script>
             

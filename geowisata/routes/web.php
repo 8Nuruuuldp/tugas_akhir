@@ -22,6 +22,9 @@ use App\Http\Controllers\WisataController;
 Route::get('/', function () {
     return view ('welcome');
 });
+
+Route::get('point/json', [WisataController::class, 'wisata']);
+
 //Routing Login
 Route::get('/login', [LoginController::class, 'index']);
 Route::get('register', [RegisterController::class, 'index']);
