@@ -14,7 +14,8 @@ class WisataController extends Controller
         $this->Wisata=new Wisata();
     }
     //KAlO KALIAN LIAT INI MERAH SANTAI DULU AJA YAA SELAGI POINT MARKERNYA JALAN
-    //BIAR AKU CARI CARA LAIN LAGI
+    //BIAR AKU CARI CARA LAIN LAGI BIAR BISA KE BACA DI MAPNYA
+
     public function wisata(){
         $result=$this->Wisata->allData();
         return json_encode($result);
