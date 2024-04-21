@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('table_wisata', function (Blueprint $table) {
             $table->id();
+            $table->string('kategori');
             $table->string('nama_tempat');
             $table->string('alamat');
             $table->string('deskripsi');
             $table->text('gambar');
             $table->decimal('latitude', 17, 16);
             $table->decimal('longitude', 17, 14);
-            $table->string('kategori');
             $table->timestamps();
         });
     }

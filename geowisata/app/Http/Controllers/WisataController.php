@@ -10,7 +10,18 @@ class WisataController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function __construct(){
+        $this->Wisata=new Wisata();
+    }
+    //KAlO KALIAN LIAT INI MERAH SANTAI DULU AJA YAA SELAGI POINT MARKERNYA JALAN
+    //BIAR AKU CARI CARA LAIN LAGI BIAR BISA KE BACA DI MAPNYA
+
+    public function wisata(){
+        $result=$this->Wisata->allData();
+        return json_encode($result);
+    }
+    
+     public function index()
     {
         $wisata = Wisata::all();
         return view('admin.wisata.index',['table_wisata'=>$wisata]);
@@ -27,7 +38,7 @@ class WisataController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         $this->validate($request, [
             'kategori'  => 'required',

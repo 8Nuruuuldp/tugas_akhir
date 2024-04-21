@@ -5,6 +5,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WisataController;
+use App\Http\Controllers\AuthController;
+
 
 
 
@@ -22,6 +24,9 @@ use App\Http\Controllers\WisataController;
 Route::get('/', function () {
     return view ('welcome');
 });
+
+Route::get('point/json', [WisataController::class, 'wisata']);
+
 //Routing Login
 Route::get('/login', [AuthController::class, 'login']);
 Route::get('/register', [AuthController::class, 'register'])->name('register');
@@ -49,3 +54,6 @@ Route::get('/wisata/{id}/delete', [WisataController::class, 'destroy']);
 Route::get('/user/{id}/delete', [UserController::class, 'destroy']);
 
 //
+Route::get('/petawisata', function () {
+    return view ('petawisata');
+});
