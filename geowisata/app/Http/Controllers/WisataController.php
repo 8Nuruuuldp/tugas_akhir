@@ -10,9 +10,20 @@ class WisataController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function __construct(){
+        $this->Wisata=new Wisata();
+    }
+    //KAlO KALIAN LIAT INI MERAH SANTAI DULU AJA YAA SELAGI POINT MARKERNYA JALAN
+    //BIAR AKU CARI CARA LAIN LAGI BIAR BISA KE BACA DI MAPNYA
+
+    public function wisata(){
+        $result=$this->Wisata->allData();
+        return json_encode($result);
+    }
+    
+     public function index()
     {
-        $wisata = Wisata::all(); 
+        $wisata = Wisata::all();
         return view('admin.wisata.index',['table_wisata'=>$wisata]);
     }
 
@@ -27,9 +38,30 @@ class WisataController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'kategori'  => 'required',
+            'nama_tempat'  => 'required',
+            'alamat'    => 'required',
+            'deskripsi' => 'required',
+            'gambar'    => 'required',
+            'latitude'  => 'required',
+            'longitude' => 'required'
+        ]);
+
+        $wisata = Wisata::find($id);
+
+        $wisata->nama_tempat = $request->nama_tempat;
+        $wisata->alamat     = $request->alamat;
+        $wisata->deskripsi  = $request->deskripsi;
+        $wisata->gambar     = $request->gambar;
+        $wisata->latitude   = $request->latitude;
+        $wisata->longitude  = $request->longitude;
+
+        $wisata->save();
+
+        return redirect('/wisata');
     }
 
     /**
@@ -43,7 +75,7 @@ class WisataController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Request $request, $id)
     {
         $wisata = Wisata::find($id);
         return view('admin.wisata.edit',['wisata' => $wisata]);
@@ -52,10 +84,11 @@ class WisataController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        $this->validate($request,[
-            'nama_tempat' => 'required',
+        $this->validate($request, [
+            'kategori'  => 'required',
+            'nama_tempat'  => 'required',
             'alamat'    => 'required',
             'deskripsi' => 'required',
             'gambar'    => 'required',
@@ -64,7 +97,8 @@ class WisataController extends Controller
         ]);
 
         $wisata = Wisata::find($id);
-        $wisata->nama_tempat    = $request->nama_tempat;
+
+        $wisata->nama_tempat = $request->nama_tempat;
         $wisata->alamat     = $request->alamat;
         $wisata->deskripsi  = $request->deskripsi;
         $wisata->gambar     = $request->gambar;
@@ -79,8 +113,13 @@ class WisataController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $wisata = Wisata::find($id);
+        $wisata->delete();
+
+        return redirect()->back()->with(['message'=> 'Sukses', 'Data Berhasil Di hapus']);
     }
+
+
 }
