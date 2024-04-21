@@ -26,8 +26,8 @@ Route::get('/', function () {
 Route::get('point/json', [WisataController::class, 'wisata']);
 
 //Routing Login
-Route::get('/login', [LoginController::class, 'index']);
-Route::get('register', [RegisterController::class, 'index']);
+Route::get('/login', [AuthController::class, 'login']);
+Route::get('/register', [AuthController::class, 'register'])->name('register');
 
 // Routing Dashboard Admin
 Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
@@ -36,23 +36,19 @@ Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard
 Route::get('/user', [UserController::class, 'index']);
 
 //Routing CRUD Data Wisata
-Route::get('/wisata/create', [WisataController::class, 'create']);
+Route::get('/wisata/create', [WisataController::class, 'create']);  
+Route::post('/wisata', [WisataController::class, 'create']); 
 
 //Routing Read Data Wisata
 Route::get('/wisata', [WisataController::class, 'index']);
 
+
 //Edit data wisata
 Route::get('/wisata/{id}/edit', [WisataController::class, 'edit']);
 Route::post('/wisata/{id}/update', [WisataController::class, 'update']);
-
 Route::get('/wisata/{id}/delete', [WisataController::class, 'destroy']);
 
-
-//DATA USER
 // delete data user
 Route::get('/user/{id}/delete', [UserController::class, 'destroy']);
 
-//edit user
-Route::get('/user/{id}/edit', [UserController::class, 'edit']);
-Route::post('/user/{id}/update', [UserController::class, 'update']);
-
+//

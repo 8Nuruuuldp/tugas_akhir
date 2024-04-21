@@ -39,7 +39,28 @@ class WisataController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'kategori'  => 'required',
+            'nama_tempat'  => 'required',
+            'alamat'    => 'required',
+            'deskripsi' => 'required',
+            'gambar'    => 'required',
+            'latitude'  => 'required',
+            'longitude' => 'required'
+        ]);
+
+        $wisata = Wisata::find($id);
+
+        $wisata->nama_tempat = $request->nama_tempat;
+        $wisata->alamat     = $request->alamat;
+        $wisata->deskripsi  = $request->deskripsi;
+        $wisata->gambar     = $request->gambar;
+        $wisata->latitude   = $request->latitude;
+        $wisata->longitude  = $request->longitude;
+
+        $wisata->save();
+
+        return redirect('/wisata');
     }
 
     /**
@@ -76,7 +97,6 @@ class WisataController extends Controller
 
         $wisata = Wisata::find($id);
 
-        $wisata->kategori   = $request->kategori;
         $wisata->nama_tempat = $request->nama_tempat;
         $wisata->alamat     = $request->alamat;
         $wisata->deskripsi  = $request->deskripsi;
