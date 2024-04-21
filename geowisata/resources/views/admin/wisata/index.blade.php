@@ -41,6 +41,7 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
+                                        <th>Kategori</th>
                                         <th style="width: 100px">Nama Wisata</th>
                                         <th>Alamat</th>
                                         <th>Deskripsi</th>
@@ -58,6 +59,7 @@
                                     @foreach ($table_wisata as $wisata)
                                     <tr>
                                         <td>{{$no++}}</td>
+                                        <td>{{$wisata->kategori}}</td>
                                         <td>{{$wisata->nama_tempat}}</td>
                                         <td>{{illuminate\Support\Str::limit($wisata->alamat, 30)}}</td>
                                         <td>{{illuminate\Support\Str::limit($wisata->deskripsi, 30)}}</td>
