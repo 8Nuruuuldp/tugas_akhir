@@ -54,3 +54,6 @@ Route::get('/wisata/{id}/delete', [WisataController::class, 'destroy']);
 Route::get('/user/{id}/delete', [UserController::class, 'destroy']);
 
 //
+Route::get('/petawisata', function () {
+    return view ('petawisata');
+});

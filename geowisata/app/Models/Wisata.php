@@ -14,7 +14,7 @@ class Wisata extends Model
 
     public function allData(){
         $result = DB::table('table_wisata')
-            ->select('latitude','longitude')
+            ->select('nama_tempat','alamat','deskripsi','gambar','latitude','longitude')
             ->get();
         return $result;
     }
