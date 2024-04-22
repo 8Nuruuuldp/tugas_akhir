@@ -42,7 +42,7 @@ Route::get('/user', [UserController::class, 'index']);
 
 //Routing CRUD Data Wisata
 Route::get('/wisata/create', [WisataController::class, 'create']);
-Route::post('/wisata', [WisataController::class, 'create']);
+Route::post('/wisata/store', [WisataController::class, 'store']);
 
 //Routing Read Data Wisata
 Route::get('/wisata', [WisataController::class, 'index']);
@@ -50,7 +50,7 @@ Route::get('/wisata', [WisataController::class, 'index']);
 
 //Edit data wisata
 Route::get('/wisata/{id}/edit', [WisataController::class, 'edit']);
-Route::post('/wisata/{id}/update', [WisataController::class, 'update']);
+Route::post('/wisata/{id}/updatewisata', [WisataController::class, 'updatewisata']);
 Route::get('/wisata/{id}/delete', [WisataController::class, 'destroy']);
 
 // delete data user

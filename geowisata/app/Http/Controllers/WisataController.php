@@ -20,8 +20,8 @@ class WisataController extends Controller
         $result=$this->Wisata->allData();
         return json_encode($result);
     }
-    
-     public function index()
+
+    public function index()
     {
         $wisata = Wisata::all();
         return view('admin.wisata.index',['table_wisata'=>$wisata]);
@@ -38,29 +38,35 @@ class WisataController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, $id)
+    public function store(Request $request)
     {
         $this->validate($request, [
-            'kategori'  => 'required',
-            'nama_tempat'  => 'required',
-            'alamat'    => 'required',
+            'kategori'      => 'required',
+            'nama_tempat'   => 'required',
+            'alamat'        => 'required',
             'deskripsi' => 'required',
             'gambar'    => 'required',
             'latitude'  => 'required',
             'longitude' => 'required'
         ]);
 
-        $wisata = Wisata::find($id);
+        Wisata::create ([
+        'kategori'          => $request->kategori,
+        'nama_tempat'       => $request->nama_tempat,
+        'alamat'            => $request->alamat,
+        'deskripsi'         => $request->deskripsi,
+        'gambar'            => $request->gambar,
+        'latitude'          => $request->latitude,
+        'longitude'         => $request->longitude
+        ]);
 
-        $wisata->nama_tempat = $request->nama_tempat;
-        $wisata->alamat     = $request->alamat;
-        $wisata->deskripsi  = $request->deskripsi;
-        $wisata->gambar     = $request->gambar;
-        $wisata->latitude   = $request->latitude;
-        $wisata->longitude  = $request->longitude;
+        $wisata = Wisata::create($request->all());
+        if($request->hasFile('gambar')){
+            $request->gambar('gambar')->move('images/', $request->file('gambar')->getClinetOriginName());
+            $wisata->gambar = $request->file('gambar')->getClientOriginName();
+            $wisata->save();
 
-        $wisata->save();
-
+        }
         return redirect('/wisata');
     }
 
@@ -84,7 +90,7 @@ class WisataController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function updatewisata(Request $request, $id)
     {
         $this->validate($request, [
             'kategori'  => 'required',
@@ -97,7 +103,7 @@ class WisataController extends Controller
         ]);
 
         $wisata = Wisata::find($id);
-
+        $wisata->kategori = $request->kategori;
         $wisata->nama_tempat = $request->nama_tempat;
         $wisata->alamat     = $request->alamat;
         $wisata->deskripsi  = $request->deskripsi;

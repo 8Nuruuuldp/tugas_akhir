@@ -30,21 +30,21 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form method="POST" action="/wisata/{{$wisata->id}}/update">
-                    {{ csrf_field() }}
-                    
+                <form method="POST" action="/wisata/{{$wisata->id}}/updatewisata">
+                    {{ csrf_field()  }}
+
                     <div class="card-body">
                         <div class="form-group">
                             <label for="kategori">Kategori Wisata</label>
                             <select id="kategori" class="form-control">
                                 <option value="">Pilih Kategori</option>
-                                <option value="makanan">Wisata Alam</option>
-                                <option value="minuman">Wisata Pendidikan dan Sejarah</option>
-                                <option value="fashion">Wisata Budaya</option>
-                                <option value="fashion">Wisata Rekreatif</option>
-                                <option value="minuman">Wisata Agro</option>
-                                <option value="fashion">Wisata Religi</option>
-                                <option value="fashion">Kampung Wisata Kreatif</option>
+                                <option value="Wisata Alam" @if($wisata->kategori== 'Wisata Alam') selected @endif >Wisata Alam</option>
+                                <option value="Wisata Pendidikan dan Sejarah" @if($wisata->kategori== 'Wisata Pendidikan dan Sejarah') selected @endif >Wisata Pendidikan dan Sejarah</option>
+                                <option value="Wisata Budaya" @if($wisata->kategori== 'Wisata Budaya') selected @endif >Wisata Budaya</option>
+                                <option value="Wisata Rekreatif" @if($wisata->kategori== 'Wisata Rekreatif') selected @endif >Wisata Rekreatif</option>
+                                <option value="Wisata Agro" @if($wisata->kategori== 'Wisata Agro') selected @endif >Wisata Agro</option>
+                                <option value="Wisata Religi" @if($wisata->kategori== 'Wisata Religi') selected @endif >Wisata Religi</option>
+                                <option value="Kampung Wisata Kreatif" @if($wisata->kategori== 'Kampung Wisata Kreatif') selected @endif >Kampung Wisata Kreatif</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -85,7 +85,7 @@
                                 placeholder="Masukan longitude tempat wisata" value="{{$wisata->longitude}}">
                         </div>
                         <div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Update</button>
                         </div>
                     </div>
                 </form>
