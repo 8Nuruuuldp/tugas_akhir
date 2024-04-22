@@ -29,73 +29,85 @@
     <link rel="stylesheet" href="Admin/plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="Admin/plugins/summernote/summernote-bs4.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.3/components/registrations/registration-5/assets/css/registration-5.css">
 </head>
 
 
-<body
-    class="hold-transition register-page bg-[url('https://images.unsplash.com/photo-1549473889-14f410d83298?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] flex justify-center items-center h-screen">
-    <div class="register-box ">
-        <!-- register logo -->
-        <div class="card card-outline card-primary">
-            <div class="card-header text-center">
-                <a href="#" class="h1"><b>Bdg</b>Geowisata</a>
+<body class="hold-transition login-page bg-[url('https://images.unsplash.com/photo-1549473889-14f410d83298?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] flex justify-center items-center h-screen">
+    <!-- Registration 5 - Bootstrap Brain Component -->
+    <section class=" w-full p-3">
+        <div class="container">
+            <div class="card border-light-subtle shadow-sm">
+                <div class="row g-0">
+                    <div class="col-12 col-md-6" style="background-color: #858585;" >
+                        <div class="d-flex align-items-center justify-content-center h-100">
+                            <div class="col-10 col-xl-8 py-3">
+                                <div class="">
+                                    <a href="#" class="h1"><b>Bdg</b>Geowisata</a>
+                                </div>
+                                    <div class="">
+                                        <button type="close" class="btn btn-transparent"> < Kembali Ke Beranda</button>
+                                    </div>
+                                <hr class="border-primary-subtle mb-4">
+                                <h2 class="h1 mb-4">We make digital products that drive you to stand out.</h2>
+                                <p class="lead m-0">We write words, take photos, make videos, and interact with
+                                    artificial intelligence.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="card-body p-3 p-md-4 p-xl-5">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="mb-5">
+                                        <h2 class="h3">Daftar</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <form action="/postregister" method="post">
+                                {{csrf_field()}}
+                                <div class="row gy-3 gy-md-4 overflow-hidden">
+                                    <div class="col-12">
+                                        <label for="firstName" class="form-label">Nama Lengkap</label>
+                                        <input type="name" class="form-control" name="nama" placeholder="Nama Lengkap" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="email" class="form-label">Email </label>
+                                        <input type="email" class="form-control" name="email"
+                                            placeholder="name@example.com" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="password" class="form-label">Password </label>
+                                        <input type="password" class="form-control" name="password""
+                                            value="" required>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <label for="password" class="form-label">Konfirmasi Password </label>
+                                        <input type="password" class="form-control" name="password""
+                                            value="" required>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="mb-1">
+                                            <button type="submit" class="btn btn-success btn-block">Daftar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="row">
+                                <div class="col-12">
+                                    <hr class="mt-5 mb-4 border-secondary-subtle">
+                                    <p class="m-0 text-secondary text-center">Sudah Punya Akun ? <a href="/login"
+                                            class="link-primary text-decoration-none"><b class="text-primary">Login</b></a></p>
+                                </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div class="card-body">
-                <p class="login-box-msg h2 "><b>Daftar</b></p>
-
-                <form action="/postregister" method="post">
-                    {{csrf_field()}}
-                    <p>Nama Lenggkap</p>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Full name" name="nama">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-user"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <p>Email</p>
-                    <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="Email" name="email">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <p>Password</p>
-                    <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password" name="password">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <p>Konfirmasi Kata Sandi</p>
-                    <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Konfirmasi password">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.col -->
-                    <div class="mb-1">
-                        <button type="submit" class="btn btn-success btn-block">Daftar</button>
-                    </div>
-                    <!-- /.col -->
-
-                    <div class="text-center">
-                        <p>Sudah Punya Akun ? <a href="/login"> <b class="text-primary">Login</b></a></p>
-                    </div>
-                </form>
-            </div>
-        </div><!-- /.card -->
-    </div>
-    <!-- /.register-box -->
+        </div>
+    </section>
 
     <!-- jQuery -->
     <script src="../../plugins/jquery/jquery.min.js"></script>
