@@ -42,18 +42,22 @@
                 <a href="#" class="h1"><b>Bdg</b>Geowisata</a>
             </div>
             <div class="card-body">
-                <p class="login-box-msg">Silahkan Masuk</p>
-                <form action="Admin/plugins/index3.html" method="post">
+                <p class="login-box-msg h2"><b>Login</b></p>
+
+                <form action="/postlogin" method="post">
+                    {{csrf_field()}}
+                    <p>Email</p>
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="Email">
+                        <input type="email" class="form-control" placeholder="Email" name="email">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
                             </div>
                         </div>
                     </div>
+                    <p>Password</p>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password">
+                        <input type="password" class="form-control" placeholder="Password"  name="password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -78,11 +82,11 @@
                 </form>
             </div>
 
-            <p class="mb-1">
+            <p class="mb-1 text-center">
                 <a href="forgot-password.html">Lupa password ?</a>
             </p>
-            <p class="mb-0">
-                Belum punya akun ? <a href="/register" class="text-center">Daftar</a>
+            <p class="mb-0 text-center">
+                Belum punya akun ? <a href="/register" class="text-center"><b class="text-primary">Daftar</b></a>
             </p>
         </div>
         <!-- /.card-body -->
