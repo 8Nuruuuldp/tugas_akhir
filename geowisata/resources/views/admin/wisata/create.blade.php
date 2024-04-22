@@ -32,21 +32,17 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form  action="{{url('/wisata/store')}}" method="POST">
-                            {{ csrf_field()  }}
+                        <form method="POST" action="{{ route('store.wisata') }}">
+                            @csrf
                             <div class="card-body">
-                                <div class="form-group" >
+                                <div class="form-group">
                                     <label for="kategori">Kategori Wisata</label>
-                                    <select id="" class="form-control" name="kategori">
-                                        <option value="">Pilih Kategori</option>
-                                        <option value="Wisata Alam">Wisata Alam</option>
-                                        <option value="Wisata Pendidikan dan Sejarah">Wisata Pendidikan dan Sejarah
-                                        </option>
-                                        <option value="Wisata Budaya">Wisata Budaya</option>
-                                        <option value="Wisata Rekreatif">Wisata Rekreatif</option>
-                                        <option value="Wisata Agro">Wisata Agro</option>
-                                        <option value="Wisata Religi">Wisata Religi</option>
-                                        <option value="Kampung Wisata Kreatif">Kampung Wisata Kreatif</option>
+                                    <select name="kategori" class="form-control" id="kategori"
+                                        placeholder="Pilih kategori wisata">
+                                        <option value="">Pilih Kategori Wisata</option>
+                                        @foreach($categories as $kategori)
+                                        <option value="{{ $kategori->id }}">{{ $kategori->kategori }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -78,12 +74,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="latitude">Latitude</label>
-                                    <input type="text" class="form-control" id="latitude"
+                                    <input type="decimal" class="form-control" id="latitude"
                                         placeholder="Masukan latitude tempat wisata" name="latitude">
                                 </div>
                                 <div class="form-group">
                                     <label for="longitude">Longitude</label>
-                                    <input type="text" class="form-control" id="longitude"
+                                    <input type="decimal" class="form-control" id="longitude"
                                         placeholder="Masukan longitude tempat wisata" name="longitute">
                                 </div>
                                 <div>
@@ -103,5 +99,4 @@
             </div>
             <!-- /.row -->
         </div><!-- /.container-fluid -->
-    </section>
-    @endsection
+    </section>@endsection

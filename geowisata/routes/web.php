@@ -41,8 +41,9 @@ Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::get('/user', [UserController::class, 'index']);
 
 //Routing CRUD Data Wisata
-Route::get('/wisata/create', [WisataController::class, 'create']);
-Route::post('/wisata/store', [WisataController::class, 'store']);
+Route::get('/wisata/create', [WisataController::class, 'create'])->name('create.wisata');
+Route::post('/wisata/store', [WisataController::class, 'store'])->name('store.wisata');
+Route::post('/wisata', [WisataController::class, 'index'])->name('wisata.store');
 
 //Routing Read Data Wisata
 Route::get('/wisata', [WisataController::class, 'index']);
