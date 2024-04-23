@@ -56,7 +56,6 @@ Route::post('/wisata', [WisataController::class, 'index'])->name('wisata.store')
 //Routing Read Data Wisata
 Route::get('/wisata', [WisataController::class, 'index']);
 
-
 //Edit data wisata
 Route::get('/wisata/{id}/edit', [WisataController::class, 'edit']);
 Route::post('/wisata/{id}/updatewisata', [WisataController::class, 'updatewisata']);

@@ -71,8 +71,7 @@
 
                     L.marker ([parseFloat(data[index].latitude),parseFloat(data[index].longitude)])
                     .addTo(map)
-                    .bindPopup(
-                        '<div class="my-2"><strong>Gambar</strong> :<br>'+data[index].gambar+'</div><div class="my-2"><strong>Nama Tempat</strong> :<br>'+data[index].nama_tempat+'</div><div class="my-2"><strong>Alamat</strong> :<br>'+data[index].alamat+'</div><div class="my-2"><strong>Deskripsi</strong> :<br>'+data[index].deskripsi+'</div><div class="my-2"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Beri Ulasan</button> <button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">Lihat selengkapnya</button> <button class="bg-cyan hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">Get Direction</button></div>');
+                    .bindPopup('<div class="my-2"><strong>Gambar</strong> :<br>'+data[index].gambar+'</div><div class="my-2"><strong>Nama Tempat</strong> :<br>'+data[index].nama_tempat+'</div><div class="my-2"><strong>Alamat</strong> :<br>'+data[index].alamat+'</div><div class="my-2"><strong>Deskripsi</strong> :<br>'+data[index].deskripsi+'</div><div class="my-2"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Beri Ulasan</button> <button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">Lihat selengkapnya</button> <button class="bg-cyan hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">Get Direction</button></div>');
                 });
             });
         });

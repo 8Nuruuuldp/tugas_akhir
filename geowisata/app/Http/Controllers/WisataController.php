@@ -20,7 +20,7 @@ class WisataController extends Controller
     //BIAR AKU CARI CARA LAIN LAGI BIAR BISA KE BACA DI MAPNYA
 
     public function wisata(){
-        $result=$this->Wisata->allData();
+        $result=$this->Wisata->all();
         return json_encode($result);
     }
 
