@@ -1,10 +1,14 @@
 <?php
 
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\WisataController;
+
+
 
 
 
@@ -22,6 +26,10 @@ use App\Http\Controllers\WisataController;
 Route::get('/', function () {
     return view ('welcome');
 });
+
+Route::get('/datawisata', [PostController::class, 'index']);
+Route::get('/posts/{slug}', [PostController::class, 'show']);
+
 
 Route::get('point/json', [WisataController::class, 'wisata']);
 
@@ -61,3 +69,4 @@ Route::get('/user/{id}/delete', [UserController::class, 'destroy']);
 Route::get('/petawisata', function () {
     return view ('petawisata');
 });
+

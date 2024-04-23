@@ -1,57 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bandung Geowisata</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Leaflet Js -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-    crossorigin=""/>
- <!-- Make sure you put this AFTER Leaflet's CSS -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-        crossorigin=""></script>
+@include('partials.navbar')
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/gokertanrisever/leaflet-ruler@master/src/leaflet-ruler.css" integrity="sha384-P9DABSdtEY/XDbEInD3q+PlL+BjqPCXGcF8EkhtKSfSTr/dS5PBKa9+/PMkW2xsY" crossorigin="anonymous">  
-    <script src="https://cdn.jsdelivr.net/gh/gokertanrisever/leaflet-ruler@master/src/leaflet-ruler.js" integrity="sha384-N2S8y7hRzXUPiepaSiUvBH1ZZ7Tc/ZfchhbPdvOE5v3aBBCIepq9l+dBJPFdo1ZJ" crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
-    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.js" charset="utf-8"></script>
-
-     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
-
-</head>
-<body>
-
-    <nav class="flex items-center justify-between px-12 py-4 bg-transparent">
-    <img src="#" alt="Bandung Geowisata" width="120" />
-
-    <div class="flex md:hidden">
-        <button id="hamburger">
-            <img class="toggle block"
-                src="https://img.icons8.com/fluent-systems-regular/2x/menu-squared-2.png" width="40" height="40" />
-            <img class="toggle hidden" src="https://img.icons8.com/fluent-systems-regular/2x/close-window.png" width="40" height="40" />
-        </button>
-    </div>
-
-    <div class="toggle hidden md:flex w-full md:w-auto text-right text-bold mt-5 md:mt-0 border-t-2 border-blue-900 md:border-none">
-        <a href="#" class="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Beranda</a>
-        <a href="#" class="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Tentang</a>
-        <a href="#" class="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Rekomendasi</a>
-        <a href="/petawisata" class="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Peta Wisata</a>
-        <a href="#" class="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Kontak</a>
-    </div>
-
-    <a href="/login" class="toggle hidden md:flex w-full md:w-auto px-4 py-2 text-right bg-green-700 hover:bg-green-500 text-white md:rounded">Masuk</a>
-
-    </nav>
+@section('container')
 
     <section class="bg-[url('https://images.unsplash.com/photo-1549473889-14f410d83298?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] flex justify-center items-center h-screen">
         <div class="text-center grid py-8 px-12 mx-auto max-w-screen-xl lg:gap-8 xl:gap-0 lg:py-16 ">
@@ -227,20 +176,10 @@
             Peta Wisata
         </h4>
 
-        <form class="flex flex-col md:flex-row gap-3">
+        <form action="/datawisata">
             <div class="flex gap-2">
-
-                <input name="name" type="text" placeholder="Nama Tempat wisata" value="{{isset($_GET['name']) ? $_GET['name'] : ''}}"
+                <input name="search" type="text" placeholder="Nama Tempat wisata"
                     class="w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500">
-                <select name="category" type="text" placeholder="Kategori" class="w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500">
-                    <option value="">-</option>
-                    <option value="address" selected="{{isset($_GET['address']) ? $_GET['address'] : ''}}">Alamat</option>
-
-                </select>
-                <select name="category" type="text" placeholder="Kategori" class="w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500">
-                    <option value="">-</option>
-                    <option value="description" selected="{{isset($_GET['description']) ? $_GET['description'] : ''}}">Deskripsi</option>
-                </select>
                 <button type="submit" class="bg-green-500 text-white rounded px-2 md:px-3 py-0 md:py-1">Search</button>
             </div>
         </form>
@@ -252,8 +191,6 @@
     </div>
 
     </section>
-
-
     <section class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8">
         <footer class="bg-white h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
             <div class="mx-auto w-full max-w-screen-xl">

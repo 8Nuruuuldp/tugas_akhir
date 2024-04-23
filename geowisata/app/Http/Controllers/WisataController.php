@@ -26,8 +26,10 @@ class WisataController extends Controller
 
     public function index()
     {
+
         $wisata = Wisata::all();
         return view('admin.wisata.index',['table_wisata'=>$wisata]);
+
     }
 
     /**
