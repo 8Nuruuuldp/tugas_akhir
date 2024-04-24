@@ -49,7 +49,13 @@
         <a href="#" class="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Kontak</a>
     </div>
 
-    <a href="/login" class="toggle hidden md:flex w-full md:w-auto px-4 py-2 text-right bg-green-700 hover:bg-green-500 text-white md:rounded">Masuk</a>
+    <form action="/datawisata">
+        <div class="flex gap-2">
+            <input name="search" type="text" placeholder="Search..." value="{{request('search')}}"
+                class="w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500">
+            <button type="submit" class="bg-green-500 text-white rounded px-2 md:px-3 py-0 md:py-1">Search</button>
+        </div>
+    </form>
 
     </nav>
 

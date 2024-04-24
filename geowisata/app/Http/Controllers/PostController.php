@@ -10,8 +10,9 @@ class PostController extends Controller
 {
     public function index()
     {
-        return view ('datawisata', [
-            "posts" => Data::all()
+
+        return view ('data/datawisata', [
+            "posts" => Data::latest()->filter(request(['search']))->get()
         ]);
     }
 

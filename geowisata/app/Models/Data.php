@@ -10,6 +10,16 @@ class Data extends Model
 {
     use HasFactory;
 
+    public function scopeFilter($query, array $filters)
+    {
+
+        $query->when($filters['search'] ?? false, function($query, $search) {
+            return $query->where('title', 'like', '%' . $search . '%')
+                ->orWhere('address', 'like', '%' . $search . '%');
+        });
+
+    }
+
 
 
     protected $guarded =['id'];
