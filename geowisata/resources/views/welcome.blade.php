@@ -178,7 +178,7 @@
 
         <form action="/datawisata">
             <div class="flex gap-2">
-                <input name="search" type="text" placeholder="Nama Tempat wisata"
+                <input name="search" type="text" placeholder="Search..."
                     class="w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500">
                 <button type="submit" class="bg-green-500 text-white rounded px-2 md:px-3 py-0 md:py-1">Search</button>
             </div>

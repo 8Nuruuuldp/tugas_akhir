@@ -1,12 +1,13 @@
 <?php
 
-use App\Models\Post;
+use App\Models\Data;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\WisataController;
+use App\Models\Category;
 
 
 
@@ -28,7 +29,23 @@ Route::get('/', function () {
 });
 
 Route::get('/datawisata', [PostController::class, 'index']);
-Route::get('/posts/{slug}', [PostController::class, 'show']);
+Route::get('/posts/{post::slug}', [PostController::class, 'show']);
+
+Route::get('/categories', function() {
+    return view('categories' , [
+        'title' =>'Post Categories',
+        'posts' => Category::all()
+
+    ]);
+});
+
+Route::get('/categories/{category:slug}', function(Category $category) {
+    return view('category' , [
+        'title' =>$category->name,
+        'posts' =>$category->posts,
+        'category' => $category->name
+    ]);
+});
 
 
 Route::get('point/json', [WisataController::class, 'wisata']);

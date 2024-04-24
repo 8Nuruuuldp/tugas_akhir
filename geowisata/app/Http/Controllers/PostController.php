@@ -2,22 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Data;
 use Illuminate\Http\Request;
-use App\Models\Post;
+use App\Http\Controllers\Controller;
 
 class PostController extends Controller
 {
     public function index()
     {
         return view ('datawisata', [
-            "posts" => Post::all()
+            "posts" => Data::all()
         ]);
     }
 
-    public function show($slug)
+    public function show(Post $post)
     {
         return view('post',[
-            "post" => Post::find($slug)
+            "post" => $post
         ]);
     }
 
