@@ -10,9 +10,6 @@ use App\Http\Controllers\WisataController;
 use App\Models\Category;
 
 
-
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes

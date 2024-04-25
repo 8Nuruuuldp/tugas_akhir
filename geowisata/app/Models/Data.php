@@ -10,6 +10,9 @@ class Data extends Model
 {
     use HasFactory;
 
+    protected $guarded =['id'];
+    protected $with = ['category'];
+
     public function scopeFilter($query, array $filters)
     {
 
@@ -19,10 +22,6 @@ class Data extends Model
         });
 
     }
-
-
-
-    protected $guarded =['id'];
 
     public function category()
     {

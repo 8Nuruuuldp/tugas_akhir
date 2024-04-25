@@ -16,11 +16,11 @@ class PostController extends Controller
         ]);
     }
 
-    public function show(Post $post)
+    public function show(Data $post)
     {
         return view('post',[
             "post" => $post
         ]);
-    }
+        }
 
 }
