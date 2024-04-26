@@ -91,3 +91,4 @@ Route::get('/kategori/create', [KategoriController::class, 'create']);
 Route::post('/kategori/store', [KategoriController::class, 'store']);
 Route::get('/kategori/{id}/edit', [KategoriController::class, 'edit']);
 Route::post('/kategori/{id}/update', [KategoriController::class, 'update']);
+Route::get('/kategori/{id}/delete', [KategoriController::class, 'destroy']);
