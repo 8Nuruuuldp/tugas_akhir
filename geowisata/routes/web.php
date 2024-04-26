@@ -7,6 +7,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\WisataController;
+use App\Http\Controllers\KategoriController;
 use App\Models\Category;
 
 
@@ -83,3 +84,5 @@ Route::get('/petawisata', function () {
     return view ('petawisata');
 });
 
+//Routing CRUD Data Kategori
+Route::get('/kategori', [KategoriController::class, 'index']);

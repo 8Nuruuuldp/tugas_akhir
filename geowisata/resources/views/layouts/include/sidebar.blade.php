@@ -49,16 +49,16 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
-                            Data Pengguna
+                            Data Kategori
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="/user" class="nav-link">
+                            <a href="/kategori" class="nav-link">
                                 <i class="nav-icon fas fa-table"></i>
                                 <p>
-                                    Lihat Pengguna
+                                    Lihat Kategori
                                 </p>
                             </a>
                         </li>
