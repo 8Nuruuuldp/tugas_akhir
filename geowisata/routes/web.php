@@ -86,3 +86,5 @@ Route::get('/petawisata', function () {
 
 //Routing CRUD Data Kategori
 Route::get('/kategori', [KategoriController::class, 'index']);
+Route::get('/kategori/create', [KategoriController::class, 'create']);
+Route::post('/kategori/store', [KategoriController::class, 'store']);

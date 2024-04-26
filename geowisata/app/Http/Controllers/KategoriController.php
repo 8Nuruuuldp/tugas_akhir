@@ -21,7 +21,7 @@ class KategoriController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.kategori.create');
     }
 
     /**
@@ -29,7 +29,14 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'nama_kategori' => 'required'
+        ]);
+
+        Kategori::create([
+            'nama_kategori' => $request->nama_kategori
+        ]);
+        return redirect('/kategori');
     }
 
     /**

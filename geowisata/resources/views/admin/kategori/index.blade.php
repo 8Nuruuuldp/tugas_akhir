@@ -14,7 +14,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/dashboard">Dasbor</a></li>
-                        <li class="breadcrumb-item active">Data Kategori Wisata</li>
+                        <li class="breadcrumb-item active">Data Kategori</li>
                     </ol>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                                 <h3 class="card-title pt-1">Data Kategori Wisata Kota Bandung</h3>
                             </div>
                             <div class="text-right">
-                                <a href="/wisata/create" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i>&nbsp; Tambah Kategori</a>
+                                <a href="/kategori/create" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i>&nbsp; Tambah Kategori</a>
                             </div>
                         </div>
                         <!-- /.card-header -->

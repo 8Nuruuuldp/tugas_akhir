@@ -30,10 +30,10 @@
                         <span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Jumlah Pengguna</span>
+                            <span class="info-box-text">Jumlah Kategori</span>
                             <span class="info-box-number">
-                                {{App\Models\User::count()}}
-                                <small><a href="/user">Pengguna</a></small>
+                                {{App\Models\Kategori::count()}}
+                                <small><a href="/kategori">Kategori</a></small>
                             </span>
                         </div>
                         <!-- /.info-box-content -->
