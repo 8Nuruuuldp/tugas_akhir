@@ -55,7 +55,7 @@
                                         <td>{{$kategori->nama_kategori}}</td>
                                         <td>
                                             <a href="/kategori/{{$kategori->id}}/delete" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus kategori {{$kategori->nama_kategori}}?')"><i class="fas fa-trash-alt"></i></a>
-                                            <a href="/kategori/{{$kategori->id_kategori}}/edit" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                            <a href="/kategori/{{$kategori->id}}/edit" class="btn btn-warning"><i class="fas fa-edit"></i></a>
                                         </td>
                                     </tr>
                                     @endforeach

@@ -29,18 +29,18 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form action="{{url('/kategori/store')}}" method="POST">
+                <form action="{{url('/kategori/{id}/update')}}" method="POST">
                     @csrf
                     <div class="card-body">
                         <div class="form-group">
                             <label for="nama_kategori">Nama Kategori</label>
-                            <input type="text" class="form-control" id="nama_kategori" placeholder="Masukkan Nama Kategori" name="nama_kategori">
+                            <input type="text" class="form-control" id="nama_kategori" placeholder="Masukkan Nama Kategori" name="nama_kategori" value="{{$kategori->nama_kategori}}">
                         </div>
                     </div>
                     <!-- /.card-body -->
 
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-warning">Submit</button>
+                        <button type="submit" class="btn btn-warning">Update</button>
                     </div>
                 </form>
             </div>
