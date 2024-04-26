@@ -227,7 +227,7 @@
             Peta Wisata
         </h4>
 
-        <form action="/datawisata">
+        <form action="/">
             <div class="flex gap-2">
                 <input name="search" type="text" placeholder="Search..." value="{{request('search')}}"
                     class="w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500">

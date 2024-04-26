@@ -1,6 +1,7 @@
 <?php
 
-use App\Models\Data;
+//use App\Models\Data;
+//use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PostController;
@@ -8,7 +9,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\WisataController;
 use App\Http\Controllers\KategoriController;
-use App\Models\Category;
+
 
 
 /*
@@ -26,24 +27,24 @@ Route::get('/', function () {
     return view ('welcome');
 });
 
-Route::get('/datawisata', [PostController::class, 'index']);
-Route::get('/posts/{post::slug}', [PostController::class, 'show']);
+// Route::get('/datawisata', [PostController::class, 'index']);
+// Route::get('/posts/{post::slug}', [PostController::class, 'show']);
 
-Route::get('/categories', function() {
-    return view('/data/categories' , [
-        'title' =>'Post Categories',
-        'categories' => Category::all()
+// Route::get('/categories', function() {
+//     return view('/data/categories' , [
+//         'title' =>'Post Categories',
+//         'categories' => Category::all()
 
-    ]);
-});
+//     ]);
+// });
 
-Route::get('/categories/{category:slug}', function(Category $category) {
-    return view('/data/category' , [
-        'title' =>$category->name,
-        'posts' =>$category->posts,
-        'category' => $category->name
-    ]);
-});
+// Route::get('/categories/{category:slug}', function(Category $category) {
+//     return view('/data/category' , [
+//         'title' =>$category->name,
+//         'posts' =>$category->posts,
+//         'category' => $category->name
+//     ]);
+// });
 
 
 Route::get('point/json', [WisataController::class, 'wisata']);
