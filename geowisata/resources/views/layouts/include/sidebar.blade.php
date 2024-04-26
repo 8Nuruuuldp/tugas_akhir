@@ -47,7 +47,7 @@
                 <li class="nav-header">DATA</li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-users"></i>
+                        <i class="nav-icon fas fa-newspaper"></i>
                         <p>
                             Data Kategori
                             <i class="fas fa-angle-left right"></i>
