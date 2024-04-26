@@ -29,7 +29,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form action="{{url('/kategori/{id}/update')}}" method="POST">
+                <form action="/kategori/{{$table_kategori->id}}/update" method="POST">
                     @csrf
                     <div class="card-body">
                         <div class="form-group">
