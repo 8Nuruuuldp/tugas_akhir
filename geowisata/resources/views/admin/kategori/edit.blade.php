@@ -34,7 +34,7 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label for="nama_kategori">Nama Kategori</label>
-                            <input type="text" class="form-control" id="nama_kategori" placeholder="Masukkan Nama Kategori" name="nama_kategori" value="{{$kategori->nama_kategori}}">
+                            <input type="text" class="form-control" id="nama_kategori" placeholder="Masukkan Nama Kategori" name="nama_kategori" value="{{$table_kategori->nama_kategori}}">
                         </div>
                     </div>
                     <!-- /.card-body -->
