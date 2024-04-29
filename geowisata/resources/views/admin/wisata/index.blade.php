@@ -63,7 +63,7 @@
                                     <tr>
                                         <td>{{$no++}}</td>
                                         <td>
-                                            {{$wisata->table_kategori->kategori_id}}
+                                            {{$wisata->table_kategori->id}}
                                         </td>
                                         <td>{{$wisata->nama_tempat}}</td>
                                         <td>{{illuminate\Support\Str::limit($wisata->alamat, 30)}}</td>

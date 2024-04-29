@@ -68,9 +68,10 @@
                                             <label class="custom-file-label" for="gambar">Pilih berkas</label>
                                         </div>
                                         <div class="input-group-append">
-                                            <span class="input-group-text">Upload</span>
+                                            <button class="btn btn-outline-secondary" type="button">Upload</button>
                                         </div>
                                     </div>
+
                                 </div>
                                 <div class="form-group">
                                     <label for="latitude">Latitude</label>

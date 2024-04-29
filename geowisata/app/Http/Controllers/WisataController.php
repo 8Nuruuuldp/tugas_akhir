@@ -47,7 +47,7 @@ class WisataController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'kategori' => 'required|exists:wisata,kategori',
+            'kategori_id' => 'required|exists:wisata,kategori',
             'nama_tempat' => 'required',
             'deskripsi' => 'required',
             'gambar' => 'image',
