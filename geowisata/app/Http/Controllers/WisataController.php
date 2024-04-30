@@ -49,7 +49,7 @@ class WisataController extends Controller
     {
         //dd($request->all());
         $nm = $request->gambar;
-        $namaFile = $nm->getClientOriginalName();
+        $namaFile = time().rand(100,999).".".$nm->getClientOriginalName();
 
             $wisata = new Wisata;
             $wisata->nama_tempat = $request->nama_tempat;
@@ -64,17 +64,6 @@ class WisataController extends Controller
             $wisata->save();
 
             return redirect('/wisata')->with('success', 'Data berhasil disimpan!');
-            
-        //Wisata::create([
-            //'nama_tempat' => $request->nama_tempat,
-            //'kategori_id' => $request->kategori_id,
-            //'alamat' => $request->alamat,
-            //'deskripsi' => $request->deskripsi,
-            //'latitude' => $request->latitude,
-            //'longitude' => $request->longitude,
-        //]);
-
-        //return redirect('/wisata')->with('success', 'Data berhasil disimpan!');
     }
 
     /**
@@ -100,10 +89,29 @@ class WisataController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $wisata = Wisata::find($id);
-        $wisata->update($request->all());
-        $wisata->save();
+        //$wisata = Wisata::find($id);
+        //$wisata->update($request->all());
+        //$wisata->save();
 
+        //return redirect('/wisata')->with('success', 'Data berhasil diperbarui!');
+        
+        $wisata = Wisata::find($id);
+        $ubah = Wisata::find($id);
+        $awal = $ubah->gambar;
+
+        $wisata = [
+           'nama_tempat' => $request['nama_tempat'],
+           'kategori_id' => $request['kategori_id'],
+           'alamat' => $request['alamat'],
+           'gambar' => $awal,
+           'deskripsi' => $request['deskripsi'],
+           'latitude' => $request['latitude'],
+           'longitude' => $request['longitude'],
+        ];
+
+        $request->gambar->move(public_path().'/img', $awal);
+        $ubah->update($wisata);
+        //dd($request->all());
         return redirect('/wisata')->with('success', 'Data berhasil diperbarui!');
     }
 

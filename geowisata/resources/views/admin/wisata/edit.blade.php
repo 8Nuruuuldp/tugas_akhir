@@ -30,7 +30,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form method="POST" action="/wisata/{{$wisata->id}}/update">
+                <form method="POST" action="/wisata/{{$wisata->id}}/update" enctype="multipart/form-data">
                     @csrf
 
                     <div class="card-body">
@@ -53,6 +53,15 @@
                             <label for="alamat">Alamat</label>
                             <textarea class="form-control" id="alamat" placeholder="Masukan alamat tempat wisata"
                                 name="alamat">{{$wisata->alamat}}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="gambar">Gambar</label>
+                            <div class="custom-file">
+                                <input type="file" class="form-control" id="gambar" name="gambar">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <img src="/img/{{$wisata->gambar}}" width="200" height="200">
                         </div>
                         <div class="form-group">
                             <label for="deskripsi">Deskripsi</label>
