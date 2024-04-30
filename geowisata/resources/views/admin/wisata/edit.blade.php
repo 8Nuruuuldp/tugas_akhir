@@ -24,69 +24,45 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            <div class="card card-info">
+            <div class="card card-warning">
                 <div class="card-header">
                     <h3 class="card-title">Edit Data</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form method="POST" action="/wisata/{{$wisata->id}}/updatewisata">
-                    {{ csrf_field()  }}
+                <form method="POST" action="/wisata/{{$wisata->id}}/update">
+                    @csrf
 
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="kategori">Kategori Wisata</label>
-                            <select id="kategori" class="form-control">
-                                <option value="">Pilih Kategori</option>
-                                <option value="Wisata Alam" @if($wisata->kategori== 'Wisata Alam') selected @endif >Wisata Alam</option>
-                                <option value="Wisata Pendidikan dan Sejarah" @if($wisata->kategori== 'Wisata Pendidikan dan Sejarah') selected @endif >Wisata Pendidikan dan Sejarah</option>
-                                <option value="Wisata Budaya" @if($wisata->kategori== 'Wisata Budaya') selected @endif >Wisata Budaya</option>
-                                <option value="Wisata Rekreatif" @if($wisata->kategori== 'Wisata Rekreatif') selected @endif >Wisata Rekreatif</option>
-                                <option value="Wisata Agro" @if($wisata->kategori== 'Wisata Agro') selected @endif >Wisata Agro</option>
-                                <option value="Wisata Religi" @if($wisata->kategori== 'Wisata Religi') selected @endif >Wisata Religi</option>
-                                <option value="Kampung Wisata Kreatif" @if($wisata->kategori== 'Kampung Wisata Kreatif') selected @endif >Kampung Wisata Kreatif</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
                             <label for="nama_tempat">Nama Tempat Wisata</label>
                             <input type="text" class="form-control" id="nama_tempat"
-                                placeholder="Masukan nama tempat wisata" value="{{$wisata->nama_tempat}}">
+                                placeholder="Masukan nama tempat wisata" name="nama_tempat" value="{{$wisata->nama_tempat}}">
                         </div>
                         <div class="form-group">
                             <label for="alamat">Alamat</label>
-                            <input type="text" class="form-control" id="alamat"
-                                placeholder="Masukan alamat tempat wisata" value="{{$wisata->alamat}}">
+                            <textarea class="form-control" id="alamat"
+                                placeholder="Masukan alamat tempat wisata" name="alamat">{{$wisata->alamat}}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="deskripsi">Deskripsi</label>
-                            <input type="text" class="form-control" id="deskripsi"
-                                placeholder="Masukan deskripsi tempat wisata" value="{{$wisata->deskripsi}}">
-                        </div>
-                        <div class="form-group">
-                            <label for="gambar">Foto atau Gambar Tempat Wisata</label>
-                            <div class="input-group">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="gambar">
-                                    <label class="custom-file-label" for="gambar">Pilih berkas</label>
-                                </div>
-                                <div class="input-group-append">
-                                    <span class="input-group-text">Upload</span>
-                                </div>
-                            </div>
+                            <textarea class="form-control" id="deskripsi"
+                                placeholder="Masukan deskripsi tempat wisata" name="deskripsi">{{$wisata->deskripsi}}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="latitude">Latitude</label>
-                            <input type="text" class="form-control" id="latitude"
-                                placeholder="Masukan latitude tempat wisata" value="{{$wisata->latitude}}">
+                            <input type="decimal" class="form-control" id="latitude"
+                                placeholder="Masukan latitude tempat wisata" name="latitude" value="{{$wisata->latitude}}">
                         </div>
                         <div class="form-group">
                             <label for="longitude">Longitude</label>
-                            <input type="text" class="form-control" id="longitude"
-                                placeholder="Masukan longitude tempat wisata" value="{{$wisata->longitude}}">
+                            <input type="decimal" class="form-control" id="longitude"
+                                placeholder="Masukan longitude tempat wisata" name="longitude" value="{{$wisata->longitude}}">
                         </div>
-                        <div>
-                            <button type="submit" class="btn btn-primary">Update</button>
-                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-warning">Update</button>
                     </div>
                 </form>
             </div>

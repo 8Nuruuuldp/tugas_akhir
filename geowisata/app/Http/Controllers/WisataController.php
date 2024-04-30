@@ -28,7 +28,6 @@ class WisataController extends Controller
     {
 
         $wisata = Wisata::all();
-        // return view('admin.wisata.index',['table_wisata'=>$wisata]);
         return view('admin.wisata.index', compact('wisata'));
 
     }
@@ -38,8 +37,6 @@ class WisataController extends Controller
      */
     public function create()
     {
-        // $categories = Kategori::all(); // Mengambil semua data kategori
-        // return view('admin.wisata.create', compact('categories'));
         return view('admin.wisata.create');
     }
 
@@ -73,36 +70,19 @@ class WisataController extends Controller
     public function edit(Request $request, $id)
     {
         $wisata = Wisata::find($id);
-        return view('admin.wisata.edit',['wisata' => $wisata]);
+        return view('admin.wisata.edit', compact('wisata'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function updatewisata(Request $request, $id)
+    public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'kategori'  => 'required',
-            'nama_tempat'  => 'required',
-            'alamat'    => 'required',
-            'deskripsi' => 'required',
-            'gambar'    => 'required',
-            'latitude'  => 'required',
-            'longitude' => 'required'
-        ]);
-
         $wisata = Wisata::find($id);
-        $wisata->kategori = $request->kategori;
-        $wisata->nama_tempat = $request->nama_tempat;
-        $wisata->alamat     = $request->alamat;
-        $wisata->deskripsi  = $request->deskripsi;
-        $wisata->gambar     = $request->gambar;
-        $wisata->latitude   = $request->latitude;
-        $wisata->longitude  = $request->longitude;
-
+        $wisata->update($request->all());
         $wisata->save();
 
-        return redirect('/wisata');
+        return redirect('/wisata')->with('toast_success', 'Data berhasil diperbarui!');
     }
 
     /**
@@ -113,7 +93,7 @@ class WisataController extends Controller
         $wisata = Wisata::find($id);
         $wisata->delete();
 
-        return redirect()->back()->with(['message'=> 'Sukses', 'Data Berhasil Di hapus']);
+        return redirect()->back()->with('toast_success', 'Data berhasil dihapus!');
     }
 
 
