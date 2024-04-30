@@ -22,9 +22,6 @@
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
         crossorigin="anonymous"></script>
 
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/gokertanrisever/leaflet-ruler@master/src/leaflet-ruler.css" integrity="sha384-P9DABSdtEY/XDbEInD3q+PlL+BjqPCXGcF8EkhtKSfSTr/dS5PBKa9+/PMkW2xsY" crossorigin="anonymous">  
-        <script src="https://cdn.jsdelivr.net/gh/gokertanrisever/leaflet-ruler@master/src/leaflet-ruler.js" integrity="sha384-N2S8y7hRzXUPiepaSiUvBH1ZZ7Tc/ZfchhbPdvOE5v3aBBCIepq9l+dBJPFdo1ZJ" crossorigin="anonymous"></script>
-
         <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
         <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
 
@@ -38,7 +35,7 @@
            
 </head>
 <body>
-    <div class="rounded" id="map"></div>
+    <div class="map rounded" id="map"></div>
 
     <style>
         #map { 
@@ -50,9 +47,8 @@
     <script>
         var map = L.map('map').setView([-6.914744, 107.609810], 13);
 
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
         }).addTo(map);
 
         map.zoomControl.setPosition('bottomright')
@@ -71,10 +67,11 @@
 
                     L.marker ([parseFloat(data[index].latitude),parseFloat(data[index].longitude)])
                     .addTo(map)
-                    .bindPopup('<div class="my-2"><strong>Gambar</strong> :<br>'+data[index].gambar+'</div><div class="my-2"><strong>Nama Tempat</strong> :<br>'+data[index].nama_tempat+'</div><div class="my-2"><strong>Alamat</strong> :<br>'+data[index].alamat+'</div><div class="my-2"><strong>Deskripsi</strong> :<br>'+data[index].deskripsi+'</div><div class="my-2"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Beri Ulasan</button> <button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">Lihat selengkapnya</button> <button class="bg-cyan hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">Get Direction</button></div>');
+                    .bindPopup('<div class="my-2"><br>'+'<img src="./img/' + data[index].gambar + '" style="width:200px;height:auto;">'+'</div><div class="my-2"><strong>Nama Tempat</strong> :<br>'+data[index].nama_tempat+'</div><div class="my-2"><strong>Alamat</strong> :<br>'+data[index].alamat+'</div><div class="my-2"><a href="/hwisata" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Lihat Selengkapnya</button></div>');
                 });
             });
         });
+
     </script>
 </body>
 </html>

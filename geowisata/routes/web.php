@@ -81,6 +81,10 @@ Route::get('/user/{id}/delete', [UserController::class, 'destroy']);
 Route::get('/petawisata', function () {
     return view ('petawisata');
 });
+Route::get('/hwisata', function () {
+    return view ('hwisata');
+});
+
 
 //Routing CRUD Data Kategori
 Route::get('/kategori', [KategoriController::class, 'index']);
