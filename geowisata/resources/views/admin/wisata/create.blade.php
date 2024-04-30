@@ -18,8 +18,10 @@
                     </ol>
                 </div>
             </div>
-        </div><!-- /.container-fluid -->
+        </div>
     </section>
+    <!-- End Content Header (Page header) -->
+
     <section class="content">
         <div class="container-fluid">
             <div class="row">
@@ -36,42 +38,19 @@
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="kategori">Kategori Wisata</label>
-                                    <select name="kategori" class="form-control" id="kategori"
-                                        placeholder="Pilih kategori wisata">
-                                        <option value="">Pilih Kategori Wisata</option>
-                                        @foreach($categories as $kategori)
-                                        <option value="{{ $kategori->id }}">{{ $kategori->kategori }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="form-group">
                                     <label for="nama_tempat">Nama Tempat Wisata</label>
                                     <input type="text" class="form-control" id="nama_tempat"
                                         placeholder="Masukan nama tempat wisata" name="nama_tempat">
                                 </div>
                                 <div class="form-group">
                                     <label for="alamat">Alamat</label>
-                                    <input type="text" class="form-control" id="alamat"
-                                        placeholder="Masukan alamat tempat wisata" name="alamat">
+                                    <textarea class="form-control" id="alamat"
+                                        placeholder="Masukan alamat tempat wisata" name="alamat"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="deskripsi">Deskripsi</label>
-                                    <input type="text" class="form-control" id="deskripsi"
-                                        placeholder="Masukan deskripsi tempat wisata" name="deskripsi">
-                                </div>
-                                <div class="form-group">
-                                    <label for="gambar">Foto atau Gambar Tempat Wisata</label>
-                                    <div class="input-group">
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="gambar" name="gambar">
-                                            <label class="custom-file-label" for="gambar">Pilih berkas</label>
-                                        </div>
-                                        <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary" type="button">Upload</button>
-                                        </div>
-                                    </div>
-
+                                    <textarea class="form-control" id="deskripsi"
+                                        placeholder="Masukan deskripsi tempat wisata" name="deskripsi"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="latitude">Latitude</label>
@@ -81,23 +60,19 @@
                                 <div class="form-group">
                                     <label for="longitude">Longitude</label>
                                     <input type="decimal" class="form-control" id="longitude"
-                                        placeholder="Masukan longitude tempat wisata" name="longitute">
+                                        placeholder="Masukan longitude tempat wisata" name="longitude">
                                 </div>
-                                <div>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
                         </form>
                     </div>
                     <!-- /.card -->
                 </div>
                 <!--/.col (left) -->
-                <!-- right column -->
-                <div class="col-md-6">
-
-                </div>
-                <!--/.col (right) -->
             </div>
-            <!-- /.row -->
-        </div><!-- /.container-fluid -->
-    </section>@endsection
+        </div>
+    </section>
+</div>
+@endsection

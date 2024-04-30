@@ -28,7 +28,8 @@ class WisataController extends Controller
     {
 
         $wisata = Wisata::all();
-        return view('admin.wisata.index',['table_wisata'=>$wisata]);
+        // return view('admin.wisata.index',['table_wisata'=>$wisata]);
+        return view('admin.wisata.index', compact('wisata'));
 
     }
 
@@ -36,35 +37,49 @@ class WisataController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-{
-    $categories = Kategori::all(); // Mengambil semua data kategori
-    return view('admin.wisata.create', compact('categories'));
-}
+    {
+        // $categories = Kategori::all(); // Mengambil semua data kategori
+        // return view('admin.wisata.create', compact('categories'));
+        return view('admin.wisata.create');
+    }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'kategori_id' => 'required|exists:wisata,kategori',
-            'nama_tempat' => 'required',
-            'deskripsi' => 'required',
-            'gambar' => 'image',
-            'latitude' => 'required',
-            'longitude' => 'required',
+        // $validatedData = $request->validate([
+            // 'kategori_id' => 'required|exists:wisata,kategori',
+            // 'nama_tempat' => 'required',
+            // 'alamat' => 'required',
+            // 'deskripsi' => 'required',
+            // 'gambar' => 'image',
+            // 'latitude' => 'required',
+            // 'longitude' => 'required',
             // Tambahkan validasi lainnya sesuai kebutuhan
+        // ]);
+
+        // dd($request->all());
+
+        Wisata::create([
+            'nama_tempat' => $request->nama_tempat,
+            'alamat' => $request->alamat,
+            'deskripsi' => $request->deskripsi,
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude,
         ]);
-        dd($request->all());
-        $result = Kategori::create($validatedData);
-if ($result) {
-    // Berhasil disimpan
-    return redirect('/wisata');
-} else {
-    // Gagal menyimpan, lakukan penanganan kesalahan
-    return back()->withInput()->withErrors(['message' => 'Gagal menyimpan data.']);
-}
-}
+
+        return redirect('/wisata');
+
+        // $result = Kategori::create($validatedData);
+        // if ($result) {
+            // Berhasil disimpan
+            // return redirect('/wisata');
+        // } else {
+            // Gagal menyimpan, lakukan penanganan kesalahan
+            // return back()->withInput()->withErrors(['message' => 'Gagal menyimpan data.']);
+        // }
+    }
 
     /**
      * Display the specified resource.

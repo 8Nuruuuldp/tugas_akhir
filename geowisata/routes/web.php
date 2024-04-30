@@ -65,12 +65,12 @@ Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::get('/user', [UserController::class, 'index']);
 
 //Routing CRUD Data Wisata
+Route::get('/wisata', [WisataController::class, 'index']);
 Route::get('/wisata/create', [WisataController::class, 'create'])->name('create.wisata');
 Route::post('/wisata/store', [WisataController::class, 'store'])->name('store.wisata');
+
 Route::post('/wisata', [WisataController::class, 'index'])->name('wisata.store');
 
-//Routing Read Data Wisata
-Route::get('/wisata', [WisataController::class, 'index']);
 
 //Edit data wisata
 Route::get('/wisata/{id}/edit', [WisataController::class, 'edit']);

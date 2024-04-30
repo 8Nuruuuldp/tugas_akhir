@@ -41,34 +41,25 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Kategori</th>
                                         <th style="width: 100px">Nama Wisata</th>
                                         <th>Alamat</th>
                                         <th>Deskripsi</th>
-                                        <th>Gambar</th>
                                         <th>Latitude</th>
                                         <th>Longitude</th>
                                         <th style="width: 70px">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @php
+                                    <!-- @php
                                         use Illuminate\Support\Str;
-                                        use App\Models\Wisata;
-
                                         $no = 1;
-                                        $wisata = Wisata::with('kategori')->get();
-                                    @endphp
-                                    @foreach ($table_wisata as $wisata)
+                                    @endphp -->
+                                    @foreach ($wisata as $wisata)
                                     <tr>
                                         <td>{{$no++}}</td>
-                                        <td>
-                                            {{$wisata->table_kategori->id}}
-                                        </td>
                                         <td>{{$wisata->nama_tempat}}</td>
                                         <td>{{illuminate\Support\Str::limit($wisata->alamat, 30)}}</td>
                                         <td>{{illuminate\Support\Str::limit($wisata->deskripsi, 30)}}</td>
-                                        <td><img src="{{$wisata->gambar}}" height="100px" widht="100px"></td>
                                         <td>{{$wisata->latitude}}</td>
                                         <td>{{$wisata->longitude}}</td>
                                         <td>
