@@ -28,6 +28,7 @@ class WisataController extends Controller
     {
 
         $wisata = Wisata::all();
+        $wisata = Wisata::with('kategori')->get();
         return view('admin.wisata.index', compact('wisata'));
 
     }
@@ -37,7 +38,8 @@ class WisataController extends Controller
      */
     public function create()
     {
-        return view('admin.wisata.create');
+        $kategori = Kategori::all();
+        return view('admin.wisata.create', compact('kategori'));
     }
 
     /**
@@ -47,13 +49,14 @@ class WisataController extends Controller
     {
         Wisata::create([
             'nama_tempat' => $request->nama_tempat,
+            'kategori_id' => $request->kategori_id,
             'alamat' => $request->alamat,
             'deskripsi' => $request->deskripsi,
             'latitude' => $request->latitude,
             'longitude' => $request->longitude,
         ]);
 
-        return redirect('/wisata')->with('toast_success', 'Data berhasil disimpan!');
+        return redirect('/wisata')->with('success', 'Data berhasil disimpan!');
     }
 
     /**
@@ -69,8 +72,9 @@ class WisataController extends Controller
      */
     public function edit(Request $request, $id)
     {
-        $wisata = Wisata::find($id);
-        return view('admin.wisata.edit', compact('wisata'));
+        $wisata = Wisata::with('kategori')->find($id);
+        $kategori = Kategori::all();
+        return view('admin.wisata.edit', compact('wisata', 'kategori'));
     }
 
     /**
@@ -82,7 +86,7 @@ class WisataController extends Controller
         $wisata->update($request->all());
         $wisata->save();
 
-        return redirect('/wisata')->with('toast_success', 'Data berhasil diperbarui!');
+        return redirect('/wisata')->with('success', 'Data berhasil diperbarui!');
     }
 
     /**
@@ -93,7 +97,7 @@ class WisataController extends Controller
         $wisata = Wisata::find($id);
         $wisata->delete();
 
-        return redirect()->back()->with('toast_success', 'Data berhasil dihapus!');
+        return redirect()->back()->with('success', 'Data berhasil dihapus!');
     }
 
 

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('table_wisata', function (Blueprint $table) {
             $table->id();
             $table->string('nama_tempat');
+            $table->bigInteger('kategori_id');
             $table->string('alamat');
             $table->string('deskripsi');
             $table->decimal('latitude', 18, 16);

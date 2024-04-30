@@ -37,27 +37,39 @@
                         <div class="form-group">
                             <label for="nama_tempat">Nama Tempat Wisata</label>
                             <input type="text" class="form-control" id="nama_tempat"
-                                placeholder="Masukan nama tempat wisata" name="nama_tempat" value="{{$wisata->nama_tempat}}">
+                                placeholder="Masukan nama tempat wisata" name="nama_tempat"
+                                value="{{$wisata->nama_tempat}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="nama_tempat">Kategori Wisata</label>
+                            <select class="form-control select2" name="kategori_id" id="kategori_id">
+                                <option value="{{$wisata->kategori_id}}">{{$wisata->kategori->nama_kategori}}</option>
+                                @foreach ($kategori as $item)
+                                <option value="{{$item->id}}">{{$item->nama_kategori}}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="alamat">Alamat</label>
-                            <textarea class="form-control" id="alamat"
-                                placeholder="Masukan alamat tempat wisata" name="alamat">{{$wisata->alamat}}</textarea>
+                            <textarea class="form-control" id="alamat" placeholder="Masukan alamat tempat wisata"
+                                name="alamat">{{$wisata->alamat}}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="deskripsi">Deskripsi</label>
-                            <textarea class="form-control" id="deskripsi"
-                                placeholder="Masukan deskripsi tempat wisata" name="deskripsi">{{$wisata->deskripsi}}</textarea>
+                            <textarea class="form-control" id="deskripsi" placeholder="Masukan deskripsi tempat wisata"
+                                name="deskripsi">{{$wisata->deskripsi}}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="latitude">Latitude</label>
                             <input type="decimal" class="form-control" id="latitude"
-                                placeholder="Masukan latitude tempat wisata" name="latitude" value="{{$wisata->latitude}}">
+                                placeholder="Masukan latitude tempat wisata" name="latitude"
+                                value="{{$wisata->latitude}}">
                         </div>
                         <div class="form-group">
                             <label for="longitude">Longitude</label>
                             <input type="decimal" class="form-control" id="longitude"
-                                placeholder="Masukan longitude tempat wisata" name="longitude" value="{{$wisata->longitude}}">
+                                placeholder="Masukan longitude tempat wisata" name="longitude"
+                                value="{{$wisata->longitude}}">
                         </div>
                     </div>
 

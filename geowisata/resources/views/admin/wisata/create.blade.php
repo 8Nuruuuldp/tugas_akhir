@@ -43,6 +43,15 @@
                                         placeholder="Masukan nama tempat wisata" name="nama_tempat">
                                 </div>
                                 <div class="form-group">
+                                    <label for="nama_tempat">Kategori Wisata</label>
+                                    <select class="form-control select2" name="kategori_id" id="kategori_id">
+                                        <option disable value>Pilih Jabatan</option>
+                                        @foreach ($kategori as $item)
+                                        <option value="{{$item->id}}">{{$item->nama_kategori}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
                                     <label for="alamat">Alamat</label>
                                     <textarea class="form-control" id="alamat"
                                         placeholder="Masukan alamat tempat wisata" name="alamat"></textarea>

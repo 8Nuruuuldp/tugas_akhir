@@ -36,7 +36,7 @@ class KategoriController extends Controller
         Kategori::create([
             'nama_kategori' => $request->nama_kategori
         ]);
-        return redirect('/kategori');
+        return redirect('/kategori')->with('success', 'Data berhasil disimpan!');
     }
 
     /**
@@ -70,7 +70,7 @@ class KategoriController extends Controller
 
         $kategori->save();
 
-        return redirect('/kategori');
+        return redirect('/kategori')->with('success', 'Data berhasil diperbarui!');
     }
 
     /**
@@ -81,6 +81,6 @@ class KategoriController extends Controller
         $kategori = Kategori::find($id);
         $kategori->delete();
 
-        return redirect()->back()->with(['message'=> 'Sukses', 'Data Berhasil Di hapus']);
+        return redirect()->back()->with('success', 'Data berhasil dihapus!');
     }
 }
