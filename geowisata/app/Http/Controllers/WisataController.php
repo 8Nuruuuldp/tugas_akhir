@@ -47,16 +47,34 @@ class WisataController extends Controller
      */
     public function store(Request $request)
     {
-        Wisata::create([
-            'nama_tempat' => $request->nama_tempat,
-            'kategori_id' => $request->kategori_id,
-            'alamat' => $request->alamat,
-            'deskripsi' => $request->deskripsi,
-            'latitude' => $request->latitude,
-            'longitude' => $request->longitude,
-        ]);
+        //dd($request->all());
+        $nm = $request->gambar;
+        $namaFile = $nm->getClientOriginalName();
 
-        return redirect('/wisata')->with('success', 'Data berhasil disimpan!');
+            $wisata = new Wisata;
+            $wisata->nama_tempat = $request->nama_tempat;
+            $wisata->kategori_id = $request->kategori_id;
+            $wisata->alamat = $request->alamat;
+            $wisata->gambar = $namaFile;
+            $wisata->deskripsi = $request->deskripsi;
+            $wisata->latitude = $request->latitude;
+            $wisata->longitude = $request->longitude;
+
+            $nm->move(public_path().'/img', $namaFile);
+            $wisata->save();
+
+            return redirect('/wisata')->with('success', 'Data berhasil disimpan!');
+            
+        //Wisata::create([
+            //'nama_tempat' => $request->nama_tempat,
+            //'kategori_id' => $request->kategori_id,
+            //'alamat' => $request->alamat,
+            //'deskripsi' => $request->deskripsi,
+            //'latitude' => $request->latitude,
+            //'longitude' => $request->longitude,
+        //]);
+
+        //return redirect('/wisata')->with('success', 'Data berhasil disimpan!');
     }
 
     /**

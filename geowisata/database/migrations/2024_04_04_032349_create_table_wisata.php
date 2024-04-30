@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nama_tempat');
             $table->bigInteger('kategori_id');
             $table->string('alamat');
+            $table->string('gambar');
             $table->string('deskripsi');
             $table->decimal('latitude', 18, 16);
             $table->decimal('longitude', 19, 16);

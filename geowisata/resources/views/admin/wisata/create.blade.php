@@ -34,7 +34,7 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form method="POST" action="{{ route('store.wisata') }}">
+                        <form method="POST" action="{{ route('store.wisata') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
@@ -45,7 +45,7 @@
                                 <div class="form-group">
                                     <label for="nama_tempat">Kategori Wisata</label>
                                     <select class="form-control select2" name="kategori_id" id="kategori_id">
-                                        <option disable value>Pilih Jabatan</option>
+                                        <option disable value>Pilih Kategori</option>
                                         @foreach ($kategori as $item)
                                         <option value="{{$item->id}}">{{$item->nama_kategori}}</option>
                                         @endforeach
@@ -56,6 +56,13 @@
                                     <textarea class="form-control" id="alamat"
                                         placeholder="Masukan alamat tempat wisata" name="alamat"></textarea>
                                 </div>
+                                <div class="form-group">
+                                    <label for="gambar">Gambar</label>
+                                    <div class="custom-file">
+                                        <input type="file" class="form-control" id="gambar" name="gambar">
+                                    </div>
+                                </div>
+                               
                                 <div class="form-group">
                                     <label for="deskripsi">Deskripsi</label>
                                     <textarea class="form-control" id="deskripsi"

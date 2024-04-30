@@ -44,6 +44,7 @@
                                         <th style="width: 100px">Nama Wisata</th>
                                         <th>Kategori</th>
                                         <th>Alamat</th>
+                                        <th>Gambar</th>
                                         <th>Deskripsi</th>
                                         <th>Latitude</th>
                                         <th>Longitude</th>
@@ -51,16 +52,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <!-- @php
+                                    @php
                                         use Illuminate\Support\Str;
                                         $no = 1;
-                                    @endphp -->
+                                    @endphp
                                     @foreach ($wisata as $wisata)
                                     <tr>
                                         <td>{{$no++}}</td>
                                         <td>{{$wisata->nama_tempat}}</td>
                                         <td>{{$wisata->kategori->nama_kategori}}</td>
                                         <td>{{illuminate\Support\Str::limit($wisata->alamat, 30)}}</td>
+                                        <td><img src="/img/{{$wisata->gambar}}" width="100" height="100"></td>
                                         <td>{{illuminate\Support\Str::limit($wisata->deskripsi, 30)}}</td>
                                         <td>{{$wisata->latitude}}</td>
                                         <td>{{$wisata->longitude}}</td>
