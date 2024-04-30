@@ -111,7 +111,6 @@ class WisataController extends Controller
 
         $request->gambar->move(public_path().'/img', $awal);
         $ubah->update($wisata);
-        //dd($request->all());
         return redirect('/wisata')->with('success', 'Data berhasil diperbarui!');
     }
 
