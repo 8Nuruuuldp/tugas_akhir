@@ -48,19 +48,6 @@ class WisataController extends Controller
      */
     public function store(Request $request)
     {
-        // $validatedData = $request->validate([
-            // 'kategori_id' => 'required|exists:wisata,kategori',
-            // 'nama_tempat' => 'required',
-            // 'alamat' => 'required',
-            // 'deskripsi' => 'required',
-            // 'gambar' => 'image',
-            // 'latitude' => 'required',
-            // 'longitude' => 'required',
-            // Tambahkan validasi lainnya sesuai kebutuhan
-        // ]);
-
-        // dd($request->all());
-
         Wisata::create([
             'nama_tempat' => $request->nama_tempat,
             'alamat' => $request->alamat,
@@ -69,16 +56,7 @@ class WisataController extends Controller
             'longitude' => $request->longitude,
         ]);
 
-        return redirect('/wisata');
-
-        // $result = Kategori::create($validatedData);
-        // if ($result) {
-            // Berhasil disimpan
-            // return redirect('/wisata');
-        // } else {
-            // Gagal menyimpan, lakukan penanganan kesalahan
-            // return back()->withInput()->withErrors(['message' => 'Gagal menyimpan data.']);
-        // }
+        return redirect('/wisata')->with('toast_success', 'Data berhasil disimpan!');
     }
 
     /**
