@@ -79,11 +79,11 @@
             </div>
             <div id="map">
                 <script>
-        
+
                     var map = L.map('map').setView([-6.914744, 107.609810], 10);
 
                     map.zoomControl.setPosition('bottomright')
-            
+
                     L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
                         maxZoom: 20,
                         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -111,14 +111,49 @@
                     });
 
                 </script>
-            
+
                 <style>
                     #map {
                         height: 100vh;
                         width: 100%;
                     }
+
+                    .formBlock {
+                    max-width: 300px;
+                    background-color: #FFF;
+                    border: 1px solid #ddd;
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    padding: 10px;
+                    z-index: 999;
+                    box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+                    border-radius: 5px;
+                    width: 100%;
+                }
+
+                .leaflet-top .leaflet-control {
+                    margin-top: 180px;
+                }
+
+                .input {
+                    padding: 10px;
+                    width: 100%;
+                    border: 1px solid #ddd;
+                    font-size: 15px;
+                    border-radius: 3px;
+                }
+
                 </style>
+
+        <div class="formBlock">
+            <form id="form">
+                <input type="text" name="start" class="input" id="start" placeholder="Cari Wilayah" />
+            </form>
+        </div>
             </div>
+
+
         </div>
     </section>
     <!-- /.row -->

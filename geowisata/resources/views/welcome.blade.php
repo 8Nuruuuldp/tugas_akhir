@@ -229,8 +229,14 @@
 
         <form action="/">
             <div class="flex gap-2">
-                <input name="search" type="text" placeholder="Search..." value="{{request('search')}}"
+                <input name="" type="text" placeholder="Search..." value="{{request('search')}}"
                     class="w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500">
+                    {{-- <select name="kategori_id" id="" class="w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500">
+                        @foreach ($table_kategori as $kategori)
+                        <option value="">Kategori Wisata</option>
+                        <option value="{{$kategori->id}}" >{{$kategori->nama_kategori}}</option>
+                        @endforeach
+                    </select> --}}
                 <button type="submit" class="bg-green-500 text-white rounded px-2 md:px-3 py-0 md:py-1">Search</button>
             </div>
         </form>

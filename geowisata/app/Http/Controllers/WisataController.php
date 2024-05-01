@@ -24,6 +24,8 @@ class WisataController extends Controller
         return json_encode($result);
     }
 
+
+
     public function index()
     {
 

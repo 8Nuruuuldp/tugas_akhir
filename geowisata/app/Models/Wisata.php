@@ -16,4 +16,22 @@ class Wisata extends Model
     public function kategori(){
         return $this->belongsTo(Kategori::class);
     }
+
+    public function scopeFilter($query, array $filters)
+    {
+
+        $query->when($filters['search'] ?? false, function($query, $search) {
+            return $query->where('title', 'like', '%' . $search . '%')
+                ->orWhere('address', 'like', '%' . $search . '%');
+        });
+
+    }
+
+    // public function search(){
+    //     $data = array (
+    //         'tps' => $this->table_wisata->get_all_data()
+    //     )
+
+    //     $this->load->view()
+    // }
 }
