@@ -11,7 +11,7 @@ class Wisata extends Model
     use HasFactory;
     protected $table = "table_wisata";
     protected $primaryKey = "id";
-    protected $fillable = ['nama_tempat', 'kategori_id', 'alamat', 'deskripsi', 'latitude', 'longitude'];
+    protected $fillable = ['nama_tempat', 'kategori_id', 'alamat', 'gambar', 'deskripsi', 'latitude', 'longitude'];
 
     public function kategori(){
         return $this->belongsTo(Kategori::class);
@@ -34,4 +34,6 @@ class Wisata extends Model
 
     //     $this->load->view()
     // }
+
+
 }

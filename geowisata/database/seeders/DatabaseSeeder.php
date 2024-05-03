@@ -2,15 +2,15 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+// use Illuminate\Wisatabase\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Category;
-use  App\Models\Data;
+use App\Models\Kategori;
+use  App\Models\Wisata;
 
 class DatabaseSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Seed the application's Wisatabase.
      *
      * @return void
      */
@@ -19,462 +19,443 @@ class DatabaseSeeder extends Seeder
         // \User::factory(10)->create();
 
         // \User::factory()->create([
-        //     'name' => 'Test User',
+        //     'nama_kategori' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
 
+        Kategori::create([
+            'nama_kategori' => 'Wisata Alam'
+        ]);
+        Kategori::create([
+            'nama_kategori' => 'Wisata Pendidikan dan Sejarah'
+        ]);
+        Kategori::create([
+            'nama_kategori' => 'Wisata Budaya'
+        ]);
+        Kategori::create([
+            'nama_kategori' => 'Wisata Rekreatif'
+        ]);
+        Kategori::create([
+            'nama_kategori' => 'Wisata Agro'
+        ]);
+        Kategori::create([
+            'nama_kategori' => 'Wisata Religi'
+        ]);
+        Kategori::create([
+            'nama_kategori' => 'Kampung Wisata Kreatif'
+        ]);
 
-        Category::create([
-            'name' => 'Wisata Alam',
-            'slug' => 'wisata-alam'
-        ]);
-        Category::create([
-            'name' => 'Wisata Pendidikan dan Sejarah',
-            'slug' => 'wisata-pendidikan&sejarah'
-        ]);
-        Category::create([
-            'name' => 'Wisata Budaya',
-            'slug' => 'wisata-budaya'
-        ]);
-        Category::create([
-            'name' => 'Wisata Rekreatif',
-            'slug' => 'wisata-rekreatif'
-        ]);
-        Category::create([
-            'name' => 'Wisata Agro',
-            'slug' => 'wisata-agro'
-        ]);
-        Category::create([
-            'name' => 'Wisata Religi',
-            'slug' => 'wisata-religi'
-        ]);
-        Category::create([
-            'name' => 'Kampung Wisata Kreatif',
-            'slug' => 'kampung-wisata-kreatif'
-        ]);
+
 
         //id 1
-        Data::create([
-            'title' => 'Curug Dago',
-            'category_id'=> 1,
-            'slug' => 'curug-dago',
-            'address' => 'Jl. Dagopojok, Dago, Kecamatan Coblong, Kota Bandung, Jawa Barat 40135',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Curug Dago',
+            'kategori_id'=> 1,
+            'alamat' => 'Jl. Dagopojok, Dago, Kecamatan Coblong, Kota Bandung, Jawa Barat 40135',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.8654727282394825,
+            'longitude' => 107.61818564264613
         ]);
 
         //id 2
-        Data::create([
-            'title' => 'Museum Barli',
-            'category_id'=> 2,
-            'slug' => 'museum-barli',
-            'address' => 'Jl. Prof. Dr. Sutami No.91, Sukarasa, Kec. Sukasari, Kota Bandung, Jawa Barat 40152',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Museum Barli',
+            'kategori_id'=> 2,
+            'alamat' => 'Jl. Prof. Dr. Sutami No.91, Sukarasa, Kec. Sukasari, Kota Bandung, Jawa Barat 40152',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.877415172977914,
+            'longitude' => 107.58751020000001
         ]);
-        Data::create([
-            'title' => 'Museum Sejarah Kota Bandung',
-            'category_id'=> 2,
-            'slug' => 'Museum-Sejarah-Kota-Bandung',
-            'address' => 'Jl. Aceh No.47, Babakan Ciamis, Kec. Sumur Bandung, Kota Bandung, Jawa Barat 40117',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+
+        Wisata::create([
+            'nama_tempat' => 'Museum Kebudayaan Tionghoa',
+            'kategori_id'=> 2,
+            'alamat' => 'JJl. Nana Rohana No.37, Wr. Muncang, Kec. Bandung Kulon, Kota Bandung, Jawa Barat 40211',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.921418180157697,
+            'longitude' => 107.57737035343807
         ]);
-        Data::create([
-            'title' => 'Museum Sribaduga',
-            'category_id'=> 2,
-            'slug' => 'Museum-Sribaduga',
-            'address' => 'Jl. BKR No.185, Pelindung Hewan, Kec. Astanaanyar, Kota Bandung, Jawa Barat 40243',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Museum Preanger',
+            'kategori_id'=> 2,
+            'alamat' => 'Jl. Asia Afrika No.81, Braga, Kec. Sumur Bandung, Kota Bandung, Jawa Barat 40112',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.920953382092875,
+            'longitude' => 107.6118777084735
         ]);
-        Data::create([
-            'title' => 'Museum Geologi',
-            'category_id'=> 2,
-            'slug' => 'Museum-Geologi',
-            'address' => 'Jl. Diponegoro No.57, Cihaur Geulis, Kec. Cibeunying Kaler, Kota Bandung, Jawa Barat 40122',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Museum Gedung Sate',
+            'kategori_id'=> 2,
+            'alamat' => 'Jl. Diponegoro No.22, Citarum, Kec. Bandung Wetan, Kota Bandung, Jawa Barat 40115',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.902351429012489,
+            'longitude' => 107.61867781437918
         ]);
-        Data::create([
-            'title' => 'Museum Pos Indonesia',
-            'category_id'=> 2,
-            'slug' => 'Museum-Pos-Indonesia',
-            'address' => 'Jl. Cilaki No.73, Citarum, Kec. Bandung Wetan, Kota Bandung, Jawa Barat 40115',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Museum Sejarah Kota Bandung',
+            'kategori_id'=> 2,
+            'alamat' => 'Jl. Aceh No.47, Babakan Ciamis, Kec. Sumur Bandung, Kota Bandung, Jawa Barat 40117',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.909748725813378,
+            'longitude' => 107.60947788042576
         ]);
-        Data::create([
-            'title' => 'Museum Mandala Wangsit Siliwangi',
-            'category_id'=> 2,
-            'slug' => 'Museum-Mandala-Wangsit-Siliwangi',
-            'address' => 'Jl. Lembong No.38, Braga, Kec. Sumur Bandung, Kota Bandung, Jawa Barat 40111',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Museum Sribaduga',
+            'kategori_id'=> 2,
+            'alamat' => 'Jl. BKR No.185, Pelindung Hewan, Kec. Astanaanyar, Kota Bandung, Jawa Barat 40243',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.937568329605235,
+            'longitude' => 107.60350985639712
         ]);
-        Data::create([
-            'title' => 'Museum Konfrensi Asia Afrika',
-            'category_id'=> 2,
-            'slug' => 'Museum-Konfrensi-Asia-Afrika',
-            'address' => 'Jl. Asia Afrika No.65, Braga, Kec. Sumur Bandung, Kota Bandung, Jawa Barat 40111',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Museum Geologi',
+            'kategori_id'=> 2,
+            'alamat' => 'Jl. Diponegoro No.57, Cihaur Geulis, Kec. Cibeunying Kaler, Kota Bandung, Jawa Barat 40122',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.90052447299109,
+            'longitude' => 107.6213801939194
         ]);
-        Data::create([
-            'title' => 'Museum Pendidikan Universitas Pendidikan Indonesia',
-            'category_id'=> 2,
-            'slug' => 'Museum-Pendidikan-UPI',
-            'address' => 'Jl. Dr. Setiabudi No.229, Isola, Kec. Sukasari, Kota Bandung, Jawa Barat 40154',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Museum Pos Indonesia',
+            'kategori_id'=> 2,
+            'alamat' => 'Jl. Cilaki No.73, Citarum, Kec. Bandung Wetan, Kota Bandung, Jawa Barat 40115',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.8654727282394825,
+            'longitude' => 107.61818564264613
         ]);
-        Data::create([
-            'title' => 'Museum Monumen Perjuangan Rakyat Jawa Barat',
-            'category_id'=> 2,
-            'slug' => 'museum-monumen-PRJ',
-            'address' => 'Jl. Dipati Ukur No.48, Lebakgede, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Museum Mandala Wangsit Siliwangi',
+            'kategori_id'=> 2,
+            'alamat' => 'Jl. Lembong No.38, Braga, Kec. Sumur Bandung, Kota Bandung, Jawa Barat 40111',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.901869773534627,
+            'longitude' => 107.61970098042565
         ]);
-        Data::create([
-            'title' => 'Gedung Indonesia Menggugat',
-            'category_id'=> 2,
-            'slug' => 'Gedung-Indonesia-Menggugat',
-            'address' => 'JL Perintis Kemerdekaan, No. 5, Babakan Ciamis, Sumurbandung, Babakan Ciamis, Kec. Sumur Bandung, Kota Bandung, Jawa Barat 40117',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Museum Konfrensi Asia Afrika',
+            'kategori_id'=> 2,
+            'alamat' => 'Jl. Asia Afrika No.65, Braga, Kec. Sumur Bandung, Kota Bandung, Jawa Barat 40111',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.92106658260582,
+            'longitude' => 107.60960675343809
         ]);
-        Data::create([
-            'title' => 'Monumen Penjara Banceuy',
-            'category_id'=> 2,
-            'slug' => 'Monumen-Penjara-Banceuy',
-            'address' => 'Jl. Banceuy, Braga, Kec. Sumur Bandung, Kota Bandung, Jawa Barat 40111',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Museum Pendidikan Universitas Pendidikan Indonesia',
+            'kategori_id'=> 2,
+            'alamat' => 'Jl. Dr. Setiabudi No.229, Isola, Kec. Sukasari, Kota Bandung, Jawa Barat 40154',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.8597029925046185,
+            'longitude' => 107.59413403385594
         ]);
-        Data::create([
-            'title' => 'Bandung Creative Hub',
-            'category_id'=> 2,
-            'slug' => 'Bandung-Creative-Hub',
-            'address' => 'Jl. Laswi No.7, Kacapiring, Kec. Batununggal, Kota Bandung, Jawa Barat 40271',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Museum Monumen Perjuangan Rakyat Jawa Barat',
+            'kategori_id'=> 2,
+            'alamat' => 'Jl. Dipati Ukur No.48, Lebakgede, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.8933048777411505,
+            'longitude' => 107.61846546508397
+        ]);
+        Wisata::create([
+            'nama_tempat' => 'Gedung Indonesia Menggugat',
+            'kategori_id'=> 2,
+            'alamat' => 'JL Perintis Kemerdekaan, No. 5, Babakan Ciamis, Sumurbandung, Babakan Ciamis, Kec. Sumur Bandung, Kota Bandung, Jawa Barat 40117',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.913715972730282,
+            'longitude' => 107.60802001175111
+        ]);
+        Wisata::create([
+            'nama_tempat' => 'Monumen Penjara Banceuy',
+            'kategori_id'=> 2,
+            'alamat' => 'Jl. Banceuy, Braga, Kec. Sumur Bandung, Kota Bandung, Jawa Barat 40111',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.919452181336206,
+            'longitude' => 107.60670071323673
+        ]);
+        Wisata::create([
+            'nama_tempat' => 'Bandung Creative Hub',
+            'kategori_id'=> 2,
+            'alamat' => 'Jl. Laswi No.7, Kacapiring, Kec. Batununggal, Kota Bandung, Jawa Barat 40271',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.91822543229937,
+            'longitude' => 107.63160196693198
         ]);
 
         // id 3
-        Data::create([
-            'title' => 'Saung Angklung Udjo',
-            'category_id'=> 3,
-            'slug' => 'Saung-Angklung-Udjo',
-            'address' => 'JJl. Padasuka No.118, Pasirlayung, Kec. Cibeunying Kidul, Kota Bandung, Jawa Barat 40192',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Saung Angklung Udjo',
+            'kategori_id'=> 3,
+            'alamat' => 'JJl. Padasuka No.118, Pasirlayung, Kec. Cibeunying Kidul, Kota Bandung, Jawa Barat 40192',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.897571178887923,
+            'longitude' => 107.65468499576704
         ]);
-        Data::create([
-            'title' => 'Padepokan Seni Mayang Sunda',
-            'category_id'=> 3,
-            'slug' => 'Padepokan-Seni-Mayang-Sunda',
-            'address' => 'JJl. Peta No.209, Suka Asih, Kec. Bojongloa Kaler, Kota Bandung, Jawa Barat 40231',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Padepokan Seni Mayang Sunda',
+            'kategori_id'=> 3,
+            'alamat' => 'JJl. Peta No.209, Suka Asih, Kec. Bojongloa Kaler, Kota Bandung, Jawa Barat 40231',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.932718586027287,
+            'longitude' => 107.58989888227353
         ]);
-        Data::create([
-            'title' => 'Teras Sunda Cibiru',
-            'category_id'=> 3,
-            'slug' => 'Teras-Sunda-Cibiru',
-            'address' => 'Jl. Raya Cipadung, Cipadung, Kec. Cibiru, Kota Bandung, Jawa Barat 40614',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Teras Sunda Cibiru',
+            'kategori_id'=> 3,
+            'alamat' => 'Jl. Raya Cipadung, Cipadung, Kec. Cibiru, Kota Bandung, Jawa Barat 40614',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.927199533275138,
+            'longitude' => 107.71136072460273
         ]);
-        Data::create([
-            'title' => 'Pasir Kunci',
-            'category_id'=> 3,
-            'slug' => 'Pasir-Kunci',
-            'address' => 'Jl. Pasir Kunci, Pasirjati, Kec. Ujung Berung, Kota Bandung, Jawa Barat 40616',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Pasir Kunci',
+            'kategori_id'=> 3,
+            'alamat' => 'Jl. Pasir Kunci, Pasirjati, Kec. Ujung Berung, Kota Bandung, Jawa Barat 40616',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.897706562638155,
+            'longitude' => 107.71440711679267
         ]);
-        Data::create([
-            'title' => 'Dago Tea House',
-            'category_id'=> 3,
-            'slug' => 'Dago-Tea-House',
-            'address' => 'Jl. Bukit Dago Selatan No.53A, Dago, Kecamatan Coblong, Kota Bandung, Jawa Barat 40135',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Dago Tea House',
+            'kategori_id'=> 3,
+            'alamat' => 'Jl. Bukit Dago Selatan No.53A, Dago, Kecamatan Coblong, Kota Bandung, Jawa Barat 40135',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.869311868973991,
+            'longitude' => 107.61825483293288
         ]);
-        Data::create([
-            'title' => 'Gedung Rumentang Siang',
-            'category_id'=> 3,
-            'slug' => 'Gedung-Rumentang-Siang',
-            'address' => 'Jl. Baranang Siang No.1, Kb. Pisang, Kec. Sumur Bandung, Kota Bandung, Jawa Barat 40112',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Gedung Rumentang Siang',
+            'kategori_id'=> 3,
+            'alamat' => 'Jl. Baranang Siang No.1, Kb. Pisang, Kec. Sumur Bandung, Kota Bandung, Jawa Barat 40112',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.9194955299786916,
+            'longitude' => 107.62147849391968
         ]);
 
         // id 4
-        Data::create([
-            'title' => 'Trans Studio Bandung',
-            'category_id'=> 4,
-            'slug' => 'Trans-Studio-Bandung',
-            'address' => 'Jl. Gatot Subroto No.289A, Cibangkong, Kec. Batununggal, Kota Bandung, Jawa Barat 40273',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Trans Studio Bandung',
+            'kategori_id'=> 4,
+            'alamat' => 'Jl. Gatot Subroto No.289A, Cibangkong, Kec. Batununggal, Kota Bandung, Jawa Barat 40273',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.92533013136511,
+            'longitude' => 107.63625382460275
         ]);
-        Data::create([
-            'title' => 'Bandung Zoo',
-            'category_id'=> 4,
-            'slug' => 'Bandung-Zoo',
-            'address' => 'Jl. Kebun Binatang No.6, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Bandung Zoo',
+            'kategori_id'=> 4,
+            'alamat' => 'Jl. Kebun Binatang No.6, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.889881360576677,
+            'longitude' => 107.60683389576691
         ]);
-        Data::create([
-            'title' => 'Pandora Experience Bandung',
-            'category_id'=> 4,
-            'slug' => 'Pandora-Experience-Bandung',
-            'address' => 'Jl. Sukajadi No.173A, Cipedes, Kec. Sukajadi, Kota Bandung, Jawa Barat 40162',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Pandora Experience Bandung',
+            'kategori_id'=> 4,
+            'alamat' => 'Jl. Sukajadi No.173A, Cipedes, Kec. Sukajadi, Kota Bandung, Jawa Barat 40162',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.88329741754196,
+            'longitude' => 107.59630922460205
         ]);
-        Data::create([
-            'title' => 'Taman Lalu Lintas Ade Irma Suryani Nasution',
-            'category_id'=> 4,
-            'slug' => 'Taman-Lalu-Lintas',
-            'address' => 'Jl. Belitung No.1, Merdeka, Kec. Sumur Bandung, Kota Bandung, Jawa Barat 40113',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Taman Lalu Lintas Ade Irma Suryani Nasution',
+            'kategori_id'=> 4,
+            'alamat' => 'Jl. Belitung No.1, Merdeka, Kec. Sumur Bandung, Kota Bandung, Jawa Barat 40113',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.910955371934905,
+            'longitude' => 107.61334962460259
         ]);
-        Data::create([
-            'title' => 'Teras Cikapundung BBWS',
-            'category_id'=> 4,
-            'slug' => 'Teras-Cikapundung-BBWS',
-            'address' => 'Jl. Siliwangi, Hegarmanah, Kec. Cidadap, Kota Bandung, Jawa Barat 40131',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Teras Cikapundung BBWS',
+            'kategori_id'=> 4,
+            'alamat' => 'Jl. Siliwangi, Hegarmanah, Kec. Cidadap, Kota Bandung, Jawa Barat 40131',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.884114911921208,
+            'longitude' => 107.60686889576687
         ]);
-        Data::create([
-            'title' => 'Bandung Carnival Land Karang Setra',
-            'category_id'=> 4,
-            'slug' => 'BCL-Karang-Setra',
-            'address' => 'Jl. Sirnagalih No.15, Cipedes, Kec. Sukajadi, Kota Bandung, Jawa Barat 40162',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Bandung Carnival Land Karang Setra',
+            'kategori_id'=> 4,
+            'alamat' => 'Jl. Sirnagalih No.15, Cipedes, Kec. Sukajadi, Kota Bandung, Jawa Barat 40162',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.878372815802828,
+            'longitude' => 107.59470476693141
         ]);
-        Data::create([
-            'title' => 'Centrum Million Balls',
-            'category_id'=> 4,
-            'slug' => 'Centrum-Million-Balls',
-            'address' => 'Jl. Belitung No.10, Merdeka, Kec. Sumur Bandung, Kota Bandung, Jawa Barat 40113',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Centrum Million Balls',
+            'kategori_id'=> 4,
+            'alamat' => 'Jl. Belitung No.10, Merdeka, Kec. Sumur Bandung, Kota Bandung, Jawa Barat 40113',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.912005928489333,
+            'longitude' => 107.61607553809658
         ]);
-        Data::create([
-            'title' => 'Gardenice Rink',
-            'category_id'=> 4,
-            'slug' => 'Gardenice-Rink',
-            'address' => 'Paris Van Java, Lantai SL- 08, Jalan Sukajadi No.137-139 Paris Van Java Sky Level, Cipedes, Kec. Sukajadi, Kota Bandung, Jawa Barat 40162',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Gardenice Rink',
+            'kategori_id'=> 4,
+            'alamat' => 'Paris Van Java, Lantai SL- 08, Jalan Sukajadi No.137-139 Paris Van Java Sky Level, Cipedes, Kec. Sukajadi, Kota Bandung, Jawa Barat 40162',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.890299648384331,
+            'longitude' => 107.59588012968328
         ]);
-        Data::create([
-            'title' => 'Margacinta Park',
-            'category_id'=> 4,
-            'slug' => 'Margacinta-Park',
-            'address' => 'Jl. Margacinta No.98, Cijaura, Kec. Buahbatu, Kota Bandung, Jawa Barat 40287',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Margacinta Park',
+            'kategori_id'=> 4,
+            'alamat' => 'Jl. Margacinta No.98, Cijaura, Kec. Buahbatu, Kota Bandung, Jawa Barat 40287',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.954810344896245,
+            'longitude' => 107.64795482460313
         ]);
-        Data::create([
-            'title' => 'Kiara Artha Park',
-            'category_id'=> 4,
-            'slug' => 'Kiara-Artha-Park',
-            'address' => 'Jl. Banten, Kebonwaru, Kec. Batununggal, Kota Bandung, Jawa Barat 40272',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Kiara Artha Park',
+            'kategori_id'=> 4,
+            'alamat' => 'Jl. Banten, Kebonwaru, Kec. Batununggal, Kota Bandung, Jawa Barat 40272',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.915910876144192,
+            'longitude' => -6.954810344896245
         ]);
-        Data::create([
-            'title' => 'Tepi Kota',
-            'category_id'=> 4,
-            'slug' => 'Tepi-Kota',
-            'address' => ' Jl. Padang Golf, Sukamiskin, Kec. Arcamanik, Kota Bandung, Jawa Barat 40293',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Tepi Kota',
+            'kategori_id'=> 4,
+            'alamat' => ' Jl. Padang Golf, Sukamiskin, Kec. Arcamanik, Kota Bandung, Jawa Barat 40293',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.91094969601049,
+            'longitude' => 107.66953038899508
         ]);
 
         //id 5
-        Data::create([
-            'title' => 'Tani Kota',
-            'category_id'=> 5,
-            'slug' => 'Tani-Kota',
-            'address' => ' Jl. Cisitu Indah VI, Dago, Kecamatan Coblong, Kota Bandung, Jawa Barat 40135',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Tani Kota',
+            'kategori_id'=> 5,
+            'alamat' => ' Jl. Cisitu Indah VI, Dago, Kecamatan Coblong, Kota Bandung, Jawa Barat 40135',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.876727543624047,
+            'longitude' => 107.61104240926066
         ]);
 
         //id 6
-        Data::create([
-            'title' => 'Mesjid Raya Bandung',
-            'category_id'=> 6,
-            'slug' => 'Mesjid-Raya-Bandung',
-            'address' => ' Jl. Dalem Kaum No.14, Balonggede, Kec. Regol, Kota Bandung, Jawa Barat 40251',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Mesjid Raya Bandung',
+            'kategori_id'=> 6,
+            'alamat' => ' Jl. Dalem Kaum No.14, Balonggede, Kec. Regol, Kota Bandung, Jawa Barat 40251',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.9214979814769295,
+            'longitude' => 107.60608625159048
         ]);
-        Data::create([
-            'title' => 'Mesjid Al-Jabbar',
-            'category_id'=> 6,
-            'slug' => 'Mesjid-Al-Jabbar',
-            'address' => ' Jl. Cimencrang No.14, Cimenerang, Kec. Gedebage, Kota Bandung, Jawa Barat 40292',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Mesjid Al-Jabbar',
+            'kategori_id'=> 6,
+            'alamat' => ' Jl. Cimencrang No.14, Cimenerang, Kec. Gedebage, Kota Bandung, Jawa Barat 40292',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.946154887855792,
+            'longitude' => 107.70332953306911
         ]);
 
         //id 7
-        Data::create([
-            'title' => 'Kampung Wisata Kreatif Braga',
-            'category_id'=> 7,
-            'slug' => 'Kampung-Wisata-Kreatif-Braga',
-            'address' => ' Jl. Cimencrang No.14, Cimenerang, Kec. Gedebage, Kota Bandung, Jawa Barat 40292',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Kampung Wisata Kreatif Braga',
+            'kategori_id'=> 7,
+            'alamat' => ' Jl. Cimencrang No.14, Cimenerang, Kec. Gedebage, Kota Bandung, Jawa Barat 40292',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -5.8654727282394825,
+            'longitude' => 117.61818564264613
         ]);
-        Data::create([
-            'title' => 'Kampung Wisata Kreatif Cigadung',
-            'category_id'=> 7,
-            'slug' => 'Kampung-Wisata-Kreatif-Cigadung',
-            'address' => ' Jl. Cimencrang No.14, Cimenerang, Kec. Gedebage, Kota Bandung, Jawa Barat 40292',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Kampung Wisata Kreatif Cigadung',
+            'kategori_id'=> 7,
+            'alamat' => ' Jl. Cimencrang No.14, Cimenerang, Kec. Gedebage, Kota Bandung, Jawa Barat 40292',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.8454727282394825,
+            'longitude' => 107.61318564264613
         ]);
-        Data::create([
-            'title' => 'Kampung Wisata Kreatif Rajut Binong Jati',
-            'category_id'=> 7,
-            'slug' => 'Kampung-Wisata-Kreatif-Rajut-Binong-Jati',
-            'address' => ' Jl. Cimencrang No.14, Cimenerang, Kec. Gedebage, Kota Bandung, Jawa Barat 40292',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Kampung Wisata Kreatif Rajut Binong Jati',
+            'kategori_id'=> 7,
+            'alamat' => ' Jl. Cimencrang No.14, Cimenerang, Kec. Gedebage, Kota Bandung, Jawa Barat 40292',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.8656727282394825,
+            'longitude' => 107.61018564264613
         ]);
-        Data::create([
-            'title' => 'Kampung Wisata Kreatif Literasi Cinambo',
-            'category_id'=> 7,
-            'slug' => 'Kampung-Wisata-Kreatif-Literasi-Cinambo',
-            'address' => ' Jl. Cimencrang No.14, Cimenerang, Kec. Gedebage, Kota Bandung, Jawa Barat 40292',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Kampung Wisata Kreatif Literasi Cinambo',
+            'kategori_id'=> 7,
+            'alamat' => ' Jl. Cimencrang No.14, Cimenerang, Kec. Gedebage, Kota Bandung, Jawa Barat 40292',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.8654727582394825,
+            'longitude' => 107.61818364264613
         ]);
-        Data::create([
-            'title' => 'Kampung Wisata Kreatif Cigondewah',
-            'category_id'=> 7,
-            'slug' => 'Kampung-WisataKreatif-Cigondewah',
-            'address' => ' Jl. Cimencrang No.14, Cimenerang, Kec. Gedebage, Kota Bandung, Jawa Barat 40292',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Kampung Wisata Kreatif Cigondewah',
+            'kategori_id'=> 7,
+            'alamat' => ' Jl. Cimencrang No.14, Cimenerang, Kec. Gedebage, Kota Bandung, Jawa Barat 40292',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.8654727282194825,
+            'longitude' => 107.61818564364613
         ]);
-        Data::create([
-            'title' => 'Kampung Wisata Kreatif Pasir Kunci',
-            'category_id'=> 7,
-            'slug' => 'Kampung-Wisata-Kreatif-Pasir-Kunci',
-            'address' => ' Jl. Cimencrang No.14, Cimenerang, Kec. Gedebage, Kota Bandung, Jawa Barat 40292',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Kampung Wisata Kreatif Pasir Kunci',
+            'kategori_id'=> 7,
+            'alamat' => ' Jl. Cimencrang No.14, Cimenerang, Kec. Gedebage, Kota Bandung, Jawa Barat 40292',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.8654727282395825,
+            'longitude' => 107.61818564264611
         ]);
-        Data::create([
-            'title' => 'Kampung Wisata Kreatif Cibaduyut',
-            'category_id'=> 7,
-            'slug' => 'Kampung-Wisata-Kreatif-Cibaduyut',
-            'address' => ' Jl. Cimencrang No.14, Cimenerang, Kec. Gedebage, Kota Bandung, Jawa Barat 40292',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Kampung Wisata Kreatif Cibaduyut',
+            'kategori_id'=> 7,
+            'alamat' => ' Jl. Cimencrang No.14, Cimenerang, Kec. Gedebage, Kota Bandung, Jawa Barat 40292',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.8654727282394829,
+            'longitude' => 107.51818564264613
         ]);
-        Data::create([
-            'title' => 'Kampung Wisata Kreatif Gedebage',
-            'category_id'=> 7,
-            'slug' => 'Kampung-Wisata-Kreatif-Gedebage',
-            'address' => ' Jl. Cimencrang No.14, Cimenerang, Kec. Gedebage, Kota Bandung, Jawa Barat 40292',
-            'excerpt'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit...........',
-            'body'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?
-            At consequuntur quis, voluptatibus accusamus aliquam maiores iusto quod, temporibus rem debitis reprehenderit laudantium ratione numquam expedita cumque iure nam molestias nisi officiis cum.
-            Inventore enim repellendus maxime culpa suscipit veniam blanditiis tenetur vel animi deserunt omnis, tempora dolores. Odit, libero quae. Quo quam laudantium laborum voluptatibus consequuntur!'
+        Wisata::create([
+            'nama_tempat' => 'Kampung Wisata Kreatif Gedebage',
+            'kategori_id'=> 7,
+            'alamat' => ' Jl. Cimencrang No.14, Cimenerang, Kec. Gedebage, Kota Bandung, Jawa Barat 40292',
+            'gambar'=> '',
+            'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
+            'latitude' => -6.8659727282394825,
+            'longitude' => 107.61815564264613
         ]);
 
 }

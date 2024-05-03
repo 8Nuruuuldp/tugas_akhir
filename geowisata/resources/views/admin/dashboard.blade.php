@@ -78,6 +78,12 @@
                 <h3 class="m-16">Peta Wisata</h3>
             </div>
             <div id="map">
+
+                <div class="formBlock">
+                    <form id="form">
+                        <input type="text" name="search" class="input" id="searchInput" placeholder="Search..."/>
+                    </form>
+                </div>
                 <script>
 
                     var map = L.map('map').setView([-6.914744, 107.609810], 10);
@@ -109,6 +115,29 @@
                             });
                         });
                     });
+
+                    // Fungsi untuk mencari lokasi
+                    function searchLocation() {
+                        var query = document.getElementById('searchInput').value;
+                        // Lakukan permintaan geocoding ke Nominatim API
+                        fetch('https://nominatim.openstreetmap.org/search?format=json&q=' + query)
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data && data.length > 0) {
+                                    var result = data[0];
+                                    var latlng = [parseFloat(result.lat), parseFloat(result.lon)];
+                                    // Memusatkan peta ke lokasi hasil pencarian
+                                    map.setView(latlng, 13);
+                                    // Menambahkan marker ke lokasi hasil pencarian
+                                    L.marker(latlng).addTo(map)
+                                        .bindPopup(result.display_name)
+                                        .openPopup();
+                                } else {
+                                    alert('Lokasi tidak ditemukan');
+                                }
+                            })
+                            .catch(error => console.error('Error:', error));
+}
 
                 </script>
 
@@ -146,11 +175,7 @@
 
                 </style>
 
-        <div class="formBlock">
-            <form id="form">
-                <input type="text" name="start" class="input" id="start" placeholder="Cari Wilayah" />
-            </form>
-        </div>
+
             </div>
 
 

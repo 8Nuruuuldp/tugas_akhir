@@ -229,14 +229,15 @@
 
         <form action="/">
             <div class="flex gap-2">
-                <input name="" type="text" placeholder="Search..." value="{{request('search')}}"
+                <input name="" id="searchInput" type="text" placeholder="Search..."
+
                     class="w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500">
-                    {{-- <select name="kategori_id" id="" class="w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500">
-                        @foreach ($table_kategori as $kategori)
+                    <select name="kategori_id" id="" class="w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500">
+                        {{-- @foreach ($kategori as $d)
                         <option value="">Kategori Wisata</option>
-                        <option value="{{$kategori->id}}" >{{$kategori->nama_kategori}}</option>
-                        @endforeach
-                    </select> --}}
+                        <option value="{{$d->id}}" >{{$d->nama_kategori}}</option>
+                        @endforeach --}}
+                    </select>
                 <button type="submit" class="bg-green-500 text-white rounded px-2 md:px-3 py-0 md:py-1">Search</button>
             </div>
         </form>
@@ -327,6 +328,38 @@
         }
         };
 
+
+        document.getElementById('searchInput').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        searchLocation();
+    }
+});
+
+document.getElementById('searchInput').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        searchLocation();
+    }
+});
+
+function searchLocation() {
+    var query = document.getElementById('searchInput').value;
+    fetch('/locations/search', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'point/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        },
+        body: JSON.stringify({
+            query: query
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Tampilkan lokasi hasil pencarian pada peta
+        console.log(data);
+    })
+    .catch(error => console.error('Error:', error));
+}
 
     </script>
 

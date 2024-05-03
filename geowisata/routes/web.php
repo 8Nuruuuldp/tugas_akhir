@@ -27,7 +27,7 @@ Route::get('/', function () {
     return view ('welcome');
 });
 
-// Route::get('/datawisata', [PostController::class, 'index']);
+// Route::get('/', [PostController::class, 'index']);
 // Route::get('/posts/{post::slug}', [PostController::class, 'show']);
 
 // Route::get('/categories', function() {
@@ -81,6 +81,12 @@ Route::get('/user/{id}/delete', [UserController::class, 'destroy']);
 Route::get('/petawisata', function () {
     return view ('petawisata');
 });
+Route::get('/hwisata', function () {
+    return view ('hwisata');
+});
+
+Route::post('/locations/search', [WisataController::class, 'search']);
+
 
 //Routing CRUD Data Kategori
 Route::get('/kategori', [KategoriController::class, 'index']);
@@ -90,4 +96,3 @@ Route::get('/kategori/{id}/edit', [KategoriController::class, 'edit']);
 Route::post('/kategori/{id}/update', [KategoriController::class, 'update']);
 Route::get('/kategori/{id}/delete', [KategoriController::class, 'destroy']);
 
-Route::get('/welcome/search', [WisataController::class, 'search']);
