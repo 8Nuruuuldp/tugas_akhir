@@ -81,10 +81,20 @@
 
                 <div class="formBlock">
                     <form action="/dashboard">
-                        <input type="text" name="search" class="form-control" id="searchInput" placeholder="Search..."/>
+                        <div class="input-group mb-3">
+                            <input type="text" name="search" class="form-control" id="searchInput" placeholder="Search..."/>
+                            <span class=""><i class="bi bi-search fa-2x p-2"></i></span>
+                            <a href="#"><i class="bi bi-sign-turn-right-fill fa-2x active"></i></a>
+                        </div>
                     </form>
                 </div>
                 <script>
+
+                    var data = [
+                        <?php foreach($wisata as $wisata => $value) { ?>
+                            {"lokasi":[<?= $value->latitude?> , <?= $value->longitude?> , <?= $value->kategori_id?>], "nama_tempat":"<?= $value->nama_tempat?>],"},
+                        <?php } ?>
+                    ];
 
                     var map = L.map('map').setView([-6.914744, 107.609810], 10);
 
@@ -136,18 +146,6 @@
                     box-shadow: 0 1px 5px rgba(0,0,0,0.65);
                     border-radius: 5px;
                     width: 100%;
-                }
-
-                .leaflet-top .leaflet-control {
-                    margin-top: 180px;
-                }
-
-                .form-control  {
-                    padding: 10px;
-                    width: 90%;
-                    border: 1px solid #ddd;
-                    font-size: 15px;
-                    border-radius: 3px;
                 }
 
                 </style>

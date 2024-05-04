@@ -27,11 +27,11 @@
 
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 
-    <script src="https://cdn.maptiler.com/maptiler-geocoding-control/v1.2.0/leaflet.umd.js"></script>
-<link href="https://cdn.maptiler.com/maptiler-geocoding-control/v1.2.0/style.css" rel="stylesheet">
+        <script src="https://cdn.maptiler.com/maptiler-geocoding-control/v1.2.0/leaflet.umd.js"></script>
+    <link href="https://cdn.maptiler.com/maptiler-geocoding-control/v1.2.0/style.css" rel="stylesheet">
 
-<link rel="stylesheet" href="https://opengeo.tech/maps/leaflet-search/src/leaflet-search.css">
-    <script src="https://opengeo.tech/maps/leaflet-search/dist/leaflet-search.src.js"></script>
+    <link rel="stylesheet" href="https://opengeo.tech/maps/leaflet-search/src/leaflet-search.css">
+        <script src="https://opengeo.tech/maps/leaflet-search/dist/leaflet-search.src.js"></script>
 
 </head>
 <body>
