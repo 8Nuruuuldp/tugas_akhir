@@ -60,14 +60,13 @@ class WisataController extends Controller
             'nama_tempat' => 'required',
             'kategori_id' => 'required',
             'alamat' => 'required',
-            'gambar' => 'required',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'deskripsi' => 'required',
             'latitude' => 'required',
             'latitude' => 'required',
             'longitude' => 'required',
         ]);
-        
-        //dd($request->all());
+
         $nm = $request->gambar;
         $namaFile = time().rand(100,999).".".$nm->getClientOriginalName();
 
@@ -109,12 +108,6 @@ class WisataController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //$wisata = Wisata::find($id);
-        //$wisata->update($request->all());
-        //$wisata->save();
-
-        //return redirect('/wisata')->with('success', 'Data berhasil diperbarui!');
-
         $wisata = Wisata::find($id);
         $ubah = Wisata::find($id);
         $awal = $ubah->gambar;
@@ -128,9 +121,9 @@ class WisataController extends Controller
             'latitude' => $request['latitude'],
             'longitude' => $request['longitude'],
         ];
-
         $request->gambar->move(public_path().'/img', $awal);
         $ubah->update($wisata);
+        //dd($request->all());
         return redirect('/wisata')->with('success', 'Data berhasil diperbarui!');
     }
 
