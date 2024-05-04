@@ -63,7 +63,7 @@ class WisataController extends Controller
             'latitude' => 'required',
             'longitude' => 'required',
         ]);
-        
+
         //dd($request->all());
         $nm = $request->gambar;
         $namaFile = time().rand(100,999).".".$nm->getClientOriginalName();

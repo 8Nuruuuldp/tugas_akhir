@@ -235,14 +235,16 @@
 
         <form>
             <div class="flex gap-2">
-                <input name="" id="searchInput" type="text" placeholder="Search..." value="{{request('search')}}"
+                <input name="searchInput" id="searchInput" type="text" placeholder="Search..." value="{{request('search')}}"
                     class="w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500">
-                    <select class="w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500" onchange="cari(this.value)">
-                        {{-- @foreach ($kategori as $kategori)
-                        <option value="">Kategori Wisata</option>
-                        <option value="{{$kategori->id}}" >{{$kategori->nama_kategori}}</option>
-                        @endforeach --}}
-                    </select>
+                    <label for="kategori">
+                        <select class="w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500" onchange="search(this.value)">
+                            <option value="">Kategori Wisata</option>
+                            @foreach ($kategori as $kategori)
+                            <option value="{{$kategori->id}}" >{{$kategori->nama_kategori}}</option>
+                            @endforeach
+                        </select>
+                    </label>
                 <button type="submit" class="bg-green-500 text-white rounded px-2 md:px-3 py-0 md:py-1">Search</button>
             </div>
         </form>
@@ -298,6 +300,12 @@
     </section>
 
     <script>
+        var data = [
+            <?php foreach($wisata as $wisata => $value) { ?>
+                {"lokasi":[<?= $value->latitude?> , <?= $value->longitude?> , <?= $value->kategori_id?>], "nama_tempat":"<?= $value->nama_tempat?>],"},
+            <?php } ?>
+        ];
+
         var map = L.map('map').setView([-6.914744, 107.609810], 10);
 
         map.zoomControl.setPosition('bottomright')
