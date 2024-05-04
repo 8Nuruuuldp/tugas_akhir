@@ -44,20 +44,20 @@
             <div class="card-body">
                 <p class="login-box-msg h2"><b>Login</b></p>
 
-                <form action="/postlogin" method="post">
+                <form action="{{ route('postlogin') }}" method="post">
                     {{csrf_field()}}
-                    <p>Email</p>
+                    <label for="email">Email</label>
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="Email" name="email">
+                        <input type="email" class="form-control" placeholder="Email" id="email" name="email">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
                             </div>
                         </div>
                     </div>
-                    <p>Password</p>
+                    <label for="password">Password</label>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password"  name="password">
+                        <input type="password" class="form-control" placeholder="Password" id="email" name="password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
