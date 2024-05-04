@@ -27,7 +27,7 @@ Route::get('/', function () {
     return view ('welcome');
 });
 
-// Route::get('/', [PostController::class, 'index']);
+Route::get('/', [PostController::class, 'index']);
 // Route::get('/posts/{post::slug}', [PostController::class, 'show']);
 
 // Route::get('/categories', function() {
@@ -84,8 +84,6 @@ Route::get('/petawisata', function () {
 Route::get('/hwisata', function () {
     return view ('hwisata');
 });
-
-Route::post('/locations/search', [WisataController::class, 'search']);
 
 
 //Routing CRUD Data Kategori

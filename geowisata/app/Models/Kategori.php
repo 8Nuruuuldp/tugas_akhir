@@ -16,10 +16,10 @@ class Kategori extends Model
         return $this->hasMany(Wisata::class);
     }
 
-    public function allKategori(){
-        $result = DB::table('table_kategori')
-        ->select('id', 'nama_kategori')
-        ->get();
-        return $result;
-    }
+    // public function allKategori(){
+    //     $result = DB::table('table_kategori')
+    //     ->select('id', 'nama_kategori')
+    //     ->get();
+    //     return $result;
+    // }
 }

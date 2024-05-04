@@ -80,8 +80,8 @@
             <div id="map">
 
                 <div class="formBlock">
-                    <form id="form">
-                        <input type="text" name="search" class="input" id="searchInput" placeholder="Search..."/>
+                    <form action="/dashboard">
+                        <input type="text" name="search" class="form-control" id="searchInput" placeholder="Search..."/>
                     </form>
                 </div>
                 <script>
@@ -116,29 +116,6 @@
                         });
                     });
 
-                    // Fungsi untuk mencari lokasi
-                    function searchLocation() {
-                        var query = document.getElementById('searchInput').value;
-                        // Lakukan permintaan geocoding ke Nominatim API
-                        fetch('https://nominatim.openstreetmap.org/search?format=json&q=' + query)
-                            .then(response => response.json())
-                            .then(data => {
-                                if (data && data.length > 0) {
-                                    var result = data[0];
-                                    var latlng = [parseFloat(result.lat), parseFloat(result.lon)];
-                                    // Memusatkan peta ke lokasi hasil pencarian
-                                    map.setView(latlng, 13);
-                                    // Menambahkan marker ke lokasi hasil pencarian
-                                    L.marker(latlng).addTo(map)
-                                        .bindPopup(result.display_name)
-                                        .openPopup();
-                                } else {
-                                    alert('Lokasi tidak ditemukan');
-                                }
-                            })
-                            .catch(error => console.error('Error:', error));
-}
-
                 </script>
 
                 <style>
@@ -148,7 +125,7 @@
                     }
 
                     .formBlock {
-                    max-width: 300px;
+                    max-width: 380px;
                     background-color: #FFF;
                     border: 1px solid #ddd;
                     position: absolute;
@@ -165,17 +142,15 @@
                     margin-top: 180px;
                 }
 
-                .input {
+                .form-control  {
                     padding: 10px;
-                    width: 100%;
+                    width: 90%;
                     border: 1px solid #ddd;
                     font-size: 15px;
                     border-radius: 3px;
                 }
 
                 </style>
-
-
             </div>
 
 

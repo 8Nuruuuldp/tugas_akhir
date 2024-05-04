@@ -24,14 +24,11 @@ class WisataController extends Controller
         return json_encode($result);
     }
 
+    // public function wisatas(){
+    //     $results=$this->Wisata->allKategori();
+    //     return view('welcome', ['kategori'=>results]);
+    // }
 
-    public function search(Request $request)
-    {
-        $query = $request->input('query');
-        $table_wisata = Wisata::where('name', 'like', '%' . $query . '%')->get();
-
-        return response()->json($table_wisata);
-    }
 
     public function index()
     {
@@ -60,7 +57,7 @@ class WisataController extends Controller
             'nama_tempat' => 'required',
             'kategori_id' => 'required',
             'alamat' => 'required',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'gambar' => 'required',
             'deskripsi' => 'required',
             'latitude' => 'required',
             'latitude' => 'required',

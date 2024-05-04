@@ -128,20 +128,6 @@
 <<<<<<< HEAD
 
 
-        // var markersLayer = new L.LayerGroup();
-
-        // map.addLayer(markersLayer);
-
-        // var controlSearch = new L.Control.Search({
-        //     container: 'form',
-        //     position:'topright',
-        //     layer: markersLayer,
-        //     initial: false,
-        //     zoom: 17,
-        //     marker: false
-        // });
-
-        // map.addControl( controlSearch );
 
 =======
 >>>>>>> beeb2743ba4044e3fa7dd368e6c6b6338ac76029
