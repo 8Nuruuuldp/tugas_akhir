@@ -56,6 +56,17 @@ class WisataController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'nama_tempat' => 'required',
+            'kategori_id' => 'required',
+            'alamat' => 'required',
+            'gambar' => 'required',
+            'deskripsi' => 'required',
+            'latitude' => 'required',
+            'latitude' => 'required',
+            'longitude' => 'required',
+        ]);
+        
         //dd($request->all());
         $nm = $request->gambar;
         $namaFile = time().rand(100,999).".".$nm->getClientOriginalName();
