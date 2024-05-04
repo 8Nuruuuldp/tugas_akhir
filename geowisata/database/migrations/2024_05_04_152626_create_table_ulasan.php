@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('table_ulasan', function (Blueprint $table) {
             $table->id();
-    
+            $table->foreignId('wisata_id') // foreign key
+                  ->constrained('table_wisata')
+                  ->onDelete('cascade');
+            $table->unsignedInteger('rating');
+            $table->text('ulasan');
+            $table->string('nama_pengulas');
+            $table->string('email_pengulas');
             $table->timestamps();
         });
     }
