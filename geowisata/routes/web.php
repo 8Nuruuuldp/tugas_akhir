@@ -85,8 +85,6 @@ Route::get('/hwisata', function () {
     return view ('hwisata');
 });
 
-Route::post('/locations/search', [WisataController::class, 'search']);
-
 
 //Routing CRUD Data Kategori
 Route::get('/kategori', [KategoriController::class, 'index']);

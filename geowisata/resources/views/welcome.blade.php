@@ -25,7 +25,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.js" charset="utf-8"></script>
 
-     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+
+    <script src="https://cdn.maptiler.com/maptiler-geocoding-control/v1.2.0/leaflet.umd.js"></script>
+<link href="https://cdn.maptiler.com/maptiler-geocoding-control/v1.2.0/style.css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://opengeo.tech/maps/leaflet-search/src/leaflet-search.css">
+    <script src="https://opengeo.tech/maps/leaflet-search/dist/leaflet-search.src.js"></script>
 
 </head>
 <body>
@@ -227,15 +233,14 @@
             Peta Wisata
         </h4>
 
-        <form action="/">
+        <form>
             <div class="flex gap-2">
-                <input name="" id="searchInput" type="text" placeholder="Search..."
-
+                <input name="" id="searchInput" type="text" placeholder="Search..." value="{{request('search')}}"
                     class="w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500">
-                    <select name="kategori_id" id="" class="w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500">
-                        {{-- @foreach ($kategori as $d)
+                    <select class="w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500" onchange="cari(this.value)">
+                        {{-- @foreach ($kategori as $kategori)
                         <option value="">Kategori Wisata</option>
-                        <option value="{{$d->id}}" >{{$d->nama_kategori}}</option>
+                        <option value="{{$kategori->id}}" >{{$kategori->nama_kategori}}</option>
                         @endforeach --}}
                     </select>
                 <button type="submit" class="bg-green-500 text-white rounded px-2 md:px-3 py-0 md:py-1">Search</button>
@@ -321,45 +326,6 @@
             });
         });
 
-        document.getElementById("hamburger").onclick = function toggleMenu() {
-        const navToggle = document.getElementsByClassName("toggle");
-        for (let i = 0; i < navToggle.length; i++) {
-            navToggle.item(i).classList.toggle("hidden");
-        }
-        };
-
-
-        document.getElementById('searchInput').addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
-        searchLocation();
-    }
-});
-
-document.getElementById('searchInput').addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
-        searchLocation();
-    }
-});
-
-function searchLocation() {
-    var query = document.getElementById('searchInput').value;
-    fetch('/locations/search', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'point/json',
-            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-        },
-        body: JSON.stringify({
-            query: query
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        // Tampilkan lokasi hasil pencarian pada peta
-        console.log(data);
-    })
-    .catch(error => console.error('Error:', error));
-}
 
     </script>
 

@@ -17,23 +17,18 @@ class Wisata extends Model
         return $this->belongsTo(Kategori::class);
     }
 
-    public function scopeFilter($query, array $filters)
-    {
 
-        $query->when($filters['search'] ?? false, function($query, $search) {
-            return $query->where('title', 'like', '%' . $search . '%')
-                ->orWhere('address', 'like', '%' . $search . '%');
-        });
-
-    }
-
-    // public function search(){
-    //     $data = array (
-    //         'tps' => $this->table_wisata->get_all_data()
-    //     )
-
-    //     $this->load->view()
+    // public function allData(){
+    //     $results = DB::table('table_wisata')
+    //     ->select('nama_tempat', 'kategori_id', 'alamat', 'gambar', 'deskripsi', 'latitude', 'longitude')
+    //     ->get();
+    //     return $results;
     // }
 
-
+    // public function allKategori(){
+    //     $results = DB::table('table_kategori')
+    //     ->select('id', 'nama_kategori')
+    //     ->get();
+    //     return $results;
+    // }
 }
