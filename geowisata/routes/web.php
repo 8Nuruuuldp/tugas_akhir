@@ -9,8 +9,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\WisataController;
 use App\Http\Controllers\KategoriController;
-
-
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +24,7 @@ use App\Http\Controllers\KategoriController;
 */
 
 Route::get('/', function () {
-    return view ('welcome');
+    return view('welcome');
 });
 
 Route::get('/', [PostController::class, 'index']);
@@ -50,16 +50,18 @@ Route::get('/', [PostController::class, 'index']);
 Route::get('point/json', [WisataController::class, 'wisata']);
 
 //Routing user
-Route::get('/register', [AuthController::class, 'register'])->name('register');
-Route::post('/postregister', [AuthController::class, 'postregister'])->name('postregister');
 
-Route::get('/login', [AuthController::class, 'login'])->name('login');
-Route::post('/postlogin', [AuthController::class, 'postlogin'])->name('postlogin');
+
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
+
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
+Route::post('/register', [RegisterController::class, 'store']);
 
 // Routing Dashboard Admin
 Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
-Route::get('/login', [AuthController::class, 'login']);
-Route::get('/register', [AuthController::class, 'register'])->name('register');
+
 
 //Routing Read Data User
 Route::get('/user', [UserController::class, 'index']);
@@ -79,10 +81,10 @@ Route::get('/user/{id}/delete', [UserController::class, 'destroy']);
 
 //
 Route::get('/petawisata', function () {
-    return view ('petawisata');
+    return view('petawisata');
 });
 Route::get('/hwisata', function () {
-    return view ('hwisata');
+    return view('hwisata');
 });
 
 
@@ -93,4 +95,3 @@ Route::post('/kategori/store', [KategoriController::class, 'store']);
 Route::get('/kategori/{id}/edit', [KategoriController::class, 'edit']);
 Route::post('/kategori/{id}/update', [KategoriController::class, 'update']);
 Route::get('/kategori/{id}/delete', [KategoriController::class, 'destroy']);
-
