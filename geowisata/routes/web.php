@@ -60,7 +60,7 @@ Route::get('/register', [RegisterController::class, 'index'])->middleware('guest
 Route::post('/register', [RegisterController::class, 'store']);
 
 // Routing Dashboard Admin
-Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 
 
 //Routing Read Data User
