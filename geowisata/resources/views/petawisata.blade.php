@@ -22,12 +22,6 @@
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
         crossorigin="anonymous"></script>
 
-<<<<<<< HEAD
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/gokertanrisever/leaflet-ruler@master/src/leaflet-ruler.css" integrity="sha384-P9DABSdtEY/XDbEInD3q+PlL+BjqPCXGcF8EkhtKSfSTr/dS5PBKa9+/PMkW2xsY" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/gh/gokertanrisever/leaflet-ruler@master/src/leaflet-ruler.js" integrity="sha384-N2S8y7hRzXUPiepaSiUvBH1ZZ7Tc/ZfchhbPdvOE5v3aBBCIepq9l+dBJPFdo1ZJ" crossorigin="anonymous"></script>
-
-=======
->>>>>>> beeb2743ba4044e3fa7dd368e6c6b6338ac76029
         <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
         <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
 
@@ -44,16 +38,7 @@
 
 </head>
 <body>
-<<<<<<< HEAD
-    <div class="rounded" id="map"></div>
-    <div class="formBlock">
-        <form id="form">
-            <input type="text" name="start" class="input" id="start" placeholder="Cari Wilayah" />
-        </form>
-    </div>
-=======
     <div class="map rounded" id="map"></div>
->>>>>>> beeb2743ba4044e3fa7dd368e6c6b6338ac76029
 
     <style>
         #map {
@@ -120,17 +105,11 @@
 
                     L.marker ([parseFloat(data[index].latitude),parseFloat(data[index].longitude)])
                     .addTo(map)
-                    .bindPopup('<div class="anialiased text-gray-900"><div class"min-h-screen p-8 flex items-center justify-center"><div class="bg-white rounded-lg overflow-hidden shadow-2xl xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2"><img class="h-48 w-full object-cover object-end" src="./img/' + data[index].gambar + '">'+'<div class="p-6"><h4 clas="mt-2 font-bold text-lg truncate">'+data[index].nama_tempat+'</h4><div class="my-2"><strong>Alamat</strong> :<br>'+data[index].alamat+'</div><div class="my-2"><a href="/hwisata" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center">Lihat Selengkapnya</a><a href="/hwisata" class="py-2 text-blue-500 rounded shadow-md hover:bg-blue-300 active:bg-blue-700 disabled:opacity-50 mt-2 w-full flex items-center justify-center">Ayo kesana!</button></div></div></div></div>');
+                    .bindPopup('<div class"min-h-screen flex items-center justify-center"><div class="bg-white rounded-lg overflow-hidden shadow-2xl xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2"><img class="h-48 w-full object-cover object-end" src="./img/' + data[index].gambar + '">'+'<div class="p-6"><h4 class="mt-2 font-bold text-lg truncate">'+data[index].nama_tempat+'</h4><div class=""> <br>'+data[index].alamat+'</div><div class="my-2"><a href="/hwisata" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center">Lihat Selengkapnya</a><a href="" class="py-2 text-blue-500 rounded shadow-md hover:bg-blue-300 active:bg-blue-700 disabled:opacity-50 mt-2 w-full flex items-center justify-center">Ayo kesana!</a></div></div></div></div>');
                 });
             });
         });
 
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> beeb2743ba4044e3fa7dd368e6c6b6338ac76029
     </script>
 </body>
 </html>

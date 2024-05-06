@@ -64,7 +64,6 @@ class WisataController extends Controller
             'gambar' => 'required',
             'deskripsi' => 'required',
             'latitude' => 'required',
-            'latitude' => 'required',
             'longitude' => 'required',
         ]);
 
