@@ -1,7 +1,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="Admin/index3.html" class="brand-link">
+    <a href="/dashboard" class="brand-link">
         <img src="/Admin/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
             style="opacity: .8">
         <span class="brand-text font-weight-light">Bandung Geowisata</span>
@@ -95,7 +95,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="/ulasan" class="nav-link">
                                 <i class="nav-icon fas fa-table"></i>
                                 <p>
                                     Lihat Ulasan
@@ -108,12 +108,11 @@
                 <li class="nav-item">
                     <form action="/logout" method="post">
                         @csrf
-                        <button type="submit" class="btn btn-light dropdown-item">
+                        <button type="submit" class="btn btn-light dropdown-item" onclick="return confirm('Apakah Anda yakin ingin keluar dari Dasbor Admin')">
                             <i class="nav-icon fas fa-sign-out-alt"></i>
                             Keluar
                         </button>
                     </form>
-
                 </li>
             </ul>
         </nav>

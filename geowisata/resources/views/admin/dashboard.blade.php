@@ -67,7 +67,10 @@
 
                         <div class="info-box-content">
                             <span class="info-box-text">Jumlah Ulasan</span>
-                            <span class="info-box-number">760</span>
+                            <span class="info-box-number">
+                                {{App\Models\Ulasan::count()}}
+                                <small><a href="/ulasan">Ulasan</a></small>
+                            </span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>

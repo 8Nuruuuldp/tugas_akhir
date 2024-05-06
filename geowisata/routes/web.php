@@ -11,6 +11,7 @@ use App\Http\Controllers\WisataController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\UlasanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,6 +67,8 @@ Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard
 
 //Routing Read Data User
 Route::get('/user', [UserController::class, 'index']);
+// delete data user
+Route::get('/user/{id}/delete', [UserController::class, 'destroy']);
 
 //Routing CRUD Data Wisata
 Route::get('/wisata', [WisataController::class, 'index']);
@@ -76,9 +79,6 @@ Route::post('/wisata/store', [WisataController::class, 'store'])->name('store.wi
 Route::get('/wisata/{id}/edit', [WisataController::class, 'edit']);
 Route::post('/wisata/{id}/update', [WisataController::class, 'update']);
 Route::get('/wisata/{id}/delete', [WisataController::class, 'destroy']);
-
-// delete data user
-Route::get('/user/{id}/delete', [UserController::class, 'destroy']);
 
 //
 Route::get('/petawisata', function () {
@@ -96,3 +96,6 @@ Route::post('/kategori/store', [KategoriController::class, 'store']);
 Route::get('/kategori/{id}/edit', [KategoriController::class, 'edit']);
 Route::post('/kategori/{id}/update', [KategoriController::class, 'update']);
 Route::get('/kategori/{id}/delete', [KategoriController::class, 'destroy']);
+
+//Routing Menampilkan Ulasan di Admin
+Route::get('/ulasan', [UlasanController::class, 'index']);
