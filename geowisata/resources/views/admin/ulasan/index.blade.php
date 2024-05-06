@@ -51,7 +51,11 @@
                                     <tr>
                                         <td>{{$no++}}</td>
                                         <td>{{$ulasan->wisata->nama_tempat}}</td>
-                                        <td>{{$ulasan->rating}}</td>
+                                        <td>
+                                            @for($i=0; $i<$ulasan->rating; $i++)
+                                            <i class="fas fa-star" style="color: orange;">
+                                            @endfor 
+                                        </td>
                                         <td>{{$ulasan->ulasan}}</td>
                                         <td>{{$ulasan->nama_pengulas}}</td>
                                         <td>{{$ulasan->email_pengulas}}</td>
