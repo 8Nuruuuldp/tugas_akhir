@@ -67,7 +67,10 @@
 
                         <div class="info-box-content">
                             <span class="info-box-text">Jumlah Ulasan</span>
-                            <span class="info-box-number">760</span>
+                            <span class="info-box-number">
+                                {{App\Models\Ulasan::count()}}
+                                <small><a href="/ulasan">Ulasan</a></small>
+                            </span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -78,12 +81,28 @@
                 <h3 class="m-16">Peta Wisata</h3>
             </div>
             <div id="map">
+
+                <div class="formBlock">
+                    <form action="/dashboard">
+                        <div class="input-group mb-3">
+                            <input type="text" name="search" class="form-control" id="searchInput" placeholder="Search..."/>
+                            <span class=""><i class="bi bi-search fa-2x p-2"></i></span>
+                            <a href="#"><i class="bi bi-sign-turn-right-fill fa-2x active"></i></a>
+                        </div>
+                    </form>
+                </div>
                 <script>
-        
+
+                    var data = [
+                        <?php foreach($wisata as $wisata => $value) { ?>
+                            {"lokasi":[<?= $value->latitude?> , <?= $value->longitude?> , <?= $value->kategori_id?>], "nama_tempat":"<?= $value->nama_tempat?>],"},
+                        <?php } ?>
+                    ];
+
                     var map = L.map('map').setView([-6.914744, 107.609810], 10);
 
                     map.zoomControl.setPosition('bottomright')
-            
+
                     L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
                         maxZoom: 20,
                         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -111,14 +130,31 @@
                     });
 
                 </script>
-            
+
                 <style>
                     #map {
                         height: 100vh;
                         width: 100%;
                     }
+
+                    .formBlock {
+                    max-width: 380px;
+                    background-color: #FFF;
+                    border: 1px solid #ddd;
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    padding: 10px;
+                    z-index: 999;
+                    box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+                    border-radius: 5px;
+                    width: 100%;
+                }
+
                 </style>
             </div>
+
+
         </div>
     </section>
     <!-- /.row -->

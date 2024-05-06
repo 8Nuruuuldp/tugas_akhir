@@ -36,6 +36,22 @@
 <body
     class="hold-transition login-page bg-[url('https://images.unsplash.com/photo-1549473889-14f410d83298?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] flex justify-center items-center h-screen">
     <div class="login-box">
+
+        @if (session()->has('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+
+        @if (session()->has('loginError'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ session('loginError') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+
+
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
@@ -44,20 +60,30 @@
             <div class="card-body">
                 <p class="login-box-msg h2"><b>Login</b></p>
 
-                <form action="/postlogin" method="post">
-                    {{csrf_field()}}
+                <form action="/login" method="post">
+                    @csrf
                     <p>Email</p>
+
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="Email" name="email">
+                        <input type="email" class="form-control @error('email') is-invalid @enderror"
+                            placeholder="Email" name="email" autofocus required value="{{ old('email') }}"
+                            id="email">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
+
                             </div>
                         </div>
+                        @error('email')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                     <p>Password</p>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password"  name="password">
+                        <input type="password" class="form-control" placeholder="Password" name="password"
+                            id="password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -93,6 +119,7 @@
     </div>
     <!-- /.card -->
     </div>
+
     <!-- /.login-box -->
 
     <!-- jQuery -->

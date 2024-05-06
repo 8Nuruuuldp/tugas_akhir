@@ -16,4 +16,23 @@ class Wisata extends Model
     public function kategori(){
         return $this->belongsTo(Kategori::class);
     }
+
+    public function ulasan(){
+        return $this->hasMany(Ulasan::class);
+    }
+
+
+    // public function allData(){
+    //     $results = DB::table('table_wisata')
+    //     ->select('nama_tempat', 'kategori_id', 'alamat', 'gambar', 'deskripsi', 'latitude', 'longitude')
+    //     ->get();
+    //     return $results;
+    // }
+
+    // public function allKategori(){
+    //     $results = DB::table('table_kategori')
+    //     ->select('id', 'nama_kategori')
+    //     ->get();
+    //     return $results;
+    // }
 }

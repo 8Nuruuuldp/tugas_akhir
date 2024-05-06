@@ -15,4 +15,11 @@ class Kategori extends Model
     public function wisata(){
         return $this->hasMany(Wisata::class);
     }
+
+    // public function allKategori(){
+    //     $result = DB::table('table_kategori')
+    //     ->select('id', 'nama_kategori')
+    //     ->get();
+    //     return $result;
+    // }
 }

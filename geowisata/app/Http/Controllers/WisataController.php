@@ -24,6 +24,15 @@ class WisataController extends Controller
         return json_encode($result);
     }
 
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $table_wisata = Wisata::where('name', 'like', '%' . $query . '%')->get();
+
+        return response()->json($table_wisata);
+    }
+
     public function index()
     {
 
@@ -32,6 +41,7 @@ class WisataController extends Controller
         return view('admin.wisata.index', compact('wisata'));
 
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -47,7 +57,17 @@ class WisataController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
+        $this->validate($request,[
+            'nama_tempat' => 'required',
+            'kategori_id' => 'required',
+            'alamat' => 'required',
+            'gambar' => 'required',
+            'deskripsi' => 'required',
+            'latitude' => 'required',
+            'latitude' => 'required',
+            'longitude' => 'required',
+        ]);
+
         $nm = $request->gambar;
         $namaFile = time().rand(100,999).".".$nm->getClientOriginalName();
 
@@ -89,28 +109,22 @@ class WisataController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //$wisata = Wisata::find($id);
-        //$wisata->update($request->all());
-        //$wisata->save();
-
-        //return redirect('/wisata')->with('success', 'Data berhasil diperbarui!');
-        
         $wisata = Wisata::find($id);
         $ubah = Wisata::find($id);
         $awal = $ubah->gambar;
 
         $wisata = [
-           'nama_tempat' => $request['nama_tempat'],
-           'kategori_id' => $request['kategori_id'],
-           'alamat' => $request['alamat'],
-           'gambar' => $awal,
-           'deskripsi' => $request['deskripsi'],
-           'latitude' => $request['latitude'],
-           'longitude' => $request['longitude'],
+            'nama_tempat' => $request['nama_tempat'],
+            'kategori_id' => $request['kategori_id'],
+            'alamat' => $request['alamat'],
+            'gambar' => $awal,
+            'deskripsi' => $request['deskripsi'],
+            'latitude' => $request['latitude'],
+            'longitude' => $request['longitude'],
         ];
-
         $request->gambar->move(public_path().'/img', $awal);
         $ubah->update($wisata);
+        //dd($request->all());
         return redirect('/wisata')->with('success', 'Data berhasil diperbarui!');
     }
 
@@ -124,6 +138,7 @@ class WisataController extends Controller
 
         return redirect()->back()->with('success', 'Data berhasil dihapus!');
     }
+
 
 
 }
