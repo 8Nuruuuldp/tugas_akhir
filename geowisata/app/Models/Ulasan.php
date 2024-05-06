@@ -10,7 +10,7 @@ class Ulasan extends Model
     use HasFactory;
     protected $table = 'table_ulasan';
     protected $primaryKey = "id";
-    protected $fillable = ['rating', 'ulasan', 'nama_pengulas', 'email_pengulas'];
+    protected $fillable = ['wisata_id', 'rating', 'ulasan', 'nama_pengulas', 'email_pengulas'];
 
     public function user(){
         return $this->belongsTo(Wisata::class);
