@@ -25,20 +25,13 @@ class WisataController extends Controller
     }
 
 
-    public function search(Request $request)
-    {
-        $query = $request->input('query');
-        $table_wisata = Wisata::where('name', 'like', '%' . $query . '%')->get();
-
-        return response()->json($table_wisata);
-    }
-
     public function index()
     {
 
         $wisata = Wisata::all();
         $wisata = Wisata::with('kategori')->get();
         return view('admin.wisata.index', compact('wisata'));
+
 
     }
 

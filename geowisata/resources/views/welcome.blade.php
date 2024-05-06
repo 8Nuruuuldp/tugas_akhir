@@ -36,6 +36,7 @@
 
     <link rel="stylesheet" href="https://opengeo.tech/maps/leaflet-search/src/leaflet-search.css">
     <script src="https://opengeo.tech/maps/leaflet-search/dist/leaflet-search.src.js"></script>
+    <link rel="stylesheet" href="https://leafletjs.com/index.html#marker">
 
 </head>
 
@@ -289,9 +290,8 @@
 
             <form>
                 <div class="flex gap-2">
-                    <input name="searchInput" id="searchInput" type="text" placeholder="Search..."
-                        value="{{ request('search') }}"
-                        class="w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500">
+                    <input type="text" placeholder="Search..." oninput="onTyping(this)"
+                    class="map w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500">
                     <label for="kategori">
                         <select
                             class="w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500"
@@ -305,6 +305,7 @@
                     <button type="submit"
                         class="bg-green-500 text-white rounded px-2 md:px-3 py-0 md:py-1">Search</button>
                 </div>
+                <ul id="search-result"></ul>
             </form>
 
             <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
@@ -363,7 +364,7 @@
         var data = [
             <?php foreach($wisata as $wisata => $value) { ?> {
                 "lokasi": [<?= $value->latitude ?>, <?= $value->longitude ?>, <?= $value->kategori_id ?>],
-                "nama_tempat": "<?= $value->nama_tempat ?>],"
+                "nama_tempat": "<?= $value->nama_tempat ?>", "alamat": "<?= $value->alamat ?>"
             },
             <?php } ?>
         ];
@@ -396,12 +397,92 @@
                 });
             });
         });
+
+        const resultsWrapperHTML = document.getElementById("search-result")
+
+        map.on("click", function(e){
+        const {latitude, longitude} = e.latlng
+        // regenerate marker position
+        Marker.setLatLng([latitude, longitude])
+})
+
+        let typingInterval
+
+            // typing handler
+            function onTyping(e) {
+            clearInterval(typingInterval)
+            const {value} = e
+
+            typingInterval = setInterval(() => {
+                clearInterval(typingInterval)
+                searchLocation(value)
+            }, 500)
+            }
+
+            // search handler
+            function searchLocation(keyword) {
+            if(keyword) {
+                // request to nominatim api
+                fetch(`/search?keyword=${keyword}`)
+                .then((response) => {
+                    return response.json()
+                }).then(json => {
+                // get response data from nominatim
+                console.log("json", json)
+                    if(json.length > 0) return renderResults(json)
+                    else alert("lokasi tidak ditemukan")
+                })
+            }
+            }
+
+            // render results
+            function renderResults(result) {
+            let resultsHTML = ""
+
+            result.map((n) => {
+                resultsHTML += `<li><a href="#" onclick="setLocation(${n.latitude},${n.longitude})">${n.nama_tempat}, ${n.alamat}</a></li>`
+            })
+
+            resultsWrapperHTML.innerHTML = resultsHTML
+            }
+
+            // clear results
+            function clearResults() {
+            resultsWrapperHTML.innerHTML = ""
+            }
+
+            // set location from search result
+            function setLocation(latitude, longitude) {
+            // set map focus
+            var map = L.map('map').setView([-6.914744, 107.609810], 10);
+
+            // regenerate marker position
+            Marker.setLatLng([latitude, longitude])
+
+            // clear results
+            clearResults()
+            }
+
     </script>
+
 
     <style>
         #map {
             height: 100vh;
             width: 100%;
+        }
+
+        ul#search-result{
+        position: absolute
+        top: 27px
+        z-index: 1001
+        width: 100%
+        background: #FFF
+        list-style: none
+        padding: 0
+        }
+        li{
+            padding: 5px 0
         }
     </style>
 

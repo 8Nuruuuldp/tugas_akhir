@@ -79,20 +79,22 @@
             </div>
             <div id="map">
 
-                <div class="formBlock">
-                    <form action="/dashboard">
+                {{-- <div class="formBlock">
+                    <form action="/dashboard" >
                         <div class="input-group mb-3">
                             <input type="text" name="search" class="form-control" id="searchInput" placeholder="Search..."/>
-                            <span class=""><i class="bi bi-search fa-2x p-2"></i></span>
+                            <span class=""><i class="fas fa-search fa-2x p-2"></i></span>
                             <a href="#"><i class="bi bi-sign-turn-right-fill fa-2x active"></i></a>
                         </div>
                     </form>
-                </div>
+                </div> --}}
                 <script>
 
                     var data = [
-                        <?php foreach($wisata as $wisata => $value) { ?>
-                            {"lokasi":[<?= $value->latitude?> , <?= $value->longitude?> , <?= $value->kategori_id?>], "nama_tempat":"<?= $value->nama_tempat?>],"},
+                        <?php foreach($wisata as $wisata => $value) { ?> {
+                            "lokasi": [<?= $value->latitude ?>, <?= $value->longitude ?>, <?= $value->kategori_id ?>],
+                            "nama_tempat": "<?= $value->nama_tempat ?>", "alamat": "<?= $value->alamat ?>"
+                        },
                         <?php } ?>
                     ];
 
@@ -126,6 +128,27 @@
                         });
                     });
 
+                    var markersLayer = new L.LayerGroup();	//layer contain searched elements
+
+                    map.addLayer(markersLayer);
+
+                    var controlSearch = new L.Control.Search({
+                        position:'topleft',
+                        layer: markersLayer,
+                        initial: false,
+                        zoom: 20,
+                        marker: false
+                    });
+
+                    map.addControl( controlSearch );
+
+                    for(i in data) {
+                        var nama_tempat = data[i].nama_tempat;
+                        var lokasi = data[i].lokasi;
+                        var marker = new L.Marker(new L.latLng(lokasi), {title: nama_tempat} );
+                        marker.bindPopup('Nama Tempat: '+ nama_tempat );
+                        markersLayer.addLayer(marker);
+                    }
                 </script>
 
                 <style>
@@ -145,7 +168,7 @@
                     z-index: 999;
                     box-shadow: 0 1px 5px rgba(0,0,0,0.65);
                     border-radius: 5px;
-                    width: 100%;
+                    width: 90%;
                 }
 
                 </style>

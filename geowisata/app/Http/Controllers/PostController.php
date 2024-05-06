@@ -14,8 +14,20 @@ class PostController extends Controller
             return view('welcome', [
                 'kategori'=> Kategori::all(),
                 'wisata'=> Wisata::all()
+
             ]);
     }
+
+    public function search(Request $request)
+    {
+        $keyword = $request->input('keyword');
+
+        // Lakukan pencarian dalam tabel Anda, misalnya menggunakan Eloquent
+        $wisata = Wisata::where('nama_tempat', 'like', '%' . $keyword . '%')->get();
+
+        return response()->json($wisata);
+    }
+
 
     // public function show(Wisata $post)
     // {

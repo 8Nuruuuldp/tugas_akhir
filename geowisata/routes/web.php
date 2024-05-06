@@ -28,6 +28,7 @@ Route::get('/', function () {
 });
 
 Route::get('/', [PostController::class, 'index']);
+Route::get('/search', [PostController::class, 'search']);
 // Route::get('/posts/{post::slug}', [PostController::class, 'show']);
 
 // Route::get('/categories', function() {

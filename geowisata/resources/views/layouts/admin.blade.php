@@ -54,8 +54,8 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-
-
+    <link rel="stylesheet" href="https://opengeo.tech/maps/leaflet-search/src/leaflet-search.css">
+    <script src="https://opengeo.tech/maps/leaflet-search/dist/leaflet-search.src.js"></script>
 
 
 </head>
