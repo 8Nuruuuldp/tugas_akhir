@@ -12,7 +12,7 @@ class Ulasan extends Model
     protected $primaryKey = "id";
     protected $fillable = ['wisata_id', 'rating', 'ulasan', 'nama_pengulas', 'email_pengulas'];
 
-    public function user(){
+    public function wisata(){
         return $this->belongsTo(Wisata::class);
     }
 
