@@ -35,7 +35,6 @@ class WisataController extends Controller
 
     }
 
-
     /**
      * Show the form for creating a new resource.
      */
@@ -131,6 +130,29 @@ class WisataController extends Controller
         return redirect()->back()->with('success', 'Data berhasil dihapus!');
     }
 
+    //foreach kategori welcome
+    public function welcome()
+    {
+            return view('welcome', [
+                'kategori'=> Kategori::all()
 
+            ]);
+    }
+    // foreach search petawisata
+    public function petawisata()
+    {
+            return view('petawisata', [
+                    'wisata'=> Wisata::all()
+                ]);
+    }
+    //foreach search welcome
+    public function search(Request $request)
+    {
+        $keyword = $request->input('keyword');
+        // pencarian dalam tabel
+        $wisata = Wisata::where('nama_tempat', 'like', '%' . $keyword . '%')->get();
+
+        return response()->json($wisata);
+    }
 
 }

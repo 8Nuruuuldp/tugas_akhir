@@ -9,7 +9,7 @@ use App\Models\Kategori;
 class AdminController extends Controller
 {
 
-
+    // foreach search admin
     public function dashboard(){
 
 
@@ -17,5 +17,15 @@ class AdminController extends Controller
             'wisata'=> Wisata::all(),
             'kategori'=> Kategori::all()
         ]);
+    }
+
+     //foreach search welcome
+    public function search(Request $request)
+    {
+        $keyword = $request->input('keyword');
+         // pencarian dalam tabel
+        $wisata = Wisata::where('nama_tempat', 'like', '%' . $keyword . '%')->get();
+
+        return response()->json($wisata);
     }
 }

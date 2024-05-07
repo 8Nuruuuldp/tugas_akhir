@@ -12,6 +12,7 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UlasanController;
+use App\Http\Controllers\PetawisataController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,32 +29,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', [PostController::class, 'index']);
-Route::get('/search', [PostController::class, 'search']);
-// Route::get('/posts/{post::slug}', [PostController::class, 'show']);
-
-// Route::get('/categories', function() {
-//     return view('/data/categories' , [
-//         'title' =>'Post Categories',
-//         'categories' => Category::all()
-
-//     ]);
-// });
-
-// Route::get('/categories/{category:slug}', function(Category $category) {
-//     return view('/data/category' , [
-//         'title' =>$category->name,
-//         'posts' =>$category->posts,
-//         'category' => $category->name
-//     ]);
-// });
+Route::get('/', [WisataController::class, 'welcome']);
+Route::get('/search', [WisataController::class, 'search']);
+Route::get('/petawisata', [WisataController::class, 'petawisata']);
 
 
 Route::get('point/json', [WisataController::class, 'wisata']);
 
 //Routing user
-
-
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
@@ -84,6 +67,8 @@ Route::get('/wisata/{id}/delete', [WisataController::class, 'destroy']);
 Route::get('/petawisata', function () {
     return view('petawisata');
 });
+
+
 Route::get('/hwisata', function () {
     return view('hwisata');
 });

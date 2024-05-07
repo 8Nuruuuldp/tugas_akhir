@@ -82,24 +82,17 @@
             </div>
             <div id="map">
 
-                {{-- <div class="formBlock">
-                    <form action="/dashboard" >
+                <div class="formBlock">
+                    <form>
                         <div class="input-group mb-3">
-                            <input type="text" name="search" class="form-control" id="searchInput" placeholder="Search..."/>
+                            <input type="text" class="form-control" placeholder="Search..." oninput="onTyping(this)"/>
                             <span class=""><i class="fas fa-search fa-2x p-2"></i></span>
                             <a href="#"><i class="bi bi-sign-turn-right-fill fa-2x active"></i></a>
                         </div>
+                        <ul id="search-result"></ul>
                     </form>
-                </div> --}}
+                </div>
                 <script>
-
-                    var data = [
-                        <?php foreach($wisata as $wisata => $value) { ?> {
-                            "lokasi": [<?= $value->latitude ?>, <?= $value->longitude ?>, <?= $value->kategori_id ?>],
-                            "nama_tempat": "<?= $value->nama_tempat ?>", "alamat": "<?= $value->alamat ?>"
-                        },
-                        <?php } ?>
-                    ];
 
                     var map = L.map('map').setView([-6.914744, 107.609810], 10);
 
@@ -131,27 +124,70 @@
                         });
                     });
 
-                    var markersLayer = new L.LayerGroup();	//layer contain searched elements
+                    const resultsWrapperHTML = document.getElementById("search-result")
 
-                    map.addLayer(markersLayer);
+        map.on("click", function(e){
+        const {latitude, longitude} = e.latlng
+        // regenerate marker position
+        Marker.setLatLng([latitude, longitude])
+        })
 
-                    var controlSearch = new L.Control.Search({
-                        position:'topleft',
-                        layer: markersLayer,
-                        initial: false,
-                        zoom: 20,
-                        marker: false
-                    });
+        let typingInterval
 
-                    map.addControl( controlSearch );
+            // typing handler
+            function onTyping(e) {
+            clearInterval(typingInterval)
+            const {value} = e
 
-                    for(i in data) {
-                        var nama_tempat = data[i].nama_tempat;
-                        var lokasi = data[i].lokasi;
-                        var marker = new L.Marker(new L.latLng(lokasi), {title: nama_tempat} );
-                        marker.bindPopup('Nama Tempat: '+ nama_tempat );
-                        markersLayer.addLayer(marker);
-                    }
+            typingInterval = setInterval(() => {
+                clearInterval(typingInterval)
+                searchLocation(value)
+            }, 500)
+            }
+
+            // search handler
+            function searchLocation(keyword) {
+            if(keyword) {
+                // request dari database
+                fetch(`/search?keyword=${keyword}`)
+                .then((response) => {
+                    return response.json()
+                }).then(json => {
+                // get respon data dari database
+                console.log("json", json)
+                    if(json.length > 0) return renderResults(json)
+                    else alert("lokasi tidak ditemukan")
+                })
+            }
+            }
+
+            // render results
+            function renderResults(result) {
+            let resultsHTML = ""
+
+            result.map((n) => {
+                resultsHTML += `<li><a href="#" onclick="setLocation(${n.latitude},${n.longitude});">${n.nama_tempat}, ${n.alamat}</a></li>`
+            })
+
+            resultsWrapperHTML.innerHTML = resultsHTML
+            }
+
+            // clear results
+            function clearResults() {
+            resultsWrapperHTML.innerHTML = ""
+            }
+
+            // set lokasi yang dicari result
+            function setLocation(latitude, longitude) {
+            // set map focus
+            map.setView(new L.LatLng(latitude, longitude), 25)
+
+            // generate lokasi maker
+            Marker.setLatLng([latitude, longitude])
+
+            // clear results
+            clearResults()
+            }
                 </script>
 
                 <style>
