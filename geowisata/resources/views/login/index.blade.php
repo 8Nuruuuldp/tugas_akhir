@@ -111,7 +111,7 @@
             <p class="mb-1 text-center">
                 <a href="forgot-password.html">Lupa password ?</a>
             </p>
-            <p class="mb-0 text-center">
+            <p class="mb-4 text-center">
                 Belum punya akun ? <a href="/register" class="text-center"><b class="text-primary">Daftar</b></a>
             </p>
         </div>
