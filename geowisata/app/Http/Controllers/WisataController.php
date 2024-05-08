@@ -25,14 +25,6 @@ class WisataController extends Controller
     }
 
 
-    public function search(Request $request)
-    {
-        $query = $request->input('query');
-        $table_wisata = Wisata::where('name', 'like', '%' . $query . '%')->get();
-
-        return response()->json($table_wisata);
-    }
-
     public function index()
     {
 
@@ -40,8 +32,8 @@ class WisataController extends Controller
         $wisata = Wisata::with('kategori')->get();
         return view('admin.wisata.index', compact('wisata'));
 
-    }
 
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -138,6 +130,29 @@ class WisataController extends Controller
         return redirect()->back()->with('success', 'Data berhasil dihapus!');
     }
 
+    //foreach kategori welcome
+    public function welcome()
+    {
+            return view('welcome', [
+                'kategori'=> Kategori::all()
 
+            ]);
+    }
+    // foreach search petawisata
+    public function petawisata()
+    {
+            return view('petawisata', [
+                    'wisata'=> Wisata::all()
+                ]);
+    }
+    //foreach search welcome
+    public function search(Request $request)
+    {
+        $keyword = $request->input('keyword');
+        // pencarian dalam tabel
+        $wisata = Wisata::where('nama_tempat', 'like', '%' . $keyword . '%')->get();
+
+        return response()->json($wisata);
+    }
 
 }

@@ -26,7 +26,8 @@
 
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.js" charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.js"
+        charset="utf-8">
     </script>
 
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
@@ -34,8 +35,8 @@
     <script src="https://cdn.maptiler.com/maptiler-geocoding-control/v1.2.0/leaflet.umd.js"></script>
     <link href="https://cdn.maptiler.com/maptiler-geocoding-control/v1.2.0/style.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://opengeo.tech/maps/leaflet-search/src/leaflet-search.css">
-    <script src="https://opengeo.tech/maps/leaflet-search/dist/leaflet-search.src.js"></script>
+
+    <link rel="stylesheet" href="https://leafletjs.com/index.html#marker">
 
 </head>
 
@@ -68,11 +69,11 @@
                 class="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Kontak</a>
         </div>
         @auth
-            <a href="/dashboard"
-                class="toggle hidden md:flex w-full md:w-auto px-4 py-2 text-right bg-green-700 hover:bg-green-500 text-white md:rounded">Dashboard</a>
+        <a href="/dashboard"
+            class="toggle hidden md:flex w-full md:w-auto px-4 py-2 text-right bg-green-700 hover:bg-green-500 text-white md:rounded">Dashboard</a>
         @else
-            <a href="/login"
-                class="toggle hidden md:flex w-full md:w-auto px-4 py-2 text-right bg-green-700 hover:bg-green-500 text-white md:rounded">Masuk</a>
+        <a href="/login"
+            class="toggle hidden md:flex w-full md:w-auto px-4 py-2 text-right bg-green-700 hover:bg-green-500 text-white md:rounded">Masuk</a>
         @endauth
     </nav>
 
@@ -153,9 +154,10 @@
                                 Jl. Diponegoro No.22, Citarum, Kec. Bandung Wetan
                             </span>
                             <p>Bintang ini nantinya
-                            <p class="text-gray-700 text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
-                                nihil.</p>
+                                <p class="text-gray-700 text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing
+                                    elit.
+                                    Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
+                                    nihil.</p>
 
                         </div>
 
@@ -184,9 +186,10 @@
                                 Jl. Diponegoro No.22, Citarum, Kec. Bandung Wetan
                             </span>
                             <p>Bintang ini nantinya
-                            <p class="text-gray-700 text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
-                                nihil.</p>
+                                <p class="text-gray-700 text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing
+                                    elit.
+                                    Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
+                                    nihil.</p>
 
                         </div>
 
@@ -215,9 +218,10 @@
                                 Jl. Diponegoro No.22, Citarum, Kec. Bandung Wetan
                             </span>
                             <p>Bintang ini nantinya
-                            <p class="text-gray-700 text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
-                                nihil.</p>
+                                <p class="text-gray-700 text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing
+                                    elit.
+                                    Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
+                                    nihil.</p>
 
                         </div>
 
@@ -246,9 +250,10 @@
                                 Jl. Diponegoro No.22, Citarum, Kec. Bandung Wetan
                             </span>
                             <p>Bintang ini nantinya
-                            <p class="text-gray-700 text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
-                                nihil.</p>
+                                <p class="text-gray-700 text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing
+                                    elit.
+                                    Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
+                                    nihil.</p>
 
                         </div>
 
@@ -289,22 +294,22 @@
 
             <form>
                 <div class="flex gap-2">
-                    <input name="searchInput" id="searchInput" type="text" placeholder="Search..."
-                        value="{{ request('search') }}"
-                        class="w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500">
+                    <input type="text" placeholder="Search..." oninput="onTyping(this)"
+                        class="map w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500">
                     <label for="kategori">
                         <select
                             class="w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500"
                             onchange="search(this.value)">
                             <option value="">Kategori Wisata</option>
                             @foreach ($kategori as $kategori)
-                                <option value="{{ $kategori->id }}">{{ $kategori->nama_kategori }}</option>
+                            <option value="{{ $kategori->id }}">{{ $kategori->nama_kategori }}</option>
                             @endforeach
                         </select>
                     </label>
                     <button type="submit"
                         class="bg-green-500 text-white rounded px-2 md:px-3 py-0 md:py-1">Search</button>
                 </div>
+                <ul id="search-result"></ul>
             </form>
 
             <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
@@ -360,14 +365,6 @@
     </section>
 
     <script>
-        var data = [
-            <?php foreach($wisata as $wisata => $value) { ?> {
-                "lokasi": [<?= $value->latitude ?>, <?= $value->longitude ?>, <?= $value->kategori_id ?>],
-                "nama_tempat": "<?= $value->nama_tempat ?>],"
-            },
-            <?php } ?>
-        ];
-
         var map = L.map('map').setView([-6.914744, 107.609810], 10);
 
         map.zoomControl.setPosition('bottomright')
@@ -386,23 +383,112 @@
                 .openOn(map);
         }
 
-        $(document).ready(function() {
-            $.getJSON('point/json', function(data) {
-                $.each(data, function(index) {
+        $(document).ready(function () {
+            $.getJSON('point/json', function (data) {
+                $.each(data, function (index) {
 
-                    L.marker([parseFloat(data[index].latitude), parseFloat(data[index].longitude)])
+                    L.marker([parseFloat(data[index].latitude), parseFloat(data[index]
+                            .longitude)])
                         .addTo(map)
                         .bindPopup((data[index].nama_tempat));
                 });
             });
         });
+
+        const resultsWrapperHTML = document.getElementById("search-result")
+
+        map.on("click", function (e) {
+            const {
+                latitude,
+                longitude
+            } = e.latlng
+            // regenerate marker position
+            Marker.setLatLng([latitude, longitude])
+        })
+
+        let typingInterval
+
+        // typing handler
+        function onTyping(e) {
+            clearInterval(typingInterval)
+            const {
+                value
+            } = e
+
+            typingInterval = setInterval(() => {
+                clearInterval(typingInterval)
+                searchLocation(value)
+            }, 500)
+        }
+
+        // search handler
+        function searchLocation(keyword) {
+            if (keyword) {
+                // request dari database
+                fetch(`/search?keyword=${keyword}`)
+                    .then((response) => {
+                        return response.json()
+                    }).then(json => {
+                        // get respon data dari database
+                        console.log("json", json)
+                        if (json.length > 0) return renderResults(json)
+                        else alert("lokasi tidak ditemukan")
+                    })
+            }
+        }
+
+        // render results
+        function renderResults(result) {
+            let resultsHTML = ""
+
+            result.map((n) => {
+                resultsHTML +=
+                    `<li><a href="#" onclick="setLocation(${n.latitude},${n.longitude});">${n.nama_tempat}, ${n.alamat}</a></li>`
+            })
+
+            resultsWrapperHTML.innerHTML = resultsHTML
+        }
+
+        // clear results
+        function clearResults() {
+            resultsWrapperHTML.innerHTML = ""
+        }
+
+        // set lokasi yang dicari result
+        function setLocation(latitude, longitude) {
+            // set map focus
+            map.setView(new L.LatLng(latitude, longitude), 25)
+
+            // generate lokasi maker
+            Marker.setLatLng([latitude, longitude])
+
+            // clear results
+            clearResults()
+        }
+
     </script>
+
 
     <style>
         #map {
             height: 100vh;
             width: 100%;
         }
+
+        ul {
+            position: relative;
+            top: 20px;
+            z-index: 1001;
+            width: 100%;
+            background: #FFF;
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 5px 0;
+        }
+
     </style>
 
 </body>

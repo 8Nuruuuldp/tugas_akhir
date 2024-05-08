@@ -424,11 +424,11 @@ class DatabaseSeeder extends Seeder
         Wisata::create([
             'nama_tempat' => 'Kampung Wisata Kreatif Cigondewah',
             'kategori_id'=> 7,
-            'alamat' => ' Jl. Cimencrang No.14, Cimenerang, Kec. Gedebage, Kota Bandung, Jawa Barat 40292',
+            'alamat' => ' Jl. Cigondewah Kidul No.37 Cigondewah, Rahayu, Bandung Kulon, Bandung City, West Java 40214',
             'gambar'=> '',
             'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
-            'latitude' => -6.8654727282194825,
-            'longitude' => 107.61818564364613
+            'latitude' => -6.9442612,
+            'longitude' => 107.5632923
         ]);
         Wisata::create([
             'nama_tempat' => 'Kampung Wisata Kreatif Pasir Kunci',

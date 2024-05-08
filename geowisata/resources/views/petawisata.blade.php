@@ -1,44 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PETA WISATA</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-        crossorigin=""/>
-        <script src="https://cdn.tailwindcss.com"></script>
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Make sure you put this AFTER Leaflet's CSS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-        crossorigin=""></script>
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-    <script
-        src="https://code.jquery.com/jquery-3.7.1.js"
-        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
-        <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
-        <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
 
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.js"
+        charset="utf-8"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.css" />
         <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.js" charset="utf-8"></script>
 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-
-        <link rel="stylesheet" href="https://opengeo.tech/maps/leaflet-search/src/leaflet-search.css">
-        <script src="https://opengeo.tech/maps/leaflet-search/dist/leaflet-search.src.js"></script>
 
 </head>
+
 <body>
-    <div class="map rounded" id="map"></div>
+    <div class="map rounded" id="map">
+        <div class="formBlock">
+            <form>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search..." oninput="onTyping(this)" />
+                    <a href="#"><i class="bi bi-sign-turn-right fa-4x"></i></a>
+                </div>
+                <ul id="search-result"></ul>
+            </form>
+        </div>
+    </div>
 
     <style>
         #map {
@@ -47,38 +63,32 @@
         }
 
         .formBlock {
-                    max-width: 300px;
-                    background-color: #FFF;
-                    border: 1px solid #ddd;
-                    position: absolute;
-                    top: 10px;
-                    left: 10px;
-                    padding: 10px;
-                    z-index: 999;
-                    box-shadow: 0 1px 5px rgba(0,0,0,0.65);
-                    border-radius: 5px;
-                    width: 100%;
-                }
+            max-width: 380px;
+            background-color: #FFF;
+            border: 1px solid #ddd;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 10px;
+            z-index: 999;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
+            border-radius: 5px;
+            width: 90%;
+        }
 
-                .leaflet-top .leaflet-control {
-                    margin-top: 180px;
-                }
+        ul {
+            position: relative;
+            top: 15px;
+            z-index: 1001;
+            width: 100%;
+            background: #FFF;
+            list-style: none;
+            padding: 0;
+        }
 
-                .input {
-                    padding: 10px;
-                    width: 100%;
-                    border: 1px solid #ddd;
-                    font-size: 15px;
-                    border-radius: 3px;
-                }
-                #form {
-                    padding: 0;
-                    margin: 0;
-                }
-                .input:nth-child(1) {
-                    margin-bottom: 10px;
-                }
-
+        li {
+            padding: 5px 0;
+        }
 
     </style>
 
@@ -92,16 +102,17 @@
         map.zoomControl.setPosition('bottomright')
 
         var popup = L.popup();
-            function onMapClick(data) {
+
+        function onMapClick(data) {
             popup
-            .setLatLng(data.latlng)
-            .setContent(data.latlng.toString())
-            .openOn(map);
+                .setLatLng(data.latlng)
+                .setContent(data.latlng.toString())
+                .openOn(map);
         }
 
-        $( document ).ready(function() {
-            $.getJSON('point/json', function(data) {
-                $.each(data, function(index){
+        $(document).ready(function () {
+            $.getJSON('point/json', function (data) {
+                $.each(data, function (index) {
 
                     L.marker ([parseFloat(data[index].latitude),parseFloat(data[index].longitude)])
                     .addTo(map)
@@ -110,6 +121,78 @@
             });
         });
 
+        const resultsWrapperHTML = document.getElementById("search-result")
+
+        map.on("click", function (e) {
+            const {
+                latitude,
+                longitude
+            } = e.latlng
+            // regenerate marker position
+            Marker.setLatLng([latitude, longitude])
+        })
+
+        let typingInterval
+
+        // typing handler
+        function onTyping(e) {
+            clearInterval(typingInterval)
+            const {
+                value
+            } = e
+
+            typingInterval = setInterval(() => {
+                clearInterval(typingInterval)
+                searchLocation(value)
+            }, 500)
+        }
+
+        // search handler
+        function searchLocation(keyword) {
+            if (keyword) {
+                // request dari database
+                fetch(`/search?keyword=${keyword}`)
+                    .then((response) => {
+                        return response.json()
+                    }).then(json => {
+                        // get respon data dari database
+                        console.log("json", json)
+                        if (json.length > 0) return renderResults(json)
+                        else alert("lokasi tidak ditemukan")
+                    })
+            }
+        }
+
+        // render results
+        function renderResults(result) {
+            let resultsHTML = ""
+
+            result.map((n) => {
+                resultsHTML +=
+                    `<li><a href="#" onclick="setLocation(${n.latitude},${n.longitude});">${n.nama_tempat}, ${n.alamat}</a></li>`
+            })
+
+            resultsWrapperHTML.innerHTML = resultsHTML
+        }
+
+        // clear results
+        function clearResults() {
+            resultsWrapperHTML.innerHTML = ""
+        }
+
+        // set lokasi yang dicari result
+        function setLocation(latitude, longitude) {
+            // set map focus
+            map.setView(new L.LatLng(latitude, longitude), 20)
+
+            // generate lokasi maker
+            Marker.setLatLng([latitude, longitude])
+
+            // clear results
+            clearResults()
+        }
+
     </script>
 </body>
+
 </html>
