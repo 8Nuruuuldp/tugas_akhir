@@ -166,7 +166,9 @@
             let resultsHTML = ""
 
             result.map((n) => {
-                resultsHTML += `<li><a href="#" onclick="setLocation(${n.latitude},${n.longitude});">${n.nama_tempat}, ${n.alamat}</a></li>`
+                resultsHTML += `<li>
+                    <i class="bi bi-geo-alt"></i>
+                    <a href="#" onclick="setLocation(${n.latitude},${n.longitude});">${n.nama_tempat}, ${n.alamat}</a></li>`
             })
 
             resultsWrapperHTML.innerHTML = resultsHTML

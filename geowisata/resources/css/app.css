@@ -1,0 +1,53 @@
+#map {
+    height: 100vh;
+    width: 100%;
+}
+
+.formBlock {
+    max-width: 380px;
+    background-color: #FFF;
+    border: 1px solid #ddd;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 10px;
+    z-index: 999;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
+    border-radius: 5px;
+    width: 90%;
+}
+
+.formblack {
+    max-width: 380px;
+    background-color: #FFF;
+    border: 1px solid #ddd;
+    position: absolute;
+    top: 100px;
+    left: 10px;
+    padding: 10px;
+    z-index: 999;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
+    border-radius: 5px;
+    width: 90%;
+}
+
+input {
+    padding: 10px;
+    width: 90%;
+    border: 1px solid #ddd;
+    font-size: 15px;
+    border-radius: 3px;
+}
+
+ul {
+    position: relative;
+    top: 15px;
+    z-index: 1001;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    padding: 5px 0;
+}
