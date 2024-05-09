@@ -69,9 +69,7 @@ Route::get('/petawisata', function () {
 });
 
 
-Route::get('/hwisata', function () {
-    return view('hwisata');
-});
+Route::get('/hwisata/{id}', [WisataController::class, 'index']);
 
 
 //Routing CRUD Data Kategori
