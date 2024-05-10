@@ -15,7 +15,11 @@
                 <img src="/Admin/dist/img/avatar5.png" class="img-circle" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Admin</a>
+                <a href="#" class="d-block">
+                    @if(Auth::check())
+                        {{Auth::user()->name}}
+                    @endif
+                </a>
             </div>
         </div>
 
@@ -47,6 +51,25 @@
                     </a>
                 </li>
                 <li class="nav-header">DATA</li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Data User
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/user" class="nav-link">
+                                <i class="nav-icon fas fa-table"></i>
+                                <p>
+                                    Lihat User
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-newspaper"></i>
