@@ -79,6 +79,6 @@ class UserController extends Controller
         $user = User::find($id);
         $user->delete();
 
-        return redirect()->back()->with(['message'=> 'Sukses', 'Data Berhasil Di hapus']);
+        return redirect()->back()->with('success', 'Data berhasil dihapus!');
     }
 }
