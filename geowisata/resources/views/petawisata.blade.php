@@ -175,10 +175,7 @@
                 } else {
                     console.log("Geolocation is not supported by this browser.");
                 }
-            }
-
-            // Fungsi untuk menampilkan rute dari posisi pengguna ke posisi tujuan
-            
+            }        
  
 
             const resultsWrapperHTML = document.getElementById("search-result")
