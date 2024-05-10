@@ -127,16 +127,6 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-header">Halaman</li>
-                <li class="nav-item">
-                    <form action="/logout" method="post">
-                        @csrf
-                        <button type="submit" class="btn btn-light dropdown-item" onclick="return confirm('Apakah Anda yakin ingin keluar dari Dasbor Admin')">
-                            <i class="nav-icon fas fa-sign-out-alt"></i>
-                            Keluar
-                        </button>
-                    </form>
-                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
