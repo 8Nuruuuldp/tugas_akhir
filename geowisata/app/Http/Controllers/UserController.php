@@ -68,7 +68,7 @@ class UserController extends Controller
 
         $user->save();
 
-        return redirect('/user');
+        return redirect('/user')->with('success', 'Data berhasil diperbarui!');
     }
 
     /**
