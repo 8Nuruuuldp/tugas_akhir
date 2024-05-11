@@ -50,6 +50,9 @@ Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard
 
 //Routing Read Data User
 Route::get('/user', [UserController::class, 'index']);
+//Routing Edit Data User
+Route::get('/user/{id}/edit', [UserController::class, 'edit']);
+Route::post('/user/{id}/update', [UserController::class, 'update']);
 // delete data user
 Route::get('/user/{id}/delete', [UserController::class, 'destroy']);
 

@@ -30,10 +30,10 @@
                         <span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Jumlah Pengguna</span>
+                            <span class="info-box-text">Jumlah Admin</span>
                             <span class="info-box-number">
                                 {{App\Models\User::count()}}
-                                <small><a href="/user">Pengguna</a></small>
+                                <small><a href="/user">Orang</a></small>
                             </span>
                         </div>
                         <!-- /.info-box-content -->

@@ -55,7 +55,7 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
-                            Data User
+                            Data Admin
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
@@ -64,7 +64,7 @@
                             <a href="/user" class="nav-link">
                                 <i class="nav-icon fas fa-table"></i>
                                 <p>
-                                    Lihat User
+                                    Lihat Admin
                                 </p>
                             </a>
                         </li>
