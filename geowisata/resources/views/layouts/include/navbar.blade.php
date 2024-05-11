@@ -26,7 +26,7 @@
                 <i class="fas fa-cog"></i>
             </a>
         </li>
-        <li class="nav-item mt-1" style="margin-right:10px; margin-right-sm:0px;">
+        <li class="nav-item mt-1" style="margin-right:10px;">
             <form action="/logout" method="post">
                 @csrf
                 <button type="submit" class="btn btn-success btn-sm"
