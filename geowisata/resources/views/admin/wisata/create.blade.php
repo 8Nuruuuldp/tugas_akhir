@@ -38,13 +38,15 @@
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
+                                    <label class="text-danger">*</label>
                                     <label for="nama_tempat">Nama Tempat Wisata</label>
                                     <input type="text" class="form-control" id="nama_tempat"
                                         placeholder="Masukan nama tempat wisata" name="nama_tempat">
                                 </div>
                                 <div class="form-group">
+                                    <label class="text-danger">*</label>
                                     <label for="nama_tempat">Kategori Wisata</label>
-                                    <select class="form-control select2" name="kategori_id" id="kategori_id">
+                                    <select class="form-control select2" style="width: 100%;" name="kategori_id" id="kategori_id">
                                         <option disable value>Pilih Kategori</option>
                                         @foreach ($kategori as $item)
                                         <option value="{{$item->id}}">{{$item->nama_kategori}}</option>
@@ -52,32 +54,40 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
+                                    <label class="text-danger">*</label>
                                     <label for="alamat">Alamat</label>
                                     <textarea class="form-control" id="alamat"
                                         placeholder="Masukan alamat tempat wisata" name="alamat"></textarea>
                                 </div>
                                 <div class="form-group">
+                                    <label class="text-danger">*</label>
                                     <label for="gambar">Gambar</label>
                                     <div class="custom-file">
                                         <input type="file" class="form-control" id="gambar" name="gambar">
                                     </div>
+                                    
                                 </div>
                                
                                 <div class="form-group">
+                                    <label class="text-danger">*</label>
                                     <label for="deskripsi">Deskripsi</label>
                                     <textarea class="form-control" id="deskripsi"
                                         placeholder="Masukan deskripsi tempat wisata" name="deskripsi"></textarea>
                                 </div>
                                 <div class="form-group">
+                                    <label class="text-danger">*</label>
                                     <label for="latitude">Latitude</label>
                                     <input type="decimal" class="form-control" id="latitude"
-                                        placeholder="Masukan latitude tempat wisata" name="latitude">
+                                        placeholder="Contoh: -7.66519" name="latitude">
+                                
                                 </div>
                                 <div class="form-group">
+                                    <label class="text-danger">*</label>
                                     <label for="longitude">Longitude</label>
                                     <input type="decimal" class="form-control" id="longitude"
-                                        placeholder="Masukan longitude tempat wisata" name="longitude">
+                                        placeholder="Contoh: 111.66519" name="longitude">
                                 </div>
+                
                             </div>
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">Submit</button>

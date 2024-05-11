@@ -26,6 +26,16 @@
                 <i class="fas fa-cog"></i>
             </a>
         </li>
+        <li class="nav-item mt-1">
+            <form action="/logout" method="post">
+                @csrf
+                <button type="submit" class="btn btn-success btn-sm"
+                    onclick="return confirm('Apakah Anda yakin ingin keluar dari Dasbor Admin')">
+                    <i class="nav-icon fas fa-sign-out-alt"></i> &nbsp;
+                    Keluar
+                </button>
+            </form>
+        </li>
     </ul>
 </nav>
 <!-- /.navbar -->
