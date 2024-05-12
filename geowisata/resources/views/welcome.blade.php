@@ -117,7 +117,7 @@
             <div class="pointer-events-none fixed inset-x-0 bottom-0 sm:flex sm:justify-center sm:px-6 sm:pb-5 lg:px-8">
             <div class="pointer-events-auto flex w-full max-w-md divide-x divide-neutral-200 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
         </div>
-       </section>
+    </section>
 
     <section>
         <div class="max-w-screen-xl mx-auto sm:p-10 md:p-16 bg-green-900">
@@ -297,6 +297,7 @@
         </div>
 
     </section>
+
     <section class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8">
         <footer class="bg-white h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
             <div class="mx-auto w-full max-w-screen-xl">
@@ -330,7 +331,7 @@
                                 <a href="#" class="hover:underline">Rekomendasi</a>
                             </li>
                             <li class="mb-4">
-                                <a href="#" class="hover:underline">Peta Wisata</a>
+                                <a href="/petawisata" class="hover:underline">Peta Wisata</a>
                             </li>
                         </ul>
                     </div>
