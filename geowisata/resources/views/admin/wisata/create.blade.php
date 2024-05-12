@@ -79,7 +79,6 @@
                                     <label for="latitude">Latitude</label>
                                     <input type="decimal" class="form-control" id="latitude"
                                         placeholder="Contoh: -7.66519" name="latitude">
-                                
                                 </div>
                                 <div class="form-group">
                                     <label class="text-danger">*</label>
