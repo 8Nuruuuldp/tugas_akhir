@@ -15,7 +15,10 @@
             <a href="#" class="nav-link">Rekomendasi</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">Peta Wisata</a>
+            <a href="/petawisata" class="nav-link">Peta Wisata</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/kontak" class="nav-link">Kontak</a>
         </li>
     </ul>
 
