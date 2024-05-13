@@ -61,14 +61,12 @@
                 <form>
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Search..." oninput="onTyping(this)" />
-                        <span class=""><i class=" fas fa-search fa-3x p-2"></i></span>
-                        <button onclick="toggleSidebar()"><i class="  bi bi-sign-turn-right-fill fa-3x active"></i></button>
                     </div>
                     <ul id="search-result"></ul>
                 </form>
             </div>
         </div>
-        <div class="hidden search-sidebar-content" id="sidebar">
+        {{-- <div class="hidden search-sidebar-content" id="sidebar">
             <div
                 class="content-search bg-body text-dark h-100 position-absolute top-10 border shadow p-3 bg-white rounded">
                 <ul>
@@ -91,7 +89,7 @@
                     <button style="display: none;" type="submit">Get Directions</button>
                 </form>
             </div>
-        </div>
+        </div> --}}
     </div>
 
     <style>
@@ -107,14 +105,6 @@
         .formBlock {
             z-index: 999;
         }
-
-        .content-search {
-            z-index: 999;
-            width: 26.4%;
-        }
-        .hidden {
-    display: none;
-}
 
     </style>
 
@@ -169,10 +159,10 @@
                                         endPoint
                                     ],
                                     routeWhileDragging: true,
-                                    geocoder: L.Control.Geocoder.nominatim()                   
+                                    geocoder: L.Control.Geocoder.nominatim()
                                 }).addTo(map);
                             },
-                            
+
                             error: function(xhr, status, error) {
                                 console.error("Error:", error);
                             }
@@ -243,84 +233,6 @@
             // clear results
             clearResults()
         }
-        //SEARCH ROUTING
-        var sidebar = document.getElementById('sidebar');
-
-function toggleSidebar() {
-    sidebar.classList.toggle('hidden');
-}
-
-        function runDirection(start, end) {
-            var map = L.map('map', ).setView([-6.914744, 107.609810], 13);
-
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '© OpenStreetMap contributors'
-            }).addTo(map);
-
-            var dir = MQ.routing.directions();
-
-            dir.route({
-                data: [
-                    start,
-                    end
-                ]
-            });
-
-            CustomRouteLayer = MQ.Routing.RouteLayer.extend({
-            createStartMarker: (data) => {
-                var custom_icon;
-                var marker;
-
-                custom_icon = L.icon({
-                    iconUrl: 'assets/img/red.png',
-                    iconSize: [20, 29],
-                    iconAnchor: [10, 29],
-                    popupAnchor: [0, -29]
-                });
-
-                marker = L.marker(data.latLng, {icon: custom_icon}).addTo(map);
-
-                return marker;
-            },
-
-            createEndMarker: (data) => {
-                var custom_icon;
-                var marker;
-
-                custom_icon = L.icon({
-                    iconUrl: 'assets/img/blue.png',
-                    iconSize: [20, 29],
-                    iconAnchor: [10, 29],
-                    popupAnchor: [0, -29]
-                });
-
-                marker = L.marker(data.latLng, {icon: custom_icon}).addTo(map);
-
-                return marker;
-            }
-        });
-
-        map.addLayer(new CustomRouteLayer({
-            directions: dir,
-            fitBounds: true
-        }));
-        }
-
-        function submitForm(event) {
-            event.preventDefault();
-
-            map.remove();
-
-            start = document.getElementById("start").value;
-            end = document.getElementById("destination").value;
-
-            runDirection(start, end);
-
-            document.getElementById("form").reset();
-        }
-        const form = document.getElementById('form');
-        form.addEventListener('submit', submitForm);
-
     </script>
 
 </body>

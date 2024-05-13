@@ -98,25 +98,24 @@
                 <h3 class="m-16">Peta Wisata</h3>
             </div>
             <div id="map">
-                <div class="search-sidebar" >
-                    <div
-                        class="formBlock bg-body text-dark position-absolute border shadow p-2 bg-white rounded">
+                <div class="search-sidebar">
+                    <div class="formBlock bg-body text-dark position-absolute w-25 border shadow p-2 bg-white rounded">
                         <form>
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Search..." oninput="onTyping(this)" />
-                                <span class=""><i class=" fas fa-search fa-3x p-2"></i></span>
-                                <a href="#" onclick="toggleSidebar()"><i class="  bi bi-sign-turn-right-fill fa-3x active"></i></a>
+                                <input type="text" class="form-control" placeholder="Search..."
+                                    oninput="onTyping(this)" />
                             </div>
                             <ul id="search-result"></ul>
                         </form>
                     </div>
                 </div>
-                <div class="hidden search-sidebar-content" id="sidebar">
+                {{-- <div class="hidden search-sidebar-content" id="sidebar">
                     <div
                         class="content-search bg-body text-dark h-100 position-absolute top-10 border shadow p-3 bg-white rounded">
                         <ul>
                             <li>
-                                <a href="#"><i class="rutes text-info bi bi-sign-turn-right-fill fa-2x p-2 active"></i></a>
+                                <a href="#"><i
+                                        class="rutes text-info bi bi-sign-turn-right-fill fa-2x p-2 active"></i></a>
                                 <i class=" bi bi-car-front fa-2x p-2"></i>
                                 <i class=" bi bi-bicycle fa-2x p-2"></i>
                                 <i class=" bi bi-train-front fa-2x p-2"></i>
@@ -126,7 +125,7 @@
                                 <i class=" bi bi-x-lg fa-2x p-2 active" onclick="toggleSidebar()"></i>
                             </li>
                         </ul>
-                        <form id="form" >
+                        <form id="form">
                             <input type="text" name="start" class="form-control p-2 w-100 border" id="start"
                                 placeholder="Pilih Titik Saat Ini" />
                             <input type="text" name="end" class="form-control p-2 w-100 border" id="destination"
@@ -134,225 +133,140 @@
                             <button style="display: none;" type="submit">Get Directions</button>
                         </form>
                     </div>
-                </div>
-                </div>
-                <script>
+                </div> --}}
+            </div>
+            <script>
+                var map = L.map('map').setView([-6.914744, 107.609810], 10);
 
-                    var map = L.map('map').setView([-6.914744, 107.609810], 10);
+                map.zoomControl.setPosition('bottomright')
 
-                    map.zoomControl.setPosition('bottomright')
-
-                    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                L.tileLayer(
+                    'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
                         maxZoom: 20,
                         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                     }).addTo(map);
 
-                    var popup = L.popup();
-                        function onMapClick(data) {
-                        popup
+                var popup = L.popup();
+
+                function onMapClick(data) {
+                    popup
                         .setLatLng(data.latlng)
                         .setContent(data.latlng.toString())
                         .openOn(map);
-                    }
+                }
 
-                    map.on('click', onMapClick);
+                map.on('click', onMapClick);
 
-                    $( document ).ready(function() {
-                        $.getJSON('point/json', function(data) {
-                            $.each(data, function(index){
+                $(document).ready(function () {
+                    $.getJSON('point/json', function (data) {
+                        $.each(data, function (index) {
 
-                                L.marker ([parseFloat(data[index].latitude),parseFloat(data[index].longitude)])
+                            L.marker([parseFloat(data[index].latitude), parseFloat(data[index]
+                                    .longitude)])
                                 .addTo(map)
                                 .bindPopup((data[index].nama_tempat));
-                            });
                         });
                     });
+                });
 
-                    const resultsWrapperHTML = document.getElementById("search-result")
+                const resultsWrapperHTML = document.getElementById("search-result")
 
-        map.on("click", function(e){
-        const {latitude, longitude} = e.latlng
-        // regenerate marker position
-        Marker.setLatLng([latitude, longitude])
-        })
-
-        let typingInterval
-
-            // typing handler
-            function onTyping(e) {
-            clearInterval(typingInterval)
-            const {value} = e
-
-            typingInterval = setInterval(() => {
-                clearInterval(typingInterval)
-                searchLocation(value)
-            }, 500)
-            }
-
-            // search handler
-            function searchLocation(keyword) {
-            if(keyword) {
-                // request dari database
-                fetch(`/search?keyword=${keyword}`)
-                .then((response) => {
-                    return response.json()
-                }).then(json => {
-                // get respon data dari database
-                console.log("json", json)
-                    if(json.length > 0) return renderResults(json)
-                    else alert("lokasi tidak ditemukan")
+                map.on("click", function (e) {
+                    const {
+                        latitude,
+                        longitude
+                    } = e.latlng
+                    // regenerate marker position
+                    Marker.setLatLng([latitude, longitude])
                 })
-            }
-            }
 
-            // render results
-            function renderResults(result) {
-            let resultsHTML = ""
+                let typingInterval
 
-            result.map((n) => {
-                resultsHTML += `<li>
+                // typing handler
+                function onTyping(e) {
+                    clearInterval(typingInterval)
+                    const {
+                        value
+                    } = e
+
+                    typingInterval = setInterval(() => {
+                        clearInterval(typingInterval)
+                        searchLocation(value)
+                    }, 500)
+                }
+
+                // search handler
+                function searchLocation(keyword) {
+                    if (keyword) {
+                        // request dari database
+                        fetch(`/search?keyword=${keyword}`)
+                            .then((response) => {
+                                return response.json()
+                            }).then(json => {
+                                // get respon data dari database
+                                console.log("json", json)
+                                if (json.length > 0) return renderResults(json)
+                                else alert("lokasi tidak ditemukan")
+                            })
+                    }
+                }
+
+                // render results
+                function renderResults(result) {
+                    let resultsHTML = ""
+
+                    result.map((n) => {
+                        resultsHTML +=
+                            `<li>
                     <i class="bi bi-geo-alt"></i>
                     <a href="#" onclick="setLocation(${n.latitude},${n.longitude});">${n.nama_tempat}, ${n.alamat}</a></li>`
-            })
+                    })
 
-            resultsWrapperHTML.innerHTML = resultsHTML
-            }
+                    resultsWrapperHTML.innerHTML = resultsHTML
+                }
 
-            // clear results
-            function clearResults() {
-            resultsWrapperHTML.innerHTML = ""
-            }
+                // clear results
+                function clearResults() {
+                    resultsWrapperHTML.innerHTML = ""
+                }
 
-            // set lokasi yang dicari result
-            function setLocation(latitude, longitude) {
-            // set map focus
-            map.setView(new L.LatLng(latitude, longitude), 25)
+                // set lokasi yang dicari result
+                function setLocation(latitude, longitude) {
+                    // set map focus
+                    map.setView(new L.LatLng(latitude, longitude), 25)
 
-            // generate lokasi maker
-            Marker.setLatLng([latitude, longitude])
+                    // generate lokasi maker
+                    Marker.setLatLng([latitude, longitude])
 
-            // clear results
-            clearResults()
-            }
+                    // clear results
+                    clearResults()
+                }
 
-            var sidebar = document.getElementById('sidebar');
+            </script>
 
-function toggleSidebar() {
-    sidebar.classList.toggle('hidden');
-}
+            <style>
+                #map {
+                    height: 100vh;
+                    width: 100%;
+                }
 
-        function runDirection(start, end) {
-            var map = L.map('map', ).setView([-6.914744, 107.609810], 13);
+                input:nth-child(1) {
+                    margin-bottom: 10px;
+                }
 
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '© OpenStreetMap contributors'
-            }).addTo(map);
+                .formBlock {
+                    z-index: 999;
+                    top: 10px;
+                    left: 5px;
+                }
 
-            var dir = MQ.routing.directions();
-
-            dir.route({
-                data: [
-                    start,
-                    end
-                ]
-            });
-
-            CustomRouteLayer = MQ.Routing.RouteLayer.extend({
-            createStartMarker: (data) => {
-                var custom_icon;
-                var marker;
-
-                custom_icon = L.icon({
-                    iconUrl: 'assets/img/red.png',
-                    iconSize: [20, 29],
-                    iconAnchor: [10, 29],
-                    popupAnchor: [0, -29]
-                });
-
-                marker = L.marker(data.latLng, {icon: custom_icon}).addTo(map);
-
-                return marker;
-            },
-
-            createEndMarker: (data) => {
-                var custom_icon;
-                var marker;
-
-                custom_icon = L.icon({
-                    iconUrl: 'assets/img/blue.png',
-                    iconSize: [20, 29],
-                    iconAnchor: [10, 29],
-                    popupAnchor: [0, -29]
-                });
-
-                marker = L.marker(data.latLng, {icon: custom_icon}).addTo(map);
-
-                return marker;
-            }
-        });
-
-        map.addLayer(new CustomRouteLayer({
-            directions: dir,
-            fitBounds: true
-        }));
-        }
-
-        function submitForm(event) {
-            event.preventDefault();
-
-            // delete current map layer
-            map.remove();
-
-            // getting form data
-            start = document.getElementById("start").value;
-            end = document.getElementById("destination").value;
-
-            // run directions function
-            runDirection(start, end);
-
-            // reset form
-            document.getElementById("form").reset();
-        }
-
-        // asign the form to form variable
-        const form = document.getElementById('form');
-
-        // call the submitForm() function when submitting the form
-        form.addEventListener('submit', submitForm);
-                </script>
-
-                <style>
-                    #map {
-                        height: 100vh;
-                        width: 100%;
-                    }
-
-                    input:nth-child(1) {
-            margin-bottom: 10px;
-        }
-
-        .formBlock {
-            z-index: 999;
-            width: 35%;
-            top: 10px;
-            left: 5px;
-        }
-
-        .content-search {
-            z-index: 999;
-            width: 35%;
-        }
-        .hidden {
-    display: none;
-}
-
-                </style>
-            </div>
-
-
+            </style>
         </div>
-    </section>
-    <!-- /.row -->
+
+
+</div>
+</section>
+<!-- /.row -->
 </div>
 
 @endsection
