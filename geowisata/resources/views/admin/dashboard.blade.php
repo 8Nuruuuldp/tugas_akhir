@@ -98,16 +98,43 @@
                 <h3 class="m-16">Peta Wisata</h3>
             </div>
             <div id="map">
-
-                <div class="formBlock">
-                    <form>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Search..." oninput="onTyping(this)"/>
-                            <span class=""><i class="text-info fas fa-search fa-2x p-2"></i></span>
-                            <a href="#"><i class="text-info bi bi-sign-turn-right-fill fa-2x active"></i></a>
-                        </div>
-                        <ul id="search-result"></ul>
-                    </form>
+                <div class="search-sidebar" >
+                    <div
+                        class="formBlock bg-body text-dark position-absolute border shadow p-2 bg-white rounded">
+                        <form>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Search..." oninput="onTyping(this)" />
+                                <span class=""><i class=" fas fa-search fa-3x p-2"></i></span>
+                                <a href="#" onclick="toggleSidebar()"><i class="  bi bi-sign-turn-right-fill fa-3x active"></i></a>
+                            </div>
+                            <ul id="search-result"></ul>
+                        </form>
+                    </div>
+                </div>
+                <div class="hidden search-sidebar-content" id="sidebar">
+                    <div
+                        class="content-search bg-body text-dark h-100 position-absolute top-10 border shadow p-3 bg-white rounded">
+                        <ul>
+                            <li>
+                                <a href="#"><i class="rutes text-info bi bi-sign-turn-right-fill fa-2x p-2 active"></i></a>
+                                <i class=" bi bi-car-front fa-2x p-2"></i>
+                                <i class=" bi bi-bicycle fa-2x p-2"></i>
+                                <i class=" bi bi-train-front fa-2x p-2"></i>
+                                <i class=" bi bi-person-walking fa-2x p-2"></i>
+                                <i class=" bi bi-bicycle fa-2x p-2"></i>
+                                <i class=" bi bi-airplane fa-2x p-2"></i>
+                                <i class=" bi bi-x-lg fa-2x p-2 active" onclick="toggleSidebar()"></i>
+                            </li>
+                        </ul>
+                        <form id="form" >
+                            <input type="text" name="start" class="form-control p-2 w-100 border" id="start"
+                                placeholder="Pilih Titik Saat Ini" />
+                            <input type="text" name="end" class="form-control p-2 w-100 border" id="destination"
+                                placeholder="Pilih Tujuan" />
+                            <button style="display: none;" type="submit">Get Directions</button>
+                        </form>
+                    </div>
+                </div>
                 </div>
                 <script>
 
@@ -207,6 +234,91 @@
             // clear results
             clearResults()
             }
+
+            var sidebar = document.getElementById('sidebar');
+
+function toggleSidebar() {
+    sidebar.classList.toggle('hidden');
+}
+
+        function runDirection(start, end) {
+            var map = L.map('map', ).setView([-6.914744, 107.609810], 13);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+
+            var dir = MQ.routing.directions();
+
+            dir.route({
+                data: [
+                    start,
+                    end
+                ]
+            });
+
+            CustomRouteLayer = MQ.Routing.RouteLayer.extend({
+            createStartMarker: (data) => {
+                var custom_icon;
+                var marker;
+
+                custom_icon = L.icon({
+                    iconUrl: 'assets/img/red.png',
+                    iconSize: [20, 29],
+                    iconAnchor: [10, 29],
+                    popupAnchor: [0, -29]
+                });
+
+                marker = L.marker(data.latLng, {icon: custom_icon}).addTo(map);
+
+                return marker;
+            },
+
+            createEndMarker: (data) => {
+                var custom_icon;
+                var marker;
+
+                custom_icon = L.icon({
+                    iconUrl: 'assets/img/blue.png',
+                    iconSize: [20, 29],
+                    iconAnchor: [10, 29],
+                    popupAnchor: [0, -29]
+                });
+
+                marker = L.marker(data.latLng, {icon: custom_icon}).addTo(map);
+
+                return marker;
+            }
+        });
+
+        map.addLayer(new CustomRouteLayer({
+            directions: dir,
+            fitBounds: true
+        }));
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+
+            // delete current map layer
+            map.remove();
+
+            // getting form data
+            start = document.getElementById("start").value;
+            end = document.getElementById("destination").value;
+
+            // run directions function
+            runDirection(start, end);
+
+            // reset form
+            document.getElementById("form").reset();
+        }
+
+        // asign the form to form variable
+        const form = document.getElementById('form');
+
+        // call the submitForm() function when submitting the form
+        form.addEventListener('submit', submitForm);
                 </script>
 
                 <style>
@@ -215,19 +327,24 @@
                         width: 100%;
                     }
 
-                    .formBlock {
-                    max-width: 380px;
-                    background-color: #FFF;
-                    border: 1px solid #ddd;
-                    position: absolute;
-                    top: 10px;
-                    left: 10px;
-                    padding: 10px;
-                    z-index: 999;
-                    box-shadow: 0 1px 5px rgba(0,0,0,0.65);
-                    border-radius: 5px;
-                    width: 90%;
-                }
+                    input:nth-child(1) {
+            margin-bottom: 10px;
+        }
+
+        .formBlock {
+            z-index: 999;
+            width: 35%;
+            top: 10px;
+            left: 5px;
+        }
+
+        .content-search {
+            z-index: 999;
+            width: 35%;
+        }
+        .hidden {
+    display: none;
+}
 
                 </style>
             </div>

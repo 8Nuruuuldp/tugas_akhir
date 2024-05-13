@@ -86,7 +86,7 @@
                     <input type="text" name="start" class="form-control p-2 w-100 border" id="start"
                         placeholder="Pilih Titik Saat Ini" />
                     <input type="text" name="end" class="form-control p-2 w-100 border" id="destination"
-                        placeholder="Pilih Tujuan" />
+                        placeholder="Pilih Tujuan"/>
                     <button style="display: none;" type="submit">Get Directions</button>
                 </form>
             </div>
@@ -156,7 +156,6 @@
         });
 
         // SEARCH SINGLE
-
         const resultsWrapperHTML = document.getElementById("search-result")
         map.on("click", function (e) {
             const {
@@ -216,9 +215,6 @@
             // clear results
             clearResults()
         }
-
-
-
         //SEARCH ROUTING
         var sidebar = document.getElementById('sidebar');
 
@@ -285,24 +281,16 @@ function toggleSidebar() {
         function submitForm(event) {
             event.preventDefault();
 
-            // delete current map layer
             map.remove();
 
-            // getting form data
             start = document.getElementById("start").value;
             end = document.getElementById("destination").value;
 
-            // run directions function
             runDirection(start, end);
 
-            // reset form
             document.getElementById("form").reset();
         }
-
-        // asign the form to form variable
         const form = document.getElementById('form');
-
-        // call the submitForm() function when submitting the form
         form.addEventListener('submit', submitForm);
 
     </script>
