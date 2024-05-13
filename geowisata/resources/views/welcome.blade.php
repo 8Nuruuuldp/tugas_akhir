@@ -104,20 +104,38 @@
         </div>
     </section>
 
-    <section class="bg-zinc-50 overflow-hidden">
-        <div class="max-w-screen-xl 2xl:max-w-screen-3xl px-8 md:px-12 mx-auto py-12 lg:py-24 space-y-24 h-svh flex flex-col justify-center">
-            <div class="flex flex-col sm:flex-row mx-auto">
-                    <!--- Starts component --> 
-                    <a href="#"> <img src="https://images.unsplash.com/photo-1564901236182-daaec707fbf3?q=80&amp;w=2672&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="rounded-xl  rotate-6 hover:rotate-0 duration-500 hover:-translate-y-12 h-full w-full object-cover hover:scale-150 transform origin-bottom" alt="#_"> </a>
-                    <a href="#"> <img src="https://images.unsplash.com/photo-1611261510936-c43c4caf65b4?q=80&amp;w=2574&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDJ8fEtvdGElMjBCYW5kdW5nfGVufDB8fDB8fHww" class="rounded-xl  -rotate-12 hover:rotate-0 duration-500 hover:-translate-y-12 h-full w-full object-cover hover:scale-150 transform origin-bottom" alt="#_"> </a>
-                    <a href="#"> <img src="https://images.unsplash.com/photo-1586996292898-71f4036c4e07?q=80&amp;w=2670&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="rounded-xl  rotate-6 hover:rotate-0 duration-500 hover:-translate-y-12 h-full w-full object-cover hover:scale-150 transform origin-bottom" alt="#_"> </a>
-                    <a href="#"> <img src="https://images.unsplash.com/photo-1522775417749-29284fb89f43?q=80&amp;w=2574&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="rounded-xl  -rotate-12 hover:rotate-0 duration-500 hover:-translate-y-12 h-full w-full object-cover hover:scale-150 transform origin-bottom" alt="#_"> </a>
-                    <!--- Ends component -->
-            </div> <!-- Starts links to tutorial -->
-            <div class="pointer-events-none fixed inset-x-0 bottom-0 sm:flex sm:justify-center sm:px-6 sm:pb-5 lg:px-8">
-            <div class="pointer-events-auto flex w-full max-w-md divide-x divide-neutral-200 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+    <section class="flex justify-center items-center h-screen object-cover w-full object-center">
+        <div class="grid items-center py-8 px-12 mx-auto max-w-screen-xl lg:gap-8 xl:gap-0 lg:py-16 ">
+            <div class="">
+                <div class="text-center">
+                    <h1
+                        class="mb-4 max-w-2xl text-4xl font-extrabold leading-none md:text-5xl xl:text-6xl dark:text-slate-800">
+                        Tentang Kota Bandung</h1>
+                    <p
+                        class="items-center mb-6 max-w-2xl font-light text-slate-700 lg:mb-8 md:text-lg lg:text-xl dark:text-slate-800">
+                        Bandung, kota yang dijuluki "Kota Kembang" dan "Paris Van Java", merupakan ibukota Jawa Barat
+                        dan metropolitan terbesar di provinsi tersebut.
+                        Dikelilingi pegunungan, Bandung menawarkan suasana sejuk dan nyaman dengan udara pegunungan.
+                        Keindahan alamnya yang memukau, budaya Sunda yang kaya,
+                        dan kulinernya yang lezat menjadikannya tujuan wisata populer bagi wisatawan domestik dan
+                        internasional
+                    </p>
+                </div>
+                <div class="flex gap-8 ">
+                    <div class="">
+                        <img src="#" class="size-auto rounded">
+                    </div>
+                    <div class="">
+                        <img src="#" class="size-auto rounded">
+                    </div>
+                    <div class="">
+                        <img src="#" class="size-auto rounded">
+                    </div>
+
+                </div>
+            </div>
         </div>
-       </section>
+    </section>
 
     <section>
         <div class="max-w-screen-xl mx-auto sm:p-10 md:p-16 bg-green-900">
@@ -273,8 +291,7 @@
 
             <form>
                 <div class="flex gap-2">
-                    <input type="text" placeholder="Search..." oninput="onTyping(this)"
-                        class="map w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500">
+                        <input type="text" class="w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500" placeholder="Search..." oninput="onTyping(this)"/>
                     <label for="kategori">
                         <select
                             class="w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500"
@@ -343,6 +360,7 @@
     </section>
 
     <script>
+        var geolayer;
         var map = L.map('map').setView([-6.914744, 107.609810], 10);
 
         map.zoomControl.setPosition('bottomright')
@@ -444,7 +462,15 @@
             clearResults()
         }
 
-        //
+        // search kategori
+        // function search(id) {
+        //     geolayer.eachLayer(function(layer){
+        //         if(layer.feature.properties.id==id){
+        //             map.fly(layer.getBounds().getCenter(), 19);
+        //         }
+        //     })
+
+        // }
 
     </script>
 

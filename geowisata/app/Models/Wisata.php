@@ -10,7 +10,8 @@ class Wisata extends Model
 {
     use HasFactory;
     protected $table = "table_wisata";
-    protected $primaryKey = "id";
+    protected $guarded =['id'];
+    protected $with = ['kategori'];
     protected $fillable = ['nama_tempat', 'kategori_id', 'alamat', 'gambar', 'deskripsi', 'latitude', 'longitude'];
 
     public function kategori(){
@@ -21,4 +22,11 @@ class Wisata extends Model
         return $this->hasMany(Ulasan::class);
     }
 
+    public function kategoriAll()
+    {
+        $results = DB::table('table_kategori')
+        ->select('id', 'nama_kategori')
+        ->get();
+        return $results;
+    }
 }

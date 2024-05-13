@@ -103,8 +103,8 @@
                     <form>
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="Search..." oninput="onTyping(this)"/>
-                            <span class=""><i class="fas fa-search fa-2x p-2"></i></span>
-                            <a href="#"><i class="bi bi-sign-turn-right-fill fa-2x active"></i></a>
+                            <span class=""><i class="text-info fas fa-search fa-2x p-2"></i></span>
+                            <a href="#"><i class="text-info bi bi-sign-turn-right-fill fa-2x active"></i></a>
                         </div>
                         <ul id="search-result"></ul>
                     </form>

@@ -39,33 +39,27 @@
         href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.js"
         charset="utf-8"></script>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
 
-<<<<<<< HEAD
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-=======
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
-<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
->>>>>>> 366c921130fdfe6e44c84be1706fb78586aea703
 </head>
 
 <body>
 
-    <div class="map rounded" id="map"></div>
+    <div class="map rounded" id="map">
 
-        <div class="bg-body text-dark z-3 position-absolute top-10 left-5  border shadow p-2 mb-3 bg-white rounded w-25 h-20">
+        <div class="formBlock bg-body text-dark w-25 position-absolute top-10 left-5  border shadow p-3 bg-white rounded">
             <form>
                 <div class="input-group mb-3">
-                    {{-- <span><i class="text-info fa fa-bars fa-3x p-2 active"></i></span> --}}
-                    <input type="text" name="start" class="form-control" id="start" placeholder="Cari Lokasi" oninput="onTyping(this)"/>
-                    <i id="rute-search" class="rutes text-info bi bi-sign-turn-right-fill fa-3x p-2 active " ></i>
+                    <input type="text" class="form-control" placeholder="Search..." oninput="onTyping(this)"/>
+                    <span class=""><i class="text-info fas fa-search fa-3x p-2"></i></span>
+                    <a href="#"><i class="text-info bi bi-sign-turn-right-fill fa-3x active"></i></a>
                 </div>
-                <ul id="search-result" class="position-relative top-15 w-100 p-0 z-3"></ul>
+                <ul id="search-result"></ul>
             </form>
         </div>
 
@@ -79,18 +73,21 @@
             margin-bottom: 10px;
             }
 
+            .formBlock {
+                    z-index: 999;
+                }
+
         </style>
 
         <script>
             var map = L.map('map',).setView([-6.914744, 107.609810], 13);
 
-            L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
             }).addTo(map);
 
             map.zoomControl.setPosition('bottomright')
 
-<<<<<<< HEAD
             var popup = L.popup();
 
             function onMapClick(data) {
@@ -106,60 +103,21 @@
 
                         L.marker([parseFloat(data[index].latitude), parseFloat(data[index]
                                 .longitude)])
-=======
-            $(document).ready(function() {
-                $.getJSON('point/json', function(data) {
-                    $.each(data, function(index) {
-                        L.marker([parseFloat(data[index].latitude), parseFloat(data[index].longitude)])
->>>>>>> 366c921130fdfe6e44c84be1706fb78586aea703
                             .addTo(map)
-                            .bindPopup('<div class"min-h-screen p-8 flex items-center justify-center"><img class="h-32 w-full object-cover object-end" src="./img/' + data[index].gambar + '">' + '<div class="p-6"><h4 class="mt-2 font-bold text-lg truncate">' + data[index].nama_tempat + '</h4><div class="my-2"><strong>Alamat</strong> :<br>' + data[index].alamat + '</div><div class="my-2"><a href="/hwisata" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center">Lihat Selengkapnya</a><button onclick="getLocation('+data[index].latitude+','+data[index].longitude+')" class="py-2 text-blue-500 rounded shadow-md hover:bg-blue-300 active:bg-blue-700 disabled:opacity-50 mt-2 w-full flex items-center justify-center">Ayo kesana!</button></div></div></div></div>');
+                            .bindPopup(
+                                '<div class"min-h-screen flex items-center justify-center"><div class="bg-white rounded-lg overflow-hidden shadow-2xl xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2"><img class="h-48 w-full object-cover object-end" src="./img/' +
+                                data[index].gambar + '">' +
+                                '<div class="p-6"><h4 class="mt-2 font-bold text-lg truncate">' +
+                                data[index].nama_tempat + '</h4><div class=""> <br>' + data[
+                                    index]
+                                .alamat +
+                                '</div><div class="my-2"><a href="/hwisata" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center">Lihat Selengkapnya</a><a href="" class="py-2 text-blue-500 rounded shadow-md hover:bg-blue-300 active:bg-blue-700 disabled:opacity-50 mt-2 w-full flex items-center justify-center">Ayo kesana!</a></div></div></div></div>'
+                            );
                     });
                 });
             });
 
-<<<<<<< HEAD
             // SEARCH SINGLE
-=======
-            function getLocation(latitude, longitude) {
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(function(position) {
-                        var userlat = position.coords.latitude;
-                        var userlng = position.coords.longitude;
-
-                        console.log(userlat,userlng);
-                        // Mengambil posisi tujuan dari database menggunakan Ajax
-                        $.ajax({
-                            url: 'point/json',
-                            method: 'get',
-                            dataType: 'json',
-                            success: function(data) {
-                                // Menampilkan rute dari posisi pengguna ke posisi tujuan
-                                var startLat = L.latLng(userlat,userlng);
-                                var endPoint = L.latLng(latitude,longitude);
-
-                                L.Routing.control({
-                                    waypoints: [
-                                        startLat,
-                                        endPoint
-                                    ],
-                                    routeWhileDragging: true,
-                                    geocoder: L.Control.Geocoder.nominatim()                   
-                                }).addTo(map);
-
-                            },
-                            
-                            error: function(xhr, status, error) {
-                                console.error("Error:", error);
-                            }
-                        });
-                    });
-                } else {
-                    console.log("Geolocation is not supported by this browser.");
-                }
-            }        
- 
->>>>>>> 366c921130fdfe6e44c84be1706fb78586aea703
 
             const resultsWrapperHTML = document.getElementById("search-result")
             map.on("click", function (e) {

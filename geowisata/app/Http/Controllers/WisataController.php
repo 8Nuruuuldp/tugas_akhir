@@ -133,10 +133,12 @@ class WisataController extends Controller
     //foreach kategori welcome
     public function welcome()
     {
-            return view('welcome', [
-                'kategori'=> Kategori::all()
+            // return view('welcome', [
+            //     'kategori'=> Kategori::all()
 
-            ]);
+            // ]);
+            $results=$this->Wisata->kategoriAll();
+            return view('welcome',['kategori'=>$results]);
     }
     // foreach search petawisata
     public function petawisata()
