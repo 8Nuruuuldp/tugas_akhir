@@ -65,7 +65,7 @@
             <a href="/petawisata"
                 class="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Peta
                 Wisata</a>
-            <a href="#"
+            <a href="/kontak"
                 class="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Kontak</a>
         </div>
         @auth
@@ -314,6 +314,7 @@
         </div>
 
     </section>
+
     <section class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8">
         <footer class="bg-white h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
             <div class="mx-auto w-full max-w-screen-xl">
@@ -347,7 +348,7 @@
                                 <a href="#" class="hover:underline">Rekomendasi</a>
                             </li>
                             <li class="mb-4">
-                                <a href="#" class="hover:underline">Peta Wisata</a>
+                                <a href="/petawisata" class="hover:underline">Peta Wisata</a>
                             </li>
                         </ul>
                     </div>

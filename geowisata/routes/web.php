@@ -13,6 +13,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UlasanController;
 use App\Http\Controllers\PetawisataController;
+use App\Http\Controllers\KontakController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,9 @@ Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard
 
 //Routing Read Data User
 Route::get('/user', [UserController::class, 'index']);
+//Routing Edit Data User
+Route::get('/user/{id}/edit', [UserController::class, 'edit']);
+Route::post('/user/{id}/update', [UserController::class, 'update']);
 // delete data user
 Route::get('/user/{id}/delete', [UserController::class, 'destroy']);
 
@@ -82,3 +86,6 @@ Route::get('/kategori/{id}/delete', [KategoriController::class, 'destroy']);
 
 //Routing Menampilkan Ulasan di Admin
 Route::get('/ulasan', [UlasanController::class, 'index']);
+
+//Routing Kontak
+Route::get('/kontak', [KontakController::class, 'index']);

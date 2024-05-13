@@ -8,13 +8,13 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h3>Edit Data User</h3>
+                    <h3>Edit Data Admin</h3>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/dashboard">Dasbor</a></li>
-                        <li class="breadcrumb-item"><a href="/wisata">Data User</a></li>
-                        <li class="breadcrumb-item active">Edit Data User</li>
+                        <li class="breadcrumb-item"><a href="/wisata">Data Admin</a></li>
+                        <li class="breadcrumb-item active">Edit Data Admin</li>
                     </ol>
                 </div>
             </div>
@@ -24,9 +24,9 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            <div class="card card-info">
+            <div class="card card-warning">
                 <div class="card-header">
-                    <h3 class="card-title">Edit Data</h3>
+                    <h3 class="card-title">Edit Data Admin</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
@@ -38,17 +38,17 @@
                         <div class="form-group">
                             <label for="name">Nama Pengguna</label>
                             <input type="text" class="form-control" id="name"
-                                placeholder="Masukan nama pengguna" value="{{$users->name}}">
+                                placeholder="Masukan nama pengguna" name="name" value="{{$users->name}}">
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input type="text" class="form-control" id="email"
-                                placeholder="Masukan alamat email" value="{{$users->email}}">
+                                placeholder="Masukan alamat email" name="email" value="{{$users->email}}">
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
                             <input type="text" class="form-control" id="password"
-                                placeholder="Masukan password" value="{{$users->password}}">
+                                placeholder="Masukan password" name="password" value="{{$users->password}}">
                         </div>
                         <div>
                             <button type="submit" class="btn btn-primary">Submit</button>

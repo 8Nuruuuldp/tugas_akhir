@@ -3,17 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
 
-class UserController extends Controller
+class KontakController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $user = User::all();
-        return view('admin.user.index',['users'=>$user]);
+        return view('kontak');
     }
 
     /**
@@ -45,8 +43,7 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        $user = User::find($id);
-        return view('admin.user.edit',['users' => $user]);
+        //
     }
 
     /**
@@ -54,31 +51,14 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $this->validate($request, [
-            'name'  => 'required',
-            'email'  => 'required',
-            'password'    => 'required'
-        ]);
-
-        $user = User::find($id);
-
-        $user->name  = $request->name;
-        $user->email = $request->email;
-        $user->password = $request->password;
-
-        $user->save();
-
-        return redirect('/user')->with('success', 'Data berhasil diperbarui!');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy(string $id)
     {
-        $user = User::find($id);
-        $user->delete();
-
-        return redirect()->back()->with('success', 'Data berhasil dihapus!');
+        //
     }
 }

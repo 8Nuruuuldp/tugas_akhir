@@ -15,7 +15,10 @@
             <a href="#" class="nav-link">Rekomendasi</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">Peta Wisata</a>
+            <a href="/petawisata" class="nav-link">Peta Wisata</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/kontak" class="nav-link">Kontak</a>
         </li>
     </ul>
 
@@ -26,7 +29,7 @@
                 <i class="fas fa-cog"></i>
             </a>
         </li>
-        <li class="nav-item mt-1">
+        <li class="nav-item mt-1" style="margin-right:10px;">
             <form action="/logout" method="post">
                 @csrf
                 <button type="submit" class="btn btn-success btn-sm"
