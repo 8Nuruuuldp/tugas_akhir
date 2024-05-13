@@ -14,6 +14,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UlasanController;
 use App\Http\Controllers\PetawisataController;
 use App\Http\Controllers\KontakController;
+use App\Http\Controllers\DetailWisataController;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,3 +90,6 @@ Route::get('/ulasan', [UlasanController::class, 'index']);
 
 //Routing Kontak
 Route::get('/kontak', [KontakController::class, 'index']);
+
+//Detail Wisata
+Route::get('/detailwisata/{id}', [DetailWisataController::class, 'detailwisata']);
