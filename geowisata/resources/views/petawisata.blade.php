@@ -42,8 +42,6 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-map.js?key=S8d7L47mdyAG5nHG09dUnSPJjreUVPeC"></script>
@@ -61,7 +59,7 @@
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Search..." oninput="onTyping(this)" />
                         <span class=""><i class=" fas fa-search fa-3x p-2"></i></span>
-                        <a href="#" onclick="toggleSidebar()"><i class="  bi bi-sign-turn-right-fill fa-3x active"></i></a>
+                        <button onclick="toggleSidebar()"><i class="  bi bi-sign-turn-right-fill fa-3x active"></i></button>
                     </div>
                     <ul id="search-result"></ul>
                 </form>
