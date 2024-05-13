@@ -22,6 +22,9 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
     <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.js"
@@ -137,21 +140,48 @@
             $.getJSON('point/json', function (data) {
                 $.each(data, function (index) {
 
-                    L.marker([parseFloat(data[index].latitude), parseFloat(data[index]
-                            .longitude)])
+                    L.marker([parseFloat(data[index].latitude), parseFloat(data[index].longitude)])
                         .addTo(map)
-                        .bindPopup(
-                            '<div class"min-h-screen flex items-center justify-center"><div class="bg-white rounded-lg overflow-hidden shadow-2xl xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2"><img class="h-48 w-full object-cover object-end" src="./img/' +
-                            data[index].gambar + '">' +
-                            '<div class="p-6"><h4 class="mt-2 font-bold text-lg truncate">' +
-                            data[index].nama_tempat + '</h4><div class=""> <br>' + data[
-                                index]
-                            .alamat +
-                            '</div><div class="my-2"><a href="/hwisata" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center">Lihat Selengkapnya</a><a href="" class="py-2 text-blue-500 rounded shadow-md hover:bg-blue-300 active:bg-blue-700 disabled:opacity-50 mt-2 w-full flex items-center justify-center">Ayo kesana!</a></div></div></div></div>'
+                        .bindPopup('<div class"min-h-screen flex items-center justify-center"><img class="h-48 w-full object-cover object-end" src="./img/' +data[index].gambar+ '"><div class="p-6"><h4 class="mt-2 font-bold text-lg truncate">' +data[index].nama_tempat+ '</h4><div class=""> <br> '+data[index].alamat+' </div><div class="my-2"><a href="/hwisata" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center">Lihat Selengkapnya</a><button onclick="getLocation('+data[index].latitude+','+data[index].longitude+')" class="py-2 text-blue-500 rounded shadow-md hover:bg-blue-300 active:bg-blue-700 disabled:opacity-50 mt-2 w-full flex items-center justify-center">Ayo kesana!</button></div></div></div></div>'
                         );
                 });
             });
         });
+
+        function getLocation(latitude, longitude) {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function(position) {
+                        var userlat = position.coords.latitude;
+                        var userlng = position.coords.longitude;
+                        console.log(userlat,userlng);
+                        // Mengambil posisi tujuan dari database menggunakan Ajax
+                        $.ajax({
+                            url: 'point/json',
+                            method: 'get',
+                            dataType: 'json',
+                            success: function(data) {
+                                // Menampilkan rute dari posisi pengguna ke posisi tujuan
+                                var startLat = L.latLng(userlat,userlng);
+                                var endPoint = L.latLng(latitude,longitude);
+                                L.Routing.control({
+                                    waypoints: [
+                                        startLat,
+                                        endPoint
+                                    ],
+                                    routeWhileDragging: true,
+                                    geocoder: L.Control.Geocoder.nominatim()                   
+                                }).addTo(map);
+                            },
+                            
+                            error: function(xhr, status, error) {
+                                console.error("Error:", error);
+                            }
+                        });
+                    });
+                } else {
+                    console.log("Geolocation is not supported by this browser.");
+                }
+            }
 
         // SEARCH SINGLE
         const resultsWrapperHTML = document.getElementById("search-result")
