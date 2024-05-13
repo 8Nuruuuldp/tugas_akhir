@@ -46,145 +46,266 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+    <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-map.js?key=S8d7L47mdyAG5nHG09dUnSPJjreUVPeC"></script>
+        <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-routing.js?key=S8d7L47mdyAG5nHG09dUnSPJjreUVPeC"></script>
+
 </head>
 
 <body>
 
     <div class="map rounded" id="map">
-
-        <div class="formBlock bg-body text-dark w-25 position-absolute top-10 left-5  border shadow p-3 bg-white rounded">
-            <form>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Search..." oninput="onTyping(this)"/>
-                    <span class=""><i class="text-info fas fa-search fa-3x p-2"></i></span>
-                    <a href="#"><i class="text-info bi bi-sign-turn-right-fill fa-3x active"></i></a>
-                </div>
-                <ul id="search-result"></ul>
-            </form>
+        <div class="search-sidebar" >
+            <div
+                class="formBlock bg-body text-dark w-25 position-absolute top-10 left-5  border shadow p-3 bg-white rounded">
+                <form>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Search..." oninput="onTyping(this)" />
+                        <span class=""><i class=" fas fa-search fa-3x p-2"></i></span>
+                        <a href="#" onclick="toggleSidebar()"><i class="  bi bi-sign-turn-right-fill fa-3x active"></i></a>
+                    </div>
+                    <ul id="search-result"></ul>
+                </form>
+            </div>
         </div>
+        <div class="hidden search-sidebar-content" id="sidebar">
+            <div
+                class="content-search bg-body text-dark h-100 position-absolute top-10 border shadow p-3 bg-white rounded">
+                <ul>
+                    <li>
+                        <a href="#"><i class="rutes text-info bi bi-sign-turn-right-fill fa-2x p-2 active"></i></a>
+                        <i class=" bi bi-car-front fa-2x p-2"></i>
+                        <i class=" bi bi-bicycle fa-2x p-2"></i>
+                        <i class=" bi bi-train-front fa-2x p-2"></i>
+                        <i class=" bi bi-person-walking fa-2x p-2"></i>
+                        <i class=" bi bi-bicycle fa-2x p-2"></i>
+                        <i class=" bi bi-airplane fa-2x p-2"></i>
+                        <i class=" bi bi-x-lg fa-2x p-2 active" onclick="toggleSidebar()"></i>
+                    </li>
+                </ul>
+                <form id="form" >
+                    <input type="text" name="start" class="form-control p-2 w-100 border" id="start"
+                        placeholder="Pilih Titik Saat Ini" />
+                    <input type="text" name="end" class="form-control p-2 w-100 border" id="destination"
+                        placeholder="Pilih Tujuan" />
+                    <button style="display: none;" type="submit">Get Directions</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
-        <style>
-            #map {
-                height: 100vh;
-                width: 100%;
-            }
+    <style>
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
 
-            input:nth-child(1) {
+        input:nth-child(1) {
             margin-bottom: 10px;
+        }
+
+        .formBlock {
+            z-index: 999;
+        }
+
+        .content-search {
+            z-index: 999;
+            width: 26.4%;
+        }
+        .hidden {
+    display: none;
+}
+
+    </style>
+
+    <script>
+        var map = L.map('map', ).setView([-6.914744, 107.609810], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        map.zoomControl.setPosition('bottomright')
+
+        var popup = L.popup();
+
+        function onMapClick(data) {
+            popup
+                .setLatLng(data.latlng)
+                .setContent(data.latlng.toString())
+                .openOn(map);
+        }
+
+        $(document).ready(function () {
+            $.getJSON('point/json', function (data) {
+                $.each(data, function (index) {
+
+                    L.marker([parseFloat(data[index].latitude), parseFloat(data[index]
+                            .longitude)])
+                        .addTo(map)
+                        .bindPopup(
+                            '<div class"min-h-screen flex items-center justify-center"><div class="bg-white rounded-lg overflow-hidden shadow-2xl xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2"><img class="h-48 w-full object-cover object-end" src="./img/' +
+                            data[index].gambar + '">' +
+                            '<div class="p-6"><h4 class="mt-2 font-bold text-lg truncate">' +
+                            data[index].nama_tempat + '</h4><div class=""> <br>' + data[
+                                index]
+                            .alamat +
+                            '</div><div class="my-2"><a href="/hwisata" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center">Lihat Selengkapnya</a><a href="" class="py-2 text-blue-500 rounded shadow-md hover:bg-blue-300 active:bg-blue-700 disabled:opacity-50 mt-2 w-full flex items-center justify-center">Ayo kesana!</a></div></div></div></div>'
+                        );
+                });
+            });
+        });
+
+        // SEARCH SINGLE
+
+        const resultsWrapperHTML = document.getElementById("search-result")
+        map.on("click", function (e) {
+            const {
+                latitude,
+                longitude
+            } = e.latlng
+            // regenerate marker position
+            Marker.setLatLng([latitude, longitude])
+        })
+        let typingInterval
+        // typing handler
+        function onTyping(e) {
+            clearInterval(typingInterval)
+            const {
+                value
+            } = e
+            typingInterval = setInterval(() => {
+                clearInterval(typingInterval)
+                searchdata(value)
+            }, 500)
+        }
+        // search handler
+        function searchdata(keyword) {
+            if (keyword) {
+                // request dari database
+                fetch(`/search?keyword=${keyword}`)
+                    .then((response) => {
+                        return response.json()
+                    }).then(json => {
+                        // get respon data dari database
+                        console.log("json", json)
+                        if (json.length > 0) return renderResults(json)
+                        else alert("lokasi tidak ditemukan")
+                    })
             }
+        }
+        // render results
+        function renderResults(result) {
+            let resultsHTML = ""
+            result.map((n) => {
+                resultsHTML +=
+                    `<li> <i class="bi bi-geo-alt p-2"></i>
+                        <a href="#" onclick="setdata(${n.latitude},${n.longitude});">${n.nama_tempat}, ${n.alamat}</a></li>`
+            })
+            resultsWrapperHTML.innerHTML = resultsHTML
+        }
+        // clear results
+        function clearResults() {
+            resultsWrapperHTML.innerHTML = ""
+        }
+        // set lokasi yang dicari result
+        function setdata(latitude, longitude) {
+            // set map focus
+            map.setView(new L.LatLng(latitude, longitude), 20)
+            // generate lokasi maker
+            Marker.setLatLng([latitude, longitude])
+            // clear results
+            clearResults()
+        }
 
-            .formBlock {
-                    z-index: 999;
-                }
 
-        </style>
 
-        <script>
-            var map = L.map('map',).setView([-6.914744, 107.609810], 13);
+        //SEARCH ROUTING
+        var sidebar = document.getElementById('sidebar');
+
+function toggleSidebar() {
+    sidebar.classList.toggle('hidden');
+}
+
+        function runDirection(start, end) {
+            var map = L.map('map', ).setView([-6.914744, 107.609810], 13);
 
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '© OpenStreetMap contributors'
             }).addTo(map);
 
-            map.zoomControl.setPosition('bottomright')
+            var dir = MQ.routing.directions();
 
-            var popup = L.popup();
-
-            function onMapClick(data) {
-                popup
-                    .setLatLng(data.latlng)
-                    .setContent(data.latlng.toString())
-                    .openOn(map);
-            }
-
-            $(document).ready(function () {
-                $.getJSON('point/json', function (data) {
-                    $.each(data, function (index) {
-
-                        L.marker([parseFloat(data[index].latitude), parseFloat(data[index]
-                                .longitude)])
-                            .addTo(map)
-                            .bindPopup(
-                                '<div class"min-h-screen flex items-center justify-center"><div class="bg-white rounded-lg overflow-hidden shadow-2xl xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2"><img class="h-48 w-full object-cover object-end" src="./img/' +
-                                data[index].gambar + '">' +
-                                '<div class="p-6"><h4 class="mt-2 font-bold text-lg truncate">' +
-                                data[index].nama_tempat + '</h4><div class=""> <br>' + data[
-                                    index]
-                                .alamat +
-                                '</div><div class="my-2"><a href="/hwisata" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center">Lihat Selengkapnya</a><a href="" class="py-2 text-blue-500 rounded shadow-md hover:bg-blue-300 active:bg-blue-700 disabled:opacity-50 mt-2 w-full flex items-center justify-center">Ayo kesana!</a></div></div></div></div>'
-                            );
-                    });
-                });
+            dir.route({
+                data: [
+                    start,
+                    end
+                ]
             });
 
-            // SEARCH SINGLE
+            CustomRouteLayer = MQ.Routing.RouteLayer.extend({
+            createStartMarker: (data) => {
+                var custom_icon;
+                var marker;
 
-            const resultsWrapperHTML = document.getElementById("search-result")
-            map.on("click", function (e) {
-                const {
-                    latitude,
-                    longitude
-                } = e.latlng
-                // regenerate marker position
-                Marker.setLatLng([latitude, longitude])
-            })
-            let typingInterval
-            // typing handler
-            function onTyping(e) {
-                clearInterval(typingInterval)
-                const {
-                    value
-                } = e
-                typingInterval = setInterval(() => {
-                    clearInterval(typingInterval)
-                    searchLocation(value)
-                }, 500)
+                custom_icon = L.icon({
+                    iconUrl: 'assets/img/red.png',
+                    iconSize: [20, 29],
+                    iconAnchor: [10, 29],
+                    popupAnchor: [0, -29]
+                });
+
+                marker = L.marker(data.latLng, {icon: custom_icon}).addTo(map);
+
+                return marker;
+            },
+
+            createEndMarker: (data) => {
+                var custom_icon;
+                var marker;
+
+                custom_icon = L.icon({
+                    iconUrl: 'assets/img/blue.png',
+                    iconSize: [20, 29],
+                    iconAnchor: [10, 29],
+                    popupAnchor: [0, -29]
+                });
+
+                marker = L.marker(data.latLng, {icon: custom_icon}).addTo(map);
+
+                return marker;
             }
-            // search handler
-            function searchLocation(keyword) {
-                if (keyword) {
-                    // request dari database
-                    fetch(`/search?keyword=${keyword}`)
-                        .then((response) => {
-                            return response.json()
-                        }).then(json => {
-                            // get respon data dari database
-                            console.log("json", json)
-                            if (json.length > 0) return renderResults(json)
-                            else alert("lokasi tidak ditemukan")
-                        })
-                }
-            }
-            // render results
-            function renderResults(result) {
-                let resultsHTML = ""
-                result.map((n) => {
-                    resultsHTML +=
-                        `<li> <i class="bi bi-geo-alt p-2"></i>
-                        <a href="#" onclick="setLocation(${n.latitude},${n.longitude});">${n.nama_tempat}, ${n.alamat}</a></li>`
-                })
-                resultsWrapperHTML.innerHTML = resultsHTML
-            }
-            // clear results
-            function clearResults() {
-                resultsWrapperHTML.innerHTML = ""
-            }
-            // set lokasi yang dicari result
-            function setLocation(latitude, longitude) {
-                // set map focus
-                map.setView(new L.LatLng(latitude, longitude), 20)
-                // generate lokasi maker
-                Marker.setLatLng([latitude, longitude])
-                // clear results
-                clearResults()
-            }
+        });
 
+        map.addLayer(new CustomRouteLayer({
+            directions: dir,
+            fitBounds: true
+        }));
+        }
 
+        function submitForm(event) {
+            event.preventDefault();
 
-        //SEARCH ROUTING
+            // delete current map layer
+            map.remove();
 
+            // getting form data
+            start = document.getElementById("start").value;
+            end = document.getElementById("destination").value;
 
-        </script>
+            // run directions function
+            runDirection(start, end);
+
+            // reset form
+            document.getElementById("form").reset();
+        }
+
+        // asign the form to form variable
+        const form = document.getElementById('form');
+
+        // call the submitForm() function when submitting the form
+        form.addEventListener('submit', submitForm);
+
+    </script>
 
 </body>
 
