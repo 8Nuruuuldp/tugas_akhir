@@ -22,6 +22,9 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
     <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.js"
@@ -141,7 +144,7 @@
 
                     L.marker([parseFloat(data[index].latitude), parseFloat(data[index].longitude)])
                         .addTo(map)
-                        .bindPopup('<div class"min-h-screen flex items-center justify-center"><img class="h-48 w-full object-cover object-end" src="./img/' +data[index].gambar+ '"><div class="p-6"><h4 class="mt-2 font-bold text-lg truncate">' +data[index].nama_tempat+ '</h4><div class=""> <br> '+data[index].alamat+' </div><div class="my-2"><a href="/hwisata" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center">Lihat Selengkapnya</a><button onclick="return getLocation('+data[index].latitude+','+data[index].longitude+')" class="py-2 text-blue-500 rounded shadow-md hover:bg-blue-300 active:bg-blue-700 disabled:opacity-50 mt-2 w-full flex items-center justify-center">Ayo kesana!</button></div></div></div></div>'
+                        .bindPopup('<div class"min-h-screen flex items-center justify-center"><img class="h-48 w-full object-cover object-end" src="./img/' +data[index].gambar+ '"><div class="p-6"><h4 class="mt-2 font-bold text-lg truncate">' +data[index].nama_tempat+ '</h4><div class=""> <br> '+data[index].alamat+' </div><div class="my-2"><a href="/hwisata" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center">Lihat Selengkapnya</a><button onclick="getLocation('+data[index].latitude+','+data[index].longitude+')" class="py-2 text-blue-500 rounded shadow-md hover:bg-blue-300 active:bg-blue-700 disabled:opacity-50 mt-2 w-full flex items-center justify-center">Ayo kesana!</button></div></div></div></div>'
                         );
                 });
             });
