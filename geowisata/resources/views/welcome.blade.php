@@ -67,7 +67,7 @@
             <a href="/petawisata"
                 class="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Peta
                 Wisata</a>
-            <a href="/kontak"
+            <a href="/kontak/create"
                 class="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Kontak</a>
         </div>
         @auth

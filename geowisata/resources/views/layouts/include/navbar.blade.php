@@ -18,7 +18,7 @@
             <a href="/petawisata" class="nav-link">Peta Wisata</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="/kontak" class="nav-link">Kontak</a>
+            <a href="/kontak/create" class="nav-link">Kontak</a>
         </li>
     </ul>
 

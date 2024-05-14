@@ -37,7 +37,7 @@
             <a href="/petawisata"
                 class="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Peta
                 Wisata</a>
-            <a href="/kontak"
+            <a href="/kontak/create"
                 class="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Kontak</a>
         </div>
 
@@ -92,7 +92,8 @@
             <div class="content-body">
                 <div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg">
                     <h2 class="text-2xl font-extrabold mb-6 text-green-600">Hubungi Kami</h2>
-                    <form action="#" method="POST" class="space-y-4">
+                    <form action="{{url('/kontak/store')}}" method="POST" class="space-y-4">
+                    @csrf
                         <div>
                             <label for="nama" class="block text-sm font-medium text-gray-500">Nama <span
                                     class="text-red-600">*</span></label>

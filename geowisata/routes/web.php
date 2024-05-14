@@ -89,7 +89,9 @@ Route::get('/kategori/{id}/delete', [KategoriController::class, 'destroy']);
 Route::get('/ulasan', [UlasanController::class, 'index']);
 
 //Routing Kontak
-Route::get('/kontak', [KontakController::class, 'index']);
+//Route::get('/kontak', [KontakController::class, 'index']);
+Route::get('/kontak/create', [KontakController::class, 'create']);
+Route::post('/kontak/store', [KontakController::class, 'store']);
 
 //Detail Wisata
 Route::get('/detailwisata/{id}', [DetailWisataController::class, 'detailwisata']);
