@@ -31,7 +31,7 @@
                 <span class="badge badge-danger navbar-badge">{{App\Models\Kontak::count()}}</span>
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                <a href="/kontak" class="dropdown-item dropdown-footer">Lihat Semua Pesan</a>
+                <a href="/kontak" class="dropdown-item dropdown-footer" style="color:blue;">Lihat Semua Pesan</a>
             </div>
         </li>
         <li class="nav-item">
