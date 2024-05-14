@@ -9,12 +9,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h3>Data Ulasan Objek Wisata</h3>
+                    <h3>Data Pesan Masuk</h3>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/dashboard">Dasbor</a></li>
-                        <li class="breadcrumb-item active">Data Ulasan</li>
+                        <li class="breadcrumb-item active">Pesan Masuk</li>
                     </ol>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title pt-1">Data Ulasan Objek Wisata Kota Bandung</h3>
+                            <h3 class="card-title pt-1">Data Pesan Masuk</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -36,27 +36,27 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama Objek Wisata</th>
-                                        <th>Rating</th>
-                                        <th>Ulasan</th>
-                                        <th>Nama Pengulas</th>
-                                        <th>Email Pengulas</th>
+                                        <th>Nama Pengirim</th>
+                                        <th>Email Pengirim</th>
+                                        <th>Pesan Tersemat</th>
                                         <th>Waktu</th>
+                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @php
                                         $no = 1;
                                     @endphp
-                                    @foreach ($ulasan as $ulasan)
+                                    @foreach ($table_kontak as $kontak)
                                     <tr>
                                         <td>{{$no++}}</td>
-                                        <td>{{$ulasan->wisata->nama_tempat}}</td>
-                                        <td>{{$ulasan->rating}}/5</td>
-                                        <td>{{$ulasan->ulasan}}</td>
-                                        <td>{{$ulasan->nama_pengulas}}</td>
-                                        <td>{{$ulasan->email_pengulas}}</td>
-                                        <td>{{$ulasan->created_at->diffForHumans()}}</td>
+                                        <td>{{$kontak->nama}}</td>
+                                        <td>{{$kontak->email}}</td>
+                                        <td>{{$kontak->pesan}}</td>
+                                        <td>{{$kontak->created_at->diffForHumans()}}</td>
+                                        <td>
+                                            <a href="/kontak/{{$kontak->id}}/delete" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus pesan dari {{$kontak->nama}}?')"><i class="fas fa-trash-alt"></i></a>
+                                        </td>
                                     </tr>
                                     @endforeach
                             </table>

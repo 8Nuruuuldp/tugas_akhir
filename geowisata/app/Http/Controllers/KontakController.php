@@ -12,7 +12,8 @@ class KontakController extends Controller
      */
     public function index()
     {
-        //
+        $kontak = Kontak::all();
+        return view('kontak.index', ['table_kontak'=> $kontak]);
     }
 
     /**
@@ -37,7 +38,7 @@ class KontakController extends Controller
         Kontak::create([
             'nama' => $request->nama,
             'email' => $request->email,
-            'pesan' => $request->pesan
+            'pesan' => $request->pesan,
         ]);
         return redirect('/kontak/create')->with('success', 'Pesan berhasil dikirim!');
     }
@@ -69,8 +70,12 @@ class KontakController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $kontak = Kontak::find($id);
+        //$user = User::find($id);
+        $kontak->delete();
+
+        return redirect()->back()->with('success', 'Pesan berhasil dihapus!');
     }
 }
