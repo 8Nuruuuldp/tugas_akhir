@@ -46,7 +46,7 @@
     <section class="content">
         <div class="container">
             <div id="info_wisata">
-                <img src="{{ asset('img/' . $wisata->gambar) }}" alt="{{ $wisata->nama }}">
+                <img src="{{ asset('./img/' . $wisata->gambar) }}" alt="{{ $wisata->nama }}">
                 <h1>{{ $wisata->nama_tempat }}</h1>
                 <h3>{{ $wisata->alamat }}</h3>
                 <h3>{{ $wisata->latitude }}</h3>
