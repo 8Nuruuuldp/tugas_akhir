@@ -92,8 +92,13 @@
             <div class="content-body">
                 <div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg">
                     <h2 class="text-2xl font-extrabold mb-6 text-green-600">Hubungi Kami</h2>
+                    @if (session('success'))
+                    <div class="bg-green-500 text-white p-4 rounded mb-4">
+                        {{ session('success') }}
+                    </div>
+                    @endif
                     <form action="{{url('/kontak/store')}}" method="POST" class="space-y-4">
-                    @csrf
+                        @csrf
                         <div>
                             <label for="nama" class="block text-sm font-medium text-gray-500">Nama <span
                                     class="text-red-600">*</span></label>
@@ -120,7 +125,7 @@
                 </div>
             </div>
             <!-- End Content-Body -->
-            
+
         </div>
     </section>
     <!-- End Content -->
@@ -171,6 +176,15 @@
         </footer>
     </section>
     <!-- End Footer -->
+
+    <script>
+    setTimeout(() => {
+        const notification = document.querySelector('.bg-green-500');
+        if (notification) {
+            notification.style.display = 'none';
+        }
+    }, 5000); // Notifikasi akan hilang setelah 5 detik
+    </script>
 
 </body>
 
