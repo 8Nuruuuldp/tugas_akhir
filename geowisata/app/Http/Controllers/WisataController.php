@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Wisata;
 use App\Models\Kategori;
+use App\Models\Kontak;
 
 use App\Http\Controllers\Controller;
 
@@ -27,7 +28,10 @@ class WisataController extends Controller
 
     public function index()
     {
-
+        $kontak = Kontak::all();
+        return view('admin.dashboard', [
+            'table_kontak'=> $kontak
+        ]);
         $wisata = Wisata::all();
         $wisata = Wisata::with('kategori')->get();
         return view('admin.wisata.index', compact('wisata'));

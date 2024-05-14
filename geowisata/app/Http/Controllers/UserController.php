@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Kontak;
 
 class UserController extends Controller
 {
@@ -12,6 +13,10 @@ class UserController extends Controller
      */
     public function index()
     {
+        $kontak = Kontak::all();
+        return view('admin.dashboard', [
+            'table_kontak'=> $kontak
+        ]);
         $user = User::all();
         return view('admin.user.index',['users'=>$user]);
     }

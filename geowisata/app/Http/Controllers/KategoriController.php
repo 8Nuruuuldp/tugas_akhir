@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Kategori;
+use App\Models\Kontak;
 
 class KategoriController extends Controller
 {
@@ -12,6 +13,10 @@ class KategoriController extends Controller
      */
     public function index()
     {
+        $kontak = Kontak::all();
+        return view('admin.dashboard', [
+            'table_kontak'=> $kontak
+        ]);
         $kategori = Kategori::all();
         return view('admin.kategori.index',['table_kategori'=>$kategori]);
     }
