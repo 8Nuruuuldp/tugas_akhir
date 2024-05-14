@@ -24,6 +24,32 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
+        <!-- Messages Dropdown Menu -->
+        <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+                <i class="far fa-envelope"></i>
+                <span class="badge badge-danger navbar-badge">{{App\Models\Kontak::count()}}</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                @foreach ($table_kontak as $kontak)
+                <a href="#" class="dropdown-item">
+                    <!-- Message Start -->
+                    <div class="media">
+                        <div class="media-body">
+                            <h3 class="dropdown-item-title">
+                            <b>{{$kontak->nama}}</b>
+                            </h3>
+                            <p class="text-sm"><i>{{$kontak->pesan}}</i></p>
+                            <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i>{{$kontak->created_at->diffForHumans()}}</p>
+                        </div>
+                    </div>
+                    <!-- Message End -->
+                </a>
+                @endforeach
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+            </div>
+        </li>
         <li class="nav-item">
             <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
                 <i class="fas fa-cog"></i>
