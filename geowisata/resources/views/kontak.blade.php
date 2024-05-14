@@ -58,7 +58,7 @@
             <!-- Start Content-Header -->
             <div class="content-header">
                 <div class="text-center p-5">
-                    <h2 class="text-2xl font-bold mb-4 text-green-600">Lorem</h2>
+                    <h2 class="text-4xl font-extrabold mb-4 text-green-600">Lorem</h2>
                     <p class="mb-6 text-gray-700">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, dolorem quis inventore odio
                         excepturi, laborum repudiandae corporis quasi aliquid consectetur praesentium expedita
@@ -91,7 +91,7 @@
             <!-- Start Content-Body -->
             <div class="content-body">
                 <div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg">
-                    <h2 class="text-2xl font-bold mb-6 text-green-600">Hubungi Kami</h2>
+                    <h2 class="text-2xl font-extrabold mb-6 text-green-600">Hubungi Kami</h2>
                     <form action="#" method="POST" class="space-y-4">
                         <div>
                             <label for="nama" class="block text-sm font-medium text-gray-500">Nama <span
