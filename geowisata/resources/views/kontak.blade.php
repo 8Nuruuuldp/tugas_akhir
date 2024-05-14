@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bandung Geowisata</title>
+    <!-- Link Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link Font-awosome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
 
     <!-- Start Navbar -->
-    <nav class="flex items-center justify-between px-12 py-4 bg-transparent">
+    <nav class="flex items-center justify-between px-12 py-4 bg-transparent shadow-lg">
         <img src="#" alt="Bandung Geowisata" width="120" />
 
         <div class="flex md:hidden">
@@ -46,6 +50,79 @@
         @endauth
     </nav>
     <!-- End Navbar -->
+
+    <!-- Start Content -->
+    <section class="content">
+        <div class="container mx-auto px-4 py-8">
+
+            <!-- Start Content-Header -->
+            <div class="content-header">
+                <div class="text-center p-5">
+                    <h2 class="text-2xl font-bold mb-4 text-green-600">Lorem</h2>
+                    <p class="mb-6 text-gray-700">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, dolorem quis inventore odio
+                        excepturi, laborum repudiandae corporis quasi aliquid consectetur praesentium expedita
+                        doloremque
+                        laboriosam minima in cumque quibusdam minus id. Iste blanditiis rerum fuga aspernatur suscipit
+                        quo
+                        laboriosam a porro pariatur magnam repudiandae, obcaecati quaerat, nulla quidem, sapiente
+                        voluptatum
+                        eaque!
+                    </p>
+                    <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6 mb-5">
+                        <p class="text-gray-700 flex items-center">
+                            <i class="fas fa-phone-alt mr-2 text-green-600"></i><strong class="text-green-600">Telepon :
+                            </strong> &nbsp; (123) 456-7890
+                        </p>
+                        <p class="text-gray-700 flex items-center">
+                            <i class="fas fa-envelope mr-2 text-green-600"></i><strong class="text-green-600">Email :
+                            </strong> &nbsp;
+                            Bdg@gmail.com
+                        </p>
+                        <p class="text-gray-700 flex items-center">
+                            <i class="fab fa-twitter mr-2 text-green-600"></i><strong class="text-green-600">Twitter :
+                            </strong> &nbsp; @bandunggeowisata
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- End Content-Header -->
+
+            <!-- Start Content-Body -->
+            <div class="content-body">
+                <div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-bold mb-6 text-green-600">Hubungi Kami</h2>
+                    <form action="#" method="POST" class="space-y-4">
+                        <div>
+                            <label for="nama" class="block text-sm font-medium text-gray-500">Nama <span
+                                    class="text-red-600">*</span></label>
+                            <input type="text" id="nama" name="nama" required
+                                class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-500">Email <span
+                                    class="text-red-600">*</span></label>
+                            <input type="email" id="email" name="email" required
+                                class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label for="pesan" class="block text-sm font-medium text-gray-500">Pesan <span
+                                    class="text-red-600">*</span></label>
+                            <textarea id="pesan" name="pesan" rows="4" required
+                                class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
+                        </div>
+                        <div>
+                            <button type="submit"
+                                class="w-full bg-green-700 text-white font-semibold py-2 px-4 rounded-md shadow hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">Kirim</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- End Content-Body -->
+            
+        </div>
+    </section>
+    <!-- End Content -->
 
     <!-- Start Footer -->
     <section class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8">
@@ -93,7 +170,7 @@
         </footer>
     </section>
     <!-- End Footer -->
-    
+
 </body>
 
 </html>
