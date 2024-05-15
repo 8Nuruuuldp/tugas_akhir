@@ -8,12 +8,11 @@ use App\Models\Wisata;
 
 class UlasanController extends Controller
 {
-    public function index(){
-    
+    public function index()
+    {
         $ulasan = Ulasan::all();
         $ulasan = Ulasan::with('wisata')->get();
         return view('admin.ulasan.index', compact('ulasan'));
-
     }
 
 

@@ -3,15 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\DetailWisata;
 
 class DetailWisataController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function detailwisata($id)
     {
-        //
+        $wisata = DetailWisata::find($id);
+        return view('detailwisata', compact('wisata'));
     }
 
     /**

@@ -14,6 +14,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UlasanController;
 use App\Http\Controllers\PetawisataController;
 use App\Http\Controllers\KontakController;
+use App\Http\Controllers\DetailWisataController;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,10 +73,6 @@ Route::get('/petawisata', function () {
     return view('petawisata');
 });
 
-
-Route::get('/hwisata/{id}', [WisataController::class, 'index']);
-
-
 //Routing CRUD Data Kategori
 Route::get('/kategori', [KategoriController::class, 'index']);
 Route::get('/kategori/create', [KategoriController::class, 'create']);
@@ -89,3 +86,9 @@ Route::get('/ulasan', [UlasanController::class, 'index']);
 
 //Routing Kontak
 Route::get('/kontak', [KontakController::class, 'index']);
+Route::get('/kontak/create', [KontakController::class, 'create']);
+Route::post('/kontak/store', [KontakController::class, 'store']);
+Route::get('/kontak/{id}/delete', [KontakController::class, 'destroy']);
+
+//Detail Wisata
+Route::get('/detailwisata/{id}', [DetailWisataController::class, 'detailwisata']);

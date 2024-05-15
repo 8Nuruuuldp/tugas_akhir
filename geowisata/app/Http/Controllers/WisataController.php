@@ -27,7 +27,6 @@ class WisataController extends Controller
 
     public function index()
     {
-
         $wisata = Wisata::all();
         $wisata = Wisata::with('kategori')->get();
         return view('admin.wisata.index', compact('wisata'));
