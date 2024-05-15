@@ -29,4 +29,5 @@ class Wisata extends Model
         ->get();
         return $results;
     }
+
 }

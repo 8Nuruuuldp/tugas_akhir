@@ -40,6 +40,7 @@
 
     <link rel="stylesheet" href="https://leafletjs.com/index.html#marker">
 
+
 </head>
 
 <body>
@@ -145,7 +146,9 @@
 
                 <div class="max-w-sm bg-white rounded-lg shadow">
                     <a href="#">
-                        <img class="rounded-t-lg" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxfHxwZXJzb258ZW58MHwwfHx8MTcxMDUxNjkwM3ww&ixlib=rb-4.0.3&q=80&w=1080" alt="" />
+                        <img class="rounded-t-lg"
+                            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxfHxwZXJzb258ZW58MHwwfHx8MTcxMDUxNjkwM3ww&ixlib=rb-4.0.3&q=80&w=1080"
+                            alt="" />
                     </a>
                     <div class="p-5">
                         <h5 class="mb-2  text-slate-800 font-bold tracking-tight text-gray-900">Gedung Sate</h5>
@@ -160,16 +163,20 @@
                                 <span class="text-gray-500 font-normal">(76 reviews)</span>
                             </p>
                         </div>
-                        <p class="text-sm">Jl. Diponegoro No.22, Citarum, Kec. Bandung Wetan, Kota Bandung, Jawa Barat 40115</p>
+                        <p class="text-sm">Jl. Diponegoro No.22, Citarum, Kec. Bandung Wetan, Kota Bandung, Jawa Barat
+                            40115</p>
                         <p class="text-slate-900 text-xs pt-2 pb-2">
                             Lorem ipsum dolor sit amet, consectetur adipisicin elit.
                             Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
                             nihil.
                         </p>
-                        <a href="#" class="inline-flex items-center justify-center w-full px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <a href="#"
+                            class="inline-flex items-center justify-center w-full px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             Lihat selengkapnya
-                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
                             </svg>
                         </a>
                     </div>
@@ -177,7 +184,9 @@
 
                 <div class="max-w-sm bg-white rounded-lg shadow">
                     <a href="#">
-                        <img class="rounded-t-lg" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxfHxwZXJzb258ZW58MHwwfHx8MTcxMDUxNjkwM3ww&ixlib=rb-4.0.3&q=80&w=1080" alt="" />
+                        <img class="rounded-t-lg"
+                            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxfHxwZXJzb258ZW58MHwwfHx8MTcxMDUxNjkwM3ww&ixlib=rb-4.0.3&q=80&w=1080"
+                            alt="" />
                     </a>
                     <div class="p-5">
                         <h5 class="mb-2  text-slate-800 font-bold tracking-tight text-gray-900">Gedung Sate</h5>
@@ -192,16 +201,20 @@
                                 <span class="text-gray-500 font-normal">(76 reviews)</span>
                             </p>
                         </div>
-                        <p class="text-sm">Jl. Diponegoro No.22, Citarum, Kec. Bandung Wetan, Kota Bandung, Jawa Barat 40115</p>
+                        <p class="text-sm">Jl. Diponegoro No.22, Citarum, Kec. Bandung Wetan, Kota Bandung, Jawa Barat
+                            40115</p>
                         <p class="text-slate-900 text-xs pt-2 pb-2">
                             Lorem ipsum dolor sit amet, consectetur adipisicin elit.
                             Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
                             nihil.
                         </p>
-                        <a href="#" class="inline-flex items-center justify-center w-full px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <a href="#"
+                            class="inline-flex items-center justify-center w-full px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             Lihat selengkapnya
-                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
                             </svg>
                         </a>
                     </div>
@@ -209,7 +222,9 @@
 
                 <div class="max-w-sm bg-white rounded-lg shadow">
                     <a href="#">
-                        <img class="rounded-t-lg" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxfHxwZXJzb258ZW58MHwwfHx8MTcxMDUxNjkwM3ww&ixlib=rb-4.0.3&q=80&w=1080" alt="" />
+                        <img class="rounded-t-lg"
+                            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxfHxwZXJzb258ZW58MHwwfHx8MTcxMDUxNjkwM3ww&ixlib=rb-4.0.3&q=80&w=1080"
+                            alt="" />
                     </a>
                     <div class="p-5">
                         <h5 class="mb-2  text-slate-800 font-bold tracking-tight text-gray-900">Gedung Sate</h5>
@@ -224,16 +239,20 @@
                                 <span class="text-gray-500 font-normal">(76 reviews)</span>
                             </p>
                         </div>
-                        <p class="text-sm">Jl. Diponegoro No.22, Citarum, Kec. Bandung Wetan, Kota Bandung, Jawa Barat 40115</p>
+                        <p class="text-sm">Jl. Diponegoro No.22, Citarum, Kec. Bandung Wetan, Kota Bandung, Jawa Barat
+                            40115</p>
                         <p class="text-slate-900 text-xs pt-2 pb-2">
                             Lorem ipsum dolor sit amet, consectetur adipisicin elit.
                             Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
                             nihil.
                         </p>
-                        <a href="#" class="inline-flex items-center justify-center w-full px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <a href="#"
+                            class="inline-flex items-center justify-center w-full px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             Lihat selengkapnya
-                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
                             </svg>
                         </a>
                     </div>
@@ -241,7 +260,9 @@
 
                 <div class="max-w-sm bg-white rounded-lg shadow">
                     <a href="#">
-                        <img class="rounded-t-lg" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxfHxwZXJzb258ZW58MHwwfHx8MTcxMDUxNjkwM3ww&ixlib=rb-4.0.3&q=80&w=1080" alt="" />
+                        <img class="rounded-t-lg"
+                            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxfHxwZXJzb258ZW58MHwwfHx8MTcxMDUxNjkwM3ww&ixlib=rb-4.0.3&q=80&w=1080"
+                            alt="" />
                     </a>
                     <div class="p-5">
                         <h5 class="mb-2  text-slate-800 font-bold tracking-tight text-gray-900">Gedung Sate</h5>
@@ -256,16 +277,20 @@
                                 <span class="text-gray-500 font-normal">(76 reviews)</span>
                             </p>
                         </div>
-                        <p class="text-sm">Jl. Diponegoro No.22, Citarum, Kec. Bandung Wetan, Kota Bandung, Jawa Barat 40115</p>
+                        <p class="text-sm">Jl. Diponegoro No.22, Citarum, Kec. Bandung Wetan, Kota Bandung, Jawa Barat
+                            40115</p>
                         <p class="text-slate-900 text-xs pt-2 pb-2">
                             Lorem ipsum dolor sit amet, consectetur adipisicin elit.
                             Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
                             nihil.
                         </p>
-                        <a href="#" class="inline-flex items-center justify-center w-full px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <a href="#"
+                            class="inline-flex items-center justify-center w-full px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             Lihat selengkapnya
-                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
                             </svg>
                         </a>
                     </div>
@@ -293,14 +318,16 @@
 
             <form>
                 <div class="flex gap-2">
-                        <input type="text" class="w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500" placeholder="Search..." oninput="onTyping(this)"/>
+                    <input type="text" id="searchInput"
+                        class="w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500"
+                        placeholder="Search..." oninput="onTyping(this)" />
                     <label for="kategori">
-                        <select
+                        <select id="kategoriSelect"
                             class="w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500"
-                            onchange="search(this.value)">
+                            onchange="onCategoryChange()">
                             <option value="">Kategori Wisata</option>
-                            @foreach ($kategori as $kategori)
-                            <option value="{{ $kategori->id }}">{{ $kategori->nama_kategori }}</option>
+                            @foreach ($kategori as $kategoriItem)
+                            <option value="{{ $kategoriItem->id }}">{{ $kategoriItem->nama_kategori }}</option>
                             @endforeach
                         </select>
                     </label>
@@ -363,7 +390,6 @@
     </section>
 
     <script>
-        var geolayer;
         var map = L.map('map').setView([-6.914744, 107.609810], 10);
 
         map.zoomControl.setPosition('bottomright')
@@ -372,6 +398,8 @@
             maxZoom: 20,
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
+
+        const Marker = L.marker([-6.914744, 107.609810]).addTo(map);
 
         var popup = L.popup();
 
@@ -386,129 +414,132 @@
             $.getJSON('point/json', function (data) {
                 $.each(data, function (index) {
 
-                    L.marker([parseFloat(data[index].latitude), parseFloat(data[index].longitude)])
+                    L.marker([parseFloat(data[index].latitude), parseFloat(data[index]
+                            .longitude)])
                         .addTo(map)
-                        .bindPopup('<div class"min-h-screen flex items-center justify-center"><img class="h-48 w-full object-cover object-end" src="./img/'+data[index].gambar+'"><div class="p-6"><h4 class="mt-2 font-bold text-lg truncate">'+data[index].nama_tempat+'</h4><div class=""> <br> '+data[index].alamat+' </div><div class="my-2"><a href="/hwisata" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center">Lihat Selengkapnya</a><button onclick="getLocation('+data[index].latitude+','+data[index].longitude+')" class="py-2 text-blue-500 rounded shadow-md hover:bg-blue-300 active:bg-blue-700 disabled:opacity-50 mt-2 w-full flex items-center justify-center">Ayo kesana!</button></div></div></div></div>'
+                        .bindPopup(
+                            '<div class"min-h-screen flex items-center justify-center"><img class="h-48 w-full object-cover object-end" src="./img/' +
+                            data[index].gambar +
+                            '"><div class="p-6"><h4 class="mt-2 font-bold text-lg truncate">' +
+                            data[index].nama_tempat + '</h4><div class=""> <br> ' + data[index]
+                            .alamat +
+                            ' </div><div class="my-2"><a href="/hwisata" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center">Lihat Selengkapnya</a><button onclick="getLocation(' +
+                            data[index].latitude + ',' + data[index].longitude +
+                            ')" class="py-2 text-blue-500 rounded shadow-md hover:bg-blue-300 active:bg-blue-700 disabled:opacity-50 mt-2 w-full flex items-center justify-center">Ayo kesana!</button></div></div></div></div>'
                         );
                 });
             });
         });
 
         function getLocation(latitude, longitude) {
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(function(position) {
-                        var userlat = position.coords.latitude;
-                        var userlng = position.coords.longitude;
-                        console.log(userlat,userlng);
-                        // Mengambil posisi tujuan dari database menggunakan Ajax
-                        $.ajax({
-                            url: 'point/json',
-                            method: 'get',
-                            dataType: 'json',
-                            success: function(data) {
-                                // Menampilkan rute dari posisi pengguna ke posisi tujuan
-                                var startLat = L.latLng(userlat,userlng);
-                                var endPoint = L.latLng(latitude,longitude);
-                                L.Routing.control({
-                                    waypoints: [
-                                        startLat,
-                                        endPoint
-                                    ],
-                                    routeWhileDragging: true,
-                                    geocoder: L.Control.Geocoder.nominatim()                   
-                                }).addTo(map);
-                            },
-                            
-                            error: function(xhr, status, error) {
-                                console.error("Error:", error);
-                            }
-                        });
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var userlat = position.coords.latitude;
+                    var userlng = position.coords.longitude;
+                    console.log(userlat, userlng);
+                    // Mengambil posisi tujuan dari database menggunakan Ajax
+                    $.ajax({
+                        url: 'point/json',
+                        method: 'get',
+                        dataType: 'json',
+                        success: function (data) {
+                            // Menampilkan rute dari posisi pengguna ke posisi tujuan
+                            var startLat = L.latLng(userlat, userlng);
+                            var endPoint = L.latLng(latitude, longitude);
+                            L.Routing.control({
+                                waypoints: [
+                                    startLat,
+                                    endPoint
+                                ],
+                                routeWhileDragging: true,
+                                geocoder: L.Control.Geocoder.nominatim()
+                            }).addTo(map);
+                        },
+                        error: function (xhr, status, error) {
+                            console.error("Error:", error);
+                        }
                     });
-                } else {
-                    console.log("Geolocation is not supported by this browser.");
-                }
+                });
+            } else {
+                console.log("Geolocation is not supported by this browser.");
             }
-
-        const resultsWrapperHTML = document.getElementById("search-result")
-
+        }
         map.on("click", function (e) {
             const {
                 latitude,
                 longitude
             } = e.latlng
-            // regenerate marker position
             Marker.setLatLng([latitude, longitude])
         })
-
         let typingInterval
-
         // typing handler
         function onTyping(e) {
             clearInterval(typingInterval)
             const {
                 value
             } = e
-
             typingInterval = setInterval(() => {
                 clearInterval(typingInterval)
                 searchLocation(value)
             }, 500)
         }
+        //elemen input dan select
+        const searchInput = document.getElementById('searchInput');
+        const kategoriSelect = document.getElementById('kategoriSelect');
 
+        searchInput.addEventListener('input', function () {
+            const keyword = this.value;
+            const kategori = kategoriSelect.value;
+            searchLocation(keyword, kategori);
+        });
+
+        function onCategoryChange() {
+            const keyword = searchInput.value;
+            const kategori = kategoriSelect.value;
+            searchLocation(keyword, kategori);
+        }
         // search handler
-        function searchLocation(keyword) {
-            if (keyword) {
-                // request dari database
-                fetch(`/search?keyword=${keyword}`)
-                    .then((response) => {
-                        return response.json()
-                    }).then(json => {
-                        // get respon data dari database
-                        console.log("json", json)
-                        if (json.length > 0) return renderResults(json)
-                        else alert("lokasi tidak ditemukan")
+        function searchLocation(keyword, kategori) {
+            if (keyword || kategori) {
+                fetch(`/search?keyword=${encodeURIComponent(keyword)}&kategori=${encodeURIComponent(kategori)}`)
+                    .then(response => response.json())
+                    .then(json => {
+                        console.log("json", json);
+                        if (json.length > 0) {
+                            renderResults(json);
+                        } else {
+                            clearResults();
+                            alert("Lokasi tidak ditemukan");
+                        }
                     })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert("Terjadi kesalahan saat mencari lokasi");
+                    });
+            } else {
+                clearResults();
             }
         }
-
         // render results
         function renderResults(result) {
-            let resultsHTML = ""
-
-            result.map((n) => {
+            const resultsWrapperHTML = document.getElementById("search-result");
+            let resultsHTML = "";
+            result.forEach(n => {
                 resultsHTML +=
-                    `<li><a href="#" onclick="setLocation(${n.latitude},${n.longitude});">${n.nama_tempat}, ${n.alamat}</a></li>`
-            })
-
-            resultsWrapperHTML.innerHTML = resultsHTML
+                    `<li><a href="#" onclick="setLocation(${n.latitude},${n.longitude}); return false;">${n.nama_tempat}, ${n.alamat}</a></li>`
+            });
+            resultsWrapperHTML.innerHTML = resultsHTML;
         }
-
+        function setLocation(latitude, longitude) {
+            map.setView(new L.LatLng(latitude, longitude), 25);
+            Marker.setLatLng([latitude, longitude]);
+            clearResults();
+        }
         // clear results
         function clearResults() {
-            resultsWrapperHTML.innerHTML = ""
+            const resultsWrapperHTML = document.getElementById("search-result");
+            resultsWrapperHTML.innerHTML = "";
         }
-
-        // set lokasi yang dicari result
-        function setLocation(latitude, longitude) {
-            // set map focus
-            map.setView(new L.LatLng(latitude, longitude), 25)
-
-            // generate lokasi maker
-            Marker.setLatLng([latitude, longitude])
-
-            // clear results
-            clearResults()
-        }
-
-        // search kategori
-        // function search(id) {
-        //     geolayer.eachLayer(function(layer){
-        //         if(layer.feature.properties.id==id){
-        //             map.fly(layer.getBounds().getCenter(), 19);
-        //         }
-        //     })
-
-        // }
 
     </script>
 
