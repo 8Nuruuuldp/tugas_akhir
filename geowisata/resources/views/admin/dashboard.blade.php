@@ -96,44 +96,24 @@
             </div>
             <div class="col-sm-6">
                 <h3 class="m-16">Peta Wisata</h3>
+                <form>
+                    <div class="input-group mb-3">
+                        <input type="text" id="searchInput" class="form-control" placeholder="Search..." oninput="onTyping(this)" />
+                        <label for="kategori">
+                            <select id="kategoriSelect" class="form-control" onchange="onCategoryChange()">
+                                <option value="">Kategori Wisata</option>
+                                @foreach ($kategori as $kategoriItem)
+                                <option value="{{ $kategoriItem->id }}">{{ $kategoriItem->nama_kategori }}</option>
+                                @endforeach
+                            </select>
+                        </label>
+                        <button class="cari btn btn-success" type="submit">Search</button>
+                    </div>
+                    <ul id="search-result"></ul>
+                </form>
             </div>
+
             <div id="map">
-                <div class="search-sidebar">
-                    <div class="formBlock bg-body text-dark position-absolute w-25 border shadow p-2 bg-white rounded">
-                        <form>
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Search..."
-                                    oninput="onTyping(this)" />
-                            </div>
-                            <ul id="search-result"></ul>
-                        </form>
-                    </div>
-                </div>
-                {{-- <div class="hidden search-sidebar-content" id="sidebar">
-                    <div
-                        class="content-search bg-body text-dark h-100 position-absolute top-10 border shadow p-3 bg-white rounded">
-                        <ul>
-                            <li>
-                                <a href="#"><i
-                                        class="rutes text-info bi bi-sign-turn-right-fill fa-2x p-2 active"></i></a>
-                                <i class=" bi bi-car-front fa-2x p-2"></i>
-                                <i class=" bi bi-bicycle fa-2x p-2"></i>
-                                <i class=" bi bi-train-front fa-2x p-2"></i>
-                                <i class=" bi bi-person-walking fa-2x p-2"></i>
-                                <i class=" bi bi-bicycle fa-2x p-2"></i>
-                                <i class=" bi bi-airplane fa-2x p-2"></i>
-                                <i class=" bi bi-x-lg fa-2x p-2 active" onclick="toggleSidebar()"></i>
-                            </li>
-                        </ul>
-                        <form id="form">
-                            <input type="text" name="start" class="form-control p-2 w-100 border" id="start"
-                                placeholder="Pilih Titik Saat Ini" />
-                            <input type="text" name="end" class="form-control p-2 w-100 border" id="destination"
-                                placeholder="Pilih Tujuan" />
-                            <button style="display: none;" type="submit">Get Directions</button>
-                        </form>
-                    </div>
-                </div> --}}
             </div>
             <script>
                 var map = L.map('map').setView([-6.914744, 107.609810], 10);
@@ -146,6 +126,8 @@
                         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                     }).addTo(map);
 
+                const Marker = L.marker([-6.914744, 107.609810]).addTo(map);
+
                 var popup = L.popup();
 
                 function onMapClick(data) {
@@ -155,92 +137,83 @@
                         .openOn(map);
                 }
 
-                map.on('click', onMapClick);
+                //filtering
+        map.on("click", function (e) {
+            const {
+                latitude,
+                longitude
+            } = e.latlng
+            Marker.setLatLng([latitude, longitude]);
+            clearResults();
+        });
+        let typingInterval
+        // typing handler
+        function onTyping(e) {
+            clearInterval(typingInterval)
+            const {
+                value
+            } = e.target.value;
+            typingInterval = setInterval(() => {
+                clearInterval(typingInterval)
+                searchLocation(value)
+            }, 500);
+        }
+        //elemen input dan select
+        const searchInput = document.getElementById('searchInput');
+        const kategoriSelect = document.getElementById('kategoriSelect');
 
-                $(document).ready(function () {
-                    $.getJSON('point/json', function (data) {
-                        $.each(data, function (index) {
-
-                            L.marker([parseFloat(data[index].latitude), parseFloat(data[index]
-                                    .longitude)])
-                                .addTo(map)
-                                .bindPopup((data[index].nama_tempat));
-                        });
-                    });
-                });
-
-                const resultsWrapperHTML = document.getElementById("search-result")
-
-                map.on("click", function (e) {
-                    const {
-                        latitude,
-                        longitude
-                    } = e.latlng
-                    // regenerate marker position
-                    Marker.setLatLng([latitude, longitude])
-                })
-
-                let typingInterval
-
-                // typing handler
-                function onTyping(e) {
-                    clearInterval(typingInterval)
-                    const {
-                        value
-                    } = e
-
-                    typingInterval = setInterval(() => {
-                        clearInterval(typingInterval)
-                        searchLocation(value)
-                    }, 500)
-                }
-
-                // search handler
-                function searchLocation(keyword) {
-                    if (keyword) {
-                        // request dari database
-                        fetch(`/search?keyword=${keyword}`)
-                            .then((response) => {
-                                return response.json()
-                            }).then(json => {
-                                // get respon data dari database
-                                console.log("json", json)
-                                if (json.length > 0) return renderResults(json)
-                                else alert("lokasi tidak ditemukan")
-                            })
-                    }
-                }
-
-                // render results
-                function renderResults(result) {
-                    let resultsHTML = ""
-
-                    result.map((n) => {
-                        resultsHTML +=
-                            `<li>
-                    <i class="bi bi-geo-alt"></i>
-                    <a href="#" onclick="setLocation(${n.latitude},${n.longitude});">${n.nama_tempat}, ${n.alamat}</a></li>`
+        searchInput.addEventListener('input', function () {
+            const keyword = this.value;
+            const kategori = kategoriSelect.value;
+            searchLocation(keyword, kategori);
+        });
+        function onCategoryChange() {
+            const keyword = searchInput.value;
+            const kategori = kategoriSelect.value;
+            searchLocation(keyword, kategori);
+        }
+        // search handler
+        function searchLocation(keyword, kategori) {
+            if (keyword || kategori) {
+                fetch(`/search?keyword=${encodeURIComponent(keyword)}&kategori=${encodeURIComponent(kategori)}`)
+                    .then(response => response.json())
+                    .then(json => {
+                        console.log("json", json);
+                        if (json.length > 0) {
+                            renderResults(json);
+                        } else {
+                            clearResults();
+                            alert("Lokasi tidak ditemukan");
+                        }
                     })
-
-                    resultsWrapperHTML.innerHTML = resultsHTML
-                }
-
-                // clear results
-                function clearResults() {
-                    resultsWrapperHTML.innerHTML = ""
-                }
-
-                // set lokasi yang dicari result
-                function setLocation(latitude, longitude) {
-                    // set map focus
-                    map.setView(new L.LatLng(latitude, longitude), 25)
-
-                    // generate lokasi maker
-                    Marker.setLatLng([latitude, longitude])
-
-                    // clear results
-                    clearResults()
-                }
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert("Terjadi kesalahan saat mencari lokasi");
+                    });
+            } else {
+                clearResults();
+            }
+        }
+        // render results
+        function renderResults(result) {
+            const resultsWrapperHTML = document.getElementById("search-result");
+            let resultsHTML = "";
+            result.forEach(n => {
+                resultsHTML +=
+                    `<li><a href="#" onclick="setLocation(${n.latitude},${n.longitude}); return false;">${n.nama_tempat}, ${n.alamat}</a></li>`
+            });
+            resultsWrapperHTML.innerHTML = resultsHTML;
+        }
+        function setLocation(latitude, longitude) {
+            map.setView(new L.LatLng(latitude, longitude), 25);
+            Marker.setLatLng([latitude, longitude]);
+            clearResults();
+        }
+        // clear results
+        function clearResults() {
+            const resultsWrapperHTML = document.getElementById("search-result");
+            resultsWrapperHTML.innerHTML = "";
+        }
 
             </script>
 
@@ -254,11 +227,23 @@
                     margin-bottom: 10px;
                 }
 
-                .formBlock {
-                    z-index: 999;
-                    top: 10px;
-                    left: 5px;
-                }
+                #search-result {
+            position: relative;
+            top: 20px;
+            z-index: 1001;
+            width: 100%;
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 5px 0;
+        }
+        .cari {
+            width: 80px;
+            height: 38px;
+            padding: 5px;
+        }
 
             </style>
         </div>

@@ -464,24 +464,26 @@
                 console.log("Geolocation is not supported by this browser.");
             }
         }
+        //filtering
         map.on("click", function (e) {
             const {
                 latitude,
                 longitude
             } = e.latlng
-            Marker.setLatLng([latitude, longitude])
-        })
+            Marker.setLatLng([latitude, longitude]);
+            clearResults();
+        });
         let typingInterval
         // typing handler
         function onTyping(e) {
             clearInterval(typingInterval)
             const {
                 value
-            } = e
+            } = e.target.value;
             typingInterval = setInterval(() => {
                 clearInterval(typingInterval)
                 searchLocation(value)
-            }, 500)
+            }, 500);
         }
         //elemen input dan select
         const searchInput = document.getElementById('searchInput');
@@ -530,6 +532,7 @@
             });
             resultsWrapperHTML.innerHTML = resultsHTML;
         }
+
         function setLocation(latitude, longitude) {
             map.setView(new L.LatLng(latitude, longitude), 25);
             Marker.setLatLng([latitude, longitude]);
