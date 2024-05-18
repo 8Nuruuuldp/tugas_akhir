@@ -386,9 +386,9 @@
                 <div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg">
                     <h2 class="text-2xl font-extrabold mb-6 text-green-600">Hubungi Kami</h2>
                     @if (session('success'))
-                    <div class="bg-green-500 text-white p-4 rounded mb-4">
-                        {{ session('success') }}
-                    </div>
+                        <div id="successMessage" class="bg-green-500 text-white p-4 rounded mb-4">
+                            {{ session('success') }}
+                        </div>
                     @endif
                     <form action="{{url('/kontak/store')}}" method="POST" class="space-y-4">
                         @csrf
@@ -624,12 +624,16 @@
         }
 
         // Notifikasi Pesan Pada Form Kontak
-        setTimeout(() => {
-            const notification = document.querySelector('.bg-green-500');
-            if (notification) {
-                notification.style.display = 'none';
+        document.addEventListener('DOMContentLoaded', function () {
+        var successMessage = document.getElementById('successMessage');
+
+            if (successMessage) {
+                successMessage.style.display = 'block';
+                setTimeout(function () {
+                    successMessage.style.display = 'none';
+                }, 5000); // Menyembunyikan pesan setelah 5 detik
             }
-        }, 5000); // Notifikasi akan hilang setelah 5 detik
+        });
 
     </script>
 
