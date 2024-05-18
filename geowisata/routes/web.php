@@ -86,7 +86,6 @@ Route::get('/ulasan', [UlasanController::class, 'index']);
 
 //Routing Kontak
 Route::get('/kontak', [KontakController::class, 'index']);
-Route::get('/kontak/create', [KontakController::class, 'create']);
 Route::post('/kontak/store', [KontakController::class, 'store']);
 Route::get('/kontak/{id}/delete', [KontakController::class, 'destroy']);
 
