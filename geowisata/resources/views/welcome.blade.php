@@ -26,8 +26,7 @@
 
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.js"
-        charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.js" charset="utf-8">
     </script>
 
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
@@ -44,42 +43,34 @@
 </head>
 
 <body>
+    <nav class="sticky top-0 z-7 bg-white">
+        <div class="flex flex-wrap items-center justify-between px-12 py-4">
+            <img src="./img/logo.svg" alt="Bandung Geowisata" width="120" />
 
-    <nav class="flex items-center justify-between px-12 py-4 bg-transparent">
-        <img src="#" alt="Bandung Geowisata" width="120" />
+            <div class="flex md:hidden">
+                <button id="hamburger">
+                    <img class="toggle block" src="https://img.icons8.com/fluent-systems-regular/2x/menu-squared-2.png"
+                        width="40" height="40" />
+                    <img class="toggle hidden" src="https://img.icons8.com/fluent-systems-regular/2x/close-window.png"
+                        width="40" height="40" />
+                </button>
+            </div>
 
-        <div class="flex md:hidden">
-            <button id="hamburger">
-                <img class="toggle block" src="https://img.icons8.com/fluent-systems-regular/2x/menu-squared-2.png"
-                    width="40" height="40" />
-                <img class="toggle hidden" src="https://img.icons8.com/fluent-systems-regular/2x/close-window.png"
-                    width="40" height="40" />
-            </button>
-        </div>
-
-        <div
-            class="toggle hidden md:flex w-full md:w-auto text-right text-bold mt-5 md:mt-0 border-t-2 border-blue-900 md:border-none">
-            <a href="/"
-                class="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Beranda</a>
-            <a href="#"
-                class="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Tentang</a>
-            <a href="#"
-                class="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Rekomendasi</a>
-            <a href="/petawisata"
-                class="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Peta
-                Wisata</a>
-            <a href="#kontak"
-                class="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Kontak</a>
-        </div>
-        @auth
-        <a href="/dashboard"
-            class="toggle hidden md:flex w-full md:w-auto px-4 py-2 text-right bg-green-700 hover:bg-green-500 text-white md:rounded">Dashboard</a>
-        @else
-        <a href="/login"
-            class="toggle hidden md:flex w-full md:w-auto px-4 py-2 text-right bg-green-700 hover:bg-green-500 text-white md:rounded">Masuk</a>
-        @endauth
+            <div
+                class="toggle hidden md:flex w-full md:w-auto text-right text-bold mt-5 md:mt-0 border-t-2 border-blue-900 md:border-none">
+                <a href="#"
+                    class="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Beranda</a>
+                <a href="#"
+                    class="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Tentang</a>
+                <a href="#"
+                    class="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Rekomendasi</a>
+                <a href="#"
+                    class="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Peta
+                    Wisata</a>
+                <a href="/kontak/create"
+                    class="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Kontak</a>
+            </div>
     </nav>
-
     <section
         class="bg-[url('https://images.unsplash.com/photo-1549473889-14f410d83298?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] flex justify-center items-center h-screen">
         <div class="text-center grid py-8 px-12 mx-auto max-w-screen-xl lg:gap-8 xl:gap-0 lg:py-16 ">
@@ -191,8 +182,8 @@
                     <div class="p-5">
                         <h5 class="mb-2  text-slate-800 font-bold tracking-tight text-gray-900">Gedung Sate</h5>
                         <div class="flex items-center mb-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500" viewBox="0 0 20 20"
-                                fill="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500"
+                                viewBox="0 0 20 20" fill="currentColor">
                                 <path
                                     d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                             </svg>
@@ -229,8 +220,8 @@
                     <div class="p-5">
                         <h5 class="mb-2  text-slate-800 font-bold tracking-tight text-gray-900">Gedung Sate</h5>
                         <div class="flex items-center mb-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500" viewBox="0 0 20 20"
-                                fill="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500"
+                                viewBox="0 0 20 20" fill="currentColor">
                                 <path
                                     d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                             </svg>
@@ -267,8 +258,8 @@
                     <div class="p-5">
                         <h5 class="mb-2  text-slate-800 font-bold tracking-tight text-gray-900">Gedung Sate</h5>
                         <div class="flex items-center mb-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500" viewBox="0 0 20 20"
-                                fill="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500"
+                                viewBox="0 0 20 20" fill="currentColor">
                                 <path
                                     d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                             </svg>
@@ -327,7 +318,7 @@
                             onchange="onCategoryChange()">
                             <option value="">Kategori Wisata</option>
                             @foreach ($kategori as $kategoriItem)
-                            <option value="{{ $kategoriItem->id }}">{{ $kategoriItem->nama_kategori }}</option>
+                                <option value="{{ $kategoriItem->id }}">{{ $kategoriItem->nama_kategori }}</option>
                             @endforeach
                         </select>
                     </label>
@@ -364,7 +355,8 @@
                     </p>
                     <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6 mb-5">
                         <p class="text-gray-700 flex items-center">
-                            <i class="fas fa-phone-alt mr-2 text-green-600"></i><strong class="text-green-600">Telepon :
+                            <i class="fas fa-phone-alt mr-2 text-green-600"></i><strong class="text-green-600">Telepon
+                                :
                             </strong> &nbsp; (123) 456-7890
                         </p>
                         <p class="text-gray-700 flex items-center">
@@ -390,7 +382,7 @@
                             {{ session('success') }}
                         </div>
                     @endif
-                    <form action="{{url('/kontak/store')}}" method="POST" class="space-y-4">
+                    <form action="{{ url('/kontak/store') }}" method="POST" class="space-y-4">
                         @csrf
                         <div>
                             <label for="nama" class="block text-sm font-medium text-gray-500">Nama <span
@@ -489,9 +481,9 @@
                 .openOn(map);
         }
 
-        $(document).ready(function () {
-            $.getJSON('point/json', function (data) {
-                $.each(data, function (index) {
+        $(document).ready(function() {
+            $.getJSON('point/json', function(data) {
+                $.each(data, function(index) {
 
                     L.marker([parseFloat(data[index].latitude), parseFloat(data[index]
                             .longitude)])
@@ -512,7 +504,7 @@
 
         function getLocation(latitude, longitude) {
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function (position) {
+                navigator.geolocation.getCurrentPosition(function(position) {
                     var userlat = position.coords.latitude;
                     var userlng = position.coords.longitude;
                     console.log(userlat, userlng);
@@ -521,7 +513,7 @@
                         url: 'point/json',
                         method: 'get',
                         dataType: 'json',
-                        success: function (data) {
+                        success: function(data) {
                             // Menampilkan rute dari posisi pengguna ke posisi tujuan
                             var startLat = L.latLng(userlat, userlng);
                             var endPoint = L.latLng(latitude, longitude);
@@ -534,7 +526,7 @@
                                 geocoder: L.Control.Geocoder.nominatim()
                             }).addTo(map);
                         },
-                        error: function (xhr, status, error) {
+                        error: function(xhr, status, error) {
                             console.error("Error:", error);
                         }
                     });
@@ -544,7 +536,7 @@
             }
         }
         //filtering
-        map.on("click", function (e) {
+        map.on("click", function(e) {
             const {
                 latitude,
                 longitude
@@ -568,7 +560,7 @@
         const searchInput = document.getElementById('searchInput');
         const kategoriSelect = document.getElementById('kategoriSelect');
 
-        searchInput.addEventListener('input', function () {
+        searchInput.addEventListener('input', function() {
             const keyword = this.value;
             const kategori = kategoriSelect.value;
             searchLocation(keyword, kategori);
@@ -624,17 +616,23 @@
         }
 
         // Notifikasi Pesan Pada Form Kontak
-        document.addEventListener('DOMContentLoaded', function () {
-        var successMessage = document.getElementById('successMessage');
+        document.addEventListener('DOMContentLoaded', function() {
+            var successMessage = document.getElementById('successMessage');
 
             if (successMessage) {
                 successMessage.style.display = 'block';
-                setTimeout(function () {
+                setTimeout(function() {
                     successMessage.style.display = 'none';
                 }, 5000); // Menyembunyikan pesan setelah 5 detik
             }
         });
-
+        //Hamburger Menu
+        document.getElementById("hamburger").onclick = function toggleMenu() {
+            const navToggle = document.getElementsByClassName("toggle");
+            for (let i = 0; i < navToggle.length; i++) {
+                navToggle.item(i).classList.toggle("hidden");
+            }
+        };
     </script>
 
 
@@ -657,7 +655,6 @@
         li {
             padding: 5px 0;
         }
-
     </style>
 
 </body>
