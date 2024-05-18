@@ -68,7 +68,7 @@
             <a href="/petawisata"
                 class="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Peta
                 Wisata</a>
-            <a href="/kontak/create"
+            <a href="#kontak"
                 class="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Kontak</a>
         </div>
         @auth
@@ -345,7 +345,7 @@
     </section>
 
     <!-- Start Contact -->
-    <section class="contact">
+    <section id="kontak" class="contact">
         <div class="container mx-auto px-4 py-8">
 
             <!-- Start Contact-Header -->

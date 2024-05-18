@@ -40,7 +40,7 @@ class KontakController extends Controller
             'email' => $request->email,
             'pesan' => $request->pesan,
         ]);
-        return redirect('/')->with('success', 'Pesan berhasil dikirim!');
+        return redirect('/#kontak')->with('success', 'Pesan berhasil dikirim!');
     }
 
     /**
