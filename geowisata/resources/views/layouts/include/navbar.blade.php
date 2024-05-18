@@ -26,13 +26,10 @@
     <ul class="navbar-nav ml-auto">
         <!-- Messages Dropdown Menu -->
         <li class="nav-item dropdown">
-            <a class="nav-link" data-toggle="dropdown" href="#">
+            <a class="nav-link" href="/kontak">
                 <i class="far fa-envelope"></i>
                 <span class="badge badge-danger navbar-badge">{{App\Models\Kontak::count()}}</span>
             </a>
-            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                <a href="/kontak" class="dropdown-item dropdown-footer" style="color:blue;">Lihat Semua Pesan</a>
-            </div>
         </li>
         <li class="nav-item">
             <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
