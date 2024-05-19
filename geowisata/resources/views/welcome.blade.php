@@ -373,7 +373,7 @@
                             <label for="pesan" class="block text-white font-extrabold mb-2">Pesan Anda <span class="text-red-600">*</span></label>
                             <textarea id="pesan" name="pesan" rows="4" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" placeholder="Ketik pesan Anda disini"></textarea>
                         </div>
-                        <button type="submit" class="w-full bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">Kirim</button>
+                        <button type="submit" class="bg-green-600 text-white px-8 py-2 rounded-lg hover:bg-green-700">Kirim</button>
                     </form>
                 </div>
             </div>
