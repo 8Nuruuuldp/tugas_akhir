@@ -343,86 +343,46 @@
 
     <!-- Start Contact -->
     <section id="kontak" class="contact">
-        <div class="container font-[Poppins] mx-auto px-4 py-8">
-
-            <!-- Start Contact-Header -->
-            <div class="contact-header">
-                <div class="text-center p-5">
-                    <h2 class="text-4xl font-extrabold mb-4 text-green-600">Lorem</h2>
-                    <p class="mb-6 text-gray-700">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, dolorem quis inventore odio
-                        excepturi, laborum repudiandae corporis quasi aliquid consectetur praesentium expedita
-                        doloremque
-                        laboriosam minima in cumque quibusdam minus id. Iste blanditiis rerum fuga aspernatur suscipit
-                        quo
-                        laboriosam a porro pariatur magnam repudiandae, obcaecati quaerat, nulla quidem, sapiente
-                        voluptatum
-                        eaque!
-                    </p>
-                    <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6 mb-5">
-                        <p class="text-gray-700 flex items-center">
-                            <i class="fas fa-phone-alt mr-2 text-green-600"></i><strong class="text-green-600">Telepon
-                                :
-                            </strong> &nbsp; (123) 456-7890
-                        </p>
-                        <p class="text-gray-700 flex items-center">
-                            <i class="fas fa-envelope mr-2 text-green-600"></i><strong class="text-green-600">Email :
-                            </strong> &nbsp;
-                            Bdg@gmail.com
-                        </p>
-                        <p class="text-gray-700 flex items-center">
-                            <i class="fab fa-twitter mr-2 text-green-600"></i><strong class="text-green-600">Twitter :
-                            </strong> &nbsp; @bandunggeowisata
-                        </p>
-                    </div>
+        <div  class="bg-green-900 flex justify-center items-center min-h-screen px-4 py-8">
+            <div class="p-4 w-full max-w-4xl flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-16">
+                <!-- Kolom Kiri: Tulisan -->
+                <div class="md:w-1/2">
+                    <h1 class="font-[Poppins] mb-8 text-2xl font-extrabold md:text-4xl xl:text-5xl text-white">Mari terhubung dengan kami</h1>
+                    <p class="font-[Poppins] text-white mb-4">Jangan ragu untuk menghubungi kami melalui berbagai saluran kontak yang kami sediakan. Kami di sini untuk membantu dan memastikan pengalaman Anda lebih nyaman dan lancar</p>
                 </div>
-            </div>
-            <!-- End Contact-Header -->
-
-            <!-- Start Contact-Body -->
-            <div class="contact-body">
-                <div class="max-w-lg mx-auto bg-white p-8 font-[Poppins] rounded-lg shadow-lg">
-                    <h2 class="text-2xl font-extrabold mb-6 text-green-600">Hubungi Kami</h2>
+                <!-- Kolom Kanan: Form -->
+                <div class="md:w-1/2 pt-8 md:pt-0">
                     @if (session('success'))
                         <div id="successMessage" class="bg-green-500 text-white p-4 rounded mb-4">
                             {{ session('success') }}
                         </div>
                     @endif
-                    <form action="{{ url('/kontak/store') }}" method="POST" class="space-y-4">
+                    <form action="{{ url('/kontak/store') }}" method="POST">
                         @csrf
-                        <div>
-                            <label for="nama" class="block text-sm font-medium text-gray-500">Nama <span
-                                    class="text-red-600">*</span></label>
-                            <input type="text" id="nama" name="nama" required
-                                class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                        <div class="mb-4 font-[Poppins]">
+                            <label for="nama" class="block text-white font-extrabold mb-2">Nama Lengkap <span class="text-red-600">*</span></label>
+                            <input type="text" id="nama" name="nama" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Masukan nama Anda">
+                            <label for="nama" class="text-white">Contoh: Jane Smith</label>
                         </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-500">Email <span
-                                    class="text-red-600">*</span></label>
-                            <input type="email" id="email" name="email" required
-                                class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                        <div class="mb-4 font-[Poppins]">
+                            <label for="email" class="block text-white font-extrabold mb-2">Email <span class="text-red-600">*</span></label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Masukan email Anda">
+                            <label for="nama" class="text-white">Contoh: janesmith@gmail.com</label>
                         </div>
-                        <div>
-                            <label for="pesan" class="block text-sm font-medium text-gray-500">Pesan <span
-                                    class="text-red-600">*</span></label>
-                            <textarea id="pesan" name="pesan" rows="4" required
-                                class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
+                        <div class="mb-4 font-[Poppins]">
+                            <label for="pesan" class="block text-white font-extrabold mb-2">Pesan Anda <span class="text-red-600">*</span></label>
+                            <textarea id="pesan" name="pesan" rows="4" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" placeholder="Ketik pesan Anda disini"></textarea>
                         </div>
-                        <div>
-                            <button type="submit"
-                                class="w-full bg-green-700 text-white font-semibold py-2 px-4 rounded-md shadow hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">Kirim</button>
-                        </div>
+                        <button type="submit" class="w-full bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">Kirim</button>
                     </form>
                 </div>
             </div>
-            <!-- End Contact-Body -->
-
         </div>
     </section>
     <!-- End Contact -->
 
-    <section class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8">
-        <footer class="bg-white font-[Poppins] h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+    <section>
+        <footer class="bg-white font-[Poppins]">
             <div class="mx-auto w-full max-w-screen-xl">
                 <div class=" md:mb-0 py-12 px-16">
                     <a href="#" class="flex items-center">
