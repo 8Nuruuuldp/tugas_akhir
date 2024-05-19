@@ -80,7 +80,7 @@
                     class="font-[Poppins] mb-4 max-w-2xl text-4xl font-extrabold leading-none md:text-5xl xl:text-6xl dark:text-white">
                     BANDUNG</h1>
                 <h4
-                    class="font-[Poppins] mb-4 max-w-2xl text-3xl font-extrabold leading-none md:text-3xl xl:text-4xl dark:text-white">
+                    class="font-[Poppins] mb-4 max-w-2xl text-3xl font-extrabold md:text-3xl xl:text-4xl dark:text-white">
                     KOTA SEJUTA PESONA</h4>
                 <p
                     class="font-[Poppins] items-center text-center mb-6 max-w-2xl font-light text-white lg:mb-8 md:text-lg lg:text-xl dark:text-white">
@@ -644,7 +644,7 @@
     }
 
     .background-image {
-        background-image: url('/Admin/dist/img/');
+        background-image: url('/Admin/dist/img/Group.png');
         background-size: cover;
         background-position: center;
     }
