@@ -462,7 +462,7 @@
                             <a href="#rekomendasi" class="hover:underline">Rekomendasi</a>
                         </li>
                         <li class="mb-1">
-                            <a href="#" class="hover:underline">Peta Wisata</a>
+                            <a href="/petawisata" class="hover:underline">Peta Wisata</a>
                         </li>
                         <li class="mb-1">
                             <a href="#kontak" class="hover:underline">Kontak</a>
