@@ -40,6 +40,8 @@
 
     <link rel="stylesheet" href="https://leafletjs.com/index.html#marker">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 
 </head>
 
@@ -353,7 +355,7 @@
     <section id="kontak" class="contact">
         <div class="bg-green-900 flex justify-center items-center min-h-screen p-6 md:p-8">
             <div
-                class="p-4 w-full max-w-6xl mx-auto flex flex-col md:flex-row justify-between space-y-8 md:space-y-0 md:space-x-24">
+                class="w-full max-w-6xl mx-auto flex flex-col md:flex-row justify-between space-y-8 md:space-y-0 md:space-x-24">
                 <!-- Kolom Kiri: Tulisan -->
                 <div class="md:w-1/2 background-image">
                     <h1 class="font-[Poppins] mb-8 text-2xl font-extrabold md:text-4xl xl:text-5xl text-white">Mari
@@ -403,49 +405,77 @@
     </section>
     <!-- End Contact -->
 
-    <section>
-        <footer class="bg-white font-[Poppins]">
-            <div class="mx-auto w-full max-w-screen-xl">
-                <div class=" md:mb-0 py-12 px-16">
-                    <a href="#" class="flex items-center">
-                        <img src="./img/logo.svg" class="h-12 me-3" alt="Bandung Geowisata" />
-                        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-slate-900"></span>
-                    </a>
-                </div>
-                <div class="grid grid-cols-2 px-16 py-8 lg:py-8 md:grid-cols-4">
 
-                    <div>
-                        <h2 class="mb-6  font-semibold text-gray-900 uppercase dark:text-slate-900">Kontak Kami</h2>
-                        <ul class="text-gray-500 dark:text-gray-600 font-medium">
-                            <li class="mb-4">
-                                <a href="#" class=" hover:underline">Tentang Kami</a>
-                            </li>
-                            <li class="mb-4">
-                                <a href="#" class="hover:underline">Sosial Media</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h2 class="mb-6  font-semibold text-gray-900 uppercase dark:text-slate-900">Menu</h2>
-                        <ul class="text-gray-500 dark:text-gray-600 font-medium">
-                            <li class="mb-4">
-                                <a href="#" class="hover:underline">Tentang Bandung</a>
-                            </li>
-                            <li class="mb-4">
-                                <a href="#" class="hover:underline">Rekomendasi</a>
-                            </li>
-                            <li class="mb-4">
-                                <a href="/petawisata" class="hover:underline">Peta Wisata</a>
-                            </li>
-                        </ul>
-                    </div>
+    <!-- Footer Section -->
+    <footer class="bg-white font-[Poppins] p-3">
+        <div class="container mx-auto w-full max-w-screen-xl px-4 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Column 1 -->
+                <div>
+                    <a href="#" class="flex items-center mb-3">
+                        <img src="./img/logo.svg" class="h-14 mr-3" alt="Bandung Geowisata" />
+                    </a>
+                    <p class="text-gray-700 text-sm">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.
+                    </p>
                 </div>
-                <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+                <!-- Column 2 -->
+                <div>
+                    <h2 class="mb-0 font-semibold text-gray-900">Kontak Kami</h2>
+                    <ul class="text-gray-700 text-sm">
+                        <li class="mb-1">
+                            <a href="#" class="hover:underline"><i class="fas fa-envelope"></i>&nbsp; Email: email@gmail.com</a>
+                        </li>
+                        <li class="mb-1">
+                            <a href="#" class="hover:underline"><i class="fas fa-phone"></i>&nbsp; Phone Number: 0821-2345-6789</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Column 3 -->
+                <div>
+                    <h2 class="mb-0 font-semibold text-gray-900">Media Sosial</h2>
+                    <ul class="text-gray-700 text-sm">
+                        <li class="mb-1">
+                            <a href="#" class="hover:underline"><i class="fab fa-instagram"></i>&nbsp; Instagram: @username</a>
+                        </li>
+                        <li class="mb-1">
+                            <a href="#" class="hover:underline"><i class="fab fa-twitter"></i>&nbsp; Twitter: @username</a>
+                        </li>
+                        <li class="mb-1">
+                            <a href="#" class="hover:underline"><i class="fab fa-facebook"></i>&nbsp; Facebook: Page Name</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Column 4 -->
+                <div>
+                    <h2 class="mb-0 font-semibold text-gray-900">Menu Cepat</h2>
+                    <ul class="text-gray-700 text-sm">
+                        <li class="mb-1">
+                            <a href="#" class="hover:underline">Beranda</a>
+                        </li>
+                        <li class="mb-1">
+                            <a href="#" class="hover:underline">Tentang</a>
+                        </li>
+                        <li class="mb-1">
+                            <a href="#" class="hover:underline">Rekomendasi</a>
+                        </li>
+                        <li class="mb-1">
+                            <a href="#" class="hover:underline">Peta Wisata</a>
+                        </li>
+                        <li class="mb-1">
+                            <a href="#kontak" class="hover:underline">Kontak</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400 content-center">© 2024 <a
-                    href="#" class="hover:underline">Bandung Geowisata™</a>. All Rights Reserved.</span>
-        </footer>
-    </section>
+            <hr class="my-8 border-gray-200" />
+            <div class="text-center">
+                <span class="text-sm text-gray-500">© 2024 <a href="#" class="hover:underline">Bandung Geowisata™</a>.
+                    All Rights Reserved.</span>
+            </div>
+        </div>
+    </footer>
 
     <script>
     var map = L.map('map').setView([-6.914744, 107.609810], 10);
