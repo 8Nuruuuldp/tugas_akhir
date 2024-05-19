@@ -9,10 +9,10 @@
             <a href="/" class="nav-link">Beranda</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">Tentang</a>
+            <a href="/#tentang" class="nav-link">Tentang</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">Rekomendasi</a>
+            <a href="/#rekomendasi" class="nav-link">Rekomendasi</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
             <a href="/petawisata" class="nav-link">Peta Wisata</a>

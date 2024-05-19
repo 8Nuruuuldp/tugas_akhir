@@ -61,11 +61,11 @@
 
             <div
                 class="toggle hidden md:flex w-full md:w-auto text-right text-bold mt-5 md:mt-0 border-t-2 border-blue-900 md:border-none">
-                <a href="#"
+                <a href="#beranda"
                     class="font-[Poppins] block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Beranda</a>
-                <a href="#"
+                <a href="#tentang"
                     class="font-[Poppins] block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Tentang</a>
-                <a href="#"
+                <a href="#rekomendasi"
                     class="font-[Poppins] block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Rekomendasi</a>
                 <a href="#"
                     class="font-[Poppins] block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Peta
@@ -74,7 +74,8 @@
                     class="font-[Poppins] block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Kontak</a>
             </div>
     </nav>
-    <section
+
+    <section id="beranda"
         class="bg-[url('https://images.unsplash.com/photo-1549473889-14f410d83298?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] flex justify-center items-center h-screen">
         <div class="text-center grid py-8 px-12 mx-auto max-w-screen-xl lg:gap-8 xl:gap-0 lg:py-16 ">
             <div class="place-self-center text-center mr-auto">
@@ -103,7 +104,7 @@
         </div>
     </section>
 
-    <section class="flex justify-center items-center h-screen object-cover w-full object-center">
+    <section id="tentang" class="flex justify-center items-center h-screen object-cover w-full object-center">
         <div class="grid items-center py-8 px-12 mx-auto max-w-screen-xl lg:gap-8 xl:gap-0 lg:py-16 ">
             <div class="">
                 <div class="text-center">
@@ -138,7 +139,7 @@
         </div>
     </section>
 
-    <section>
+    <section id="rekomendasi">
         <div class="container-fluid bg-green-900">
             <div class="font-[Poppins] max-w-screen-xl mx-auto sm:p-10 md:p-16 bg-green-900">
                 <div class="grid grid-cols-1 md:grid-cols-4 sm:grid-cols-3 gap-8 p-8">
@@ -316,7 +317,7 @@
         </div>
     </section>
 
-    <section>
+    <section id="petawisata">
 
         <div class="max-w-screen-xl mx-auto sm:p-8 md:p-16">
             <h4 class="mb-8 font-[Poppins] font-bold leading-none md:text-3xl xl:text-4xl dark:text-slate-800">
@@ -452,13 +453,13 @@
                     <h2 class="mb-0 font-semibold text-gray-900">Menu Cepat</h2>
                     <ul class="text-gray-700 text-sm">
                         <li class="mb-1">
-                            <a href="#" class="hover:underline">Beranda</a>
+                            <a href="#beranda" class="hover:underline">Beranda</a>
                         </li>
                         <li class="mb-1">
-                            <a href="#" class="hover:underline">Tentang</a>
+                            <a href="#tentang" class="hover:underline">Tentang</a>
                         </li>
                         <li class="mb-1">
-                            <a href="#" class="hover:underline">Rekomendasi</a>
+                            <a href="#rekomendasi" class="hover:underline">Rekomendasi</a>
                         </li>
                         <li class="mb-1">
                             <a href="#" class="hover:underline">Peta Wisata</a>
