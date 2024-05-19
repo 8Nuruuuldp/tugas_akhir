@@ -343,15 +343,15 @@
 
     <!-- Start Contact -->
     <section id="kontak" class="contact">
-        <div  class="bg-green-900 flex justify-center items-center min-h-screen px-4 py-8">
-            <div class="p-4 w-full max-w-4xl flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-16">
+        <div  class="bg-green-900 flex justify-center items-center min-h-screen p-6 md:p-8">
+            <div class="p-4 w-full max-w-6xl mx-auto flex flex-col md:flex-row justify-between space-y-8 md:space-y-0 md:space-x-24">
                 <!-- Kolom Kiri: Tulisan -->
-                <div class="md:w-1/2">
+                <div class="md:w-1/2 background-image">
                     <h1 class="font-[Poppins] mb-8 text-2xl font-extrabold md:text-4xl xl:text-5xl text-white">Mari terhubung dengan kami</h1>
                     <p class="font-[Poppins] text-white mb-4">Jangan ragu untuk menghubungi kami melalui berbagai saluran kontak yang kami sediakan. Kami di sini untuk membantu dan memastikan pengalaman Anda lebih nyaman dan lancar</p>
                 </div>
                 <!-- Kolom Kanan: Form -->
-                <div class="md:w-1/2 pt-8 md:pt-0">
+                <div class="md:w-1/2">
                     @if (session('success'))
                         <div id="successMessage" class="bg-green-500 text-white p-4 rounded mb-4">
                             {{ session('success') }}
@@ -619,6 +619,12 @@
 
         li {
             padding: 5px 0;
+        }
+
+        .background-image {
+            background-image: url('/Admin/dist/img/');
+            background-size: cover;
+            background-position: center;
         }
     </style>
 
