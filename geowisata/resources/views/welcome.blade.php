@@ -317,7 +317,7 @@
         </div>
     </section>
 
-    <section id="petawisata">
+    <section id="#petawisata">
 
         <div class="max-w-screen-xl mx-auto sm:p-8 md:p-16">
             <h4 class="mb-8 font-[Poppins] font-bold leading-none md:text-3xl xl:text-4xl dark:text-slate-800">
@@ -347,7 +347,7 @@
 
             <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
 
-            <div id="map" class="rounded"> </div>
+            <div id="map" class=" -z-0 rounded"> </div>
         </div>
 
     </section>
@@ -479,16 +479,11 @@
     </footer>
 
     <script>
-    var map = L.map('map').setView([-6.914744, 107.609810], 10);
+        var map = L.map('map', ).setView([-6.914744, 107.609810], 13);
 
-    map.zoomControl.setPosition('bottomright')
-
-    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-        maxZoom: 20,
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(map);
-
-    const Marker = L.marker([-6.914744, 107.609810]).addTo(map);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors',
+        }).addTo(map);
 
     var popup = L.popup();
 
@@ -499,26 +494,19 @@
             .openOn(map);
     }
 
-    $(document).ready(function() {
-        $.getJSON('point/json', function(data) {
-            $.each(data, function(index) {
+    var iconMap = L.icon({iconUrl:"https://img.icons8.com/plasticine/100/place-marker.png", iconSize:[40,40], iconAnchor: [22,44], tooltipAnchor: [22, -20]});
 
-                L.marker([parseFloat(data[index].latitude), parseFloat(data[index]
-                        .longitude)])
-                    .addTo(map)
-                    .bindPopup(
-                        '<div class"min-h-screen flex items-center justify-center"><img class="h-48 w-full object-cover object-end" src="./img/' +
-                        data[index].gambar +
-                        '"><div class="p-6"><h4 class="mt-2 font-bold text-lg truncate">' +
-                        data[index].nama_tempat + '</h4><div class=""> <br> ' + data[index]
-                        .alamat +
-                        ' </div><div class="my-2"><a href="/hwisata" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center">Lihat Selengkapnya</a><button onclick="getLocation(' +
-                        data[index].latitude + ',' + data[index].longitude +
-                        ')" class="py-2 text-blue-500 rounded shadow-md hover:bg-blue-300 active:bg-blue-700 disabled:opacity-50 mt-2 w-full flex items-center justify-center">Ayo kesana!</button></div></div></div></div>'
-                    );
+    $(document).ready(function () {
+            $.getJSON('point/json', function (data) {
+                $.each(data, function (index) {
+
+                    L.marker([parseFloat(data[index].latitude), parseFloat(data[index].longitude)], {icon: iconMap})
+                        .addTo(map)
+                        .bindPopup('<div class"min-h-screen flex items-center justify-center"><img class="h-48 w-full object-cover object-end" src="./img/' +data[index].gambar+ '"><div class="p-6"><h4 class="mt-2 font-bold text-lg truncate">' +data[index].nama_tempat+ '</h4><div class=""> <br> '+data[index].alamat+' </div><div class="my-2"><a href="/detailwisata/'+data[index].id+'" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center">Lihat Selengkapnya</a><button onclick="getLocation('+data[index].latitude+','+data[index].longitude+')" class="py-2 text-blue-500 rounded shadow-md hover:bg-blue-300 active:bg-blue-700 disabled:opacity-50 mt-2 w-full flex items-center justify-center">Ayo kesana!</button></div></div></div></div>'
+                        );
+                });
             });
         });
-    });
 
     function getLocation(latitude, longitude) {
         if (navigator.geolocation) {
@@ -656,8 +644,7 @@
 
     <style>
     #map {
-        height: 100vh;
-        width: 100%;
+        height: 500px;
     }
 
     ul {
