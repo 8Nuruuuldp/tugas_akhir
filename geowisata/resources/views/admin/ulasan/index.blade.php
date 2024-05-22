@@ -48,7 +48,7 @@
                                     @php
                                         $no = 1;
                                     @endphp
-                                    @foreach ($ulasan as $ulasan)
+                                    @foreach ($table_ulasan as $ulasan)
                                     <tr>
                                         <td>{{$no++}}</td>
                                         <td>{{$ulasan->wisata->nama_tempat}}</td>
