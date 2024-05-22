@@ -83,6 +83,7 @@ Route::get('/kategori/{id}/delete', [KategoriController::class, 'destroy']);
 
 //Routing Menampilkan Ulasan di Admin
 Route::get('/ulasan', [UlasanController::class, 'index']);
+Route::post('/ulasan/store', [UlasanController::class, 'store']);
 
 //Routing Kontak
 Route::get('/kontak', [KontakController::class, 'index']);

@@ -43,7 +43,7 @@ class UlasanController extends Controller
             'ulasan' => $request->ulasan,
         ]);
         return redirect('/#detailwisata')->with('success', 'Ulasan Anda berhasil dikirim!');
-
+        //dd($request->all());
     }
 
 

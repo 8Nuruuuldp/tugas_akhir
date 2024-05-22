@@ -16,7 +16,7 @@
 <body>
     <nav class="sticky top-0 z-5 bg-white">
         <div class="flex flex-wrap items-center justify-between px-12 py-4">
-            <img src="./img/logo.svg" alt="Bandung Geowisata" width="120" />
+            <img src="/img/logo.svg" alt="Bandung Geowisata" width="120" />
 
             <div class="flex md:hidden">
                 <button id="hamburger">
@@ -35,7 +35,7 @@
                     class="font-[Poppins] block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Tentang</a>
                 <a href="/#rekomendasi"
                     class="font-[Poppins] block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Rekomendasi</a>
-                <a href="/petawisata"
+                <a href="/#petawisata"
                     class="font-[Poppins] block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Peta
                     Wisata</a>
                 <a href="/#kontak"
@@ -133,7 +133,7 @@
                         <div class="mb-4 font-[Poppins]">
                             <label for="nama" class="block text-black font-extrabold mb-2">Nama Lengkap <span
                                     class="text-red-600">*</span></label>
-                            <input type="text" id="nama" name="nama"
+                            <input type="text" id="nama_pengulas" name="nama_pengulas"
                                 class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 placeholder="Masukan nama Anda">
                             <label for="nama" class="text-black">Contoh: Jane Smith</label>
@@ -141,14 +141,14 @@
                         <div class="mb-4 font-[Poppins]">
                             <label for="email" class="block text-black font-extrabold mb-2">Email <span
                                     class="text-red-600">*</span></label>
-                            <input type="email" id="email" name="email"
+                            <input type="email" id="email_pengulas" name="email_pengulas"
                                 class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 placeholder="Masukan email Anda">
                             <label for="nama" class="text-black">Contoh: janesmith@gmail.com</label>
                         </div>
                         <div class=" mb-4 font-[Poppins] flex items-center mb-4">
                             <span class="text-lg font-bold mr-2">Rating:</span>
-                            <input type="number" id="rating" class="w-12 pl-2 text-sm text-gray-700" min="1"
+                            <input type="number" id="rating" name="rating" class="w-12 pl-2 text-sm text-gray-700" min="1"
                                 max="5" value="4.95">
                             <span class="text-sm text-gray-500 ml-2">/ 5</span>
 
@@ -156,7 +156,7 @@
                         <div class="mb-4 font-[Poppins]">
                             <label for="pesan" class="block text-black font-extrabold mb-2">Ulasan Anda <span
                                     class="text-red-600">*</span></label>
-                            <textarea id="pesan" name="pesan" rows="4"
+                            <textarea id="ulasan" name="ulasan" rows="4"
                                 class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                                 placeholder="Ketik ulasan Anda disini"></textarea>
                         </div>
