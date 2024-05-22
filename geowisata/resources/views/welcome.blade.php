@@ -61,7 +61,7 @@
                     class="font-[Poppins] block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Tentang</a>
                 <a href="#rekomendasi"
                     class="font-[Poppins] block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Rekomendasi</a>
-                <a href="#"
+                <a href="#petawisata"
                     class="font-[Poppins] block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Peta
                     Wisata</a>
                 <a href="#kontak"
@@ -311,7 +311,7 @@
         </div>
     </section>
 
-    <section id="#petawisata">
+    <section id="petawisata">
 
         <div class="max-w-screen-xl mx-auto sm:p-8 md:p-16">
             <h4 class="mb-8 font-[Poppins] font-bold leading-none md:text-3xl xl:text-4xl dark:text-slate-800">
@@ -407,12 +407,11 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Column 1 -->
                 <div>
-                    <a href="#" class="flex items-center mb-3">
+                    <a href="#beranda" class="flex items-center mb-3">
                         <img src="./img/logo.svg" class="h-14 mr-3" alt="Bandung Geowisata" />
                     </a>
                     <p class="text-gray-700 text-sm">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.
+                        Bandung Geowisata adalah layanan yang menyediakan informasi dan titik lokasi mengenai objek wisata yang ada di kota bandung.
                     </p>
                 </div>
                 <!-- Column 2 -->
@@ -420,10 +419,10 @@
                     <h2 class="mb-0 font-semibold text-gray-900">Kontak Kami</h2>
                     <ul class="text-gray-700 text-sm">
                         <li class="mb-1">
-                            <a href="#" class="hover:underline"><i class="fas fa-envelope"></i>&nbsp; Email: email@gmail.com</a>
+                            <a href="https://mail.google.com/" class="hover:underline"><i class="fas fa-envelope"></i>&nbsp; Email: bdggeowisata@gmail.com</a>
                         </li>
                         <li class="mb-1">
-                            <a href="#" class="hover:underline"><i class="fas fa-phone"></i>&nbsp; Phone Number: 0821-2345-6789</a>
+                            <a href="https://wa.me/082123456789?text=Hallo%20Admin%20mohon%20bantu%20Saya%20perihal" class="hover:underline"><i class="fas fa-phone"></i>&nbsp; Phone Number: 0821-2345-6789</a>
                         </li>
                     </ul>
                 </div>
@@ -432,13 +431,13 @@
                     <h2 class="mb-0 font-semibold text-gray-900">Media Sosial</h2>
                     <ul class="text-gray-700 text-sm">
                         <li class="mb-1">
-                            <a href="#" class="hover:underline"><i class="fab fa-instagram"></i>&nbsp; Instagram: @username</a>
+                            <a href="https://www.instagram.com/" class="hover:underline"><i class="fab fa-instagram"></i>&nbsp; Instagram: @bandunggeowisata</a>
                         </li>
                         <li class="mb-1">
-                            <a href="#" class="hover:underline"><i class="fab fa-twitter"></i>&nbsp; Twitter: @username</a>
+                            <a href="https://www.twitter.com/" class="hover:underline"><i class="fab fa-twitter"></i>&nbsp; Twitter: @bandunggeowisata</a>
                         </li>
                         <li class="mb-1">
-                            <a href="#" class="hover:underline"><i class="fab fa-facebook"></i>&nbsp; Facebook: Page Name</a>
+                            <a href="https://www.facebook.com/" class="hover:underline"><i class="fab fa-facebook"></i>&nbsp; Facebook: Bandung Geowisata</a>
                         </li>
                     </ul>
                 </div>
@@ -456,7 +455,7 @@
                             <a href="#rekomendasi" class="hover:underline">Rekomendasi</a>
                         </li>
                         <li class="mb-1">
-                            <a href="/petawisata" class="hover:underline">Peta Wisata</a>
+                            <a href="#petawisata" class="hover:underline">Peta Wisata</a>
                         </li>
                         <li class="mb-1">
                             <a href="#kontak" class="hover:underline">Kontak</a>
