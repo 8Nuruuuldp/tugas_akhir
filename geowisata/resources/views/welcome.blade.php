@@ -505,6 +505,7 @@
             attribution: '© OpenStreetMap contributors',
         }).addTo(map);
 
+
         var popup = L.popup();
 
         function onMapClick(data) {
@@ -579,6 +580,7 @@
             }
         }
         //filtering
+
         map.on("click", function (e) {
             const {
                 latitude,
@@ -590,13 +592,11 @@
         let typingInterval
         // typing handler
         function onTyping(e) {
-            clearInterval(typingInterval)
-            const {
-                value
-            } = e.target.value;
-            typingInterval = setInterval(() => {
-                clearInterval(typingInterval)
-                searchLocation(value)
+            clearTimeout(this.typingTimer);
+            this.typingTimer = setTimeout(() => {
+                const keyword = e.value;
+                const kategori = kategoriSelect.value;
+                searchLocation(keyword, kategori);
             }, 500);
         }
         //elemen input dan select
@@ -646,10 +646,11 @@
             });
             resultsWrapperHTML.innerHTML = resultsHTML;
         }
+        let Marker = L.marker([0, 0]);
 
         function setLocation(latitude, longitude) {
             map.setView(new L.LatLng(latitude, longitude), 25);
-            Marker.setLatLng([latitude, longitude]);
+                Marker.setLatLng([latitude, longitude]);
             clearResults();
         }
         // clear results
