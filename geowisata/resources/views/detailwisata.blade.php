@@ -132,22 +132,13 @@
     <section class="content">
         <div class="pl-5 pr-5 mt-6 ml-2 mr-4 mb-8">
             <div>
-                <div> 
+                <div>
                     @if (session('success'))
                     <div id="successMessage" class="bg-green-500 text-white p-4 rounded mb-4">
                         {{ session('success') }}
                     </div>
-                    <script>
-
-                    setTimeout(function() {
-
-                        $('#successMessage').fadeOut('slow');
-
-                    }, 3000);
-
-                </script>
                     @endif
-                    
+
                     <form action="{{ route('store.ulasan') }}" method="POST">
                         @csrf
 
@@ -190,12 +181,27 @@
                                 placeholder="Ketik ulasan Anda disini"></textarea>
                         </div>
                         <button type="submit"
-                            class="bg-green-600 text-white px-8 py-2 rounded-lg hover:bg-green-700">Kirim</button>
-                    </form>
+                            class="bg-green-600 text-white px-8 py-2 rounded-lg hover:bg-green-700">Kirim
+                        </button>
                     </form>
                 </div>
             </div>
+        </div>
     </section>
+
+    <script>
+    // Notifikasi Pesan Pada Form Kontak
+    document.addEventListener('DOMContentLoaded', function() {
+        var successMessage = document.getElementById('successMessage');
+
+        if (successMessage) {
+            successMessage.style.display = 'block';
+            setTimeout(function() {
+                successMessage.style.display = 'none';
+            }, 5000); // Menyembunyikan pesan setelah 5 detik
+        }
+    });
+    </script>
 </body>
 
 </html>
