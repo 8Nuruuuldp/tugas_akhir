@@ -15,11 +15,10 @@ class UlasanController extends Controller
         return view('admin.ulasan.index', ['table_ulasan'=> $ulasan]);
     }
 
-    public function detailwisata()
+    public function detailwisata($id)
     {
-        $ulasan = Ulasan::all();
-        $ulasan = Ulasan::with('wisata')->get();
-        return view('detailwisata', ['table_ulasan'=> $ulasan]);
+        $ulasan = Ulasan::with('wisata')->find($id);
+        return view('detailwisata/{id}', compact('ulasan'));
     }
 
 
