@@ -47,7 +47,7 @@ class UlasanController extends Controller
             'rating' => $request->rating,
             'ulasan' => $request->ulasan,
         ]);
-        return redirect('/#detailwisata')->with('success', 'Ulasan Anda berhasil dikirim!');
+        return redirect('/detailwisata/{id}')->with('success', 'Ulasan Anda telah terkirim!');
         //dd($request->all());
     }
 
