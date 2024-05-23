@@ -34,7 +34,9 @@
 
     <link rel="stylesheet" href="https://leafletjs.com/index.html#marker">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
 
 
 </head>
@@ -99,36 +101,54 @@
     </section>
 
     <section id="tentang" class="flex justify-center items-center h-screen object-cover w-full object-center">
-        <div class="grid items-center py-8 px-12 mx-auto max-w-screen-xl lg:gap-8 xl:gap-0 lg:py-16 ">
+        <div class="grid items-center py-8 px-12 mx-auto lg:gap-8 xl:gap-0 lg:py-16 ">
             <div class="">
                 <div class="text-center">
                     <h1
                         class="font-[Poppins] text-center mb-8 text-2xl font-extrabold leading-none md:text-4xl xl:text-5xl">
                         Tentang Kota Bandung </h1>
                     <p
-                        class="font-[Poppins] inline-flex items-center mb-6 max-w-2xl font-light text-slate-700 lg:mb-8 md:text-lg lg:text-xl dark:text-slate-800">
-                        Bandung, kota yang dijuluki "Kota Kembang" dan "Paris Van Java", merupakan ibukota Jawa
-                        Barat
+                        class="font-[Poppins] inline-flex items-center mb-6 font-light text-slate-700 lg:mb-8 md:text-lg lg:text-xl dark:text-slate-800">
+                        Bandung, kota yang dijuluki "Kota Kembang" dan "Paris Van Java", merupakan ibukota Jawa Barat
                         dan metropolitan terbesar di provinsi tersebut.
                         Dikelilingi pegunungan, Bandung menawarkan suasana sejuk dan nyaman dengan udara pegunungan.
                         Keindahan alamnya yang memukau, budaya Sunda yang kaya,
                         dan kulinernya yang lezat menjadikannya tujuan wisata populer bagi wisatawan domestik dan
-                        internasional
+                        internasional.
                     </p>
                 </div>
             </div>
 
-            <div class="flex gap-8 hover:gap-6">
-                <div class="">
-                    <img src="./img/gedungmerdeka.png" class="size-auto rounded">
+            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0"
+                        aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" class="active"
+                        aria-current="true" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
                 </div>
-                <div class="">
-                    <img src="./img/pasarbaru.png" class="size-auto rounded">
+                <div class="carousel-inner">
+                    <div class="carousel-item" data-bs-interval="1000">
+                        <img src="./img/gedungmerdeka.png" class="d-block " alt="...">
+                    </div>
+                    <div class="carousel-item active" data-bs-interval="2000">
+                        <img src="./img/pasarbaru.png" class="d-block " alt="...">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="3000">
+                        <img src="./img/asiaafrika.png" class="d-block " alt="...">
+                    </div>
                 </div>
-                <div class="">
-                    <img src="./img/asiaafrika.png" class="size-auto rounded">
-                </div>
-
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
         </div>
     </section>
@@ -411,7 +431,8 @@
                         <img src="./img/logo.svg" class="h-14 mr-3" alt="Bandung Geowisata" />
                     </a>
                     <p class="text-gray-700 text-sm">
-                        Bandung Geowisata adalah layanan yang menyediakan informasi dan titik lokasi mengenai objek wisata yang ada di kota bandung.
+                        Bandung Geowisata adalah layanan yang menyediakan informasi dan titik lokasi mengenai objek
+                        wisata yang ada di kota bandung.
                     </p>
                 </div>
                 <!-- Column 2 -->
@@ -419,10 +440,13 @@
                     <h2 class="mb-0 font-semibold text-gray-900">Kontak Kami</h2>
                     <ul class="text-gray-700 text-sm">
                         <li class="mb-1">
-                            <a href="https://mail.google.com/" class="hover:underline"><i class="fas fa-envelope"></i>&nbsp; Email: bdggeowisata@gmail.com</a>
+                            <a href="https://mail.google.com/" class="hover:underline"><i
+                                    class="fas fa-envelope"></i>&nbsp; Email: bdggeowisata@gmail.com</a>
                         </li>
                         <li class="mb-1">
-                            <a href="https://wa.me/082123456789?text=Hallo%20Admin%20mohon%20bantu%20Saya%20perihal" class="hover:underline"><i class="fas fa-phone"></i>&nbsp; Phone Number: 0821-2345-6789</a>
+                            <a href="https://wa.me/082123456789?text=Hallo%20Admin%20mohon%20bantu%20Saya%20perihal"
+                                class="hover:underline"><i class="fas fa-phone"></i>&nbsp; Phone Number:
+                                0821-2345-6789</a>
                         </li>
                     </ul>
                 </div>
@@ -431,13 +455,16 @@
                     <h2 class="mb-0 font-semibold text-gray-900">Media Sosial</h2>
                     <ul class="text-gray-700 text-sm">
                         <li class="mb-1">
-                            <a href="https://www.instagram.com/" class="hover:underline"><i class="fab fa-instagram"></i>&nbsp; Instagram: @bandunggeowisata</a>
+                            <a href="https://www.instagram.com/" class="hover:underline"><i
+                                    class="fab fa-instagram"></i>&nbsp; Instagram: @bandunggeowisata</a>
                         </li>
                         <li class="mb-1">
-                            <a href="https://www.twitter.com/" class="hover:underline"><i class="fab fa-twitter"></i>&nbsp; Twitter: @bandunggeowisata</a>
+                            <a href="https://www.twitter.com/" class="hover:underline"><i
+                                    class="fab fa-twitter"></i>&nbsp; Twitter: @bandunggeowisata</a>
                         </li>
                         <li class="mb-1">
-                            <a href="https://www.facebook.com/" class="hover:underline"><i class="fab fa-facebook"></i>&nbsp; Facebook: Bandung Geowisata</a>
+                            <a href="https://www.facebook.com/" class="hover:underline"><i
+                                    class="fab fa-facebook"></i>&nbsp; Facebook: Bandung Geowisata</a>
                         </li>
                     </ul>
                 </div>
@@ -478,184 +505,208 @@
             attribution: '© OpenStreetMap contributors',
         }).addTo(map);
 
-    var popup = L.popup();
+        var popup = L.popup();
 
-    function onMapClick(data) {
-        popup
-            .setLatLng(data.latlng)
-            .setContent(data.latlng.toString())
-            .openOn(map);
-    }
+        function onMapClick(data) {
+            popup
+                .setLatLng(data.latlng)
+                .setContent(data.latlng.toString())
+                .openOn(map);
+        }
 
-    var iconMap = L.icon({iconUrl:"https://img.icons8.com/plasticine/100/place-marker.png", iconSize:[40,40], iconAnchor: [22,44], tooltipAnchor: [22, -20]});
+        var iconMap = L.icon({
+            iconUrl: "https://img.icons8.com/plasticine/100/place-marker.png",
+            iconSize: [40, 40],
+            iconAnchor: [22, 44],
+            tooltipAnchor: [22, -20]
+        });
 
-    $(document).ready(function () {
+        $(document).ready(function () {
             $.getJSON('point/json', function (data) {
                 $.each(data, function (index) {
 
-                    L.marker([parseFloat(data[index].latitude), parseFloat(data[index].longitude)], {icon: iconMap})
+                    L.marker([parseFloat(data[index].latitude), parseFloat(data[index]
+                            .longitude)], {
+                            icon: iconMap
+                        })
                         .addTo(map)
-                        .bindPopup('<div class"min-h-screen flex items-center justify-center"><img class="h-48 w-full object-cover object-end" src="./img/' +data[index].gambar+ '"><div class="p-6"><h4 class="mt-2 font-bold text-lg truncate">' +data[index].nama_tempat+ '</h4><div class=""> <br> '+data[index].alamat+' </div><div class="my-2"><a href="/detailwisata/'+data[index].id+'" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center">Lihat Selengkapnya</a><button onclick="getLocation('+data[index].latitude+','+data[index].longitude+')" class="py-2 text-blue-500 rounded shadow-md hover:bg-blue-300 active:bg-blue-700 disabled:opacity-50 mt-2 w-full flex items-center justify-center">Ayo kesana!</button></div></div></div></div>'
+                        .bindPopup(
+                            '<div class"min-h-screen flex items-center justify-center"><img class="h-48 w-full object-cover object-end" src="./img/' +
+                            data[index].gambar +
+                            '"><div class="p-6"><h4 class="mt-2 font-bold text-lg truncate">' +
+                            data[index].nama_tempat + '</h4><div class=""> <br> ' + data[index]
+                            .alamat + ' </div><div class="my-2"><a href="/detailwisata/' + data[
+                                index].id +
+                            '" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center">Lihat Selengkapnya</a><button onclick="getLocation(' +
+                            data[index].latitude + ',' + data[index].longitude +
+                            ')" class="py-2 text-blue-500 rounded shadow-md hover:bg-blue-300 active:bg-blue-700 disabled:opacity-50 mt-2 w-full flex items-center justify-center">Ayo kesana!</button></div></div></div></div>'
                         );
                 });
             });
         });
 
-    function getLocation(latitude, longitude) {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-                var userlat = position.coords.latitude;
-                var userlng = position.coords.longitude;
-                console.log(userlat, userlng);
-                // Mengambil posisi tujuan dari database menggunakan Ajax
-                $.ajax({
-                    url: 'point/json',
-                    method: 'get',
-                    dataType: 'json',
-                    success: function(data) {
-                        // Menampilkan rute dari posisi pengguna ke posisi tujuan
-                        var startLat = L.latLng(userlat, userlng);
-                        var endPoint = L.latLng(latitude, longitude);
-                        L.Routing.control({
-                            waypoints: [
-                                startLat,
-                                endPoint
-                            ],
-                            routeWhileDragging: true,
-                            geocoder: L.Control.Geocoder.nominatim()
-                        }).addTo(map);
-                    },
-                    error: function(xhr, status, error) {
-                        console.error("Error:", error);
-                    }
+        function getLocation(latitude, longitude) {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var userlat = position.coords.latitude;
+                    var userlng = position.coords.longitude;
+                    console.log(userlat, userlng);
+                    // Mengambil posisi tujuan dari database menggunakan Ajax
+                    $.ajax({
+                        url: 'point/json',
+                        method: 'get',
+                        dataType: 'json',
+                        success: function (data) {
+                            // Menampilkan rute dari posisi pengguna ke posisi tujuan
+                            var startLat = L.latLng(userlat, userlng);
+                            var endPoint = L.latLng(latitude, longitude);
+                            L.Routing.control({
+                                waypoints: [
+                                    startLat,
+                                    endPoint
+                                ],
+                                routeWhileDragging: true,
+                                geocoder: L.Control.Geocoder.nominatim()
+                            }).addTo(map);
+                        },
+                        error: function (xhr, status, error) {
+                            console.error("Error:", error);
+                        }
+                    });
                 });
-            });
-        } else {
-            console.log("Geolocation is not supported by this browser.");
+            } else {
+                console.log("Geolocation is not supported by this browser.");
+            }
         }
-    }
-    //filtering
-    map.on("click", function(e) {
-        const {
-            latitude,
-            longitude
-        } = e.latlng
-        Marker.setLatLng([latitude, longitude]);
-        clearResults();
-    });
-    let typingInterval
-    // typing handler
-    function onTyping(e) {
-        clearInterval(typingInterval)
-        const {
-            value
-        } = e.target.value;
-        typingInterval = setInterval(() => {
+        //filtering
+        map.on("click", function (e) {
+            const {
+                latitude,
+                longitude
+            } = e.latlng
+            Marker.setLatLng([latitude, longitude]);
+            clearResults();
+        });
+        let typingInterval
+        // typing handler
+        function onTyping(e) {
             clearInterval(typingInterval)
-            searchLocation(value)
-        }, 500);
-    }
-    //elemen input dan select
-    const searchInput = document.getElementById('searchInput');
-    const kategoriSelect = document.getElementById('kategoriSelect');
+            const {
+                value
+            } = e.target.value;
+            typingInterval = setInterval(() => {
+                clearInterval(typingInterval)
+                searchLocation(value)
+            }, 500);
+        }
+        //elemen input dan select
+        const searchInput = document.getElementById('searchInput');
+        const kategoriSelect = document.getElementById('kategoriSelect');
 
-    searchInput.addEventListener('input', function() {
-        const keyword = this.value;
-        const kategori = kategoriSelect.value;
-        searchLocation(keyword, kategori);
-    });
+        searchInput.addEventListener('input', function () {
+            const keyword = this.value;
+            const kategori = kategoriSelect.value;
+            searchLocation(keyword, kategori);
+        });
 
-    function onCategoryChange() {
-        const keyword = searchInput.value;
-        const kategori = kategoriSelect.value;
-        searchLocation(keyword, kategori);
-    }
-    // search handler
-    function searchLocation(keyword, kategori) {
-        if (keyword || kategori) {
-            fetch(`/search?keyword=${encodeURIComponent(keyword)}&kategori=${encodeURIComponent(kategori)}`)
-                .then(response => response.json())
-                .then(json => {
-                    console.log("json", json);
-                    if (json.length > 0) {
-                        renderResults(json);
-                    } else {
-                        clearResults();
-                        alert("Lokasi tidak ditemukan");
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert("Terjadi kesalahan saat mencari lokasi");
-                });
-        } else {
+        function onCategoryChange() {
+            const keyword = searchInput.value;
+            const kategori = kategoriSelect.value;
+            searchLocation(keyword, kategori);
+        }
+        // search handler
+        function searchLocation(keyword, kategori) {
+            if (keyword || kategori) {
+                fetch(`/search?keyword=${encodeURIComponent(keyword)}&kategori=${encodeURIComponent(kategori)}`)
+                    .then(response => response.json())
+                    .then(json => {
+                        console.log("json", json);
+                        if (json.length > 0) {
+                            renderResults(json);
+                        } else {
+                            clearResults();
+                            alert("Lokasi tidak ditemukan");
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert("Terjadi kesalahan saat mencari lokasi");
+                    });
+            } else {
+                clearResults();
+            }
+        }
+        // render results
+        function renderResults(result) {
+            const resultsWrapperHTML = document.getElementById("search-result");
+            let resultsHTML = "";
+            result.forEach(n => {
+                resultsHTML +=
+                    `<li><a href="#" onclick="setLocation(${n.latitude},${n.longitude}); return false;">${n.nama_tempat}, ${n.alamat}</a></li>`
+            });
+            resultsWrapperHTML.innerHTML = resultsHTML;
+        }
+
+        function setLocation(latitude, longitude) {
+            map.setView(new L.LatLng(latitude, longitude), 25);
+            Marker.setLatLng([latitude, longitude]);
             clearResults();
         }
-    }
-    // render results
-    function renderResults(result) {
-        const resultsWrapperHTML = document.getElementById("search-result");
-        let resultsHTML = "";
-        result.forEach(n => {
-            resultsHTML +=
-                `<li><a href="#" onclick="setLocation(${n.latitude},${n.longitude}); return false;">${n.nama_tempat}, ${n.alamat}</a></li>`
+        // clear results
+        function clearResults() {
+            const resultsWrapperHTML = document.getElementById("search-result");
+            resultsWrapperHTML.innerHTML = "";
+        }
+
+        // Notifikasi Pesan Pada Form Kontak
+        document.addEventListener('DOMContentLoaded', function () {
+            var successMessage = document.getElementById('successMessage');
+
+            if (successMessage) {
+                successMessage.style.display = 'block';
+                setTimeout(function () {
+                    successMessage.style.display = 'none';
+                }, 5000); // Menyembunyikan pesan setelah 5 detik
+            }
         });
-        resultsWrapperHTML.innerHTML = resultsHTML;
-    }
+        //Hamburger Menu
+        document.getElementById("hamburger").onclick = function toggleMenu() {
+            const navToggle = document.getElementsByClassName("toggle");
+            for (let i = 0; i < navToggle.length; i++) {
+                navToggle.item(i).classList.toggle("hidden");
+            }
+        };
 
-    function setLocation(latitude, longitude) {
-        map.setView(new L.LatLng(latitude, longitude), 25);
-        Marker.setLatLng([latitude, longitude]);
-        clearResults();
-    }
-    // clear results
-    function clearResults() {
-        const resultsWrapperHTML = document.getElementById("search-result");
-        resultsWrapperHTML.innerHTML = "";
-    }
-
-    // Notifikasi Pesan Pada Form Kontak
-    document.addEventListener('DOMContentLoaded', function() {
-        var successMessage = document.getElementById('successMessage');
-
-        if (successMessage) {
-            successMessage.style.display = 'block';
-            setTimeout(function() {
-                successMessage.style.display = 'none';
-            }, 5000); // Menyembunyikan pesan setelah 5 detik
-        }
-    });
-    //Hamburger Menu
-    document.getElementById("hamburger").onclick = function toggleMenu() {
-        const navToggle = document.getElementsByClassName("toggle");
-        for (let i = 0; i < navToggle.length; i++) {
-            navToggle.item(i).classList.toggle("hidden");
-        }
-    };
     </script>
 
 
     <style>
+        ul {
+            position: relative;
+            top: 20px;
+            z-index: 1001;
+            width: 100%;
+            background: #FFF;
+            list-style: none;
+            padding: 0;
+        }
 
-    ul {
-        position: relative;
-        top: 20px;
-        z-index: 1001;
-        width: 100%;
-        background: #FFF;
-        list-style: none;
-        padding: 0;
-    }
+        li {
+            padding: 5px 0;
+        }
 
-    li {
-        padding: 5px 0;
-    }
+        .background-image {
+            background-image: url('/Admin/dist/img/Group.png');
+            background-size: cover;
+            background-position: center;
+        }
 
-    .background-image {
-        background-image: url('/Admin/dist/img/Group.png');
-        background-size: cover;
-        background-position: center;
-    }
+        .carousel-item img {
+            display: block;
+            margin: 0 auto;
+            width: 50%;
+        }
+
     </style>
 
 </body>
