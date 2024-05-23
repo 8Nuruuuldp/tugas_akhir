@@ -13,7 +13,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="/dashboard">Dasbor</a></li>
+                        <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
                         <li class="breadcrumb-item active">Data Wisata</li>
                     </ol>
                 </div>
@@ -45,6 +45,7 @@
                                         <th>Kategori</th>
                                         <th>Alamat</th>
                                         <th>Gambar</th>
+                                        <th>Sumber</th>
                                         <th>Deskripsi</th>
                                         <th>Latitude</th>
                                         <th>Longitude</th>
@@ -61,9 +62,10 @@
                                         <td>{{$no++}}</td>
                                         <td>{{$wisata->nama_tempat}}</td>
                                         <td>{{$wisata->kategori->nama_kategori}}</td>
-                                        <td>{{illuminate\Support\Str::limit($wisata->alamat, 30)}}</td>
+                                        <td>{{illuminate\Support\Str::limit($wisata->alamat, 100)}}</td>
                                         <td><img src="/img/{{$wisata->gambar}}" width="100" height="100"></td>
-                                        <td>{{illuminate\Support\Str::limit($wisata->deskripsi, 30)}}</td>
+                                        <td>{{$wisata->sumber}}</td>
+                                        <td>{{illuminate\Support\Str::limit($wisata->deskripsi, 250)}}</td>
                                         <td>{{$wisata->latitude}}</td>
                                         <td>{{$wisata->longitude}}</td>
                                         <td>

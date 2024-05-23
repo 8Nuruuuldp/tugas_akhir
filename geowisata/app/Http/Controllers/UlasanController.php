@@ -33,6 +33,7 @@ class UlasanController extends Controller
     public function store(Request $request){
 
         $this->validate($request,[
+            'wisata_id' => 'exists:table_wisata,wisata_id',
             'nama_pengulas' => 'required',
             'email_pengulas' => 'required',
             'rating' => 'required',
@@ -40,6 +41,7 @@ class UlasanController extends Controller
         ]);
 
         Ulasan::create([
+            'wisata_id' => $request->wisata_id,
             'nama_pengulas' => $request->nama_pengulas,
             'email_pengulas' => $request->email_pengulas,
             'rating' => $request->rating,
