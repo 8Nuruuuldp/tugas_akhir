@@ -131,12 +131,14 @@
                     @endif
                     <form action="{{ route('store.ulasan') }}" method="POST">
                         @csrf
+
                         <div class="mb-4 font-[Poppins]">
                             <label for="nama" class="block text-black font-extrabold mb-2">Nama Tempat <span
-                                    class="text-red-600 ">*</span></label>
-                            <input class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            type="text" name="nama_tempat" value="{{ $wisata->nama_tempat }}" readonly>
-                           
+                                class="text-red-600 ">*</span></label>
+                            <input type="hidden" name="wisata_id" value="{{ $wisata->id }}">
+                            <input
+                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                type="text" value="{{ $wisata->nama_tempat }}" readonly>
                         </div>
                         <div class="mb-4 font-[Poppins]">
                             <label for="nama" class="block text-black font-extrabold mb-2">Nama Lengkap <span

@@ -33,7 +33,7 @@ class UlasanController extends Controller
     public function store(Request $request){
 
         $this->validate($request,[
-            'wisata_id' => 'exists:table_wisata,wisata_id',
+            'wisata_id' => 'exists:table_wisata,id',
             'nama_pengulas' => 'required',
             'email_pengulas' => 'required',
             'rating' => 'required',
