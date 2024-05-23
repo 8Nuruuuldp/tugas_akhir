@@ -64,6 +64,11 @@
                             <img src="/img/{{$wisata->gambar}}" width="200" height="200">
                         </div>
                         <div class="form-group">
+                            <label for="sumber">Sumber Gambar</label>
+                            <input type="link" class="form-control" id="sumber" placeholder="contoh: www.google.com"
+                                name="sumber" value="{{$wisata->sumber}}">
+                        </div>
+                        <div class="form-group">
                             <label for="deskripsi">Deskripsi</label>
                             <textarea class="form-control" id="deskripsi" placeholder="Masukan deskripsi tempat wisata"
                                 name="deskripsi">{{$wisata->deskripsi}}</textarea>

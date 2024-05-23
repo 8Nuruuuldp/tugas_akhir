@@ -3,7 +3,7 @@
     <!-- Brand Logo -->
     <center>
     <a href="/dashboard" class="brand-link">
-        <img src="./img/logo.svg" alt="AdminLTE Logo" width="70">
+        <img src="/img/logo.svg" alt="AdminLTE Logo" width="70">
     </a>
     </center>
 

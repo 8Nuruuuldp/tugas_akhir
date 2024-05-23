@@ -67,6 +67,12 @@
                                     </div>
                                     
                                 </div>
+                                <div class="form-group">
+                                    <label class="text-danger">*</label>
+                                    <label for="sumber">Sumber Gambar</label>
+                                    <input type="link" class="form-control" id="sumber"
+                                        placeholder="contoh: www.google.com" name="sumber">
+                                </div>
                                
                                 <div class="form-group">
                                     <label class="text-danger">*</label>

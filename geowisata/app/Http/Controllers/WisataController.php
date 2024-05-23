@@ -53,6 +53,7 @@ class WisataController extends Controller
             'kategori_id' => 'required',
             'alamat' => 'required',
             'gambar' => 'required',
+            'sumber' => 'required',
             'deskripsi' => 'required',
             'latitude' => 'required',
             'longitude' => 'required',
@@ -66,6 +67,7 @@ class WisataController extends Controller
             $wisata->kategori_id = $request->kategori_id;
             $wisata->alamat = $request->alamat;
             $wisata->gambar = $namaFile;
+            $wisata->sumber = $request->sumber;
             $wisata->deskripsi = $request->deskripsi;
             $wisata->latitude = $request->latitude;
             $wisata->longitude = $request->longitude;
@@ -108,6 +110,7 @@ class WisataController extends Controller
             'kategori_id' => $request['kategori_id'],
             'alamat' => $request['alamat'],
             'gambar' => $awal,
+            'sumber' => $request['sumber'],
             'deskripsi' => $request['deskripsi'],
             'latitude' => $request['latitude'],
             'longitude' => $request['longitude'],

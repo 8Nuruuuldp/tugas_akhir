@@ -15,11 +15,10 @@ class UlasanController extends Controller
         return view('admin.ulasan.index', ['table_ulasan'=> $ulasan]);
     }
 
-    public function detailwisata()
+    public function detailwisata($id)
     {
-        $ulasan = Ulasan::all();
-        $ulasan = Ulasan::with('wisata')->get();
-        return view('detailwisata', ['table_ulasan'=> $ulasan]);
+        $ulasan = Ulasan::with('wisata')->find($id);
+        return view('detailwisata/{id}', compact('ulasan'));
     }
 
 
@@ -33,6 +32,7 @@ class UlasanController extends Controller
     public function store(Request $request){
 
         $this->validate($request,[
+            'wisata_id' => 'exists:table_wisata,id',
             'nama_pengulas' => 'required',
             'email_pengulas' => 'required',
             'rating' => 'required',
@@ -40,12 +40,13 @@ class UlasanController extends Controller
         ]);
 
         Ulasan::create([
+            'wisata_id' => $request->wisata_id,
             'nama_pengulas' => $request->nama_pengulas,
             'email_pengulas' => $request->email_pengulas,
             'rating' => $request->rating,
             'ulasan' => $request->ulasan,
         ]);
-        return redirect('/#detailwisata')->with('success', 'Ulasan Anda berhasil dikirim!');
+        return redirect('/detailwisata/{id}')->with('success', 'Ulasan Anda telah terkirim!');
         //dd($request->all());
     }
 
