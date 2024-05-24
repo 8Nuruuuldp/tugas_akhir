@@ -116,7 +116,7 @@
 
 
     {{-- review --}}
-    {{-- <div class="mt-5 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] p-6">
+    <div class="mt-5 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] p-6">
         <h3 class="text-lg font-bold text-[#333]">Reviews(10)</h3>
         <div class="grid md:grid-cols-2 gap-12 mt-6">
             <div>
@@ -233,7 +233,7 @@
         </div>
     </div>
     </div>
-    </div> --}}
+    </div>
 
     <!-- Modal -->
     <div class="flex justify-center items-center h-screen">
@@ -253,10 +253,11 @@
                     <h2 class="text-2xl font-bold mb-4">Contact Us</h2>
                     {{-- rating bintang --}}
                     <div x-data="{ currentVal: 3 }" class="flex items-center justify-center gap-1">
-                        <label for="oneStar" class="cursor-pointer transition hover:scale-125 has-[:focus]:scale-125">
+                        <label for="oneStar"
+                            class="cursor-pointer transition hover:scale-125 has-[:focus]:scale-125">
                             <span class="sr-only">one star</span>
-                            <input x-model="currentVal" id="oneStar" type="radio" class="sr-only" name="rating"
-                                value="1">
+                            <input x-model="currentVal" id="oneStar" type="radio" class="sr-only"
+                                name="rating" value="1">
                             <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 24 24"
                                 fill="currentColor" class="w-10 h-10"
                                 :class="currentVal > 0 ? 'text-amber-500' : 'text-slate-700 dark:text-slate-300'">
