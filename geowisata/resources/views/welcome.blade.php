@@ -36,6 +36,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 
 
@@ -580,26 +581,6 @@
             }
         }
         //filtering
-
-        map.on("click", function (e) {
-            const {
-                latitude,
-                longitude
-            } = e.latlng
-            Marker.setLatLng([latitude, longitude]);
-            clearResults();
-        });
-        let typingInterval
-        // typing handler
-        function onTyping(e) {
-            clearTimeout(this.typingTimer);
-            this.typingTimer = setTimeout(() => {
-                const keyword = e.value;
-                const kategori = kategoriSelect.value;
-                searchLocation(keyword, kategori);
-            }, 500);
-        }
-        //elemen input dan select
         const searchInput = document.getElementById('searchInput');
         const kategoriSelect = document.getElementById('kategoriSelect');
 
@@ -614,7 +595,6 @@
             const kategori = kategoriSelect.value;
             searchLocation(keyword, kategori);
         }
-        // search handler
         function searchLocation(keyword, kategori) {
             if (keyword || kategori) {
                 fetch(`/search?keyword=${encodeURIComponent(keyword)}&kategori=${encodeURIComponent(kategori)}`)
@@ -636,29 +616,39 @@
                 clearResults();
             }
         }
-        // render results
         function renderResults(result) {
-            const resultsWrapperHTML = document.getElementById("search-result");
-            let resultsHTML = "";
-            result.forEach(n => {
-                resultsHTML +=
-                    `<li><a href="#" onclick="setLocation(${n.latitude},${n.longitude}); return false;">${n.nama_tempat}, ${n.alamat}</a></li>`
-            });
-            resultsWrapperHTML.innerHTML = resultsHTML;
+    map.eachLayer(function (layer) {
+        if (layer instanceof L.Marker) {
+            map.removeLayer(layer);
         }
-        let Marker = L.marker([0, 0]);
-
-        function setLocation(latitude, longitude) {
-            map.setView(new L.LatLng(latitude, longitude), 25);
-                Marker.setLatLng([latitude, longitude]);
-            clearResults();
+    });
+    result.forEach(n => {
+        let marker = L.marker([n.latitude, n.longitude], {icon: iconMap}).addTo(map);
+        let popupContent =`<div class"min-h-screen flex items-center justify-center">
+                            <img class="h-48 w-full object-cover object-end" src="./img/${n.gambar}>
+                            <div class="p-6">
+                            <h4 class="mt-2 font-bold text-lg truncate">${n.nama_tempat}</h4>
+                            <div class=""> <br>${n.alamat}</div>
+                            <div class="my-2">
+                            <a href="/detailwisata/${n.id}" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center">Lihat Selengkapnya</a>
+                            <button onclick="getLocation(${n.latitude}, ${n.longitude})" class="py-2 text-blue-500 rounded shadow-md hover:bg-blue-300 active:bg-blue-700 disabled:opacity-50 mt-2 w-full flex items-center justify-center">Ayo kesana!</button>
+                            </div>
+                            </div>
+                            </div>`;
+        marker.bindPopup(popupContent);
+        marker.on('click', function() {
+            marker.openPopup();
+        });
+        map.setView([n.latitude, n.longitude], 15);
+    });
+}
+function clearResults() {
+    map.eachLayer(function (layer) {
+        if (layer instanceof L.Marker) {
+            map.removeLayer(layer);
         }
-        // clear results
-        function clearResults() {
-            const resultsWrapperHTML = document.getElementById("search-result");
-            resultsWrapperHTML.innerHTML = "";
-        }
-
+    });
+}
         // Notifikasi Pesan Pada Form Kontak
         document.addEventListener('DOMContentLoaded', function () {
             var successMessage = document.getElementById('successMessage');
@@ -679,7 +669,6 @@
         };
 
     </script>
-
 
     <style>
         ul {

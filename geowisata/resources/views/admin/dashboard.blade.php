@@ -96,9 +96,13 @@
             </div>
             <div class="col-sm-6">
                 <h3 class="m-16">Peta Wisata</h3>
-                <form>
-                    <div class="input-group mb-3">
-                        <input type="text" id="searchInput" class="form-control" placeholder="Search..." oninput="onTyping(this)" />
+                <form class="form-inline">
+                    <div class="form-group mb-2">
+                        <label for="wisata"></label>
+                        <input type="text" class="form-control" id="searchInput" placeholder="Search..."
+                            oninput="onTyping(this)" />
+                    </div>
+                    <div class="form-group mx-sm-3 mb-2">
                         <label for="kategori">
                             <select id="kategoriSelect" class="form-control" onchange="onCategoryChange()">
                                 <option value="">Kategori Wisata</option>
@@ -107,8 +111,8 @@
                                 @endforeach
                             </select>
                         </label>
-                        <button class="cari btn btn-success" type="submit">Search</button>
                     </div>
+                    <button type="submit" class="btn btn-success mb-2">Search</button>
                     <ul id="search-result"></ul>
                 </form>
             </div>
@@ -126,8 +130,6 @@
                         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                     }).addTo(map);
 
-                const Marker = L.marker([-6.914744, 107.609810]).addTo(map);
-
                 var popup = L.popup();
 
                 function onMapClick(data) {
@@ -137,83 +139,92 @@
                         .openOn(map);
                 }
 
+                var iconMap = L.icon({
+                    iconUrl: "https://img.icons8.com/plasticine/100/place-marker.png",
+                    iconSize: [40, 40],
+                    iconAnchor: [22, 44],
+                    tooltipAnchor: [22, -20]
+                });
                 //filtering
-        map.on("click", function (e) {
-            const {
-                latitude,
-                longitude
-            } = e.latlng
-            Marker.setLatLng([latitude, longitude]);
-            clearResults();
-        });
-        let typingInterval
-        // typing handler
-        function onTyping(e) {
-            clearInterval(typingInterval)
-            const {
-                value
-            } = e.target.value;
-            typingInterval = setInterval(() => {
-                clearInterval(typingInterval)
-                searchLocation(value)
-            }, 500);
-        }
-        //elemen input dan select
-        const searchInput = document.getElementById('searchInput');
-        const kategoriSelect = document.getElementById('kategoriSelect');
+                map.on("click", function (e) {
+                    const {
+                        latitude,
+                        longitude
+                    } = e.latlng
+                    Marker.setLatLng([latitude, longitude]);
+                    clearResults();
+                });
+                let typingInterval
+                // typing handler
+                function onTyping(e) {
+                    clearInterval(typingInterval)
+                    const {
+                        value
+                    } = e.target.value;
+                    typingInterval = setInterval(() => {
+                        clearInterval(typingInterval)
+                        searchLocation(value)
+                    }, 500);
+                }
+                //elemen input dan select
+                const searchInput = document.getElementById('searchInput');
+                const kategoriSelect = document.getElementById('kategoriSelect');
 
-        searchInput.addEventListener('input', function () {
-            const keyword = this.value;
-            const kategori = kategoriSelect.value;
-            searchLocation(keyword, kategori);
-        });
-        function onCategoryChange() {
-            const keyword = searchInput.value;
-            const kategori = kategoriSelect.value;
-            searchLocation(keyword, kategori);
-        }
-        // search handler
-        function searchLocation(keyword, kategori) {
-            if (keyword || kategori) {
-                fetch(`/search?keyword=${encodeURIComponent(keyword)}&kategori=${encodeURIComponent(kategori)}`)
-                    .then(response => response.json())
-                    .then(json => {
-                        console.log("json", json);
-                        if (json.length > 0) {
-                            renderResults(json);
-                        } else {
-                            clearResults();
-                            alert("Lokasi tidak ditemukan");
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        alert("Terjadi kesalahan saat mencari lokasi");
+                searchInput.addEventListener('input', function () {
+                    const keyword = this.value;
+                    const kategori = kategoriSelect.value;
+                    searchLocation(keyword, kategori);
+                });
+
+                function onCategoryChange() {
+                    const keyword = searchInput.value;
+                    const kategori = kategoriSelect.value;
+                    searchLocation(keyword, kategori);
+                }
+                let Marker = L.marker([0, 0]);
+                // search handler
+                function searchLocation(keyword, kategori) {
+                    if (keyword || kategori) {
+                        fetch(`/search?keyword=${encodeURIComponent(keyword)}&kategori=${encodeURIComponent(kategori)}`)
+                            .then(response => response.json())
+                            .then(json => {
+                                console.log("json", json);
+                                if (json.length > 0) {
+                                    renderResults(json);
+                                } else {
+                                    clearResults();
+                                    alert("Lokasi tidak ditemukan");
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Error:', error);
+                                alert("Terjadi kesalahan saat mencari lokasi");
+                            });
+                    } else {
+                        clearResults();
+                    }
+                }
+                // render results
+                function renderResults(result) {
+                    const resultsWrapperHTML = document.getElementById("search-result");
+                    let resultsHTML = "";
+                    result.forEach(n => {
+                        resultsHTML +=
+                            `<li> <i class="bi bi-geo-alt"></i> <a href="#"  onclick="setLocation(${n.latitude},${n.longitude}); return false;">${n.nama_tempat}, ${n.alamat}</a></li>`
                     });
-            } else {
-                clearResults();
-            }
-        }
-        // render results
-        function renderResults(result) {
-            const resultsWrapperHTML = document.getElementById("search-result");
-            let resultsHTML = "";
-            result.forEach(n => {
-                resultsHTML +=
-                    `<li><a href="#" onclick="setLocation(${n.latitude},${n.longitude}); return false;">${n.nama_tempat}, ${n.alamat}</a></li>`
-            });
-            resultsWrapperHTML.innerHTML = resultsHTML;
-        }
-        function setLocation(latitude, longitude) {
-            map.setView(new L.LatLng(latitude, longitude), 25);
-            Marker.setLatLng([latitude, longitude]);
-            clearResults();
-        }
-        // clear results
-        function clearResults() {
-            const resultsWrapperHTML = document.getElementById("search-result");
-            resultsWrapperHTML.innerHTML = "";
-        }
+                    resultsWrapperHTML.innerHTML = resultsHTML;
+                }
+
+                function setLocation(latitude, longitude) {
+                    map.setView(new L.LatLng(latitude, longitude), 25);
+                    Marker.setLatLng([latitude, longitude]);
+                    clearResults();
+                }
+                // clear results
+                function clearResults() {
+                    const resultsWrapperHTML = document.getElementById("search-result");
+                    resultsWrapperHTML.innerHTML = "";
+                }
 
             </script>
 
@@ -228,22 +239,17 @@
                 }
 
                 #search-result {
-            position: relative;
-            top: 20px;
-            z-index: 1001;
-            width: 100%;
-            list-style: none;
-            padding: 0;
-        }
+                    position: relative;
+                    top: 20px;
+                    z-index: 1001;
+                    width: 100%;
+                    list-style: none;
+                    padding: 0;
+                }
 
-        li {
-            padding: 5px 0;
-        }
-        .cari {
-            width: 80px;
-            height: 38px;
-            padding: 5px;
-        }
+                li {
+                    padding: 5px 0;
+                }
 
             </style>
         </div>

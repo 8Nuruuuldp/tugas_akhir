@@ -174,67 +174,77 @@
             }
 
         // SEARCH SINGLE
-        const resultsWrapperHTML = document.getElementById("search-result")
-        map.on("click", function (e) {
-            const {
-                latitude,
-                longitude
-            } = e.latlng
-            // regenerate marker position
-            Marker.setLatLng([latitude, longitude])
-        })
-        let typingInterval
-        // typing handler
-        function onTyping(e) {
-            clearInterval(typingInterval)
-            const {
-                value
-            } = e
-            typingInterval = setInterval(() => {
-                clearInterval(typingInterval)
-                searchdata(value)
-            }, 500)
+        const searchInput = document.getElementById('searchInput');
+        const kategoriSelect = document.getElementById('kategoriSelect');
+
+        searchInput.addEventListener('input', function () {
+            const keyword = this.value;
+            const kategori = kategoriSelect.value;
+            searchLocation(keyword, kategori);
+        });
+
+        function onCategoryChange() {
+            const keyword = searchInput.value;
+            const kategori = kategoriSelect.value;
+            searchLocation(keyword, kategori);
         }
-        // search handler
-        function searchdata(keyword) {
-            if (keyword) {
-                // request dari database
-                fetch(`/search?keyword=${keyword}`)
-                    .then((response) => {
-                        return response.json()
-                    }).then(json => {
-                        // get respon data dari database
-                        console.log("json", json)
-                        if (json.length > 0) return renderResults(json)
-                        else alert("lokasi tidak ditemukan")
+        function searchLocation(keyword, kategori) {
+            if (keyword || kategori) {
+                fetch(`/search?keyword=${encodeURIComponent(keyword)}&kategori=${encodeURIComponent(kategori)}`)
+                    .then(response => response.json())
+                    .then(json => {
+                        console.log("json", json);
+                        if (json.length > 0) {
+                            renderResults(json);
+                        } else {
+                            clearResults();
+                            alert("Lokasi tidak ditemukan");
+                        }
                     })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert("Terjadi kesalahan saat mencari lokasi");
+                    });
+            } else {
+                clearResults();
             }
         }
-        // render results
         function renderResults(result) {
-            let resultsHTML = ""
-            result.map((n) => {
-                resultsHTML +=
-                    `<li> <i class="bi bi-geo-alt p-2"></i>
-                        <a href="#" onclick="setdata(${n.latitude},${n.longitude});">${n.nama_tempat}, ${n.alamat}</a></li>`
-            })
-            resultsWrapperHTML.innerHTML = resultsHTML
+    map.eachLayer(function (layer) {
+        if (layer instanceof L.Marker) {
+            map.removeLayer(layer);
         }
-        // clear results
-        function clearResults() {
-            resultsWrapperHTML.innerHTML = ""
+    });
+    result.forEach(n => {
+        let marker = L.marker([n.latitude, n.longitude]).addTo(map);
+        let popupContent =`<div class"min-h-screen flex items-center justify-center">
+                            <img class="h-48 w-full object-cover object-end" src="./img/${n.gambar}>
+                            <div class="p-6">
+                            <h4 class="mt-2 font-bold text-lg truncate">${n.nama_tempat}</h4>
+                            <div class=""> <br>${n.alamat}</div>
+                            <div class="my-2">
+                            <a href="/detailwisata/${n.id}" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center">Lihat Selengkapnya</a>
+                            <button onclick="getLocation(${n.latitude}, ${n.longitude})" class="py-2 text-blue-500 rounded shadow-md hover:bg-blue-300 active:bg-blue-700 disabled:opacity-50 mt-2 w-full flex items-center justify-center">Ayo kesana!</button>
+                            </div>
+                            </div>
+                            </div>`;
+        marker.bindPopup(popupContent);
+        marker.on('click', function() {
+            marker.openPopup();
+        });
+        map.setView([n.latitude, n.longitude], 15);
+    });
+}
+function clearResults() {
+    map.eachLayer(function (layer) {
+        if (layer instanceof L.Marker) {
+            map.removeLayer(layer);
         }
-        // set lokasi yang dicari result
-        function setdata(latitude, longitude) {
-            // set map focus
-            map.setView(new L.LatLng(latitude, longitude), 20)
-            // generate lokasi maker
-            Marker.setLatLng([latitude, longitude])
-            // clear results
-            clearResults()
-        }
+    });
+}
     </script>
 
 </body>
 
 </html>
+
