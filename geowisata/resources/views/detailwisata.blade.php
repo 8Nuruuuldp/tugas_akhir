@@ -47,14 +47,11 @@
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-col md:flex-row -mx-4">
                     <div class="md:flex-1 px-4">
-                        <!--
-                        <div class="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
-                            <img class="w-full h-full object-cover" src="{{ asset('./img/. $wisata->gambar) }}"
-                                alt="Foto wisata">
-                        </div> -->
+                        
+                        
                         <div class="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
                             @if ($wisata && $wisata->gambar)
-                            <img class="w-full h-full object-cover" src="{{ asset('.img/' . ($wisata->gambar)) }}"
+                            <img class="w-full h-full object-cover" src="{{ asset('img/' . ($wisata->gambar)) }}"
                                 alt="Foto wisata">
                             @else
                             <p>Tidak ada gambar tersedia.</p>
@@ -131,7 +128,7 @@
     <!--ulasan-->
     <section class="content">
         <div class="pl-5 pr-5 mt-6 ml-2 mr-4 mb-8">
-            <div>
+            <div id="info_wisata">
                 <div>
                     @if (session('success'))
                     <div id="successMessage" class="bg-green-500 text-white p-4 rounded mb-4">
@@ -143,12 +140,11 @@
                         @csrf
 
                         <div class="mb-4 font-[Poppins]">
-                            <label for="nama" class="block text-black font-extrabold mb-2">Nama Tempat <span
-                                    class="text-red-600 ">*</span></label>
-                            <input type="hidden" name="wisata_id" value="{{ $wisata->id }}">
+
                             <input
                                 class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                type="text" value="{{ $wisata->nama_tempat }}" readonly>
+                                type="hidden" name="wisata_id" value="{{ $wisata->id }}" readonly>
+
                         </div>
                         <div class="mb-4 font-[Poppins]">
                             <label for="nama" class="block text-black font-extrabold mb-2">Nama Lengkap <span
@@ -156,22 +152,27 @@
                             <input type="text" id="nama_pengulas" name="nama_pengulas"
                                 class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 placeholder="Masukan nama Anda">
-                            <label for="nama" class="text-black">Contoh: Jane Smith</label>
+                           
                         </div>
                         <div class="mb-4 font-[Poppins]">
                             <label for="email" class="block text-black font-extrabold mb-2">Email <span
                                     class="text-red-600">*</span></label>
                             <input type="email" id="email_pengulas" name="email_pengulas"
                                 class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                placeholder="Masukan email Anda">
-                            <label for="nama" class="text-black">Contoh: janesmith@gmail.com</label>
+                                placeholder="Contoh: janesmith@gmail.com">
                         </div>
-                        <div class=" mb-4 font-[Poppins] flex items-center mb-4">
-                            <span class="text-lg font-bold mr-2">Rating:</span>
-                            <input type="number" id="rating" name="rating" class="w-12 pl-2 text-sm text-gray-700"
-                                min="1" max="5" value="4.95">
-                            <span class="text-sm text-gray-500 ml-2">/ 5</span>
-
+                        <div class=" mb-4 font-[Poppins]">
+                            <label for="email" class="block text-black font-extrabold mb-2">Rating <span
+                                class="text-red-600">*</span></label>
+                            <select type="number" id="rating" name="rating"
+                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                placeholder="Pilih Rating">
+                                <option value="">Pilih Rating</option>
+                                @for ($i = 1; $i <= 5; $i++) 
+                                <option value="{{ $i }}">{{ $i }} <i
+                                    class="fas fa-star"></i></option>
+                                @endfor
+                            </select>
                         </div>
                         <div class="mb-4 font-[Poppins]">
                             <label for="pesan" class="block text-black font-extrabold mb-2">Ulasan Anda <span

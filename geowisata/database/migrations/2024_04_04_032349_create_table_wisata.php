@@ -17,10 +17,13 @@ return new class extends Migration
             $table->bigInteger('kategori_id');
             $table->string('alamat');
             $table->string('gambar');
-            $table->string('deskripsi');
+            $table->string('deskripsi')->nullable();
+            $table->string('waktu_operasional')->nullable();
+            $table->string('link_pendukung')->nullable();
             $table->decimal('latitude', 18, 16);
             $table->decimal('longitude', 19, 16);
             $table->timestamps();
+            
         });
     }
 

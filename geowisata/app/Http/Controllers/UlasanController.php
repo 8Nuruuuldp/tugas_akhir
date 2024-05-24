@@ -18,7 +18,7 @@ class UlasanController extends Controller
     public function detailwisata($id)
     {
         $ulasan = Ulasan::with('wisata')->find($id);
-        return view('detailwisata/{id}', compact('ulasan'));
+        return view('/detailwisata/{id}', compact('wisata'));
     }
 
 
