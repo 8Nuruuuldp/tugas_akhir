@@ -20,8 +20,7 @@
 
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.js"
-        charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.js" charset="utf-8">
     </script>
 
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
@@ -43,9 +42,9 @@
 </head>
 
 <body>
-    <nav class="sticky top-0 z-5 bg-white">
-        <div class="flex flex-wrap items-center justify-between px-12 py-4">
-            <img src="./img/logo.svg" alt="Bandung Geowisata" width="120" />
+    <nav class="sticky mx-auto top-0 z-3 bg-white">
+        <div class="flex flex-wrap items-center justify-between px-12 py-3">
+            <img src="./img/logo.svg" alt="Bandung Geowisata" width="100" />
 
             <div class="flex md:hidden">
                 <button id="hamburger">
@@ -57,7 +56,7 @@
             </div>
 
             <div
-                class="toggle hidden md:flex w-full md:w-auto text-right text-bold mt-5 md:mt-0 border-t-2 border-blue-900 md:border-none">
+                class="toggle hidden md:flex w-full md:w-auto text-right text-bold mt-1 md:mt-0 border-t-2 border-blue-900 md:border-none">
                 <a href="#beranda"
                     class="font-[Poppins] block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Beranda</a>
                 <a href="#tentang"
@@ -350,7 +349,7 @@
                             onchange="onCategoryChange()">
                             <option value="">Kategori Wisata</option>
                             @foreach ($kategori as $kategoriItem)
-                            <option value="{{ $kategoriItem->id }}">{{ $kategoriItem->nama_kategori }}</option>
+                                <option value="{{ $kategoriItem->id }}">{{ $kategoriItem->nama_kategori }}</option>
                             @endforeach
                         </select>
                     </label>
@@ -383,9 +382,9 @@
                 <!-- Kolom Kanan: Form -->
                 <div class="md:w-1/2">
                     @if (session('success'))
-                    <div id="successMessage" class="bg-green-500 text-white p-4 rounded mb-4">
-                        {{ session('success') }}
-                    </div>
+                        <div id="successMessage" class="bg-green-500 text-white p-4 rounded mb-4">
+                            {{ session('success') }}
+                        </div>
                     @endif
                     <form action="{{ url('/kontak/store') }}" method="POST">
                         @csrf
@@ -493,7 +492,8 @@
             </div>
             <hr class="my-8 border-gray-200" />
             <div class="text-center">
-                <span class="text-sm text-gray-500">© 2024 <a href="#" class="hover:underline">Bandung Geowisata™</a>.
+                <span class="text-sm text-gray-500">© 2024 <a href="#" class="hover:underline">Bandung
+                        Geowisata™</a>.
                     All Rights Reserved.</span>
             </div>
         </div>
@@ -523,9 +523,9 @@
             tooltipAnchor: [22, -20]
         });
 
-        $(document).ready(function () {
-            $.getJSON('point/json', function (data) {
-                $.each(data, function (index) {
+        $(document).ready(function() {
+            $.getJSON('point/json', function(data) {
+                $.each(data, function(index) {
 
                     L.marker([parseFloat(data[index].latitude), parseFloat(data[index]
                             .longitude)], {
@@ -549,7 +549,7 @@
 
         function getLocation(latitude, longitude) {
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function (position) {
+                navigator.geolocation.getCurrentPosition(function(position) {
                     var userlat = position.coords.latitude;
                     var userlng = position.coords.longitude;
                     console.log(userlat, userlng);
@@ -558,7 +558,7 @@
                         url: 'point/json',
                         method: 'get',
                         dataType: 'json',
-                        success: function (data) {
+                        success: function(data) {
                             // Menampilkan rute dari posisi pengguna ke posisi tujuan
                             var startLat = L.latLng(userlat, userlng);
                             var endPoint = L.latLng(latitude, longitude);
@@ -571,7 +571,7 @@
                                 geocoder: L.Control.Geocoder.nominatim()
                             }).addTo(map);
                         },
-                        error: function (xhr, status, error) {
+                        error: function(xhr, status, error) {
                             console.error("Error:", error);
                         }
                     });
@@ -584,7 +584,7 @@
         const searchInput = document.getElementById('searchInput');
         const kategoriSelect = document.getElementById('kategoriSelect');
 
-        searchInput.addEventListener('input', function () {
+        searchInput.addEventListener('input', function() {
             const keyword = this.value;
             const kategori = kategoriSelect.value;
             searchLocation(keyword, kategori);
@@ -595,6 +595,7 @@
             const kategori = kategoriSelect.value;
             searchLocation(keyword, kategori);
         }
+
         function searchLocation(keyword, kategori) {
             if (keyword || kategori) {
                 fetch(`/search?keyword=${encodeURIComponent(keyword)}&kategori=${encodeURIComponent(kategori)}`)
@@ -616,15 +617,18 @@
                 clearResults();
             }
         }
+
         function renderResults(result) {
-    map.eachLayer(function (layer) {
-        if (layer instanceof L.Marker) {
-            map.removeLayer(layer);
-        }
-    });
-    result.forEach(n => {
-        let marker = L.marker([n.latitude, n.longitude], {icon: iconMap}).addTo(map);
-        let popupContent =`<div class"min-h-screen flex items-center justify-center">
+            map.eachLayer(function(layer) {
+                if (layer instanceof L.Marker) {
+                    map.removeLayer(layer);
+                }
+            });
+            result.forEach(n => {
+                let marker = L.marker([n.latitude, n.longitude], {
+                    icon: iconMap
+                }).addTo(map);
+                let popupContent = `<div class"min-h-screen flex items-center justify-center">
                             <img class="h-48 w-full object-cover object-end" src="./img/${n.gambar}>
                             <div class="p-6">
                             <h4 class="mt-2 font-bold text-lg truncate">${n.nama_tempat}</h4>
@@ -635,27 +639,28 @@
                             </div>
                             </div>
                             </div>`;
-        marker.bindPopup(popupContent);
-        marker.on('click', function() {
-            marker.openPopup();
-        });
-        map.setView([n.latitude, n.longitude], 15);
-    });
-}
-function clearResults() {
-    map.eachLayer(function (layer) {
-        if (layer instanceof L.Marker) {
-            map.removeLayer(layer);
+                marker.bindPopup(popupContent);
+                marker.on('click', function() {
+                    marker.openPopup();
+                });
+                map.setView([n.latitude, n.longitude], 15);
+            });
         }
-    });
-}
+
+        function clearResults() {
+            map.eachLayer(function(layer) {
+                if (layer instanceof L.Marker) {
+                    map.removeLayer(layer);
+                }
+            });
+        }
         // Notifikasi Pesan Pada Form Kontak
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             var successMessage = document.getElementById('successMessage');
 
             if (successMessage) {
                 successMessage.style.display = 'block';
-                setTimeout(function () {
+                setTimeout(function() {
                     successMessage.style.display = 'none';
                 }, 5000); // Menyembunyikan pesan setelah 5 detik
             }
@@ -667,7 +672,6 @@ function clearResults() {
                 navToggle.item(i).classList.toggle("hidden");
             }
         };
-
     </script>
 
     <style>
@@ -696,7 +700,6 @@ function clearResults() {
             margin: 0 auto;
             width: 50%;
         }
-
     </style>
 
 </body>
