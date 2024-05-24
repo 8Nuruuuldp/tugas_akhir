@@ -17,7 +17,7 @@ class Ulasan extends Model
     }
 
     public static $rules = [
-        'wisata_id' => 'required|exist:table_wisata, id',
+        'wisata_id' => 'required|exists:table_wisata, id',
         'rating' => 'required|integer|min:1|max:5',
         'ulasan' => 'required|string|max:255',
         'nama_pengulas' => 'required|string|max:255',

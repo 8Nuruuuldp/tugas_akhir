@@ -92,4 +92,5 @@ Route::get('/kontak/{id}/delete', [KontakController::class, 'destroy']);
 
 //Detail Wisata
 Route::get('/detailwisata/{id}', [DetailWisataController::class, 'detailwisata']);
-Route::post('/ulasan/store', [UlasanController::class, 'store'])->name('store.ulasan');
+Route::post('/detailwisata/{id}', [DetailWisataController::class, 'detailwisata']);
+//Route::post('/ulasan/store', [UlasanController::class, 'store'])->name('store.ulasan');

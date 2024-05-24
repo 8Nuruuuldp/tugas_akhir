@@ -35,9 +35,10 @@ class DetailWisataController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        //
+    public function show(string $id){
+        $wisata = Wisata::find($id);
+        $ulasan = Ulasan::where('wisata_id', $id)->get();
+        return view('/detailwisata/{id}', ['wisata' => $wisata, 'ulasan' => $ulasan]);
     }
 
     /**

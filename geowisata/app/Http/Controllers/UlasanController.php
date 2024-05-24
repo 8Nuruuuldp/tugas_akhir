@@ -29,7 +29,7 @@ class UlasanController extends Controller
     }
 
 
-    public function store(Request $request){
+    public function store(Request $request, $id){
 
         $this->validate($request,[
             'wisata_id' => 'exists:table_wisata,id',
@@ -40,22 +40,26 @@ class UlasanController extends Controller
         ]);
 
         Ulasan::create([
-            'wisata_id' => $request->wisata_id,
+            'wisata_id' => $id, // use $id instead of $request->wisata_id
             'nama_pengulas' => $request->nama_pengulas,
             'email_pengulas' => $request->email_pengulas,
             'rating' => $request->rating,
             'ulasan' => $request->ulasan,
         ]);
         return redirect('/detailwisata/{id}')->with('success', 'Ulasan Anda telah terkirim!');
-        //dd($request->all());
+        
     }
 
 
-    public function show(Ulasan $ulasan){
+   // public function show(Ulasan $ulasan){
 
-        //
+        public function show(string $id){
+            $wisata = Wisata::find($id);
+            $ulasan = Ulasan::where('wisata_id', $id)->get();
+            return view('detailwisata', compact('wisata', 'ulasan'));
+        }
 
-    }
+    //}
 
 
     public function edit(Ulasan $ulasan){

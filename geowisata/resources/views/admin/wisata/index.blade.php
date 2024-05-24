@@ -47,6 +47,8 @@
                                         <th>Gambar</th>
                                         <th>Sumber</th>
                                         <th>Deskripsi</th>
+                                        <th>Waktu Operasional</th>
+                                        <th>Web Objek Wisata</th>
                                         <th>Latitude</th>
                                         <th>Longitude</th>
                                         <th style="width: 70px">Aksi</th>
@@ -66,6 +68,8 @@
                                         <td><img src="/img/{{$wisata->gambar}}" width="100" height="100"></td>
                                         <td>{{$wisata->sumber}}</td>
                                         <td>{{illuminate\Support\Str::limit($wisata->deskripsi, 250)}}</td>
+                                        <td>{{$wisata->waktu_operasional}}</td>
+                                        <td>{{$wisata->link_pendukung}}</td>
                                         <td>{{$wisata->latitude}}</td>
                                         <td>{{$wisata->longitude}}</td>
                                         <td>

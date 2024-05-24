@@ -12,7 +12,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="/dashboard">Dasbor</a></li>
+                        <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
                         <li class="breadcrumb-item"><a href="/wisata">Data Wisata</a></li>
                         <li class="breadcrumb-item active">Tambah Data Wisata</li>
                     </ol>
@@ -75,10 +75,20 @@
                                 </div>
                                
                                 <div class="form-group">
-                                    <label class="text-danger">*</label>
+
                                     <label for="deskripsi">Deskripsi</label>
                                     <textarea class="form-control" id="deskripsi"
                                         placeholder="Masukan deskripsi tempat wisata" name="deskripsi"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="waktu_operasional">Waktu Operasional</label>
+                                    <input class="form-control" id="waktu_operasional"
+                                        placeholder="Contoh: Senin-Jumat (09.00 - 17.00 WIB)" name="waktu_operasional"></input>
+                                </div>
+                                <div class="form-group">
+                                    <label for="web">Web Objek Wisata</label>
+                                    <input type="link" class="form-control" id="web"
+                                        placeholder="Contoh: www.curugdago.com" name="web">
                                 </div>
                                 <div class="form-group">
                                     <label class="text-danger">*</label>

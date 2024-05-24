@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Wisata;
 use App\Models\Kategori;
+use App\Models\Ulasan;
 
 use App\Http\Controllers\Controller;
 
@@ -81,8 +82,7 @@ class WisataController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
+    public function show(string $id){
         //
     }
 

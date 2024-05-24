@@ -47,8 +47,8 @@
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-col md:flex-row -mx-4">
                     <div class="md:flex-1 px-4">
-                        
-                        
+
+
                         <div class="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
                             @if ($wisata && $wisata->gambar)
                             <img class="w-full h-full object-cover" src="{{ asset('img/' . ($wisata->gambar)) }}"
@@ -104,7 +104,7 @@
                             <path
                                 d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
                         </svg>
-                        <p class="ms-2 text-sm font-bold text-gray-900 dark:text-white">4.95</p>
+                        <p class="ms-2 text-sm font-bold text-gray-900 dark:text-white">{{$wisata->rating}}</p>
                         <span class="w-1 h-1 mx-1.5 bg-gray-500 rounded-full dark:bg-gray-400"></span>
                         <a href="#"
                             class="text-sm font-medium text-gray-900 underline hover:no-underline dark:text-white">73
@@ -136,7 +136,7 @@
                     </div>
                     @endif
 
-                    <form action="{{ route('store.ulasan') }}" method="POST">
+                    <form action="{{ url('/detailwisata/{id}'), $wisata->id }}" method="POST">
                         @csrf
 
                         <div class="mb-4 font-[Poppins]">
@@ -152,7 +152,7 @@
                             <input type="text" id="nama_pengulas" name="nama_pengulas"
                                 class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 placeholder="Masukan nama Anda">
-                           
+
                         </div>
                         <div class="mb-4 font-[Poppins]">
                             <label for="email" class="block text-black font-extrabold mb-2">Email <span
@@ -163,15 +163,16 @@
                         </div>
                         <div class=" mb-4 font-[Poppins]">
                             <label for="email" class="block text-black font-extrabold mb-2">Rating <span
-                                class="text-red-600">*</span></label>
+                                    class="text-red-600">*</span></label>
                             <select type="number" id="rating" name="rating"
-                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                class="w-full px-4 py-2 border rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 placeholder="Pilih Rating">
                                 <option value="">Pilih Rating</option>
-                                @for ($i = 1; $i <= 5; $i++) 
-                                <option value="{{ $i }}">{{ $i }} <i
-                                    class="fas fa-star"></i></option>
-                                @endfor
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
                             </select>
                         </div>
                         <div class="mb-4 font-[Poppins]">
@@ -192,6 +193,7 @@
 
     <script>
     // Notifikasi Pesan Pada Form Kontak
+
     document.addEventListener('DOMContentLoaded', function() {
         var successMessage = document.getElementById('successMessage');
 
@@ -201,7 +203,7 @@
                 successMessage.style.display = 'none';
             }, 5000); // Menyembunyikan pesan setelah 5 detik
         }
-    });
+    }); // Add a closing parenthesis here
     </script>
 </body>
 
