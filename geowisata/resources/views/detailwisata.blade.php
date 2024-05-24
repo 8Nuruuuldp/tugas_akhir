@@ -235,7 +235,7 @@
     </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Modal button-->
     <div class="flex justify-center items-center h-screen">
         <div id="contactFormModal" class="fixed z-10 inset-0 overflow-y-auto hidden backdrop-blur-sm">
             <div class="flex items-center justify-center min-h-screen">
