@@ -42,7 +42,7 @@
 </head>
 
 <body>
-    <nav class="sticky mx-auto top-0 z-3 bg-white">
+    <nav class="sticky mx-auto top-0 z-50 bg-white">
         <div class="flex flex-wrap items-center justify-between px-12 py-3">
             <img src="./img/logo.svg" alt="Bandung Geowisata" width="100" />
 
@@ -361,7 +361,7 @@
 
             <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
 
-            <div id="map" class="" style="width: 100%; height: 600px;"> </div>
+            <div id="map" class="z-10" style="width: 100%; height: 600px;"> </div>
         </div>
 
     </section>
