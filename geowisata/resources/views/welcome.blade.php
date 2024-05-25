@@ -20,7 +20,8 @@
 
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.js" charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.js"
+        charset="utf-8">
     </script>
 
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
@@ -349,7 +350,7 @@
                             onchange="onCategoryChange()">
                             <option value="">Kategori Wisata</option>
                             @foreach ($kategori as $kategoriItem)
-                                <option value="{{ $kategoriItem->id }}">{{ $kategoriItem->nama_kategori }}</option>
+                            <option value="{{ $kategoriItem->id }}">{{ $kategoriItem->nama_kategori }}</option>
                             @endforeach
                         </select>
                     </label>
@@ -382,9 +383,9 @@
                 <!-- Kolom Kanan: Form -->
                 <div class="md:w-1/2">
                     @if (session('success'))
-                        <div id="successMessage" class="bg-green-500 text-white p-4 rounded mb-4">
-                            {{ session('success') }}
-                        </div>
+                    <div id="successMessage" class="bg-green-500 text-white p-4 rounded mb-4">
+                        {{ session('success') }}
+                    </div>
                     @endif
                     <form action="{{ url('/kontak/store') }}" method="POST">
                         @csrf
@@ -523,9 +524,9 @@
             tooltipAnchor: [22, -20]
         });
 
-        $(document).ready(function() {
-            $.getJSON('point/json', function(data) {
-                $.each(data, function(index) {
+        $(document).ready(function () {
+            $.getJSON('point/json', function (data) {
+                $.each(data, function (index) {
 
                     L.marker([parseFloat(data[index].latitude), parseFloat(data[index]
                             .longitude)], {
@@ -549,7 +550,7 @@
 
         function getLocation(latitude, longitude) {
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(position) {
+                navigator.geolocation.getCurrentPosition(function (position) {
                     var userlat = position.coords.latitude;
                     var userlng = position.coords.longitude;
                     console.log(userlat, userlng);
@@ -558,7 +559,7 @@
                         url: 'point/json',
                         method: 'get',
                         dataType: 'json',
-                        success: function(data) {
+                        success: function (data) {
                             // Menampilkan rute dari posisi pengguna ke posisi tujuan
                             var startLat = L.latLng(userlat, userlng);
                             var endPoint = L.latLng(latitude, longitude);
@@ -571,7 +572,7 @@
                                 geocoder: L.Control.Geocoder.nominatim()
                             }).addTo(map);
                         },
-                        error: function(xhr, status, error) {
+                        error: function (xhr, status, error) {
                             console.error("Error:", error);
                         }
                     });
@@ -584,7 +585,7 @@
         const searchInput = document.getElementById('searchInput');
         const kategoriSelect = document.getElementById('kategoriSelect');
 
-        searchInput.addEventListener('input', function() {
+        searchInput.addEventListener('input', function () {
             const keyword = this.value;
             const kategori = kategoriSelect.value;
             searchLocation(keyword, kategori);
@@ -619,7 +620,7 @@
         }
 
         function renderResults(result) {
-            map.eachLayer(function(layer) {
+            map.eachLayer(function (layer) {
                 if (layer instanceof L.Marker) {
                     map.removeLayer(layer);
                 }
@@ -640,7 +641,7 @@
                             </div>
                             </div>`;
                 marker.bindPopup(popupContent);
-                marker.on('click', function() {
+                marker.on('click', function () {
                     marker.openPopup();
                 });
                 map.setView([n.latitude, n.longitude], 15);
@@ -648,19 +649,19 @@
         }
 
         function clearResults() {
-            map.eachLayer(function(layer) {
+            map.eachLayer(function (layer) {
                 if (layer instanceof L.Marker) {
                     map.removeLayer(layer);
                 }
             });
         }
         // Notifikasi Pesan Pada Form Kontak
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             var successMessage = document.getElementById('successMessage');
 
             if (successMessage) {
                 successMessage.style.display = 'block';
-                setTimeout(function() {
+                setTimeout(function () {
                     successMessage.style.display = 'none';
                 }, 5000); // Menyembunyikan pesan setelah 5 detik
             }
@@ -672,6 +673,7 @@
                 navToggle.item(i).classList.toggle("hidden");
             }
         };
+
     </script>
 
     <style>
@@ -700,6 +702,7 @@
             margin: 0 auto;
             width: 50%;
         }
+
     </style>
 
 </body>

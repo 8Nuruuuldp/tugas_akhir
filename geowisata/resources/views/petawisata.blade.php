@@ -99,12 +99,16 @@
             width: 100%;
         }
 
+        .formBlock {
+            z-index: 999;
+        }
+
         input:nth-child(1) {
             margin-bottom: 10px;
         }
 
-        .formBlock {
-            z-index: 999;
+        li {
+            padding: 5px 0;
         }
 
     </style>

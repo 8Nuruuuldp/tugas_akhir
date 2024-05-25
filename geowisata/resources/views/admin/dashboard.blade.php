@@ -130,6 +130,7 @@
                         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                     }).addTo(map);
 
+
                 var popup = L.popup();
 
                 function onMapClick(data) {
@@ -145,27 +146,40 @@
                     iconAnchor: [22, 44],
                     tooltipAnchor: [22, -20]
                 });
-                //filtering
-                map.on("click", function (e) {
-                    const {
-                        latitude,
-                        longitude
-                    } = e.latlng
-                    Marker.setLatLng([latitude, longitude]);
-                    clearResults();
-                });
-                let typingInterval
 
-                function onTyping(e) {
-                    clearInterval(typingInterval)
-                    const {
-                        value
-                    } = e.target.value;
-                    typingInterval = setInterval(() => {
-                        clearInterval(typingInterval)
-                        searchLocation(value)
-                    }, 500);
-                }
+                $(document).ready(function () {
+                    $.getJSON('point/json', function (data) {
+                        $.each(data, function (index) {
+
+                            L.marker([parseFloat(data[index].latitude), parseFloat(data[index]
+                                    .longitude)], {
+                                    icon: iconMap
+                                })
+                                .addTo(map)
+                                .bindPopup(
+                                    '<div class"min-h-screen flex items-center justify-center"><img class="h-48 w-full object-cover object-end" src="./img/' +
+                                    data[index].gambar +
+                                    '"><div class="p-6"><h4 class="mt-2 font-bold text-lg truncate">' +
+                                    data[index].nama_tempat + '</h4><div class=""> <br> ' +
+                                    data[index]
+                                    .alamat +
+                                    ' </div><div class="my-2"><a href="/detailwisata/' + data[
+                                        index].id +
+                                    '" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center">Lihat Selengkapnya</a><button onclick="getLocation(' +
+                                    data[index].latitude + ',' + data[index].longitude +
+                                    ')" class="py-2 text-blue-500 rounded shadow-md hover:bg-blue-300 active:bg-blue-700 disabled:opacity-50 mt-2 w-full flex items-center justify-center">Ayo kesana!</button></div></div></div></div>'
+                                );
+                        });
+                    });
+                });
+
+                var iconMap = L.icon({
+                    iconUrl: "https://img.icons8.com/plasticine/100/place-marker.png",
+                    iconSize: [40, 40],
+                    iconAnchor: [22, 44],
+                    tooltipAnchor: [22, -20]
+                });
+                //filtering
                 const searchInput = document.getElementById('searchInput');
                 const kategoriSelect = document.getElementById('kategoriSelect');
 
@@ -180,8 +194,7 @@
                     const kategori = kategoriSelect.value;
                     searchLocation(keyword, kategori);
                 }
-                let Marker = L.marker([0, 0]);
-                // search handler
+
                 function searchLocation(keyword, kategori) {
                     if (keyword || kategori) {
                         fetch(`/search?keyword=${encodeURIComponent(keyword)}&kategori=${encodeURIComponent(kategori)}`)
@@ -203,26 +216,42 @@
                         clearResults();
                     }
                 }
-                // render results
+
                 function renderResults(result) {
-                    const resultsWrapperHTML = document.getElementById("search-result");
-                    let resultsHTML = "";
-                    result.forEach(n => {
-                        resultsHTML +=
-                            `<li> <i class="bi bi-geo-alt"></i> <a href="#"  onclick="setLocation(${n.latitude},${n.longitude}); return false;">${n.nama_tempat}, ${n.alamat}</a></li>`
+                    map.eachLayer(function (layer) {
+                        if (layer instanceof L.Marker) {
+                            map.removeLayer(layer);
+                        }
                     });
-                    resultsWrapperHTML.innerHTML = resultsHTML;
+                    result.forEach(n => {
+                        let marker = L.marker([n.latitude, n.longitude], {
+                            icon: iconMap
+                        }).addTo(map);
+                        let popupContent = `<div class"min-h-screen flex items-center justify-center">
+                            <img class="h-48 w-full object-cover object-end" src="./img/${n.gambar}>
+                            <div class="p-6">
+                            <h4 class="mt-2 font-bold text-lg truncate">${n.nama_tempat}</h4>
+                            <div class=""> <br>${n.alamat}</div>
+                            <div class="my-2">
+                            <a href="/detailwisata/${n.id}" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center">Lihat Selengkapnya</a>
+                            <button onclick="getLocation(${n.latitude}, ${n.longitude})" class="py-2 text-blue-500 rounded shadow-md hover:bg-blue-300 active:bg-blue-700 disabled:opacity-50 mt-2 w-full flex items-center justify-center">Ayo kesana!</button>
+                            </div>
+                            </div>
+                            </div>`;
+                        marker.bindPopup(popupContent);
+                        marker.on('click', function () {
+                            marker.openPopup();
+                        });
+                        map.setView([n.latitude, n.longitude], 15);
+                    });
                 }
 
-                function setLocation(latitude, longitude) {
-                    map.setView(new L.LatLng(latitude, longitude), 25);
-                    Marker.setLatLng([latitude, longitude]);
-                    clearResults();
-                }
-                // clear results
                 function clearResults() {
-                    const resultsWrapperHTML = document.getElementById("search-result");
-                    resultsWrapperHTML.innerHTML = "";
+                    map.eachLayer(function (layer) {
+                        if (layer instanceof L.Marker) {
+                            map.removeLayer(layer);
+                        }
+                    });
                 }
 
             </script>
@@ -233,22 +262,7 @@
                     width: 100%;
                 }
 
-                input:nth-child(1) {
-                    margin-bottom: 10px;
-                }
 
-                #search-result {
-                    position: relative;
-                    top: 20px;
-                    z-index: 1001;
-                    width: 100%;
-                    list-style: none;
-                    padding: 0;
-                }
-
-                li {
-                    padding: 5px 0;
-                }
 
             </style>
         </div>
