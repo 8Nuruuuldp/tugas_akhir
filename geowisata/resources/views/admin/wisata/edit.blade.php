@@ -74,6 +74,16 @@
                                 name="deskripsi">{{$wisata->deskripsi}}</textarea>
                         </div>
                         <div class="form-group">
+                            <label for="waktu_operasional">Waktu Operasional</label>
+                            <input class="form-control" id="waktu_operasional"
+                                placeholder="Contoh: Senin-Jumat (09.00 - 17.00 WIB)" name="waktu_operasional" value="{{$wisata->waktu_operasional}}"></input>
+                        </div>
+                        <div class="form-group">
+                            <label for="web">Web Objek Wisata</label>
+                            <input type="link" class="form-control" id="web" placeholder="Contoh: www.curugdago.com"
+                                name="web" value="{{$wisata->web}}">
+                        </div>
+                        <div class="form-group">
                             <label for="latitude">Latitude</label>
                             <input type="decimal" class="form-control" id="latitude"
                                 placeholder="Masukan latitude tempat wisata" name="latitude"
