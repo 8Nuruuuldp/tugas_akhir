@@ -38,8 +38,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
 
 
 </head>
@@ -336,17 +334,19 @@
 
     <section id="petawisata">
 
-        <div class="max-w-screen-xl mx-auto sm:p-8 md:p-16 font-[Poppins]">
-            <h4 class=" font-bold leading-none md:text-3xl xl:text-4xl dark:text-slate-800">
+        <div class="max-w-screen-xl mx-auto sm:p-8 md:p-16">
+            <h4 class="mb-2 font-[Poppins] font-bold leading-none md:text-3xl xl:text-4xl dark:text-slate-800">
                 Peta Wisata
             </h4>
-            <p class="mb-4 ">Temukan destinasi wisata favorit Anda dan ciptakan kenangan indah di Kota Kembang dengan melakukan pencarian dibawah ini.</p>
-
+<p class="mb-2 font-[Poppins] leading-none dark:text-slate-800">
+    Temukan destinasi wisata favorit Anda dan ciptakan kenangan indah di Kota Kembang dengan melakukan pencarian dibawah ini.
+</p>
+<hr class="h-px my-4 bg-gray-200 border-0 dark:bg-gray-700">
             <form>
-                <div class="flex gap-2">
+                <div class="flex gap-2 mb-4">
                     <input type="text" id="searchInput"
                         class="w-full md:w-100 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500"
-                        placeholder="Search..." oninput="onTyping(this)" />
+                        placeholder="Cari Tempat dan Alamat" oninput="onTyping(this)" />
                     <label for="kategori">
                         <select id="kategoriSelect"
                             class="font-[Poppins] w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500"
@@ -363,7 +363,7 @@
                 <ul id="search-result"></ul>
             </form>
 
-            <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
 
             <div id="map" class="z-10" style="width: 100%; height: 600px;"> </div>
         </div>
@@ -426,7 +426,7 @@
 
 
     <!-- Footer Section -->
-    <footer class="bg-white font-[Poppins]">
+    <footer class="bg-white font-[Poppins] p-3">
         <div class="container mx-auto w-full max-w-screen-xl px-4 py-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Column 1 -->
