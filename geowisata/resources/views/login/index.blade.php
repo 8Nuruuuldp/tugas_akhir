@@ -55,10 +55,12 @@
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="#" class="h1"><b>Bdg</b>Geowisata</a>
+                <a href="#" class="flex justify-center items-center"> <img src="/img/logo.svg"
+                        alt="Bandung Geowisata" width="120" />
+                </a>
             </div>
             <div class="card-body">
-                <p class="login-box-msg h2"><b>Login</b></p>
+                <p class="login-box-msg h2"><b> Login</b></p>
 
                 <form action="/login" method="post">
                     @csrf
@@ -93,10 +95,6 @@
                     <div class="row">
                         <div class="col-8">
                             <div class="icheck-primary">
-                                <input type="checkbox" id="remember">
-                                <label for="remember">
-                                    Simpan info login
-                                </label>
                             </div>
                         </div>
                         <!-- /.col -->
@@ -107,12 +105,8 @@
                     </div>
                 </form>
             </div>
-
-            <p class="mb-1 text-center">
-                <a href="forgot-password.html">Lupa password ?</a>
-            </p>
             <p class="mb-4 text-center">
-                Belum punya akun ? <a href="/register" class="text-center"><b class="text-primary">Daftar</b></a>
+                Buat akun baru <a href="/register" class="text-center"><b class="text-primary">Daftar</b></a>
             </p>
         </div>
         <!-- /.card-body -->
