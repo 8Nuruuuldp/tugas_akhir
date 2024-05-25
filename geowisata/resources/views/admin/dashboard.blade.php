@@ -155,7 +155,7 @@
                     clearResults();
                 });
                 let typingInterval
-                // typing handler
+
                 function onTyping(e) {
                     clearInterval(typingInterval)
                     const {
@@ -166,7 +166,6 @@
                         searchLocation(value)
                     }, 500);
                 }
-                //elemen input dan select
                 const searchInput = document.getElementById('searchInput');
                 const kategoriSelect = document.getElementById('kategoriSelect');
 

@@ -48,19 +48,20 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-map.js?key=S8d7L47mdyAG5nHG09dUnSPJjreUVPeC"></script>
-        <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-routing.js?key=S8d7L47mdyAG5nHG09dUnSPJjreUVPeC"></script>
+    <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-routing.js?key=S8d7L47mdyAG5nHG09dUnSPJjreUVPeC">
+    </script>
 
 </head>
 
 <body>
 
     <div class="map rounded" id="map">
-        <div class="search-sidebar" >
+        <div class="search-sidebar">
             <div
                 class="formBlock bg-body text-dark w-25 position-absolute top-10 left-5  border shadow p-3 bg-white rounded">
                 <form>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Search..." oninput="onTyping(this)" />
+                        <input type="text" class="form-control" placeholder="Search..." oninput="onTyping(event)" />
                     </div>
                     <ul id="search-result"></ul>
                 </form>
@@ -130,121 +131,116 @@
             $.getJSON('point/json', function (data) {
                 $.each(data, function (index) {
 
-                    L.marker([parseFloat(data[index].latitude), parseFloat(data[index].longitude)])
+                    L.marker([parseFloat(data[index].latitude), parseFloat(data[index]
+                            .longitude)])
                         .addTo(map)
-                        .bindPopup('<div class"min-h-screen flex items-center justify-center"><img class="h-48 w-full object-cover object-end" src="./img/' +data[index].gambar+ '"><div class="p-6"><h4 class="mt-2 font-bold text-lg truncate">' +data[index].nama_tempat+ '</h4><div class=""> <br> '+data[index].alamat+' </div><div class="my-2"><a href="/detailwisata/'+data[index].id+'" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center">Lihat Selengkapnya</a><button onclick="getLocation('+data[index].latitude+','+data[index].longitude+')" class="py-2 text-blue-500 rounded shadow-md hover:bg-blue-300 active:bg-blue-700 disabled:opacity-50 mt-2 w-full flex items-center justify-center">Ayo kesana!</button></div></div></div></div>'
+                        .bindPopup(
+                            '<div class"min-h-screen flex items-center justify-center"><img class="h-48 w-full object-cover object-end" src="./img/' +
+                            data[index].gambar +
+                            '"><div class="p-6"><h4 class="mt-2 font-bold text-lg truncate">' +
+                            data[index].nama_tempat + '</h4><div class=""> <br> ' + data[index]
+                            .alamat + ' </div><div class="my-2"><a href="/detailwisata/' + data[
+                                index].id +
+                            '" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center">Lihat Selengkapnya</a><button onclick="getLocation(' +
+                            data[index].latitude + ',' + data[index].longitude +
+                            ')" class="py-2 text-blue-500 rounded shadow-md hover:bg-blue-300 active:bg-blue-700 disabled:opacity-50 mt-2 w-full flex items-center justify-center">Ayo kesana!</button></div></div></div></div>'
                         );
                 });
             });
         });
 
         function getLocation(latitude, longitude) {
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(function(position) {
-                        var userlat = position.coords.latitude;
-                        var userlng = position.coords.longitude;
-                        console.log(userlat,userlng);
-                        // Mengambil posisi tujuan dari database menggunakan Ajax
-                        $.ajax({
-                            url: 'point/json',
-                            method: 'get',
-                            dataType: 'json',
-                            success: function(data) {
-                                // Menampilkan rute dari posisi pengguna ke posisi tujuan
-                                var startLat = L.latLng(userlat,userlng);
-                                var endPoint = L.latLng(latitude,longitude);
-                                L.Routing.control({
-                                    waypoints: [
-                                        startLat,
-                                        endPoint
-                                    ],
-                                    routeWhileDragging: true,
-                                    geocoder: L.Control.Geocoder.nominatim()
-                                }).addTo(map);
-                            },
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var userlat = position.coords.latitude;
+                    var userlng = position.coords.longitude;
+                    console.log(userlat, userlng);
+                    // Mengambil posisi tujuan dari database menggunakan Ajax
+                    $.ajax({
+                        url: 'point/json',
+                        method: 'get',
+                        dataType: 'json',
+                        success: function (data) {
+                            // Menampilkan rute dari posisi pengguna ke posisi tujuan
+                            var startLat = L.latLng(userlat, userlng);
+                            var endPoint = L.latLng(latitude, longitude);
+                            L.Routing.control({
+                                waypoints: [
+                                    startLat,
+                                    endPoint
+                                ],
+                                routeWhileDragging: true,
+                                geocoder: L.Control.Geocoder.nominatim()
+                            }).addTo(map);
+                        },
 
-                            error: function(xhr, status, error) {
-                                console.error("Error:", error);
-                            }
-                        });
-                    });
-                } else {
-                    console.log("Geolocation is not supported by this browser.");
-                }
-            }
-
-        // SEARCH SINGLE
-        const searchInput = document.getElementById('searchInput');
-        const kategoriSelect = document.getElementById('kategoriSelect');
-
-        searchInput.addEventListener('input', function () {
-            const keyword = this.value;
-            const kategori = kategoriSelect.value;
-            searchLocation(keyword, kategori);
-        });
-
-        function onCategoryChange() {
-            const keyword = searchInput.value;
-            const kategori = kategoriSelect.value;
-            searchLocation(keyword, kategori);
-        }
-        function searchLocation(keyword, kategori) {
-            if (keyword || kategori) {
-                fetch(`/search?keyword=${encodeURIComponent(keyword)}&kategori=${encodeURIComponent(kategori)}`)
-                    .then(response => response.json())
-                    .then(json => {
-                        console.log("json", json);
-                        if (json.length > 0) {
-                            renderResults(json);
-                        } else {
-                            clearResults();
-                            alert("Lokasi tidak ditemukan");
+                        error: function (xhr, status, error) {
+                            console.error("Error:", error);
                         }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        alert("Terjadi kesalahan saat mencari lokasi");
                     });
+                });
             } else {
-                clearResults();
+                console.log("Geolocation is not supported by this browser.");
             }
         }
-        function renderResults(result) {
-    map.eachLayer(function (layer) {
-        if (layer instanceof L.Marker) {
-            map.removeLayer(layer);
-        }
-    });
-    result.forEach(n => {
-        let marker = L.marker([n.latitude, n.longitude]).addTo(map);
-        let popupContent =`<div class"min-h-screen flex items-center justify-center">
-                            <img class="h-48 w-full object-cover object-end" src="./img/${n.gambar}>
-                            <div class="p-6">
-                            <h4 class="mt-2 font-bold text-lg truncate">${n.nama_tempat}</h4>
-                            <div class=""> <br>${n.alamat}</div>
-                            <div class="my-2">
-                            <a href="/detailwisata/${n.id}" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center">Lihat Selengkapnya</a>
-                            <button onclick="getLocation(${n.latitude}, ${n.longitude})" class="py-2 text-blue-500 rounded shadow-md hover:bg-blue-300 active:bg-blue-700 disabled:opacity-50 mt-2 w-full flex items-center justify-center">Ayo kesana!</button>
-                            </div>
-                            </div>
-                            </div>`;
-        marker.bindPopup(popupContent);
-        marker.on('click', function() {
-            marker.openPopup();
+
+        // SEARCH Peta
+        const marker = L.marker([-6.914744, 107.609810]).addTo(map);
+        const resultsWrapperHTML = document.getElementById("search-result")
+
+        map.on("click", function (e) {
+            const {
+                lat,
+                lng
+            } = e.latlng;
+            marker.setLatLng([lat, lng]);
         });
-        map.setView([n.latitude, n.longitude], 15);
-    });
-}
-function clearResults() {
-    map.eachLayer(function (layer) {
-        if (layer instanceof L.Marker) {
-            map.removeLayer(layer);
+        let typingInterval
+
+        function onTyping(e) {
+            clearTimeout(typingInterval);
+            const {
+                value
+            } = e.target;
+            typingInterval = setTimeout(() => {
+                searchLocation(value);
+            }, 500);
         }
-    });
-}
+
+        function searchLocation(keyword) {
+            if (keyword) {
+                fetch(`/search?keyword=${keyword}`)
+                    .then((response) => {
+                        return response.json()
+                    }).then(json => {
+                        console.log("json", json)
+                        if (json.length > 0) return renderResults(json)
+                        else alert("lokasi tidak ditemukan")
+                    })
+            }
+        }
+
+        function renderResults(result) {
+            let resultsHTML = "";
+            result.forEach((n) => {
+                resultsHTML +=
+                    `<li><i class="bi bi-geo-alt"></i> <a href="#" onclick="setLocation(${n.latitude}, ${n.longitude})">${n.nama_tempat}, ${n.alamat}</a></li>`;
+            });
+            resultsWrapperHTML.innerHTML = resultsHTML;
+        }
+
+        function clearResults() {
+            resultsWrapperHTML.innerHTML = ""
+        }
+
+        function setLocation(latitude, longitude) {
+            map.setView(new L.LatLng(latitude, longitude), 20)
+            marker.setLatLng([latitude, longitude]);
+            clearResults()
+        }
+
     </script>
 
 </body>
 
 </html>
-
