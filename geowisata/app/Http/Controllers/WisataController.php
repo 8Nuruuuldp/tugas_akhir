@@ -155,16 +155,18 @@ class WisataController extends Controller
     }
     //search welcome
     public function search(Request $request)
-    {
-        $keyword = $request->input('keyword');
-        $kategori = $request->input('kategori');
+{
+    $keyword = $request->input('keyword');
 
-        $query = Wisata::where('nama_tempat', 'like', '%' . $keyword . '%');
-        if ($kategori) {
-            $query->where('kategori_id', $kategori);
-        }
-        $wisata = $query->get();
-
-        return response()->json($wisata);
+    $wisata = Wisata::where(function($query) use ($keyword) {
+        $query->where('nama_tempat', 'like', '%' . $keyword . '%')
+            ->orWhere('alamat', 'like', '%' . $keyword . '%');
+    });
+    $kategori = $request->input('kategori');
+    if ($kategori) {
+        $wisata->where('kategori_id', $kategori);
     }
+    $result = $wisata->get();
+    return response()->json($result);
+}
 }
