@@ -131,7 +131,7 @@
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item" data-bs-interval="1000">
-                        <img src="./img/gedungmerdeka.png" class="d-block " alt="...">
+                        <img src="./img/gedungmerdeka.png" class="d-block" alt="...">
                     </div>
                     <div class="carousel-item active" data-bs-interval="2000">
                         <img src="./img/pasarbaru.png" class="d-block " alt="...">
@@ -334,15 +334,16 @@
 
     <section id="petawisata">
 
-        <div class="max-w-screen-xl mx-auto sm:p-8 md:p-16">
-            <h4 class="mb-8 font-[Poppins] font-bold leading-none md:text-3xl xl:text-4xl dark:text-slate-800">
+        <div class="max-w-screen-xl mx-auto sm:p-8 md:p-16 font-[Poppins]">
+            <h4 class=" font-bold leading-none md:text-3xl xl:text-4xl dark:text-slate-800">
                 Peta Wisata
             </h4>
+            <p class="mb-4 ">Temukan destinasi wisata favorit Anda dan ciptakan kenangan indah di Kota Kembang dengan melakukan pencarian dibawah ini.</p>
 
             <form>
                 <div class="flex gap-2">
                     <input type="text" id="searchInput"
-                        class="w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500"
+                        class="w-full md:w-100 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500"
                         placeholder="Search..." oninput="onTyping(this)" />
                     <label for="kategori">
                         <select id="kategoriSelect"

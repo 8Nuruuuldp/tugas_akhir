@@ -97,7 +97,7 @@
             <div class="col-sm-6">
                 <h3 class="m-16">Peta Wisata</h3>
                 <form class="form-inline">
-                    <div class="form-group mb-2">
+                    <div class="form-group mb-2 ">
                         <label for="wisata"></label>
                         <input type="text" class="form-control" id="searchInput" placeholder="Search..."
                             oninput="onTyping(this)" />
