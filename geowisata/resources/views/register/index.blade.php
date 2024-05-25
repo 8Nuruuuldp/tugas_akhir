@@ -8,27 +8,27 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
 
-     <!-- Google Font: Source Sans Pro -->
-     <link rel="stylesheet"
-     href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
- <!-- Font Awesome -->
- <link rel="stylesheet" href="Admin/plugins/fontawesome-free/css/all.min.css">
- <!-- Ionicons -->
- <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
- <!-- Tempusdominus Bootstrap 4 -->
- <link rel="stylesheet" href="Admin/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
- <!-- iCheck -->
- <link rel="stylesheet" href="Admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
- <!-- JQVMap -->
- <link rel="stylesheet" href="Admin/plugins/jqvmap/jqvmap.min.css">
- <!-- Theme style -->
- <link rel="stylesheet" href="Admin/dist/css/adminlte.min.css">
- <!-- overlayScrollbars -->
- <link rel="stylesheet" href="Admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
- <!-- Daterange picker -->
- <link rel="stylesheet" href="Admin/plugins/daterangepicker/daterangepicker.css">
- <!-- summernote -->
- <link rel="stylesheet" href="Admin/plugins/summernote/summernote-bs4.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="Admin/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="Admin/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="Admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="Admin/plugins/jqvmap/jqvmap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="Admin/dist/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="Admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="Admin/plugins/daterangepicker/daterangepicker.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="Admin/plugins/summernote/summernote-bs4.min.css">
 
 </head>
 
@@ -39,7 +39,9 @@
     <div class="register-box">
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="#" class="h1"><b>Bdg</b>Geowisata</a>
+                <a href="#" class="flex justify-center items-center"> <img src="/img/logo.svg"
+                        alt="Bandung Geowisata" width="120" />
+                </a>
             </div>
             <div class="card-body">
                 <p class="login-box-msg h2">Daftar</p>
@@ -47,8 +49,8 @@
                     @csrf
                     <p>Nama Lengkap</p>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control"
-                        placeholder="Nama Lengkap" id="name" name="name">
+                        <input type="text" class="form-control" placeholder="Nama Lengkap" id="name"
+                            name="name">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
@@ -66,7 +68,8 @@
                     </div>
                     <p>Password</p>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password" id="password" name="password">
+                        <input type="password" class="form-control" placeholder="Password" id="password"
+                            name="password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -75,7 +78,8 @@
                     </div>
                     <p>Konfirmasi Password</p>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password" id="confirm_password" name="confirm_password">
+                        <input type="password" class="form-control" placeholder="Password" id="confirm_password"
+                            name="confirm_password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
