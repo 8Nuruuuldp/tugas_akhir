@@ -55,10 +55,12 @@
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="#" class="h1"><b>Bdg</b>Geowisata</a>
+                <a href="#" class="flex justify-center items-center"> <img src="/img/logo.svg"
+                        alt="Bandung Geowisata" width="120" />
+                </a>
             </div>
             <div class="card-body">
-                <p class="login-box-msg h2"><b>Login</b></p>
+                <p class="login-box-msg h2"><b> Admin Login</b></p>
 
                 <form action="/login" method="post">
                     @csrf
