@@ -117,18 +117,14 @@
                 </form>
             </div>
 
-            <div id="map">
+            <div id="map" style="width: 100%; height: 600px;">
             </div>
             <script>
-                var map = L.map('map').setView([-6.914744, 107.609810], 10);
+                var map = L.map('map', ).setView([-6.914744, 107.609810], 13);
 
-                map.zoomControl.setPosition('bottomright')
-
-                L.tileLayer(
-                    'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-                        maxZoom: 20,
-                        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-                    }).addTo(map);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© OpenStreetMap contributors',
+                }).addTo(map);
 
 
                 var popup = L.popup();
