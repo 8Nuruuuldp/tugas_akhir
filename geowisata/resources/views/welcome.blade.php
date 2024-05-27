@@ -101,7 +101,7 @@
         </div>
     </section>
 
-    <section id="tentang" class="flex justify-center items-center h-screen object-cover w-full object-center">
+    <section id="tentang" class="flex justify-center items-center object-cover w-full object-center">
         <div class="grid items-center py-8 px-12 mx-auto lg:gap-8 xl:gap-0 lg:py-16 ">
             <div class="">
                 <div class="text-center">
@@ -165,7 +165,7 @@
                                 src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxfHxwZXJzb258ZW58MHwwfHx8MTcxMDUxNjkwM3ww&ixlib=rb-4.0.3&q=80&w=1080"
                                 alt="" />
                         </a>
-                        <div class="p-5">
+                        <div class="p-3">
                             <h5 class="font-[Poppins] mb-2  text-slate-800 font-bold tracking-tight text-gray-900">
                                 Gedung
                                 Sate</h5>
@@ -206,7 +206,7 @@
                                 src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxfHxwZXJzb258ZW58MHwwfHx8MTcxMDUxNjkwM3ww&ixlib=rb-4.0.3&q=80&w=1080"
                                 alt="" />
                         </a>
-                        <div class="p-5">
+                        <div class="p-3">
                             <h5 class="mb-2  text-slate-800 font-bold tracking-tight text-gray-900">Gedung Sate</h5>
                             <div class="flex items-center mb-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500"
@@ -245,7 +245,7 @@
                                 src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxfHxwZXJzb258ZW58MHwwfHx8MTcxMDUxNjkwM3ww&ixlib=rb-4.0.3&q=80&w=1080"
                                 alt="" />
                         </a>
-                        <div class="p-5">
+                        <div class="p-3">
                             <h5 class="mb-2  text-slate-800 font-bold tracking-tight text-gray-900">Gedung Sate</h5>
                             <div class="flex items-center mb-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500"
@@ -284,7 +284,7 @@
                                 src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxfHxwZXJzb258ZW58MHwwfHx8MTcxMDUxNjkwM3ww&ixlib=rb-4.0.3&q=80&w=1080"
                                 alt="" />
                         </a>
-                        <div class="p-5">
+                        <div class="p-3">
                             <h5 class="mb-2  text-slate-800 font-bold tracking-tight text-gray-900">Gedung Sate</h5>
                             <div class="flex items-center mb-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500"
