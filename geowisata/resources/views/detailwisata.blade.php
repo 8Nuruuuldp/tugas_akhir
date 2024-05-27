@@ -44,6 +44,7 @@
                     class="font-[Poppins] block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Kontak</a>
             </div>
     </nav>
+
     <section>
         <div class="bg-gray-100 dark:bg-gray-800 py-8">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -52,24 +53,26 @@
 
 
                         <div class="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
-                            @if ($wisata && $wisata->gambar)
-                                <img class="w-full h-full object-cover" src="{{ asset('img/' . $wisata->gambar) }}"
-                                    alt="Foto wisata">
+                            @if (isset($wisata) && isset($wisata->gambar))
+                            <img class="w-full h-full object-cover" src="{{ asset('img/' . $wisata->gambar) }}"
+                                alt="Foto wisata">
                             @else
-                                <p>Tidak ada gambar tersedia.</p>
+                            <p>Tidak ada gambar tersedia.</p>
                             @endif
                         </div>
-                        {{-- Rencana penambahan button --}}
+                        <!-- Rencana penambahan button -->
                         <div class="flex -mx-2 mb-4">
                             <div class="w-1/2 px-2">
+                                @if (isset($wisata) && isset($wisata->latitude) && isset($wisata->longitude))
                                 <button
                                     class="w-full bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700">
                                     <a
-                                        href="http://www.google.com/maps/place/&{{ $wisata->latitude }}&{{ $wisata->longitude }}">
-
-                                        Dapatkan
+                                        href="https://www.google.com/maps/place/{{ $wisata->latitude }},{{ $wisata->longitude }}">Dapatkan
                                         Arah</a>
                                 </button>
+                                <!-- @else
+                                <p>Tidak ada lokasi tersedia.</p> -->
+                                @endif
                             </div>
                             <div class="w-1/2 px-2">
                                 <button id="openContactForm"
@@ -80,11 +83,13 @@
                         </div>
                     </div>
                     <div class="md:flex-1 px-4">
+                        @if (isset($wisata))
                         <h2 class="text-4xl font-bold text-gray-800 dark:text-white mb-2">{{ $wisata->nama_tempat }}
                         </h2>
-                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
-                            {{ $wisata->alamat }}
-                        </p>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">{{ $wisata->alamat }}</p>
+                        @else
+                        <p>Tidak ada data wisata yang ditemukan.</p>
+                        @endif
                         <div class="mr-4">
 
                             <div class="flex items-center">
@@ -103,10 +108,20 @@
 
 
                         <div class="mr-4 mt-2">
-                            <span class="font-bold text-gray-700 dark:text-gray-300">Deskripsi</span>
-                            <p class="text-gray-600 dark:text-gray-300 text-sm mt-2">
-                                {{ $wisata->deskripsi }}
-                            </p>
+                            @if (isset($wisata))
+                            <div class="flex items-center">
+                                <svg class="w-4 h-4 text-yellow-300 me-1" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                    <path
+                                        d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                                </svg>
+                                <p class="ms-2 text-sm font-bold text-gray-900 dark:text-white">4.95</p>
+                                <span class="w-1 h-1 mx-1.5 bg-gray-500 rounded-full dark:bg-gray-400"></span>
+                                <a href="#"
+                                    class="text-sm font-medium text-gray-900 underline hover:no-underline dark:text-white">73
+                                    reviews</a>
+                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -115,7 +130,7 @@
     </section>
 
 
-    {{-- review --}}
+    <!-- review -->
     <div class="mt-5 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] p-6">
         <h3 class="text-lg font-bold text-[#333]">Reviews(10)</h3>
         <div class="grid md:grid-cols-2 gap-12 mt-6">
@@ -250,14 +265,13 @@
                             </svg>
                         </button>
                     </div>
-                    <h2 class="text-2xl font-bold mb-4">Contact Us</h2>
-                    {{-- rating bintang --}}
+                    <h2 class="text-2xl font-bold mb-4">Ulasan</h2>
+                    <!-- rating bintang
                     <div x-data="{ currentVal: 3 }" class="flex items-center justify-center gap-1">
-                        <label for="oneStar"
-                            class="cursor-pointer transition hover:scale-125 has-[:focus]:scale-125">
+                        <label for="oneStar" class="cursor-pointer transition hover:scale-125 has-[:focus]:scale-125">
                             <span class="sr-only">one star</span>
-                            <input x-model="currentVal" id="oneStar" type="radio" class="sr-only"
-                                name="rating" value="1">
+                            <input x-model="currentVal" id="oneStar" type="radio" class="sr-only" name="rating"
+                                value="1">
                             <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 24 24"
                                 fill="currentColor" class="w-10 h-10"
                                 :class="currentVal > 0 ? 'text-amber-500' : 'text-slate-700 dark:text-slate-300'">
@@ -267,11 +281,10 @@
                             </svg>
                         </label>
 
-                        <label for="twoStars"
-                            class="cursor-pointer transition hover:scale-125 has-[:focus]:scale-125">
+                        <label for="twoStars" class="cursor-pointer transition hover:scale-125 has-[:focus]:scale-125">
                             <span class="sr-only">two stars</span>
-                            <input x-model="currentVal" id="twoStars" type="radio" class="sr-only"
-                                name="rating" value="2">
+                            <input x-model="currentVal" id="twoStars" type="radio" class="sr-only" name="rating"
+                                value="2">
                             <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 24 24"
                                 fill="currentColor" class="w-10 h-10 "
                                 :class="currentVal > 1 ? 'text-amber-500' : 'text-slate-700 dark:text-slate-300'">
@@ -284,8 +297,8 @@
                         <label for="threeStars"
                             class="cursor-pointer transition hover:scale-125 has-[:focus]:scale-125">
                             <span class="sr-only">three stars</span>
-                            <input x-model="currentVal" id="threeStars" type="radio" class="sr-only"
-                                name="rating" value="3">
+                            <input x-model="currentVal" id="threeStars" type="radio" class="sr-only" name="rating"
+                                value="3">
                             <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 24 24"
                                 fill="currentColor" class="w-10 h-10"
                                 :class="currentVal > 2 ? 'text-amber-500' : 'text-slate-700 dark:text-slate-300'">
@@ -295,11 +308,10 @@
                             </svg>
                         </label>
 
-                        <label for="fourStars"
-                            class="cursor-pointer transition hover:scale-125 has-[:focus]:scale-125">
+                        <label for="fourStars" class="cursor-pointer transition hover:scale-125 has-[:focus]:scale-125">
                             <span class="sr-only">four stars</span>
-                            <input x-model="currentVal" id="fourStars" type="radio" class="sr-only"
-                                name="rating" value="4">
+                            <input x-model="currentVal" id="fourStars" type="radio" class="sr-only" name="rating"
+                                value="4">
                             <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 24 24"
                                 fill="currentColor" class="w-10 h-10"
                                 :class="currentVal > 3 ? 'text-amber-500' : 'text-slate-700 dark:text-slate-300'">
@@ -309,11 +321,10 @@
                             </svg>
                         </label>
 
-                        <label for="fiveStars"
-                            class="cursor-pointer transition hover:scale-125 has-[:focus]:scale-125">
+                        <label for="fiveStars" class="cursor-pointer transition hover:scale-125 has-[:focus]:scale-125">
                             <span class="sr-only">five stars</span>
-                            <input x-model="currentVal" id="fiveStars" type="radio" class="sr-only"
-                                name="rating" value="5">
+                            <input x-model="currentVal" id="fiveStars" type="radio" class="sr-only" name="rating"
+                                value="5">
                             <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 24 24"
                                 fill="currentColor" class="w-10 h-10"
                                 :class="currentVal > 4 ? 'text-amber-500' : 'text-slate-700 dark:text-slate-300'">
@@ -323,9 +334,10 @@
                             </svg>
                         </label>
                     </div>
-                    {{-- end rating bintang --}}
-                    <form action="https://fabform.io/f/{form-id}" method="post">
-                        <div class="mb-4">
+                     end rating bintang -->
+                    <form action="{{ url('ulasan/store')}}" method="post">
+                        {{ csrf_field() }}
+                        <!--<div class="mb-4">
                             <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name</label>
                             <input type="text" id="name" name="name"
                                 class="w-full p-2 border rounded-md focus:outline-none focus:border-blue-500">
@@ -343,34 +355,13 @@
                         <button type="submit"
                             class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700">
                             Send Message
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!--ulasan-->
-    <section class="content">
-        <div class="pl-5 pr-5 mt-6 ml-2 mr-4 mb-8">
-            <div id="info_wisata">
-                <div>
-                    @if (session('success'))
-                        <div id="successMessage" class="bg-green-500 text-white p-4 rounded mb-4">
-                            {{ session('success') }}
-                        </div>
-                    @endif
-
-                    <form action="{{ url('/detailwisata/{id}'), $wisata->id }}" method="POST">
-                        @csrf
-
+                        </button>-->
                         <div class="mb-4 font-[Poppins]">
-
+                            @if(isset($wisata) && $wisata->id)
                             <input
                                 class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 type="hidden" name="wisata_id" value="{{ $wisata->id }}" readonly>
-
+                            @endif
                         </div>
                         <div class="mb-4 font-[Poppins]">
                             <label for="nama" class="block text-black font-extrabold mb-2">Nama Lengkap <span
@@ -394,11 +385,10 @@
                                 class="w-full px-4 py-2 border rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 placeholder="Pilih Rating">
                                 <option value="">Pilih Rating</option>
-                                @for ($i = 1; $i <= 5; $i++)
-                                    <option value="{{ $i }}">{{ $i }} <i
-                                            class="fas fa-star"></i>
+                                @for ($i = 1; $i <= 5; $i++) <option value="{{ $i }}">{{ $i }} <i
+                                        class="fas fa-star"></i>
                                     </option>
-                                @endfor
+                                    @endfor
                             </select>
                         </div>
                         <div class="mb-4 font-[Poppins]">
@@ -415,40 +405,43 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+
+
+    <!--ulasan-->
 
     <script>
-        // Notifikasi Pesan Pada Form Kontak
-        document.addEventListener('DOMContentLoaded', function() {
-            var successMessage = document.getElementById('successMessage');
+    // Notifikasi Pesan Pada Form Kontak
+    document.addEventListener('DOMContentLoaded', function() {
+        var successMessage = document.getElementById('successMessage');
 
-            if (successMessage) {
-                successMessage.style.display = 'block';
-                setTimeout(function() {
-                    successMessage.style.display = 'none';
-                }, 5000); // Menyembunyikan pesan setelah 5 detik
-            }
-            // JavaScript to toggle the modal
-            const openContactFormButton = document.getElementById('openContactForm');
-            const closeContactFormButton = document.getElementById('closeContactForm');
-            const contactFormModal = document.getElementById('contactFormModal');
+        if (successMessage) {
+            successMessage.style.display = 'block';
+            setTimeout(function() {
+                successMessage.style.display = 'none';
+            }, 5000); // Menyembunyikan pesan setelah 5 detik
+        }
+        // JavaScript to toggle the modal
+        const openContactFormButton = document.getElementById('openContactForm');
+        const closeContactFormButton = document.getElementById('closeContactForm');
+        const contactFormModal = document.getElementById('contactFormModal');
 
-            openContactFormButton.addEventListener('click', () => {
-                contactFormModal.classList.remove('hidden');
-            });
-
-            closeContactFormButton.addEventListener('click', () => {
-                contactFormModal.classList.add('hidden');
-            });
+        openContactFormButton.addEventListener('click', () => {
+            contactFormModal.classList.remove('hidden');
         });
 
-        //Hamburger Menu
-        document.getElementById("hamburger").onclick = function toggleMenu() {
-            const navToggle = document.getElementsByClassName("toggle");
-            for (let i = 0; i < navToggle.length; i++) {
-                navToggle.item(i).classList.toggle("hidden");
-            }
-        };
+        closeContactFormButton.addEventListener('click', () => {
+            contactFormModal.classList.add('hidden');
+        });
+    });
+
+    //Hamburger Menu
+    document.getElementById("hamburger").onclick = function toggleMenu() {
+        const navToggle = document.getElementsByClassName("toggle");
+        for (let i = 0; i < navToggle.length; i++) {
+            navToggle.item(i).classList.toggle("hidden");
+        }
+    };
     </script>
 </body>
 

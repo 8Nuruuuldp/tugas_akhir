@@ -71,7 +71,7 @@
                                     <label class="text-danger">*</label>
                                     <label for="sumber">Sumber Gambar</label>
                                     <input type="link" class="form-control" id="sumber"
-                                        placeholder="contoh: www.google.com" name="sumber">
+                                        placeholder="Contoh: www.google.com" name="sumber">
                                 </div>
                                
                                 <div class="form-group">
@@ -86,9 +86,10 @@
                                         placeholder="Contoh: Senin-Jumat (09.00 - 17.00 WIB)" name="waktu_operasional"></input>
                                 </div>
                                 <div class="form-group">
-                                    <label for="web">Web Objek Wisata</label>
-                                    <input type="link" class="form-control" id="web"
-                                        placeholder="Contoh: www.curugdago.com" name="web">
+                                    <label class="text-danger">*</label>
+                                    <label for="link_pendukung">Web Objek Wisata</label>
+                                    <input type="link" class="form-control" id="link_pendukung"
+                                        placeholder="Contoh: www.curugdago.com" name="link_pendukung">
                                 </div>
                                 <div class="form-group">
                                     <label class="text-danger">*</label>

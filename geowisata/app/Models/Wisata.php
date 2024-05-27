@@ -12,7 +12,7 @@ class Wisata extends Model
     protected $table = "table_wisata";
     protected $guarded =['id'];
     protected $with = ['kategori'];
-    protected $fillable = ['nama_tempat', 'kategori_id', 'alamat', 'gambar', 'sumber', 'deskripsi', 'latitude', 'longitude'];
+    protected $fillable = ['nama_tempat', 'kategori_id', 'alamat', 'gambar', 'sumber', 'deskripsi', 'waktu_operasional', 'link_pendukung', 'latitude', 'longitude'];
 
     public function kategori(){
         return $this->belongsTo(Kategori::class);

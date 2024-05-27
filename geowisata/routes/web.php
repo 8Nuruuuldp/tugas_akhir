@@ -67,6 +67,7 @@ Route::post('/wisata/store', [WisataController::class, 'store'])->name('store.wi
 Route::get('/wisata/{id}/edit', [WisataController::class, 'edit']);
 Route::post('/wisata/{id}/update', [WisataController::class, 'update']);
 Route::get('/wisata/{id}/delete', [WisataController::class, 'destroy']);
+Route::get('/wisata/{id}/show', [WisataController::class, 'show']);
 
 //
 Route::get('/petawisata', function () {
@@ -92,5 +93,7 @@ Route::get('/kontak/{id}/delete', [KontakController::class, 'destroy']);
 
 //Detail Wisata
 Route::get('/detailwisata/{id}', [DetailWisataController::class, 'detailwisata']);
-Route::post('/detailwisata/{id}', [DetailWisataController::class, 'detailwisata']);
+Route::post('/detailwisata/{id}', [DetailWisataController::class, 'detailwisata'])->name('detailwisata.store');
+Route::get('/detailwisata/{id}/show', [DetailWisataController::class, 'show']);
+
 //Route::post('/ulasan/store', [UlasanController::class, 'store'])->name('store.ulasan');

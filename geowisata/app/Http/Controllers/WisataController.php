@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Wisata;
 use App\Models\Kategori;
 use App\Models\Ulasan;
+use App\Models\DetailWisata;
 
 use App\Http\Controllers\Controller;
 
@@ -55,7 +56,9 @@ class WisataController extends Controller
             'alamat' => 'required',
             'gambar' => 'required',
             'sumber' => 'required',
-            'deskripsi' => 'required',
+            'deskripsi' => 'sometimes',
+            'waktu_operasional' => 'sometimes',
+            'link_pendukung' => 'required',
             'latitude' => 'required',
             'longitude' => 'required',
         ]);
@@ -70,6 +73,8 @@ class WisataController extends Controller
             $wisata->gambar = $namaFile;
             $wisata->sumber = $request->sumber;
             $wisata->deskripsi = $request->deskripsi;
+            $wisata->waktu_operasional = $request->waktu_operasional;
+            $wisata->link_pendukung = $request->link_pendukung;
             $wisata->latitude = $request->latitude;
             $wisata->longitude = $request->longitude;
 
@@ -82,8 +87,14 @@ class WisataController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id){
-        //
+    public function show($id){
+
+        $wisata = Wisata::with('kategori')->find($id);
+        $ulasan = Ulasan::where('wisata_id', $id)->get();
+        return view('detailwisata', compact('id', 'wisata', 'ulasan'));
+
+        //$wisata = Wisata::findOrFail($id);
+        //return view('detailwisata', compact('wisata'));
     }
 
     /**
@@ -112,6 +123,8 @@ class WisataController extends Controller
             'gambar' => $awal,
             'sumber' => $request['sumber'],
             'deskripsi' => $request['deskripsi'],
+            'waktu_operasional' => $request['waktu_operasional'],
+            'link_pendukung' => $request['link_pendukung'],
             'latitude' => $request['latitude'],
             'longitude' => $request['longitude'],
         ];

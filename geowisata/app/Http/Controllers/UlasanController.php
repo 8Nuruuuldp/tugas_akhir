@@ -29,25 +29,28 @@ class UlasanController extends Controller
     }
 
 
-    public function store(Request $request, $id){
+    public function store(Request $request){
 
         $this->validate($request,[
-            'wisata_id' => 'exists:table_wisata,id',
+            'wisata_id' => 'required|exists:table_wisata,id',
             'nama_pengulas' => 'required',
             'email_pengulas' => 'required',
             'rating' => 'required',
             'ulasan' => 'required',
         ]);
 
-        Ulasan::create([
-            'wisata_id' => $id, // use $id instead of $request->wisata_id
-            'nama_pengulas' => $request->nama_pengulas,
-            'email_pengulas' => $request->email_pengulas,
-            'rating' => $request->rating,
-            'ulasan' => $request->ulasan,
-        ]);
-        return redirect('/detailwisata/{id}')->with('success', 'Ulasan Anda telah terkirim!');
-        
+        $request->merge(['wisata_id' => (int) $request->wisata_id]);
+        Ulasan::create($request->all());
+
+        //Ulasan::create([
+            //'wisata_id' => $id, // use $id instead of $request->wisata_id
+            //'nama_pengulas' => $request->nama_pengulas,
+            //'email_pengulas' => $request->email_pengulas,
+            //'rating' => $request->rating,
+            //'ulasan' => $request->ulasan,
+        //]);
+        return redirect()->route('detailwisata', $request->wisata_id)->with('success', 'Ulasan Anda telah terkirim!');
+
     }
 
 

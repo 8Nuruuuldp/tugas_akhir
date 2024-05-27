@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\DetailWisata;
+use App\Models\Wisata;
 
 class DetailWisataController extends Controller
 {
@@ -12,8 +13,12 @@ class DetailWisataController extends Controller
      */
     public function detailwisata($id)
     {
-        $wisata = DetailWisata::find($id);
+        
+        $wisata = Wisata::find($id);
         return view('detailwisata', compact('wisata'));
+        
+        //$wisata = DetailWisata::findorFail($id);
+        //return view('detailwisata', compact('wisata'));
     }
 
     /**
@@ -36,10 +41,17 @@ class DetailWisataController extends Controller
      * Display the specified resource.
      */
     public function show(string $id){
-        $wisata = Wisata::find($id);
+
+        $data = Wisata::find($id)->table_wisata;
+
+        DetailWisata::where('id', $id)->firstOrFail();
         $ulasan = Ulasan::where('wisata_id', $id)->get();
-        return view('/detailwisata/{id}', ['wisata' => $wisata, 'ulasan' => $ulasan]);
+
+        return view('detailwisata', compact('wisata', 'ulasan'));
+
     }
+
+
 
     /**
      * Show the form for editing the specified resource.
