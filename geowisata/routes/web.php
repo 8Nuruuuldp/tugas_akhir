@@ -84,6 +84,8 @@ Route::get('/kategori/{id}/delete', [KategoriController::class, 'destroy']);
 
 //Routing Menampilkan Ulasan di Admin
 Route::get('/ulasan', [UlasanController::class, 'index']);
+//Routing Ulasan di Halaman User
+Route::get('/ulasan/{wisata_id}', [UlasanController::class, 'create'])->name('ulasan.create');
 Route::post('/ulasan/store', [UlasanController::class, 'store']);
 
 //Routing Kontak
@@ -95,5 +97,3 @@ Route::get('/kontak/{id}/delete', [KontakController::class, 'destroy']);
 Route::get('/detailwisata/{id}', [DetailWisataController::class, 'detailwisata']);
 Route::post('/detailwisata/{id}', [DetailWisataController::class, 'detailwisata'])->name('detailwisata.store');
 Route::get('/detailwisata/{id}/show', [DetailWisataController::class, 'show']);
-
-//Route::post('/ulasan/store', [UlasanController::class, 'store'])->name('store.ulasan');

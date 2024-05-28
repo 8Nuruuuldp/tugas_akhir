@@ -10,24 +10,18 @@ class UlasanController extends Controller
 {
     public function index()
     {
+        // Untuk Halaman Admin
         $ulasan = Ulasan::all();
         $ulasan = Ulasan::with('wisata')->get();
         return view('admin.ulasan.index', ['table_ulasan'=> $ulasan]);
     }
 
-    public function detailwisata($id)
+    public function create($wisata_id)
     {
-        $ulasan = Ulasan::with('wisata')->find($id);
-        return view('/detailwisata/{id}', compact('wisata'));
-    }
-
-
-    public function create(){
-
-        //
+        $wisata = Wisata::findOrFail($wisata_id);
+        return view('admin.ulasan.create', compact('wisata'));
         
     }
-
 
     public function store(Request $request){
 
@@ -39,30 +33,16 @@ class UlasanController extends Controller
             'ulasan' => 'required',
         ]);
 
-        $request->merge(['wisata_id' => (int) $request->wisata_id]);
-        Ulasan::create($request->all());
-
-        //Ulasan::create([
-            //'wisata_id' => $id, // use $id instead of $request->wisata_id
-            //'nama_pengulas' => $request->nama_pengulas,
-            //'email_pengulas' => $request->email_pengulas,
-            //'rating' => $request->rating,
-            //'ulasan' => $request->ulasan,
-        //]);
-        return redirect()->route('detailwisata', $request->wisata_id)->with('success', 'Ulasan Anda telah terkirim!');
+        Ulasan::create([
+            'wisata_id' => $request->wisata_id,
+            'nama_pengulas' => $request->nama_pengulas,
+            'email_pengulas' => $request->email_pengulas,
+            'rating' => $request->rating,
+            'ulasan' => $request->ulasan,
+        ]);
+        return redirect()->route('ulasan.create', ['wisata_id'=>$request->wisata_id])->with('success', 'Ulasan Anda telah terkirim!');
 
     }
-
-
-   // public function show(Ulasan $ulasan){
-
-        public function show(string $id){
-            $wisata = Wisata::find($id);
-            $ulasan = Ulasan::where('wisata_id', $id)->get();
-            return view('detailwisata', compact('wisata', 'ulasan'));
-        }
-
-    //}
 
 
     public function edit(Ulasan $ulasan){

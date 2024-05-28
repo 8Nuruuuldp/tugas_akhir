@@ -19,7 +19,7 @@ class Wisata extends Model
     }
 
     public function ulasan(){
-        return $this->hasMany(Ulasan::class);
+        return $this->hasMany(Ulasan::class, 'wisata_id');
     }
 
     public function kategoriAll()
