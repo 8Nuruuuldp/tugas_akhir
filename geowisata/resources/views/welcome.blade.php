@@ -34,11 +34,11 @@
 
     <link rel="stylesheet" href="https://leafletjs.com/index.html#marker">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 </head>
 
@@ -101,15 +101,15 @@
         </div>
     </section>
 
-    <section id="tentang" class="flex justify-center items-center object-cover w-full object-center">
+    <section id="tentang" class="font-[Poppins] flex justify-center items-center object-cover w-full object-center">
         <div class="grid items-center py-8 px-12 mx-auto lg:gap-8 xl:gap-0 lg:py-16 ">
             <div class="">
                 <div class="text-center">
                     <h1
-                        class="font-[Poppins] text-center mb-8 text-2xl font-extrabold leading-none md:text-4xl xl:text-5xl">
+                        class=" text-center mb-8 text-2xl font-extrabold leading-none md:text-4xl xl:text-5xl">
                         Tentang Kota Bandung </h1>
                     <p
-                        class="font-[Poppins] inline-flex items-center mb-6 font-light text-slate-700 lg:mb-8 md:text-lg lg:text-xl dark:text-slate-800">
+                        class=" inline-flex items-center mb-6 font-light text-slate-700 lg:mb-8 md:text-lg lg:text-xl dark:text-slate-800">
                         Bandung, kota yang dijuluki "Kota Kembang" dan "Paris Van Java", merupakan ibukota Jawa Barat
                         dan metropolitan terbesar di provinsi tersebut.
                         Dikelilingi pegunungan, Bandung menawarkan suasana sejuk dan nyaman dengan udara pegunungan.
@@ -120,37 +120,60 @@
                 </div>
             </div>
 
-            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0"
-                        aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" class="active"
-                        aria-current="true" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
+            <main class="text-white flex items-center justify-center" x-data="carouselFilter()">
+                <div class="container grid grid-cols-1">
+                    <div class="flex justify-center">
+                    </div>
+
+                    <div class="row-start-2 col-start-1" x-show="active == 0"
+                        x-transition:enter="transition ease-out duration-300"
+                        x-transition:enter-start="opacity-0 transform scale-90"
+                        x-transition:enter-end="opacity-100 transform scale-100"
+                        x-transition:leave="transition ease-in duration-300"
+                        x-transition:leave-start="opacity-100 transform scale-100"
+                        x-transition:leave-end="opacity-0 transform scale-90">
+                        <div class="grid grid-cols-1 grid-rows-1" x-data="carousel()" x-init="init()">
+
+                            <div
+                                class="col-start-1 row-start-1 relative z-20 flex items-center justify-center pointer-events-none">
+                                <h1 class="absolute text-5xl uppercase font-black tracking-widest" x-show="active == 0"
+                                    x-transition:enter="transition ease-out duration-300"
+                                    x-transition:enter-start="opacity-0 transform translate-y-12"
+                                    x-transition:enter-end="opacity-100 transform translate-y-0"
+                                    x-transition:leave="transition ease-out duration-300"
+                                    x-transition:leave-start="opacity-100 transform translate-y-0"
+                                    x-transition:leave-end="opacity-0 transform -translate-y-12">Gedung Merdeka</h1>
+                                <h1 class="absolute text-5xl uppercase font-black tracking-widest" x-show="active == 1"
+                                    x-transition:enter="transition ease-out duration-300"
+                                    x-transition:enter-start="opacity-0 transform translate-y-12"
+                                    x-transition:enter-end="opacity-100 transform translate-y-0"
+                                    x-transition:leave="transition ease-out duration-300"
+                                    x-transition:leave-start="opacity-100 transform translate-y-0"
+                                    x-transition:leave-end="opacity-0 transform -translate-y-12">Asia Afrika</h1>
+                                <h1 class="absolute text-5xl uppercase font-black tracking-widest" x-show="active == 2"
+                                    x-transition:enter="transition ease-out duration-300"
+                                    x-transition:enter-start="opacity-0 transform translate-y-12"
+                                    x-transition:enter-end="opacity-100 transform translate-y-0"
+                                    x-transition:leave="transition ease-out duration-300"
+                                    x-transition:leave-start="opacity-100 transform translate-y-0"
+                                    x-transition:leave-end="opacity-0 transform -translate-y-12">Pasar Baru</h1>
+                            </div>
+
+                            <div class="carousel col-start-1 row-start-1" x-ref="carousel">
+                                <div class="w-3/5 px-2">
+                                    <img src="./img/gedungmerdeka.png" loading="lazy">
+                                </div>
+                                <div class="w-3/5 px-2">
+                                    <img src="./img/asiaafrika.png" loading="lazy">
+                                </div>
+                                <div class="w-3/5 px-2">
+                                    <img src="./img/pasarbaru.png" loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item" data-bs-interval="1000">
-                        <img src="./img/gedungmerdeka.png" class="d-block" alt="...">
-                    </div>
-                    <div class="carousel-item active" data-bs-interval="2000">
-                        <img src="./img/pasarbaru.png" class="d-block " alt="...">
-                    </div>
-                    <div class="carousel-item" data-bs-interval="3000">
-                        <img src="./img/asiaafrika.png" class="d-block " alt="...">
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
+            </main>
         </div>
     </section>
 
@@ -338,10 +361,11 @@
             <h4 class="mb-2 font-[Poppins] font-bold leading-none md:text-3xl xl:text-4xl dark:text-slate-800">
                 Peta Wisata
             </h4>
-<p class="mb-2 font-[Poppins] leading-none dark:text-slate-800">
-    Temukan destinasi wisata favorit Anda dan ciptakan kenangan indah di Kota Kembang dengan melakukan pencarian dibawah ini.
-</p>
-<hr class="h-px my-4 bg-gray-200 border-0 dark:bg-gray-700">
+            <p class="mb-2 font-[Poppins] leading-none dark:text-slate-800">
+                Temukan destinasi wisata favorit Anda dan ciptakan kenangan indah di Kota Kembang dengan melakukan
+                pencarian dibawah ini.
+            </p>
+            <hr class="h-px my-4 bg-gray-200 border-0 dark:bg-gray-700">
             <form>
                 <div class="flex gap-2 mb-4">
                     <input type="text" id="searchInput"
@@ -504,6 +528,33 @@
     </footer>
 
     <script>
+        function carousel() {
+            return {
+                active: 0,
+                init() {
+                    var flkty = new Flickity(this.$refs.carousel, {
+                        wrapAround: true
+                    });
+                    flkty.on('change', i => this.active = i);
+                }
+            }
+        }
+
+        function carouselFilter() {
+            return {
+                active: 0,
+                changeActive(i) {
+                    this.active = i;
+
+                    this.$nextTick(() => {
+                        let flkty = Flickity.data(this.$el.querySelectorAll('.carousel')[i]);
+                        flkty.resize();
+
+                        console.log(flkty);
+                    });
+                }
+            }
+        }
         var map = L.map('map', ).setView([-6.914744, 107.609810], 13);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -700,10 +751,8 @@
             background-position: center;
         }
 
-        .carousel-item img {
-            display: block;
-            margin: 0 auto;
-            width: 50%;
+        .flickity-viewport {
+            height: 500px !important;
         }
 
     </style>
