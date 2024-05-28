@@ -335,7 +335,7 @@
                         </label>
                     </div>
                      end rating bintang -->
-                    <form action="{{ url('ulasan/store')}}" method="post">
+                    <form action="{{ url('/ulasan/store')}}" method="post">
                         {{ csrf_field() }}
                         <!--<div class="mb-4">
                             <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name</label>

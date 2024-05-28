@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\DetailWisata;
 use App\Models\Wisata;
+use App\Models\Ulasan;
 
 class DetailWisataController extends Controller
 {
@@ -42,7 +43,7 @@ class DetailWisataController extends Controller
      */
     public function show(string $id){
 
-        $data = Wisata::find($id)->table_wisata;
+        $wisata = Wisata::find($id)->table_wisata;
 
         DetailWisata::where('id', $id)->firstOrFail();
         $ulasan = Ulasan::where('wisata_id', $id)->get();
