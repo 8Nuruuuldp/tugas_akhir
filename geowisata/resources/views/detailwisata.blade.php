@@ -191,38 +191,117 @@
         </div>
     </section>
 
+    <!-- Footer Section -->
+    <footer class="bg-white font-[Poppins]">
+        <div class="container mx-auto w-full max-w-screen-xl px-4 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Column 1 -->
+                <div>
+                    <a href="#beranda" class="flex items-center mb-3">
+                        <img src="./img/logo.svg" class="h-14 mr-3" alt="Bandung Geowisata" />
+                    </a>
+                    <p class="text-gray-700 text-sm">
+                        Bandung Geowisata adalah layanan yang menyediakan informasi dan titik lokasi mengenai objek
+                        wisata yang ada di kota bandung.
+                    </p>
+                </div>
+                <!-- Column 2 -->
+                <div>
+                    <h2 class="mb-0 font-semibold text-gray-900">Kontak Kami</h2>
+                    <ul class="text-gray-700 text-sm">
+                        <li class="mb-1">
+                            <a href="https://mail.google.com/" class="hover:underline"><i
+                                    class="fas fa-envelope"></i>&nbsp; Email: bdggeowisata@gmail.com</a>
+                        </li>
+                        <li class="mb-1">
+                            <a href="https://wa.me/082123456789?text=Hallo%20Admin%20mohon%20bantu%20Saya%20perihal"
+                                class="hover:underline"><i class="fas fa-phone"></i>&nbsp; Phone Number:
+                                0821-2345-6789</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Column 3 -->
+                <div>
+                    <h2 class="mb-0 font-semibold text-gray-900">Media Sosial</h2>
+                    <ul class="text-gray-700 text-sm">
+                        <li class="mb-1">
+                            <a href="https://www.instagram.com/" class="hover:underline"><i
+                                    class="fab fa-instagram"></i>&nbsp; Instagram: @bandunggeowisata</a>
+                        </li>
+                        <li class="mb-1">
+                            <a href="https://www.twitter.com/" class="hover:underline"><i
+                                    class="fab fa-twitter"></i>&nbsp; Twitter: @bandunggeowisata</a>
+                        </li>
+                        <li class="mb-1">
+                            <a href="https://www.facebook.com/" class="hover:underline"><i
+                                    class="fab fa-facebook"></i>&nbsp; Facebook: Bandung Geowisata</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Column 4 -->
+                <div>
+                    <h2 class="mb-0 font-semibold text-gray-900">Menu Cepat</h2>
+                    <ul class="text-gray-700 text-sm">
+                        <li class="mb-1">
+                            <a href="#beranda" class="hover:underline">Beranda</a>
+                        </li>
+                        <li class="mb-1">
+                            <a href="#tentang" class="hover:underline">Tentang</a>
+                        </li>
+                        <li class="mb-1">
+                            <a href="#rekomendasi" class="hover:underline">Rekomendasi</a>
+                        </li>
+                        <li class="mb-1">
+                            <a href="#petawisata" class="hover:underline">Peta Wisata</a>
+                        </li>
+                        <li class="mb-1">
+                            <a href="#kontak" class="hover:underline">Kontak</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-8 border-gray-200" />
+            <div class="text-center">
+                <span class="text-sm text-gray-500">© 2024 <a href="#" class="hover:underline">Bandung
+                        Geowisata™</a>.
+                    All Rights Reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+
     <script>
     // Notifikasi Pesan Pada Form Ulasan
     document.addEventListener('DOMContentLoaded', function() {
         var successMessage = document.getElementById('successMessage');
 
-        if (successMessage) {
-            successMessage.style.display = 'block';
-            setTimeout(function() {
-                successMessage.style.display = 'none';
-            }, 5000); // Menyembunyikan pesan setelah 5 detik
-        }
-        // JavaScript to toggle the modal
-        const openContactFormButton = document.getElementById('openContactForm');
-        const closeContactFormButton = document.getElementById('closeContactForm');
-        const contactFormModal = document.getElementById('contactFormModal');
+            if (successMessage) {
+                successMessage.style.display = 'block';
+                setTimeout(function() {
+                    successMessage.style.display = 'none';
+                }, 5000); // Menyembunyikan pesan setelah 5 detik
+            }
+            // JavaScript to toggle the modal
+            const openContactFormButton = document.getElementById('openContactForm');
+            const closeContactFormButton = document.getElementById('closeContactForm');
+            const contactFormModal = document.getElementById('contactFormModal');
 
-        openContactFormButton.addEventListener('click', () => {
-            contactFormModal.classList.remove('hidden');
+            openContactFormButton.addEventListener('click', () => {
+                contactFormModal.classList.remove('hidden');
+            });
+
+            closeContactFormButton.addEventListener('click', () => {
+                contactFormModal.classList.add('hidden');
+            });
         });
 
-        closeContactFormButton.addEventListener('click', () => {
-            contactFormModal.classList.add('hidden');
-        });
-    });
-
-    //Hamburger Menu
-    document.getElementById("hamburger").onclick = function toggleMenu() {
-        const navToggle = document.getElementsByClassName("toggle");
-        for (let i = 0; i < navToggle.length; i++) {
-            navToggle.item(i).classList.toggle("hidden");
-        }
-    };
+        //Hamburger Menu
+        document.getElementById("hamburger").onclick = function toggleMenu() {
+            const navToggle = document.getElementsByClassName("toggle");
+            for (let i = 0; i < navToggle.length; i++) {
+                navToggle.item(i).classList.toggle("hidden");
+            }
+        };
     </script>
 </body>
 
