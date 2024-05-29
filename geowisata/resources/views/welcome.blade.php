@@ -684,7 +684,7 @@
                     icon: iconMap
                 }).addTo(map);
                 let popupContent = `<div class"min-h-screen flex items-center justify-center">
-                            <img class="h-48 w-full object-cover object-end" src="./img/${n.gambar}>
+                            <img class="h-48 w-full object-cover object-end" src="${n.gambar}" alt="${n.nama_tempat}">
                             <div class="p-6">
                             <h4 class="mt-2 font-bold text-lg truncate">${n.nama_tempat}</h4>
                             <div class=""> <br>${n.alamat}</div>
