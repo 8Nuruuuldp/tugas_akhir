@@ -15,8 +15,9 @@ class DetailWisataController extends Controller
     public function detailwisata($id)
     {
         
-        $wisata = Wisata::find($id);
-        return view('detailwisata', compact('wisata'));
+        $wisata = Wisata::findOrFail($id);
+        $ulasan = $wisata->ulasan()->get();
+        return view('detailwisata', compact('wisata', 'ulasan'));
         
         //$wisata = DetailWisata::findorFail($id);
         //return view('detailwisata', compact('wisata'));

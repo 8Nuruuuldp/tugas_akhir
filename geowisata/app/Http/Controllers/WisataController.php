@@ -87,15 +87,23 @@ class WisataController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id){
 
+    public function show(string $id) {
+        // Ambil data wisata beserta relasi kategori
         $wisata = Wisata::with('kategori')->find($id);
+    
+        // Jika data wisata tidak ditemukan, kembalikan halaman 404 atau tampilkan pesan error
+        if (!$wisata) {
+            // Anda bisa mengarahkan ke halaman 404 atau menampilkan pesan error khusus
+            return abort(404, 'Wisata tidak ditemukan');
+        }
+    
+        // Ambil semua ulasan terkait wisata
         $ulasan = Ulasan::where('wisata_id', $id)->get();
+    
+        // Kembalikan view dengan data yang telah diambil
         return view('detailwisata', compact('id', 'wisata', 'ulasan'));
-
-        //$wisata = Wisata::findOrFail($id);
-        //return view('detailwisata', compact('wisata'));
-    }
+}
 
     /**
      * Show the form for editing the specified resource.
