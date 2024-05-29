@@ -130,144 +130,145 @@
         </div>
     </section>
 
-
-    <!-- review -->
-    <div class="mt-5 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] p-6">
-        <h3 class="text-lg font-bold text-[#333]">Reviews(10)</h3>
-        <div class="grid md:grid-cols-2 gap-12 mt-6">
-            <div>
-                <div class="space-y-3">
-                    <div class="flex items-center">
-                        <p class="text-sm text-[#333] font-bold">5.0</p>
-                        <svg class="w-5 fill-[#333] ml-1" viewBox="0 0 14 13" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
-                        </svg>
-                        <div class="bg-gray-400 rounded w-full h-2 ml-3">
-                            <div class="w-2/3 h-full rounded bg-[#333]"></div>
-                        </div>
-                        <p class="text-sm text-[#333] font-bold ml-3">66%</p>
-                    </div>
-
-                    <div class="flex items-center">
-                        <p class="text-sm text-[#333] font-bold">4.0</p>
-                        <svg class="w-5 fill-[#333] ml-1" viewBox="0 0 14 13" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
-                        </svg>
-                        <div class="bg-gray-400 rounded w-full h-2 ml-3">
-                            <div class="w-1/3 h-full rounded bg-[#333]"></div>
-                        </div>
-                        <p class="text-sm text-[#333] font-bold ml-3">33%</p>
-                    </div>
-
-                    <div class="flex items-center">
-                        <p class="text-sm text-[#333] font-bold">3.0</p>
-                        <svg class="w-5 fill-[#333] ml-1" viewBox="0 0 14 13" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
-                        </svg>
-                        <div class="bg-gray-400 rounded w-full h-2 ml-3">
-                            <div class="w-1/6 h-full rounded bg-[#333]"></div>
-                        </div>
-                        <p class="text-sm text-[#333] font-bold ml-3">16%</p>
-                    </div>
-
-                    <div class="flex items-center">
-                        <p class="text-sm text-[#333] font-bold">2.0</p>
-                        <svg class="w-5 fill-[#333] ml-1" viewBox="0 0 14 13" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
-                        </svg>
-                        <div class="bg-gray-400 rounded w-full h-2 ml-3">
-                            <div class="w-1/12 h-full rounded bg-[#333]"></div>
-                        </div>
-                        <p class="text-sm text-[#333] font-bold ml-3">8%</p>
-                    </div>
-
-                    <div class="flex items-center">
-                        <p class="text-sm text-[#333] font-bold">1.0</p>
-                        <svg class="w-5 fill-[#333] ml-1" viewBox="0 0 14 13" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
-                        </svg>
-                        <div class="bg-gray-400 rounded w-full h-2 ml-3">
-                            <div class="w-[6%] h-full rounded bg-[#333]"></div>
-                        </div>
-                        <p class="text-sm text-[#333] font-bold ml-3">6%</p>
-                    </div>
-                </div>
-            </div>
-
-            <div>
-                <div class="flex items-start">
-
-                    <div class="ml-3">
-                        <h4 class="text-sm font-bold text-[#333]">John Doe</h4>
-                        <div class="flex space-x-1 mt-1">
-                            <svg class="w-4 fill-[#333]" viewBox="0 0 14 13" fill="none"
+    <section>
+        <!-- review -->
+        <div class="mt-5 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] p-6">
+            <h3 class="text-lg font-bold text-[#333]">Reviews(10)</h3>
+            <div class="grid md:grid-cols-2 gap-12 mt-6">
+                <div>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <p class="text-sm text-[#333] font-bold">5.0</p>
+                            <svg class="w-5 fill-[#333] ml-1" viewBox="0 0 14 13" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
                             </svg>
-                            <svg class="w-4 fill-[#333]" viewBox="0 0 14 13" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
-                            </svg>
-                            <svg class="w-4 fill-[#333]" viewBox="0 0 14 13" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
-                            </svg>
-                            <svg class="w-4 fill-[#CED5D8]" viewBox="0 0 14 13" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
-                            </svg>
-                            <svg class="w-4 fill-[#CED5D8]" viewBox="0 0 14 13" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
-                            </svg>
-                            <p class="text-xs !ml-2 font-semibold text-[#333]">2 mins ago</p>
+                            <div class="bg-gray-400 rounded w-full h-2 ml-3">
+                                <div class="w-2/3 h-full rounded bg-[#333]"></div>
+                            </div>
+                            <p class="text-sm text-[#333] font-bold ml-3">66%</p>
                         </div>
-                        <p class="text-sm mt-4 text-[#333]">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed
-                            eiusmod tempor incidunt ut labore et dolore magna aliqua.</p>
+
+                        <div class="flex items-center">
+                            <p class="text-sm text-[#333] font-bold">4.0</p>
+                            <svg class="w-5 fill-[#333] ml-1" viewBox="0 0 14 13" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+                            </svg>
+                            <div class="bg-gray-400 rounded w-full h-2 ml-3">
+                                <div class="w-1/3 h-full rounded bg-[#333]"></div>
+                            </div>
+                            <p class="text-sm text-[#333] font-bold ml-3">33%</p>
+                        </div>
+
+                        <div class="flex items-center">
+                            <p class="text-sm text-[#333] font-bold">3.0</p>
+                            <svg class="w-5 fill-[#333] ml-1" viewBox="0 0 14 13" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+                            </svg>
+                            <div class="bg-gray-400 rounded w-full h-2 ml-3">
+                                <div class="w-1/6 h-full rounded bg-[#333]"></div>
+                            </div>
+                            <p class="text-sm text-[#333] font-bold ml-3">16%</p>
+                        </div>
+
+                        <div class="flex items-center">
+                            <p class="text-sm text-[#333] font-bold">2.0</p>
+                            <svg class="w-5 fill-[#333] ml-1" viewBox="0 0 14 13" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+                            </svg>
+                            <div class="bg-gray-400 rounded w-full h-2 ml-3">
+                                <div class="w-1/12 h-full rounded bg-[#333]"></div>
+                            </div>
+                            <p class="text-sm text-[#333] font-bold ml-3">8%</p>
+                        </div>
+
+                        <div class="flex items-center">
+                            <p class="text-sm text-[#333] font-bold">1.0</p>
+                            <svg class="w-5 fill-[#333] ml-1" viewBox="0 0 14 13" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+                            </svg>
+                            <div class="bg-gray-400 rounded w-full h-2 ml-3">
+                                <div class="w-[6%] h-full rounded bg-[#333]"></div>
+                            </div>
+                            <p class="text-sm text-[#333] font-bold ml-3">6%</p>
+                        </div>
                     </div>
                 </div>
 
-                <button type="button"
-                    class="w-full mt-10 px-4 py-2.5 bg-transparent hover:bg-gray-50 border border-[#333] text-[#333] font-bold rounded">Read
-                    all reviews</button>
+                <div>
+                    <div class="flex items-start">
+
+                        <div class="ml-3">
+                            <h4 class="text-sm font-bold text-[#333]">John Doe</h4>
+                            <div class="flex space-x-1 mt-1">
+                                <svg class="w-4 fill-[#333]" viewBox="0 0 14 13" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+                                </svg>
+                                <svg class="w-4 fill-[#333]" viewBox="0 0 14 13" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+                                </svg>
+                                <svg class="w-4 fill-[#333]" viewBox="0 0 14 13" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+                                </svg>
+                                <svg class="w-4 fill-[#CED5D8]" viewBox="0 0 14 13" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+                                </svg>
+                                <svg class="w-4 fill-[#CED5D8]" viewBox="0 0 14 13" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+                                </svg>
+                                <p class="text-xs !ml-2 font-semibold text-[#333]">2 mins ago</p>
+                            </div>
+                            <p class="text-sm mt-4 text-[#333]">Lorem ipsum dolor sit amet, consectetur adipisci elit,
+                                sed
+                                eiusmod tempor incidunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                    </div>
+
+                    <button type="button"
+                        class="w-full mt-10 px-4 py-2.5 bg-transparent hover:bg-gray-50 border border-[#333] text-[#333] font-bold rounded">Read
+                        all reviews</button>
+                </div>
             </div>
         </div>
-    </div>
-    </div>
-    </div>
+        </div>
+        </div>
 
-    <!-- Modal button-->
-    <div class="flex justify-center items-center h-screen">
-        <div id="contactFormModal" class="fixed z-10 inset-0 overflow-y-auto hidden backdrop-blur-sm">
-            <div class="flex items-center justify-center min-h-screen">
-                <div class="bg-white w-1/2 p-6 rounded shadow-md">
-                    <div class="flex justify-end">
-                        <!-- Close Button -->
-                        <button id="closeContactForm" class="text-gray-700 hover:text-red-500">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M6 18L18 6M6 6l12 12"></path>
-                            </svg>
-                        </button>
-                    </div>
-                    <h2 class="text-2xl font-bold mb-4">Ulasan</h2>
-                    <!-- rating bintang
+        <!-- Modal button-->
+        <div class="flex justify-center items-center h-screen">
+            <div id="contactFormModal" class="fixed z-10 inset-0 overflow-y-auto hidden backdrop-blur-sm">
+                <div class="flex items-center justify-center min-h-screen">
+                    <div class="bg-white w-1/2 p-6 rounded shadow-md">
+                        <div class="flex justify-end">
+                            <!-- Close Button -->
+                            <button id="closeContactForm" class="text-gray-700 hover:text-red-500">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <h2 class="text-2xl font-bold mb-4">Ulasan</h2>
+                        <!-- rating bintang
                     <div x-data="{ currentVal: 3 }" class="flex items-center justify-center gap-1">
                         <label for="oneStar" class="cursor-pointer transition hover:scale-125 has-[:focus]:scale-125">
                             <span class="sr-only">one star</span>
@@ -336,9 +337,9 @@
                         </label>
                     </div>
                      end rating bintang -->
-                    <form action="{{ url('/ulasan/store') }}" method="post">
-                        {{ csrf_field() }}
-                        <!--<div class="mb-4">
+                        <form action="{{ url('/ulasan/store') }}" method="post">
+                            {{ csrf_field() }}
+                            <!--<div class="mb-4">
                             <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name</label>
                             <input type="text" id="name" name="name"
                                 class="w-full p-2 border rounded-md focus:outline-none focus:border-blue-500">
@@ -357,58 +358,58 @@
                             class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700">
                             Send Message
                         </button>-->
-                        <div class="mb-4 font-[Poppins]">
-                            @if (isset($wisata) && $wisata->id)
-                                <input
+                            <div class="mb-4 font-[Poppins]">
+                                @if (isset($wisata) && $wisata->id)
+                                    <input
+                                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        type="hidden" name="wisata_id" value="{{ $wisata->id }}" readonly>
+                                @endif
+                            </div>
+                            <div class="mb-4 font-[Poppins]">
+                                <label for="nama" class="block text-black font-extrabold mb-2">Nama Lengkap <span
+                                        class="text-red-600">*</span></label>
+                                <input type="text" id="nama_pengulas" name="nama_pengulas"
                                     class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                    type="hidden" name="wisata_id" value="{{ $wisata->id }}" readonly>
-                            @endif
-                        </div>
-                        <div class="mb-4 font-[Poppins]">
-                            <label for="nama" class="block text-black font-extrabold mb-2">Nama Lengkap <span
-                                    class="text-red-600">*</span></label>
-                            <input type="text" id="nama_pengulas" name="nama_pengulas"
-                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                placeholder="Masukan nama Anda">
+                                    placeholder="Masukan nama Anda">
 
-                        </div>
-                        <div class="mb-4 font-[Poppins]">
-                            <label for="email" class="block text-black font-extrabold mb-2">Email <span
-                                    class="text-red-600">*</span></label>
-                            <input type="email" id="email_pengulas" name="email_pengulas"
-                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                placeholder="Contoh: janesmith@gmail.com">
-                        </div>
-                        <div class=" mb-4 font-[Poppins]">
-                            <label for="email" class="block text-black font-extrabold mb-2">Rating <span
-                                    class="text-red-600">*</span></label>
-                            <select type="number" id="rating" name="rating"
-                                class="w-full px-4 py-2 border rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                placeholder="Pilih Rating">
-                                <option value="">Pilih Rating</option>
-                                @for ($i = 1; $i <= 5; $i++)
-                                    <option value="{{ $i }}">{{ $i }} <i
-                                            class="fas fa-star"></i>
-                                    </option>
-                                @endfor
-                            </select>
-                        </div>
-                        <div class="mb-4 font-[Poppins]">
-                            <label for="pesan" class="block text-black font-extrabold mb-2">Ulasan Anda <span
-                                    class="text-red-600">*</span></label>
-                            <textarea id="ulasan" name="ulasan" rows="4"
-                                class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                                placeholder="Ketik ulasan Anda disini"></textarea>
-                        </div>
-                        <button type="submit"
-                            class="bg-green-600 text-white px-8 py-2 rounded-lg hover:bg-green-700">Kirim
-                        </button>
-                    </form>
+                            </div>
+                            <div class="mb-4 font-[Poppins]">
+                                <label for="email" class="block text-black font-extrabold mb-2">Email <span
+                                        class="text-red-600">*</span></label>
+                                <input type="email" id="email_pengulas" name="email_pengulas"
+                                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    placeholder="Contoh: janesmith@gmail.com">
+                            </div>
+                            <div class=" mb-4 font-[Poppins]">
+                                <label for="email" class="block text-black font-extrabold mb-2">Rating <span
+                                        class="text-red-600">*</span></label>
+                                <select type="number" id="rating" name="rating"
+                                    class="w-full px-4 py-2 border rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    placeholder="Pilih Rating">
+                                    <option value="">Pilih Rating</option>
+                                    @for ($i = 1; $i <= 5; $i++)
+                                        <option value="{{ $i }}">{{ $i }} <i
+                                                class="fas fa-star"></i>
+                                        </option>
+                                    @endfor
+                                </select>
+                            </div>
+                            <div class="mb-4 font-[Poppins]">
+                                <label for="pesan" class="block text-black font-extrabold mb-2">Ulasan Anda <span
+                                        class="text-red-600">*</span></label>
+                                <textarea id="ulasan" name="ulasan" rows="4"
+                                    class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                                    placeholder="Ketik ulasan Anda disini"></textarea>
+                            </div>
+                            <button type="submit"
+                                class="bg-green-600 text-white px-8 py-2 rounded-lg hover:bg-green-700">Kirim
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
+    </section>
     <!-- Footer Section -->
     <footer class="bg-white font-[Poppins]">
         <div class="container mx-auto w-full max-w-screen-xl px-4 py-8">
