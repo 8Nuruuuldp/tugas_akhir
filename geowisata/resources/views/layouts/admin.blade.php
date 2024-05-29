@@ -7,6 +7,7 @@
     <title>Dasboard | Admin</title>
 
     <link rel="icon" href="./img/logo.svg" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
