@@ -452,7 +452,7 @@
 
 
     <!-- Footer Section -->
-    <footer class="bg-white font-[Poppins]">
+    <footer class="bg-white font-[Poppins] p-2">
         <div class="container mx-auto w-full max-w-screen-xl px-4 py-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Column 1 -->
@@ -471,7 +471,7 @@
                     <ul class="text-gray-700 text-sm">
                         <li class="mb-1">
                             <a href="https://mail.google.com/" class="hover:underline"><i
-                                    class="fas fa-envelope"></i>&nbsp; Email: bdggeowisata@gmail.com</a>
+                                    class="fas fa-envelope"></i>&nbsp; Email: bdgwisata@gmail.com</a>
                         </li>
                         <li class="mb-1">
                             <a href="https://wa.me/082123456789?text=Hallo%20Admin%20mohon%20bantu%20Saya%20perihal"
