@@ -51,42 +51,46 @@
 
     <!--content-->
     <section>
-        <div class="container">
-            <div>
-                <div class=" mt-10 mr-20 ml-20">
+        <div class="container mx-auto w-full max-w-screen-xl px-4 py-8">
+            <div class="flex flex-wrap">
+                <div class="mr-10 ml-10 flex items-center">
                     @if ($wisata)
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="">
-                            <img class="w-full h-full" src="{{asset('img/' . $wisata->gambar)}}"
-                                alt="Foto Objek Wisata">
-                            <p class="text-center">Sumber: {{$wisata->sumber}}</p>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="">
+                                <img class="w-full h-full rounded-2xl
+
+" src="{{ asset('img/' . $wisata->gambar) }}"
+                                    alt="Foto Objek Wisata">
+                                <p class="text-center mt-2">Sumber : {{ $wisata->sumber }}</p>
+                            </div>
+                            <div class="space-y-1">
+                                <h1 class="text-gray-900 font-bold text-5xl"> {{ $wisata->nama_tempat }}
+                                </h1>
+                                <h3 class="text-gray-900 font-regular text-lg">{{ $wisata->alamat }}</h3>
+                                <div class="border-t border-b">
+                                    <h3>Deskripsi:</h3><br>
+                                    <p>{{ $wisata->deskripsi }}</p>
+                                </div>
+                                <div class="border-b">
+                                    <h3>Waktu Operasional:</h3><br>
+                                    <p>{{ $wisata->waktu_operasional }}</p>
+                                </div>
+                                <div>
+                                    <h3>Cari info lebih banyak tentang {{ $wisata->nama_tempat }}?</h3><br>
+                                    <p>{{ $wisata->link_pendukung }}</p>
+                                </div>
+                                <div class="flex">
+                                    <button
+                                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                        Tunjukkan Arah
+                                    </button>
+                                    <button id="openContactForm"
+                                        class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ml-4">
+                                        Beri Ulasan
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="space-y-1">
-                            <h1 class="text-gray-900 font-bold text-5xl"> {{$wisata->nama_tempat}} </h1>
-                            <h3 class="text-gray-900 font-regular text-lg">{{$wisata->alamat}}</h3>
-                            <div>
-                                <h3>Deskripsi:</h3><br>
-                                <p>{{$wisata->deskripsi}}</p>
-                            </div>
-                            <div>
-                                <h3>Waktu Operasional:</h3><br>
-                                <p>{{$wisata->waktu_operasional}}</p>
-                            </div>
-                            <div>
-                                <h3>Cari info lebih banyak tentang {{$wisata->nama_tempat}}?</h3><br>
-                                <p>{{$wisata->link_pendukung}}</p>
-                            </div>
-                            <div class="flex">
-                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                                    Tunjukkan Arah
-                                </button>
-                                <button id="openContactForm"
-                                    class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ml-4">
-                                    Beri Ulasan
-                                </button>
-                            </div>
-                        </div>
-                    </div>
                     @endif
                 </div>
             </div>
@@ -112,7 +116,7 @@
                             </div>
                             <h2 class="text-2xl font-bold mb-4">Ulasan</h2>
 
-                            <form action="{{ url('/ulasan/store')}}" method="post">
+                            <form action="{{ url('/ulasan/store') }}" method="post">
                                 {{ csrf_field() }}
                                 <div class="mb-4 font-[Poppins]">
                                     <input
@@ -121,8 +125,8 @@
 
                                 </div>
                                 <div class="mb-4 font-[Poppins]">
-                                    <label for="nama" class="block text-black font-extrabold mb-2">Nama Lengkap <span
-                                            class="text-red-600">*</span></label>
+                                    <label for="nama" class="block text-black font-extrabold mb-2">Nama Lengkap
+                                        <span class="text-red-600">*</span></label>
                                     <input type="text" id="nama_pengulas" name="nama_pengulas"
                                         class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                         placeholder="Masukan nama Anda">
@@ -142,15 +146,16 @@
                                         class="w-full px-4 py-2 border rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                                         placeholder="Pilih Rating">
                                         <option value="">Pilih Rating</option>
-                                        @for ($i = 1; $i <= 5; $i++) <option value="{{ $i }}">{{ $i }} <i
-                                                class="fas fa-star"></i>
+                                        @for ($i = 1; $i <= 5; $i++)
+                                            <option value="{{ $i }}">{{ $i }} <i
+                                                    class="fas fa-star"></i>
                                             </option>
-                                            @endfor
+                                        @endfor
                                     </select>
                                 </div>
                                 <div class="mb-4 font-[Poppins]">
-                                    <label for="pesan" class="block text-black font-extrabold mb-2">Ulasan Anda <span
-                                            class="text-red-600">*</span></label>
+                                    <label for="pesan" class="block text-black font-extrabold mb-2">Ulasan Anda
+                                        <span class="text-red-600">*</span></label>
                                     <textarea id="ulasan" name="ulasan" rows="4"
                                         class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                                         placeholder="Ketik ulasan Anda disini"></textarea>
@@ -169,27 +174,27 @@
     <!--data ulasan-->
     <section class="mr-20 ml-20">
         <h2 class="text-3xl text-gray-800 text-bold">Ulasan</h2>
-        <hr class="border-t border-gray-300 my-4"> 
+        <hr class="border-t border-gray-300 my-4">
         <div>
             @foreach ($ulasan as $ulasan)
-            <div class="bg-white p-6 rounded-lg shadow-md mb-4">
-                <div class="flex items-center">
-                    <img src="https://via.placeholder.com/50" alt="avatar" class="w-10 h-10 rounded-full mr-4">
-                    <div>
-                        <h2 class="text-lg font-medium text-gray-800">{{$ulasan->nama_pengulas}}</h2>
-                        <div class="flex items-center">
-                            <svg class="fill-current text-yellow-500 w-4 h-4 mr-1" viewBox="0 0 20 20">
-                                <path
-                                    d="M10 12.14l9.9-4.57a1 1 0 0 0 0-1.13L10 4.86A1 1 0 0 0 9.01 4L8 3H7a1 1 0 0 0 0 2h1a1 1 0 0 0 .99 1L7 8.99a1 1 0 0 0 0 1.13L9.9 12l-7.99 3.57a1 1 0 0 0 0 1.13L10 19.14A1 1 0 0 0 11 19h8a1 1 0 0 0 1-1v-2a1 1 0 0 0-.99-1z" />
-                            </svg>
-                            <span class="text-gray-700">{{$ulasan->rating}}</span>
+                <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+                    <div class="flex items-center">
+                        <img src="https://via.placeholder.com/50" alt="avatar" class="w-10 h-10 rounded-full mr-4">
+                        <div>
+                            <h2 class="text-lg font-medium text-gray-800">{{ $ulasan->nama_pengulas }}</h2>
+                            <div class="flex items-center">
+                                <svg class="fill-current text-yellow-500 w-4 h-4 mr-1" viewBox="0 0 20 20">
+                                    <path
+                                        d="M10 12.14l9.9-4.57a1 1 0 0 0 0-1.13L10 4.86A1 1 0 0 0 9.01 4L8 3H7a1 1 0 0 0 0 2h1a1 1 0 0 0 .99 1L7 8.99a1 1 0 0 0 0 1.13L9.9 12l-7.99 3.57a1 1 0 0 0 0 1.13L10 19.14A1 1 0 0 0 11 19h8a1 1 0 0 0 1-1v-2a1 1 0 0 0-.99-1z" />
+                                </svg>
+                                <span class="text-gray-700">{{ $ulasan->rating }}</span>
+                            </div>
+                            <p class="text-gray-600 mt-2">
+                                {{ $ulasan->ulasan }}
+                            </p>
                         </div>
-                        <p class="text-gray-600 mt-2">
-                            {{$ulasan->ulasan}}
-                        </p>
                     </div>
                 </div>
-            </div>
             @endforeach
         </div>
     </section>
@@ -274,9 +279,9 @@
 
 
     <script>
-    // Notifikasi Pesan Pada Form Ulasan
-    document.addEventListener('DOMContentLoaded', function() {
-        var successMessage = document.getElementById('successMessage');
+        // Notifikasi Pesan Pada Form Ulasan
+        document.addEventListener('DOMContentLoaded', function() {
+            var successMessage = document.getElementById('successMessage');
 
             if (successMessage) {
                 successMessage.style.display = 'block';
