@@ -81,7 +81,7 @@
                                     Tunjukkan Arah
                                 </button>
                                 <button id="openContactForm"
-                                    class="bg-green-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ml-4">
+                                    class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ml-4">
                                     Beri Ulasan
                                 </button>
                             </div>
@@ -172,7 +172,7 @@
         <hr class="border-t border-gray-300 my-4"> 
         <div>
             @foreach ($ulasan as $ulasan)
-            <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="bg-white p-6 rounded-lg shadow-md mb-4">
                 <div class="flex items-center">
                     <img src="https://via.placeholder.com/50" alt="avatar" class="w-10 h-10 rounded-full mr-4">
                     <div>
