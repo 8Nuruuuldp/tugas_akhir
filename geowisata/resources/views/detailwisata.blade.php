@@ -13,13 +13,16 @@
     <link href="https://cdn.maptiler.com/maptiler-geocoding-control/v1.2.0/style.css" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
+    <!-- Link Icon Footer -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 
 <body>
     <!-- navbar -->
     <nav class="sticky top-0 z-5 bg-white">
         <div class="flex flex-wrap items-center justify-between px-12 py-4">
-            <img src="/img/logo.svg" alt="Bandung Geowisata" width="120" />
+            <img src="/img/logo.svg" alt="Bandung Geowisata" width="100" />
 
             <div class="flex md:hidden">
                 <button id="hamburger">
@@ -192,13 +195,13 @@
     </section>
 
     <!-- Footer Section -->
-    <footer class="bg-white font-[Poppins]">
+    <footer class="bg-white font-[Poppins] p-2">
         <div class="container mx-auto w-full max-w-screen-xl px-4 py-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Column 1 -->
                 <div>
                     <a href="#beranda" class="flex items-center mb-3">
-                        <img src="./img/logo.svg" class="h-14 mr-3" alt="Bandung Geowisata" />
+                        <img src="/img/logo.svg" class="h-14 mr-3" alt="Bandung Geowisata" />
                     </a>
                     <p class="text-gray-700 text-sm">
                         Bandung Geowisata adalah layanan yang menyediakan informasi dan titik lokasi mengenai objek
@@ -211,7 +214,7 @@
                     <ul class="text-gray-700 text-sm">
                         <li class="mb-1">
                             <a href="https://mail.google.com/" class="hover:underline"><i
-                                    class="fas fa-envelope"></i>&nbsp; Email: bdggeowisata@gmail.com</a>
+                                    class="fas fa-envelope"></i>&nbsp; Email: bdgwisata@gmail.com</a>
                         </li>
                         <li class="mb-1">
                             <a href="https://wa.me/082123456789?text=Hallo%20Admin%20mohon%20bantu%20Saya%20perihal"
