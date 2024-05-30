@@ -95,81 +95,81 @@
                 </div>
             </div>
         </div>
-    </section>
 
-    <!--ulasan-->
-    <section>
-        <div>
-            <div class="flex justify-center items-center h-screen">
-                <div id="contactFormModal" class="fixed z-10 inset-0 overflow-y-auto hidden backdrop-blur-sm">
-                    <div class="flex items-center justify-center min-h-screen">
-                        <div class="bg-white w-1/2 p-6 rounded shadow-md">
-                            <div class="flex justify-end">
-                                <!-- Close Button -->
-                                <button id="closeContactForm" class="text-gray-700 hover:text-red-500">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M6 18L18 6M6 6l12 12"></path>
-                                    </svg>
-                                </button>
-                            </div>
-                            <h2 class="text-2xl font-bold mb-4">Ulasan</h2>
-
-                            <form action="{{ url('/ulasan/store') }}" method="post">
-                                {{ csrf_field() }}
-                                <div class="mb-4 font-[Poppins]">
-                                    <input
-                                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                        type="hidden" name="wisata_id" value="{{ $wisata->id }}" readonly>
-
-                                </div>
-                                <div class="mb-4 font-[Poppins]">
-                                    <label for="nama" class="block text-black font-extrabold mb-2">Nama Lengkap
-                                        <span class="text-red-600">*</span></label>
-                                    <input type="text" id="nama_pengulas" name="nama_pengulas"
-                                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                        placeholder="Masukan nama Anda">
-
-                                </div>
-                                <div class="mb-4 font-[Poppins]">
-                                    <label for="email" class="block text-black font-extrabold mb-2">Email <span
-                                            class="text-red-600">*</span></label>
-                                    <input type="email" id="email_pengulas" name="email_pengulas"
-                                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                        placeholder="Contoh: janesmith@gmail.com">
-                                </div>
-                                <div class=" mb-4 font-[Poppins]">
-                                    <label for="email" class="block text-black font-extrabold mb-2">Rating <span
-                                            class="text-red-600">*</span></label>
-                                    <select type="number" id="rating" name="rating"
-                                        class="w-full px-4 py-2 border rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                        placeholder="Pilih Rating">
-                                        <option value="">Pilih Rating</option>
-                                        @for ($i = 1; $i <= 5; $i++)
-                                            <option value="{{ $i }}">{{ $i }} <i
-                                                    class="fas fa-star"></i>
-                                            </option>
-                                        @endfor
-                                    </select>
-                                </div>
-                                <div class="mb-4 font-[Poppins]">
-                                    <label for="pesan" class="block text-black font-extrabold mb-2">Ulasan Anda
-                                        <span class="text-red-600">*</span></label>
-                                    <textarea id="ulasan" name="ulasan" rows="4"
-                                        class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                                        placeholder="Ketik ulasan Anda disini"></textarea>
-                                </div>
-                                <button type="submit"
-                                    class="bg-green-600 text-white px-8 py-2 rounded-lg hover:bg-green-700">Kirim
-                                </button>
-                            </form>
-                        </div>
+        {{-- MODAL --}}
+        <div id="contactFormModal" class="fixed z-10 inset-0 overflow-y-auto hidden backdrop-blur-sm">
+            <div class="flex items-center justify-center min-h-screen">
+                <div class="bg-white w-1/2 p-6 rounded shadow-md">
+                    <div class="flex justify-end">
+                        <!-- Close Button -->
+                        <button id="closeContactForm" class="text-gray-700 hover:text-red-500">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
                     </div>
+                    <h2 class="text-2xl font-bold mb-4">Ulasan</h2>
+
+                    <form action="{{ url('/ulasan/store') }}" method="post">
+                        {{ csrf_field() }}
+                        <div class="mb-4 font-[Poppins]">
+                            <input
+                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                type="hidden" name="wisata_id" value="{{ $wisata->id }}" readonly>
+
+                        </div>
+                        <div class="mb-4 font-[Poppins]">
+                            <label for="nama" class="block text-black font-extrabold mb-2">Nama Lengkap
+                                <span class="text-red-600">*</span></label>
+                            <input type="text" id="nama_pengulas" name="nama_pengulas"
+                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                placeholder="Masukan nama Anda">
+
+                        </div>
+                        <div class="mb-4 font-[Poppins]">
+                            <label for="email" class="block text-black font-extrabold mb-2">Email <span
+                                    class="text-red-600">*</span></label>
+                            <input type="email" id="email_pengulas" name="email_pengulas"
+                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                placeholder="Contoh: janesmith@gmail.com">
+                        </div>
+                        <div class=" mb-4 font-[Poppins]">
+                            <label for="email" class="block text-black font-extrabold mb-2">Rating <span
+                                    class="text-red-600">*</span></label>
+                            <select type="number" id="rating" name="rating"
+                                class="w-full px-4 py-2 border rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                placeholder="Pilih Rating">
+                                <option value="">Pilih Rating</option>
+                                @for ($i = 1; $i <= 5; $i++)
+                                    <option value="{{ $i }}">{{ $i }} <i
+                                            class="fas fa-star"></i>
+                                    </option>
+                                @endfor
+                            </select>
+                        </div>
+                        <div class="mb-4 font-[Poppins]">
+                            <label for="pesan" class="block text-black font-extrabold mb-2">Ulasan Anda
+                                <span class="text-red-600">*</span></label>
+                            <textarea id="ulasan" name="ulasan" rows="4"
+                                class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="Ketik ulasan Anda disini"></textarea>
+                        </div>
+                        <button type="submit"
+                            class="bg-green-600 text-white px-8 py-2 rounded-lg hover:bg-green-700">Kirim
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
+        {{-- END MODAL --}}
     </section>
+
+    <!--ulasan-->
+
+
+
 
     <!--data ulasan-->
     <section class="mr-20 ml-20">
