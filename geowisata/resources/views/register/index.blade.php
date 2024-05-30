@@ -86,8 +86,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-4">
-                        <button type="submit" class="btn btn-success btn-block">Daftar</button>
+                    <div class="row">
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-success btn-block">Daftar</button>
+                        </div>
                     </div>
                 </form>
             </div>
