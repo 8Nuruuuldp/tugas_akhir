@@ -82,7 +82,7 @@
                     class="font-[Poppins] mb-4 max-w-2xl text-4xl font-extrabold leading-none md:text-5xl xl:text-6xl dark:text-white">
                     BANDUNG</h1>
                 <h4
-                    class="font-[Poppins] mb-4 max-w-2xl text-3xl font-extrabold md:text-3xl xl:text-4xl dark:text-white">
+                    class="font-[Poppins] mb-4 max-w-2xl text-2xl font-extrabold md:text-2xl xl:text-4xl dark:text-white">
                     KOTA SEJUTA PESONA</h4>
                 <p
                     class="font-[Poppins] items-center text-center mb-6 max-w-2xl font-light text-white lg:mb-8 md:text-lg lg:text-xl dark:text-white">
@@ -107,8 +107,7 @@
         <div class="grid items-center py-8 px-12 mx-auto lg:gap-8 xl:gap-0 lg:py-16 ">
             <div class="">
                 <div class="text-center">
-                    <h1
-                        class=" text-center mb-8 text-2xl font-extrabold leading-none md:text-4xl xl:text-5xl">
+                    <h1 class=" text-center mb-8 text-2xl font-extrabold leading-none md:text-4xl xl:text-5xl">
                         Tentang Kota Bandung </h1>
                     <p
                         class=" inline-flex items-center mb-6 font-light text-slate-700 lg:mb-8 md:text-lg lg:text-xl dark:text-slate-800">
@@ -122,11 +121,10 @@
                 </div>
             </div>
 
-            <main class="text-white flex items-center justify-center" x-data="carouselFilter()">
+            <div class="text-white flex items-center justify-center" x-data="carouselFilter()">
                 <div class="container grid grid-cols-1">
                     <div class="flex justify-center">
                     </div>
-
                     <div class="row-start-2 col-start-1" x-show="active == 0"
                         x-transition:enter="transition ease-out duration-300"
                         x-transition:enter-start="opacity-0 transform scale-90"
@@ -135,31 +133,37 @@
                         x-transition:leave-start="opacity-100 transform scale-100"
                         x-transition:leave-end="opacity-0 transform scale-90">
                         <div class="grid grid-cols-1 grid-rows-1" x-data="carousel()" x-init="init()">
-
                             <div
                                 class="col-start-1 row-start-1 relative z-20 flex items-center justify-center pointer-events-none">
-                                <h1 class="absolute text-5xl uppercase font-black tracking-widest" x-show="active == 0"
-                                    x-transition:enter="transition ease-out duration-300"
+                                <h1 class="absolute text-4xl md:text-2xl lg:text-4xl xl:text-5xl uppercase font-black tracking-widest
+                                           md:translate-y-8 lg:translate-y-12 xl:translate-y-16
+                                           md:left-1/2 lg:left-1/2 xl:left-1/2 md:transform lg:transform xl:transform md:-translate-x-1/2 lg:-translate-x-1/2 xl:-translate-x-1/2"
+                                    x-show="active == 0" x-transition:enter="transition ease-out duration-300"
                                     x-transition:enter-start="opacity-0 transform translate-y-12"
                                     x-transition:enter-end="opacity-100 transform translate-y-0"
                                     x-transition:leave="transition ease-out duration-300"
                                     x-transition:leave-start="opacity-100 transform translate-y-0"
                                     x-transition:leave-end="opacity-0 transform -translate-y-12">Gedung Merdeka</h1>
-                                <h1 class="absolute text-5xl uppercase font-black tracking-widest" x-show="active == 1"
-                                    x-transition:enter="transition ease-out duration-300"
+                                <h1 class="absolute text-4xl md:text-2xl lg:text-4xl xl:text-5xl uppercase font-black tracking-widest
+                                           md:translate-y-8 lg:translate-y-12 xl:translate-y-16
+                                           md:left-1/2 lg:left-1/2 xl:left-1/2 md:transform lg:transform xl:transform md:-translate-x-1/2 lg:-translate-x-1/2 xl:-translate-x-1/2"
+                                    x-show="active == 1" x-transition:enter="transition ease-out duration-300"
                                     x-transition:enter-start="opacity-0 transform translate-y-12"
                                     x-transition:enter-end="opacity-100 transform translate-y-0"
                                     x-transition:leave="transition ease-out duration-300"
                                     x-transition:leave-start="opacity-100 transform translate-y-0"
                                     x-transition:leave-end="opacity-0 transform -translate-y-12">Asia Afrika</h1>
-                                <h1 class="absolute text-5xl uppercase font-black tracking-widest" x-show="active == 2"
-                                    x-transition:enter="transition ease-out duration-300"
+                                <h1 class="absolute text-4xl md:text-2xl lg:text-4xl xl:text-5xl uppercase font-black tracking-widest
+                                           md:translate-y-8 lg:translate-y-12 xl:translate-y-16
+                                           md:left-1/2 lg:left-1/2 xl:left-1/2 md:transform lg:transform xl:transform md:-translate-x-1/2 lg:-translate-x-1/2 xl:-translate-x-1/2"
+                                    x-show="active == 2" x-transition:enter="transition ease-out duration-300"
                                     x-transition:enter-start="opacity-0 transform translate-y-12"
                                     x-transition:enter-end="opacity-100 transform translate-y-0"
                                     x-transition:leave="transition ease-out duration-300"
                                     x-transition:leave-start="opacity-100 transform translate-y-0"
                                     x-transition:leave-end="opacity-0 transform -translate-y-12">Pasar Baru</h1>
                             </div>
+
 
                             <div class="carousel col-start-1 row-start-1" x-ref="carousel">
                                 <div class="w-3/5 px-2">
@@ -175,7 +179,7 @@
                         </div>
                     </div>
                 </div>
-            </main>
+            </div>
         </div>
     </section>
 
@@ -360,7 +364,7 @@
     <section id="petawisata">
 
         <div class="max-w-screen-xl mx-auto sm:p-8 md:p-16">
-            <h4 class="mb-2 font-[Poppins] font-bold leading-none md:text-3xl xl:text-4xl dark:text-slate-800">
+            <h4 class="mb-2 font-[Poppins] font-bold leading-none md:text-2xl xl:text-4xl dark:text-slate-800">
                 Peta Wisata
             </h4>
             <p class="mb-2 font-[Poppins] leading-none dark:text-slate-800">
@@ -751,10 +755,6 @@
             background-image: url('/Admin/dist/img/Group.png');
             background-size: cover;
             background-position: center;
-        }
-
-        .flickity-viewport {
-            height: 500px !important;
         }
 
     </style>

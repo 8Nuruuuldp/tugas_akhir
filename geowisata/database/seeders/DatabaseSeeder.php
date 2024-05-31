@@ -359,7 +359,7 @@ class DatabaseSeeder extends Seeder
             'nama_tempat' => 'Margacinta Park',
             'kategori_id'=> 4,
             'alamat' => 'Jl. Margacinta No.98, Cijaura, Kec. Buahbatu, Kota Bandung, Jawa Barat 40287',
-            'gambar'=> 'img/margacinta.png',
+            'gambar'=> 'img/margacintapark.png',
             'sumber'=>'https://www.facebook.com/profile.php?id=100075430224276&sk=photos_by',
             'deskripsi'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero enim sint nesciunt nostrum natus possimus quidem dignissimos eveniet officiis? Dolorem quia consequuntur iste delectus, tempore sed aperiam, illo alias iure cupiditate suscipit?',
             'latitude' => -6.954810344896245,
