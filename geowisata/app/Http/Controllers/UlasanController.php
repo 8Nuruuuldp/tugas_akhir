@@ -40,7 +40,8 @@ class UlasanController extends Controller
             'rating' => $request->rating,
             'ulasan' => $request->ulasan,
         ]);
-        return redirect()->route('ulasan.create', ['wisata_id'=>$request->wisata_id])->with('success', 'Ulasan Anda telah terkirim!');
+         return redirect()->route('detailwisata', ['id' => $request->wisata_id]);
+        //return redirect()->route('ulasan.create', ['wisata_id'=>$request->wisata_id])->with('success', 'Ulasan Anda telah terkirim!');
 
     }
 

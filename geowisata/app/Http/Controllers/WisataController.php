@@ -87,15 +87,23 @@ class WisataController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id){
 
+    public function show(string $id) {
+        // Ambil data wisata beserta relasi kategori
         $wisata = Wisata::with('kategori')->find($id);
+    
+        // Jika data wisata tidak ditemukan, kembalikan halaman 404 atau tampilkan pesan error
+        if (!$wisata) {
+            // Anda bisa mengarahkan ke halaman 404 atau menampilkan pesan error khusus
+            return abort(404, 'Wisata tidak ditemukan');
+        }
+    
+        // Ambil semua ulasan terkait wisata
         $ulasan = Ulasan::where('wisata_id', $id)->get();
+    
+        // Kembalikan view dengan data yang telah diambil
         return view('detailwisata', compact('id', 'wisata', 'ulasan'));
-
-        //$wisata = Wisata::findOrFail($id);
-        //return view('detailwisata', compact('wisata'));
-    }
+}
 
     /**
      * Show the form for editing the specified resource.
@@ -111,26 +119,37 @@ class WisataController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, $id)
-    {
-        $wisata = Wisata::find($id);
-        $ubah = Wisata::find($id);
-        $awal = $ubah->gambar;
+{
+    $wisata = Wisata::find($id);
+    $awal = $wisata->gambar;
 
-        $wisata = [
-            'nama_tempat' => $request['nama_tempat'],
-            'kategori_id' => $request['kategori_id'],
-            'alamat' => $request['alamat'],
-            'gambar' => $awal,
-            'sumber' => $request['sumber'],
-            'deskripsi' => $request['deskripsi'],
-            'waktu_operasional' => $request['waktu_operasional'],
-            'link_pendukung' => $request['link_pendukung'],
-            'latitude' => $request['latitude'],
-            'longitude' => $request['longitude'],
-        ];
-        $request->gambar->move(public_path().'/img', $awal);
-        $ubah->update($wisata);
-        //dd($request->all());
+    if ($request->hasFile('gambar')) {
+        // Delete the old file
+        if (file_exists(public_path().'/img/'.$awal)) {
+            unlink(public_path().'/img/'.$awal);
+        }
+
+        // Upload the new file
+        $file = $request->file('gambar');
+        $filename = time().'_'.$file->getClientOriginalName();
+        $file->move(public_path().'/img', $filename);
+
+        // Update the wisata model with the new file name
+        $wisata->gambar = $filename;
+    }
+
+        $wisata->nama_tempat = $request['nama_tempat'];
+        $wisata->kategori_id = $request['kategori_id'];
+        $wisata->alamat = $request['alamat'];
+        $wisata->sumber = $request['sumber'];
+        $wisata->deskripsi = $request['deskripsi'];
+        $wisata->waktu_operasional = $request['waktu_operasional'];
+        $wisata->link_pendukung = $request['link_pendukung'];
+        $wisata->latitude = $request['latitude'];
+        $wisata->longitude = $request['longitude'];
+
+        $wisata->save();
+
         return redirect('/wisata')->with('success', 'Data berhasil diperbarui!');
     }
 
