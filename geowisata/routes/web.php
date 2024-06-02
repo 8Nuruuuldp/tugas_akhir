@@ -51,22 +51,22 @@ Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard
 
 
 //Routing Read Data User
-Route::get('/user', [UserController::class, 'index']);
+Route::get('/user', [UserController::class, 'index'])->middleware('auth');
 //Routing Edit Data User
-Route::get('/user/{id}/edit', [UserController::class, 'edit']);
+Route::get('/user/{id}/edit', [UserController::class, 'edit'])->middleware('auth');
 Route::post('/user/{id}/update', [UserController::class, 'update']);
 // delete data user
-Route::get('/user/{id}/delete', [UserController::class, 'destroy']);
+Route::get('/user/{id}/delete', [UserController::class, 'destroy'])->middleware('auth');
 
 //Routing CRUD Data Wisata
-Route::get('/wisata', [WisataController::class, 'index']);
+Route::get('/wisata', [WisataController::class, 'index'])->middleware('auth');
 // Tambah data wisata
-Route::get('/wisata/create', [WisataController::class, 'create'])->name('create.wisata');
+Route::get('/wisata/create', [WisataController::class, 'create'])->name('create.wisata')->middleware('auth');
 Route::post('/wisata/store', [WisataController::class, 'store'])->name('store.wisata');
 //Edit data wisata
-Route::get('/wisata/{id}/edit', [WisataController::class, 'edit']);
+Route::get('/wisata/{id}/edit', [WisataController::class, 'edit'])->middleware('auth');
 Route::post('/wisata/{id}/update', [WisataController::class, 'update']);
-Route::get('/wisata/{id}/delete', [WisataController::class, 'destroy']);
+Route::get('/wisata/{id}/delete', [WisataController::class, 'destroy'])->middleware('auth');
 Route::get('/wisata/{id}/show', [WisataController::class, 'show']);
 
 //
@@ -75,23 +75,23 @@ Route::get('/petawisata', function () {
 });
 
 //Routing CRUD Data Kategori
-Route::get('/kategori', [KategoriController::class, 'index']);
-Route::get('/kategori/create', [KategoriController::class, 'create']);
+Route::get('/kategori', [KategoriController::class, 'index'])->middleware('auth');
+Route::get('/kategori/create', [KategoriController::class, 'create'])->middleware('auth');
 Route::post('/kategori/store', [KategoriController::class, 'store']);
-Route::get('/kategori/{id}/edit', [KategoriController::class, 'edit']);
+Route::get('/kategori/{id}/edit', [KategoriController::class, 'edit'])->middleware('auth');
 Route::post('/kategori/{id}/update', [KategoriController::class, 'update']);
-Route::get('/kategori/{id}/delete', [KategoriController::class, 'destroy']);
+Route::get('/kategori/{id}/delete', [KategoriController::class, 'destroy'])->middleware('auth');
 
 //Routing Menampilkan Ulasan di Admin
-Route::get('/ulasan', [UlasanController::class, 'index']);
+Route::get('/ulasan', [UlasanController::class, 'index'])->middleware('auth');
 //Routing Ulasan di Halaman User
 Route::get('/ulasan/{wisata_id}', [UlasanController::class, 'create'])->name('ulasan.create');
 Route::post('/ulasan/store', [UlasanController::class, 'store']);
 
 //Routing Kontak
-Route::get('/kontak', [KontakController::class, 'index']);
+Route::get('/kontak', [KontakController::class, 'index'])->middleware('auth');
 Route::post('/kontak/store', [KontakController::class, 'store']);
-Route::get('/kontak/{id}/delete', [KontakController::class, 'destroy']);
+Route::get('/kontak/{id}/delete', [KontakController::class, 'destroy'])->middleware('auth');
 
 //Detail Wisata
 Route::get('/detailwisata/{id}', [DetailWisataController::class, 'detailwisata'])->name('detailwisata');
