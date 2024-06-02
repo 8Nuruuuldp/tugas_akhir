@@ -89,7 +89,7 @@
                     Ayo jelajahi kota Bandung dan temukan berbagai pesonanya. Kamu dapat menekan tombol dibawah untuk
                     menemukan berbagai objek wisata yang menarik di kota Bandung
                 </p>
-                <a href="/petawisata"
+                <a href="#petawisata"
                     class="font-[Poppins] inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center bg-white text-gray-900 rounded-lg border border-gray-300 hover:bg-grey-100 focus:ring-4 focus:ring-gray-100 dark:text-dark dark:border-white dark:hover:bg-grey-700 dark:focus:ring-grey-800">
                     Temukan Tempat Wisata
                     <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
