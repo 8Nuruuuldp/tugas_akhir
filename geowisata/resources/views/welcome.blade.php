@@ -79,7 +79,7 @@
         <div class="text-center grid py-8 px-12 mx-auto max-w-screen-xl lg:gap-8 xl:gap-0 lg:py-16 ">
             <div class="place-self-center text-center mr-auto">
                 <h1
-                    class="font-[Poppins] mb-4 max-w-2xl text-4xl font-extrabold leading-none md:text-5xl xl:text-6xl dark:text-white">
+                    class="font-[Poppins] mb-4 max-w-2xl text-4xl font-extrabold leading-n2ne md:text-5xl xl:text-6xl dark:text-white">
                     BANDUNG</h1>
                 <h4
                     class="font-[Poppins] mb-4 max-w-2xl text-2xl font-extrabold md:text-2xl xl:text-4xl dark:text-white">
@@ -135,45 +135,58 @@
                         <div class="grid grid-cols-1 grid-rows-1" x-data="carousel()" x-init="init()">
                             <div
                                 class="col-start-1 row-start-1 relative z-20 flex items-center justify-center pointer-events-none">
-                                <h1 class="absolute text-4xl md:text-2xl lg:text-4xl xl:text-5xl uppercase font-black tracking-widest
-                                           md:translate-y-8 lg:translate-y-12 xl:translate-y-16
-                                           md:left-1/2 lg:left-1/2 xl:left-1/2 md:transform lg:transform xl:transform md:-translate-x-1/2 lg:-translate-x-1/2 xl:-translate-x-1/2"
-                                    x-show="active == 0" x-transition:enter="transition ease-out duration-300"
+                                <h1 class="absolute text-2xl md:text-5xl uppercase font-black tracking-widest text-center" x-show="active == 0"
+                                    x-transition:enter="transition ease-out duration-300"
                                     x-transition:enter-start="opacity-0 transform translate-y-12"
                                     x-transition:enter-end="opacity-100 transform translate-y-0"
                                     x-transition:leave="transition ease-out duration-300"
                                     x-transition:leave-start="opacity-100 transform translate-y-0"
                                     x-transition:leave-end="opacity-0 transform -translate-y-12">Gedung Merdeka</h1>
-                                <h1 class="absolute text-4xl md:text-2xl lg:text-4xl xl:text-5xl uppercase font-black tracking-widest
-                                           md:translate-y-8 lg:translate-y-12 xl:translate-y-16
-                                           md:left-1/2 lg:left-1/2 xl:left-1/2 md:transform lg:transform xl:transform md:-translate-x-1/2 lg:-translate-x-1/2 xl:-translate-x-1/2"
-                                    x-show="active == 1" x-transition:enter="transition ease-out duration-300"
+                                <h1 class="absolute text-2xl md:text-5xl uppercase font-black tracking-widest text-center" x-show="active == 1"
+                                    x-transition:enter="transition ease-out duration-300"
                                     x-transition:enter-start="opacity-0 transform translate-y-12"
                                     x-transition:enter-end="opacity-100 transform translate-y-0"
                                     x-transition:leave="transition ease-out duration-300"
                                     x-transition:leave-start="opacity-100 transform translate-y-0"
                                     x-transition:leave-end="opacity-0 transform -translate-y-12">Asia Afrika</h1>
-                                <h1 class="absolute text-4xl md:text-2xl lg:text-4xl xl:text-5xl uppercase font-black tracking-widest
-                                           md:translate-y-8 lg:translate-y-12 xl:translate-y-16
-                                           md:left-1/2 lg:left-1/2 xl:left-1/2 md:transform lg:transform xl:transform md:-translate-x-1/2 lg:-translate-x-1/2 xl:-translate-x-1/2"
-                                    x-show="active == 2" x-transition:enter="transition ease-out duration-300"
+                                <h1 class="absolute text-2xl md:text-5xl uppercase font-black tracking-widest text-center" x-show="active == 2"
+                                    x-transition:enter="transition ease-out duration-300"
                                     x-transition:enter-start="opacity-0 transform translate-y-12"
                                     x-transition:enter-end="opacity-100 transform translate-y-0"
                                     x-transition:leave="transition ease-out duration-300"
                                     x-transition:leave-start="opacity-100 transform translate-y-0"
                                     x-transition:leave-end="opacity-0 transform -translate-y-12">Pasar Baru</h1>
+                                <h1 class="absolute text-2xl md:text-5xl uppercase font-black tracking-widest text-center" x-show="active == 3"
+                                    x-transition:enter="transition ease-out duration-300"
+                                    x-transition:enter-start="opacity-0 transform translate-y-12"
+                                    x-transition:enter-end="opacity-100 transform translate-y-0"
+                                    x-transition:leave="transition ease-out duration-300"
+                                    x-transition:leave-start="opacity-100 transform translate-y-0"
+                                    x-transition:leave-end="opacity-0 transform -translate-y-12">Asia Afrika</h1>
+                                <h1 class="absolute text-2xl md:text-5xl uppercase font-black tracking-widest text-center" x-show="active == 4"
+                                    x-transition:enter="transition ease-out duration-300"
+                                    x-transition:enter-start="opacity-0 transform translate-y-12"
+                                    x-transition:enter-end="opacity-100 transform translate-y-0"
+                                    x-transition:leave="transition ease-out duration-300"
+                                    x-transition:leave-start="opacity-100 transform translate-y-0"
+                                    x-transition:leave-end="opacity-0 transform -translate-y-12">Jembatan Kusumaatmaja
+                                </h1>
                             </div>
-
-
                             <div class="carousel col-start-1 row-start-1" x-ref="carousel">
-                                <div class="w-3/5 px-2">
+                                <div class="w-full px-2 flex-none md:w-3/5">
                                     <img src="./img/gedungmerdeka.png" loading="lazy">
                                 </div>
-                                <div class="w-3/5 px-2">
+                                <div class="w-full px-2 flex-none md:w-3/5 ">
                                     <img src="./img/asiaafrika.png" loading="lazy">
                                 </div>
-                                <div class="w-3/5 px-2">
+                                <div class="w-full px-2 flex-none md:w-3/5 ">
                                     <img src="./img/pasarbaru.png" loading="lazy">
+                                </div>
+                                <div class="w-full px-2 flex-none md:w-3/5 ">
+                                    <img src="./img/jembatanasiaafrika.jpg" loading="lazy">
+                                </div>
+                                <div class="w-full px-2 flex-none md:w-3/5 ">
+                                    <img src="./img/jl.Kusumaatmaja.jpg" loading="lazy">
                                 </div>
                             </div>
                         </div>
@@ -362,24 +375,23 @@
     </section>
 
     <section id="petawisata">
-
-        <div class="max-w-screen-xl mx-auto sm:p-8 md:p-16">
-            <h4 class="mb-2 font-[Poppins] font-bold leading-none md:text-2xl xl:text-4xl dark:text-slate-800">
+        <div class="font-[Poppins] max-w-screen-xl mx-auto sm:p-8 md:p-8">
+            <h1 class="mb-2 font-bold md:text-2xl xl:text-4xl dark:text-slate-800">
                 Peta Wisata
-            </h4>
-            <p class="mb-2 font-[Poppins] leading-none dark:text-slate-800">
+            </h1>
+            <p class=" inline-flex font-light text-slate-700 md:text-lg lg:text-xl dark:text-slate-800">
                 Temukan destinasi wisata favorit Anda dan ciptakan kenangan indah di Kota Kembang dengan melakukan
-                pencarian dibawah ini.
-            </p>
+                pencarian dibawah ini. </p>
             <hr class="h-px my-4 bg-gray-200 border-0 dark:bg-gray-700">
-            <form>
-                <div class="flex gap-2 mb-4">
+
+            <form class="mb-8 md:mb-12 ">
+                <div class="flex flex-col md:flex-row gap-2 mb-4">
                     <input type="text" id="searchInput"
-                        class="w-full md:w-100 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500"
+                        class="w-full md:w-100 px-3 md:px-3 py-2 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500"
                         placeholder="Cari Tempat dan Alamat" oninput="onTyping(this)" />
                     <label for="kategori">
                         <select id="kategoriSelect"
-                            class="font-[Poppins] w-full md:w-80 px-3 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500"
+                            class="w-full md:w-80 px-3 md:px-3 py-2 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500"
                             onchange="onCategoryChange()">
                             <option value="">Kategori Wisata</option>
                             @foreach ($kategori as $kategoriItem)
@@ -388,14 +400,12 @@
                         </select>
                     </label>
                     <button type="submit"
-                        class="bg-green-500 text-white rounded px-2 md:px-3 py-0 md:py-1">Search</button>
+                        class="bg-green-500 text-white rounded px-3 md:px-3 md:px-3 py-1 md:py-1">Search</button>
                 </div>
                 <ul id="search-result"></ul>
             </form>
 
-
-
-            <div id="map" class="z-10" style="width: 100%; height: 600px;"> </div>
+            <div id="map" class="z-10" style="width: 100%; height: 600px;"></div>
         </div>
 
     </section>
