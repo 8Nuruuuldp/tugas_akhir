@@ -61,7 +61,8 @@
 
 " src="{{ asset('img/' . $wisata->gambar) }}"
                                     alt="Foto Objek Wisata">
-                                <p class="text-center mt-2">Sumber : {{ $wisata->sumber }}</p>
+                                <p class="text-center mt-2">{{$wisata->nama_tempat}}</p>
+                                <p class="text-center mt-2 mb-4">Sumber : {{ $wisata->sumber }}</p>
                             </div>
                             <div class="space-y-1">
                                 <h1 class="text-gray-900 font-bold text-5xl"> {{ $wisata->nama_tempat }}
@@ -172,7 +173,7 @@
 
 
     <!--data ulasan-->
-    <section class="mr-20 ml-20">
+    <section class="mt-20 mr-20 ml-20">
         <h2 class="text-3xl text-gray-800 text-bold">Ulasan</h2>
         <hr class="border-t border-gray-300 my-4">
         <div>
