@@ -471,7 +471,7 @@
                 <!-- Column 1 -->
                 <div>
                     <a href="#beranda" class="flex items-center mb-3">
-                        <img src="./img/logo.svg" class="h-14 mr-3" alt="Bandung Geowisata" />
+                        <img src="/img/logo.svg" class="h-14 mr-3" alt="Bandung Geowisata" />
                     </a>
                     <p class="text-gray-700 text-sm">
                         Bandung Geowisata adalah layanan yang menyediakan informasi dan titik lokasi mengenai objek
@@ -483,13 +483,13 @@
                     <h2 class="mb-0 font-semibold text-gray-900">Kontak Kami</h2>
                     <ul class="text-gray-700 text-sm">
                         <li class="mb-1">
-                            <a href="https://mail.google.com/" class="hover:underline"><i
-                                    class="fas fa-envelope"></i>&nbsp; Email: bdgwisata@gmail.com</a>
+                            <a href="mailto:bgeowisata@gmail.com" target="_blank" class="hover:underline"><i
+                                    class="fas fa-envelope"></i>&nbsp; Email: bgeowisata@gmail.com</a>
                         </li>
                         <li class="mb-1">
-                            <a href="https://wa.me/082123456789?text=Hallo%20Admin%20mohon%20bantu%20Saya%20perihal"
+                            <a href="https://wa.me/085182619614?text=Hallo%20Admin%20mohon%20bantu%20Saya%20perihal" target="_blank"
                                 class="hover:underline"><i class="fas fa-phone"></i>&nbsp; Phone Number:
-                                0821-2345-6789</a>
+                                +62 851-8261-9614</a>
                         </li>
                     </ul>
                 </div>
@@ -498,15 +498,15 @@
                     <h2 class="mb-0 font-semibold text-gray-900">Media Sosial</h2>
                     <ul class="text-gray-700 text-sm">
                         <li class="mb-1">
-                            <a href="https://www.instagram.com/" class="hover:underline"><i
-                                    class="fab fa-instagram"></i>&nbsp; Instagram: @bandunggeowisata</a>
+                            <a href="https://www.instagram.com/bgeowisata" target="_blank" class="hover:underline"><i
+                                    class="fab fa-instagram"></i>&nbsp; Instagram: @bgeowisata</a>
                         </li>
                         <li class="mb-1">
-                            <a href="https://www.twitter.com/" class="hover:underline"><i
-                                    class="fab fa-twitter"></i>&nbsp; Twitter: @bandunggeowisata</a>
+                            <a href="https://www.twitter.com/bgeowisata" target="_blank" class="hover:underline"><i
+                                    class="fab fa-twitter"></i>&nbsp; Twitter: @bgeowisata</a>
                         </li>
                         <li class="mb-1">
-                            <a href="https://www.facebook.com/" class="hover:underline"><i
+                            <a href="https://www.facebook.com/profile.php?id=61560469682604&mibextid=ZbWKwL" class="hover:underline"><i
                                     class="fab fa-facebook"></i>&nbsp; Facebook: Bandung Geowisata</a>
                         </li>
                     </ul>
