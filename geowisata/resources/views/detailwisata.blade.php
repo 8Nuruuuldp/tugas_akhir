@@ -82,11 +82,11 @@
                                 </div>
                                 <div class="flex">
                                     <button
-                                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                        class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                                         Tunjukkan Arah
                                     </button>
                                     <button id="openContactForm"
-                                        class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ml-4">
+                                        class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ml-4">
                                         Beri Ulasan
                                     </button>
                                 </div>
