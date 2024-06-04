@@ -70,15 +70,16 @@
                                 </h1>
                                 <h3 class="text-gray-900 font-regular text-lg">{{ $wisata->alamat }}</h3>
                                 <div class="border-t border-b">
-                                    <h3>Deskripsi:</h3>
+                                    <h3 class="font-bold">Deskripsi:</h3>
                                     <p>{{ $wisata->deskripsi }}</p>
                                 </div><br>
                                 <div class="border-b">
-                                    <h3>Waktu Operasional:</h3>
+                                    <h3 class="font-bold">Waktu Operasional:</h3>
                                     <p>{{ $wisata->waktu_operasional }}</p>
                                 </div><br>
                                 <div>
-                                    <h3>Cari info lebih banyak tentang {{ $wisata->nama_tempat }}?</h3>
+                                    <h3 class="font-bold border-b">Cari info lebih banyak tentang
+                                        {{ $wisata->nama_tempat }}?</h3>
                                     <p>{{ $wisata->link_pendukung }}</p>
                                 </div>
                                 <div class="flex">
@@ -86,7 +87,7 @@
                                         class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                                         <a
                                             href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination={{ $wisata->latitude }},{{ $wisata->longitude }}">
-                                            Tunjukkan Arah
+                                            Tunjukkan Arah </a>
                                     </button>
                                     <button id="openContactForm"
                                         class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ml-4">
