@@ -51,7 +51,7 @@
 
     <!--content-->
     <section>
-        <div class="container mx-auto w-full max-w-screen-xl px-4 py-8">
+        <div class="container mx-auto w-full max-w-screen-xl px-4 py-8 font-[Poppins]">
             <div class="flex flex-wrap">
                 <div class="mr-10 ml-10 flex items-center">
                     @if ($wisata)
