@@ -61,23 +61,24 @@
 
 " src="{{ asset('img/' . $wisata->gambar) }}"
                                     alt="Foto Objek Wisata">
-                                <p class="text-center mt-2">{{ $wisata->nama_tempat }}</p>
+                                <p class="text-center ">{{ $wisata->nama_tempat }}</p>
                                 <p class="text-center mt-2 mb-4">Sumber : {{ $wisata->sumber }}</p>
                             </div>
                             <div class="space-y-1">
-                                <h1 class="text-gray-900 font-bold text-5xl"> {{ $wisata->nama_tempat }}
+                                <h1 class="text-gray-900 font-bold text-5xl mt-5 border-t">
+                                    {{ $wisata->nama_tempat }}
                                 </h1>
                                 <h3 class="text-gray-900 font-regular text-lg">{{ $wisata->alamat }}</h3>
                                 <div class="border-t border-b">
-                                    <h3>Deskripsi:</h3><br>
+                                    <h3>Deskripsi:</h3>
                                     <p>{{ $wisata->deskripsi }}</p>
-                                </div>
+                                </div><br>
                                 <div class="border-b">
-                                    <h3>Waktu Operasional:</h3><br>
+                                    <h3>Waktu Operasional:</h3>
                                     <p>{{ $wisata->waktu_operasional }}</p>
-                                </div>
+                                </div><br>
                                 <div>
-                                    <h3>Cari info lebih banyak tentang {{ $wisata->nama_tempat }}?</h3><br>
+                                    <h3>Cari info lebih banyak tentang {{ $wisata->nama_tempat }}?</h3>
                                     <p>{{ $wisata->link_pendukung }}</p>
                                 </div>
                                 <div class="flex">
