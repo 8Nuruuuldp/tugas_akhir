@@ -61,7 +61,7 @@
 
 " src="{{ asset('img/' . $wisata->gambar) }}"
                                     alt="Foto Objek Wisata">
-                                <p class="text-center mt-2">{{$wisata->nama_tempat}}</p>
+                                <p class="text-center mt-2">{{ $wisata->nama_tempat }}</p>
                                 <p class="text-center mt-2 mb-4">Sumber : {{ $wisata->sumber }}</p>
                             </div>
                             <div class="space-y-1">
@@ -175,7 +175,7 @@
     <!--data ulasan-->
     <section class="mt-20 mr-20 ml-20">
         <h2 class="text-3xl text-gray-800 text-bold">Ulasan</h2>
-        <hr class="border-t border-gray-300 my-4">
+        <hr class="border-t border-gray-300 my-4 animate-pulse">
         <div>
             @foreach ($ulasan as $ulasan)
                 <div class="bg-white p-6 rounded-lg shadow-md mb-4">
@@ -223,8 +223,9 @@
                                     class="fas fa-envelope"></i>&nbsp; Email: bgeowisata@gmail.com</a>
                         </li>
                         <li class="mb-3">
-                            <a href="https://wa.me/085182619614?text=Hallo%20Admin%20mohon%20bantu%20Saya%20perihal" target="_blank"
-                                class="hover:underline"><i class="fas fa-phone"></i>&nbsp; Phone Number:
+                            <a href="https://wa.me/085182619614?text=Hallo%20Admin%20mohon%20bantu%20Saya%20perihal"
+                                target="_blank" class="hover:underline"><i class="fas fa-phone"></i>&nbsp; Phone
+                                Number:
                                 +62 851-8261-9614</a>
                         </li>
                     </ul>
@@ -242,8 +243,9 @@
                                     class="fab fa-twitter"></i>&nbsp; Twitter: @bgeowisata</a>
                         </li>
                         <li class="mb-3">
-                            <a href="https://www.facebook.com/profile.php?id=61560469682604&mibextid=ZbWKwL" class="hover:underline"><i
-                                    class="fab fa-facebook"></i>&nbsp; Facebook: Bandung Geowisata</a>
+                            <a href="https://www.facebook.com/profile.php?id=61560469682604&mibextid=ZbWKwL"
+                                class="hover:underline"><i class="fab fa-facebook"></i>&nbsp; Facebook: Bandung
+                                Geowisata</a>
                         </li>
                     </ul>
                 </div>
