@@ -213,17 +213,11 @@
                         let marker = L.marker([n.latitude, n.longitude], {
                             icon: iconMap
                         }).addTo(map);
-                        let popupContent = `<div class"min-h-screen flex items-center justify-center">
-                            <img class="h-48 w-full object-cover object-end" src="./img/${n.gambar}>
-                            <div class="p-6">
-                            <h4 class="mt-2 font-bold text-lg truncate">${n.nama_tempat}</h4>
-                            <div class=""> <br>${n.alamat}</div>
-                            <div class="my-2">
-                            <a href="/detailwisata/${n.id}" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center">Lihat Selengkapnya</a>
-                            <button onclick="getLocation(${n.latitude}, ${n.longitude})" class="py-2 text-blue-500 rounded shadow-md hover:bg-blue-300 active:bg-blue-700 disabled:opacity-50 mt-2 w-full flex items-center justify-center">Ayo kesana!</button>
-                            </div>
-                            </div>
+                        let popupContent = `<div>
+                            <p class="fw-semibold">${n.nama_tempat}</p>
+                            <div class="">${n.alamat}</div>
                             </div>`;
+
                         marker.bindPopup(popupContent);
                         marker.on('click', function () {
                             marker.openPopup();
