@@ -22,8 +22,7 @@
 
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.js"
-        charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.js" charset="utf-8">
     </script>
 
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
@@ -41,7 +40,6 @@
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
 
 </head>
 
@@ -90,8 +88,8 @@
                     Ayo jelajahi kota Bandung dan temukan berbagai pesonanya. Kamu dapat menekan tombol dibawah untuk
                     menemukan berbagai objek wisata yang menarik di kota Bandung
                 </p>
-                <a href="/petawisata"
-                    class="font-[Poppins] inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center bg-white text-gray-900 rounded-lg border border-gray-300 hover:bg-grey-100 focus:ring-4 focus:ring-gray-100 dark:text-dark dark:border-white dark:hover:bg-grey-700 dark:focus:ring-grey-800">
+                <a href="#petawisata"
+                    class="font-[Poppins] inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center bg-white text-gray-900 rounded-lg border border-gray-300 hover:bg-grey-100 focus:ring-4 focus:ring-gray-100 dark:text-dark dark:border-white dark:hover:bg-grey-700 dark:focus:ring-grey-800 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300">
                     Temukan Tempat Wisata
                     <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg">
@@ -197,21 +195,25 @@
         </div>
     </section>
 
-    <section id="rekomendasi">
+    <section id="rekomendasi"> <!--Tinggal Styling-->
+            @php
+            $wisata = App\Models\Wisata::orderByRaw("RAND()")->take(4)->get();
+            @endphp
+            @foreach($wisata as $wisata)
         <div class="container-fluid bg-green-900">
+            
             <div class="font-[Poppins] max-w-screen-xl mx-auto sm:p-10 md:p-16 bg-green-900">
-                <div class="grid grid-cols-1 md:grid-cols-4 sm:grid-cols-3 gap-8 p-8">
-
+                <div class="grid">
                     <div class="max-w-sm bg-white rounded-lg shadow">
                         <a href="#">
                             <img class="rounded-t-lg"
-                                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxfHxwZXJzb258ZW58MHwwfHx8MTcxMDUxNjkwM3ww&ixlib=rb-4.0.3&q=80&w=1080"
+                                src="{{ asset('.img/' . $wisata->gambar) }}"
                                 alt="" />
                         </a>
                         <div class="p-3">
                             <h5 class="font-[Poppins] mb-2  text-slate-800 font-bold tracking-tight text-gray-900">
-                                Gedung
-                                Sate</h5>
+                            {{ $wisata->nama_tempat }}    
+                            </h5>
                             <div class="flex items-center mb-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500"
                                     viewBox="0 0 20 20" fill="currentColor">
@@ -223,15 +225,12 @@
                                     <span class="text-gray-500 font-normal">(76 reviews)</span>
                                 </p>
                             </div>
-                            <p class="text-sm">Jl. Diponegoro No.22, Citarum, Kec. Bandung Wetan, Kota Bandung, Jawa
-                                Barat
-                                40115</p>
+                            <p class="text-sm">
+                                {{ $wisata->alamat }}</p>
                             <p class="text-slate-900 text-xs pt-2 pb-2">
-                                Lorem ipsum dolor sit amet, consectetur adipisicin elit.
-                                Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
-                                nihil.
+                                {{ $wisata->deskripsi }}
                             </p>
-                            <a href="#"
+                            <a href="detailwisata/{{$wisata->id}}"
                                 class="inline-flex items-center justify-center w-full px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                 Lihat selengkapnya
                                 <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
@@ -240,125 +239,10 @@
                                         stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
                                 </svg>
                             </a>
+                            
                         </div>
                     </div>
-
-                    <div class="max-w-sm bg-white rounded-lg shadow">
-                        <a href="#">
-                            <img class="rounded-t-lg"
-                                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxfHxwZXJzb258ZW58MHwwfHx8MTcxMDUxNjkwM3ww&ixlib=rb-4.0.3&q=80&w=1080"
-                                alt="" />
-                        </a>
-                        <div class="p-3">
-                            <h5 class="mb-2  text-slate-800 font-bold tracking-tight text-gray-900">Gedung Sate</h5>
-                            <div class="flex items-center mb-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500"
-                                    viewBox="0 0 20 20" fill="currentColor">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
-                                <p class="text-gray-600 font-semibold text-sm ml-1">
-                                    4.96
-                                    <span class="text-gray-500 font-normal">(76 reviews)</span>
-                                </p>
-                            </div>
-                            <p class="text-sm">Jl. Diponegoro No.22, Citarum, Kec. Bandung Wetan, Kota Bandung, Jawa
-                                Barat
-                                40115</p>
-                            <p class="text-slate-900 text-xs pt-2 pb-2">
-                                Lorem ipsum dolor sit amet, consectetur adipisicin elit.
-                                Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
-                                nihil.
-                            </p>
-                            <a href="#"
-                                class="inline-flex items-center justify-center w-full px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                Lihat selengkapnya
-                                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="max-w-sm bg-white rounded-lg shadow">
-                        <a href="#">
-                            <img class="rounded-t-lg"
-                                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxfHxwZXJzb258ZW58MHwwfHx8MTcxMDUxNjkwM3ww&ixlib=rb-4.0.3&q=80&w=1080"
-                                alt="" />
-                        </a>
-                        <div class="p-3">
-                            <h5 class="mb-2  text-slate-800 font-bold tracking-tight text-gray-900">Gedung Sate</h5>
-                            <div class="flex items-center mb-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500"
-                                    viewBox="0 0 20 20" fill="currentColor">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
-                                <p class="text-gray-600 font-semibold text-sm ml-1">
-                                    4.96
-                                    <span class="text-gray-500 font-normal">(76 reviews)</span>
-                                </p>
-                            </div>
-                            <p class="text-sm">Jl. Diponegoro No.22, Citarum, Kec. Bandung Wetan, Kota Bandung, Jawa
-                                Barat
-                                40115</p>
-                            <p class="text-slate-900 text-xs pt-2 pb-2">
-                                Lorem ipsum dolor sit amet, consectetur adipisicin elit.
-                                Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
-                                nihil.
-                            </p>
-                            <a href="#"
-                                class="inline-flex items-center justify-center w-full px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                Lihat selengkapnya
-                                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="max-w-sm bg-white rounded-lg shadow">
-                        <a href="#">
-                            <img class="rounded-t-lg"
-                                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxfHxwZXJzb258ZW58MHwwfHx8MTcxMDUxNjkwM3ww&ixlib=rb-4.0.3&q=80&w=1080"
-                                alt="" />
-                        </a>
-                        <div class="p-3">
-                            <h5 class="mb-2  text-slate-800 font-bold tracking-tight text-gray-900">Gedung Sate</h5>
-                            <div class="flex items-center mb-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500"
-                                    viewBox="0 0 20 20" fill="currentColor">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
-                                <p class="text-gray-600 font-semibold text-sm ml-1">
-                                    4.96
-                                    <span class="text-gray-500 font-normal">(76 reviews)</span>
-                                </p>
-                            </div>
-                            <p class="text-sm">Jl. Diponegoro No.22, Citarum, Kec. Bandung Wetan, Kota Bandung, Jawa
-                                Barat
-                                40115</p>
-                            <p class="text-slate-900 text-xs pt-2 pb-2">
-                                Lorem ipsum dolor sit amet, consectetur adipisicin elit.
-                                Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
-                                nihil.
-                            </p>
-                            <a href="#"
-                                class="inline-flex items-center justify-center w-full px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                Lihat selengkapnya
-                                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
 
                 <h1
@@ -376,7 +260,7 @@
     </section>
 
     <section id="petawisata">
-        <div class="font-[Poppins] mx-auto sm:p-8 md:p-8 p-4">
+        <div class="font-[Poppins] max-w-screen-xl mx-auto sm:p-8 md:p-8">
             <h1 class="mb-2 font-bold md:text-2xl xl:text-4xl dark:text-slate-800">
                 Peta Wisata
             </h1>
@@ -385,43 +269,29 @@
                 pencarian dibawah ini. </p>
             <hr class="h-px my-4 bg-gray-200 border-0 dark:bg-gray-700">
 
-            <div>
-                <form class="mb-8 md:mb-12">
+            <form class="mb-8 md:mb-12 ">
                 <div class="flex flex-col md:flex-row gap-2 mb-4">
-                    <div>
-                        <p class="mb-2">Cari Tempat Wisata</p>
-                        <div class="relative">
-                            <input type="text" id="searchInput"
+                    <input type="text" id="searchInput"
+                        class="w-full md:w-100 px-3 md:px-3 py-2 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500"
+                        placeholder="Cari Tempat dan Alamat" oninput="onTyping(this)" />
+                    <label for="kategori">
+                        <select id="kategoriSelect"
                             class="w-full md:w-80 px-3 md:px-3 py-2 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500"
-                            placeholder="Cari Tempat Wisata" oninput="onTyping(this)" />
-                            <div class="absolute inset-y-0 right-4 pl-3 flex items-center pointer-events-none">
-                                <svg class="h-5 w-5 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="mb-2">Kategori</p>
-                        <label for="kategori">
-                            <select id="kategoriSelect"
-                                class="w-full md:w-80 px-3 md:px-3 py-2 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500"
-                                onchange="onCategoryChange()">
-                                <option value="">Kategori Wisata</option>
-                                @foreach ($kategori as $kategoriItem)
+                            onchange="onCategoryChange()">
+                            <option value="">Kategori Wisata</option>
+                            @foreach ($kategori as $kategoriItem)
                                 <option value="{{ $kategoriItem->id }}">{{ $kategoriItem->nama_kategori }}</option>
-                                @endforeach
-                            </select>
-                        </label>
-                    </div>
+                            @endforeach
+                        </select>
+                    </label>
+                    <button type="submit"
+                        class="bg-green-500 text-white rounded px-3 md:px-3 md:px-3 py-1 md:py-1">Search</button>
                 </div>
                 <ul id="search-result"></ul>
             </form>
-            </div>
 
             <div id="map" class="z-10" style="width: 100%; height: 600px;"></div>
         </div>
-
     </section>
 
     <!-- Start Contact -->
@@ -440,9 +310,9 @@
                 <!-- Kolom Kanan: Form -->
                 <div class="md:w-1/2">
                     @if (session('success'))
-                    <div id="successMessage" class="bg-green-500 text-white p-4 rounded mb-4">
-                        {{ session('success') }}
-                    </div>
+                        <div id="successMessage" class="bg-green-500 text-white p-4 rounded mb-4">
+                            {{ session('success') }}
+                        </div>
                     @endif
                     <form action="{{ url('/kontak/store') }}" method="POST">
                         @csrf
@@ -486,7 +356,7 @@
                 <!-- Column 1 -->
                 <div>
                     <a href="#beranda" class="flex items-center mb-3">
-                        <img src="./img/logo.svg" class="h-14 mr-3" alt="Bandung Geowisata" />
+                        <img src="/img/logo.svg" class="h-14 mr-3" alt="Bandung Geowisata" />
                     </a>
                     <p class="text-gray-700 text-sm">
                         Bandung Geowisata adalah layanan yang menyediakan informasi dan titik lokasi mengenai objek
@@ -498,13 +368,13 @@
                     <h2 class="mb-0 font-semibold text-gray-900">Kontak Kami</h2>
                     <ul class="text-gray-700 text-sm">
                         <li class="mb-1">
-                            <a href="https://mail.google.com/" class="hover:underline"><i
-                                    class="fas fa-envelope"></i>&nbsp; Email: bdgwisata@gmail.com</a>
+                            <a href="mailto:bgeowisata@gmail.com" target="_blank" class="hover:underline"><i
+                                    class="fas fa-envelope"></i>&nbsp; Email: bgeowisata@gmail.com</a>
                         </li>
                         <li class="mb-1">
-                            <a href="https://wa.me/082123456789?text=Hallo%20Admin%20mohon%20bantu%20Saya%20perihal"
+                            <a href="https://wa.me/085182619614?text=Hallo%20Admin%20mohon%20bantu%20Saya%20perihal" target="_blank"
                                 class="hover:underline"><i class="fas fa-phone"></i>&nbsp; Phone Number:
-                                0821-2345-6789</a>
+                                +62 851-8261-9614</a>
                         </li>
                     </ul>
                 </div>
@@ -513,15 +383,15 @@
                     <h2 class="mb-0 font-semibold text-gray-900">Media Sosial</h2>
                     <ul class="text-gray-700 text-sm">
                         <li class="mb-1">
-                            <a href="https://www.instagram.com/" class="hover:underline"><i
-                                    class="fab fa-instagram"></i>&nbsp; Instagram: @bandunggeowisata</a>
+                            <a href="https://www.instagram.com/bgeowisata" target="_blank" class="hover:underline"><i
+                                    class="fab fa-instagram"></i>&nbsp; Instagram: @bgeowisata</a>
                         </li>
                         <li class="mb-1">
-                            <a href="https://www.twitter.com/" class="hover:underline"><i
-                                    class="fab fa-twitter"></i>&nbsp; Twitter: @bandunggeowisata</a>
+                            <a href="https://www.twitter.com/bgeowisata" target="_blank" class="hover:underline"><i
+                                    class="fab fa-twitter"></i>&nbsp; Twitter: @bgeowisata</a>
                         </li>
                         <li class="mb-1">
-                            <a href="https://www.facebook.com/" class="hover:underline"><i
+                            <a href="https://www.facebook.com/profile.php?id=61560469682604&mibextid=ZbWKwL" class="hover:underline"><i
                                     class="fab fa-facebook"></i>&nbsp; Facebook: Bandung Geowisata</a>
                         </li>
                     </ul>
@@ -608,9 +478,9 @@
             tooltipAnchor: [22, -20]
         });
 
-        $(document).ready(function () {
-            $.getJSON('point/json', function (data) {
-                $.each(data, function (index) {
+        $(document).ready(function() {
+            $.getJSON('point/json', function(data) {
+                $.each(data, function(index) {
 
                     L.marker([parseFloat(data[index].latitude), parseFloat(data[index]
                             .longitude)], {
@@ -634,7 +504,7 @@
 
         function getLocation(latitude, longitude) {
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function (position) {
+                navigator.geolocation.getCurrentPosition(function(position) {
                     var userlat = position.coords.latitude;
                     var userlng = position.coords.longitude;
                     console.log(userlat, userlng);
@@ -643,7 +513,7 @@
                         url: 'point/json',
                         method: 'get',
                         dataType: 'json',
-                        success: function (data) {
+                        success: function(data) {
                             // Menampilkan rute dari posisi pengguna ke posisi tujuan
                             var startLat = L.latLng(userlat, userlng);
                             var endPoint = L.latLng(latitude, longitude);
@@ -656,7 +526,7 @@
                                 geocoder: L.Control.Geocoder.nominatim()
                             }).addTo(map);
                         },
-                        error: function (xhr, status, error) {
+                        error: function(xhr, status, error) {
                             console.error("Error:", error);
                         }
                     });
@@ -669,7 +539,7 @@
         const searchInput = document.getElementById('searchInput');
         const kategoriSelect = document.getElementById('kategoriSelect');
 
-        searchInput.addEventListener('input', function () {
+        searchInput.addEventListener('input', function() {
             const keyword = this.value;
             const kategori = kategoriSelect.value;
             searchLocation(keyword, kategori);
@@ -704,7 +574,7 @@
         }
 
         function renderResults(result) {
-            map.eachLayer(function (layer) {
+            map.eachLayer(function(layer) {
                 if (layer instanceof L.Marker) {
                     map.removeLayer(layer);
                 }
@@ -725,7 +595,7 @@
                             </div>
                             </div>`;
                 marker.bindPopup(popupContent);
-                marker.on('click', function () {
+                marker.on('click', function() {
                     marker.openPopup();
                 });
                 map.setView([n.latitude, n.longitude], 15);
@@ -733,19 +603,19 @@
         }
 
         function clearResults() {
-            map.eachLayer(function (layer) {
+            map.eachLayer(function(layer) {
                 if (layer instanceof L.Marker) {
                     map.removeLayer(layer);
                 }
             });
         }
         // Notifikasi Pesan Pada Form Kontak
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             var successMessage = document.getElementById('successMessage');
 
             if (successMessage) {
                 successMessage.style.display = 'block';
-                setTimeout(function () {
+                setTimeout(function() {
                     successMessage.style.display = 'none';
                 }, 5000); // Menyembunyikan pesan setelah 5 detik
             }
@@ -757,7 +627,6 @@
                 navToggle.item(i).classList.toggle("hidden");
             }
         };
-
     </script>
 
     <style>
@@ -780,8 +649,6 @@
             background-size: cover;
             background-position: center;
         }
-
-
     </style>
 
 </body>

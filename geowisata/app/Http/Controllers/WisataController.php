@@ -7,6 +7,7 @@ use App\Models\Wisata;
 use App\Models\Kategori;
 use App\Models\Ulasan;
 use App\Models\DetailWisata;
+use Illuminate\Support\Facades\DB;
 
 use App\Http\Controllers\Controller;
 
@@ -176,6 +177,7 @@ class WisataController extends Controller
             $results=$this->Wisata->kategoriAll();
             return view('welcome',['kategori'=>$results]);
 
+            $wisata = Wisata::orderByRaw("RAND()")->first();
 
     }
     // foreach search petawisata
@@ -201,4 +203,11 @@ class WisataController extends Controller
     $result = $wisata->get();
     return response()->json($result);
 }
+
+public function getRandomWisata()
+{
+    $wisata = Wisata::inRandomOrder()->limit(4)->get();
+    return $wisata;
+}
+
 }
