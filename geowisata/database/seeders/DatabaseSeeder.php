@@ -428,7 +428,7 @@ class DatabaseSeeder extends Seeder
         Wisata::create([
             'nama_tempat' => 'Bandung Carnival Land Karang Setra',
             'kategori_id'=> 4,
-            'alamat' => 'Jl. Sirnagalih No.15, Cipedes, Kec. Sukajadi, Kota Bandung, Jawa Barat 40162',
+            'alamat' => 'Jl. Sirnagalih Nojpg, Cipedes, Kec. Sukajadi, Kota Bandung, Jawa Barat 40162',
             'waktu_operasional'=> ' Weekday : Jam 11.00 – 19.00 WIB
             Weekend : Jam 11.00 – 20.00 WIB',
             'link_pendukung'=>'',
@@ -442,7 +442,7 @@ class DatabaseSeeder extends Seeder
         Wisata::create([
             'nama_tempat' => 'Centrum Million Balls',
             'kategori_id'=> 4,
-            'alamat' => 'Jl. Belitung No.10, Merdeka, Kec. Sumur Bandung, Kota Bandung, Jawa Barat 40113',
+            'alamat' => 'Jl. Belitung No.1jpgMerdeka, Kec. Sumur Bandung, Kota Bandung, Jawa Barat 40113',
             'waktu_operasional'=> 'Senin - Minggu (10:00 - 20:00)',
             'link_pendukung'=>'',
             'gambar'=> 'img/CentrumMillionBalls.png',
@@ -456,7 +456,7 @@ class DatabaseSeeder extends Seeder
         Wisata::create([
             'nama_tempat' => 'Gardenice Rink',
             'kategori_id'=> 4,
-            'alamat' => 'Paris Van Java, Lantai SL- 08, Jalan Sukajadi No.137-139 Paris Van Java Sky Level, Cipedes, Kec. Sukajadi, Kota Bandung, Jawa Barat 40162',
+            'alamat' => 'Paris Van Java, Ljpgai SL- 08, Jalan Sukajadi No.137-139 Paris Van Java Sky Level, Cipedes, Kec. Sukajadi, Kota Bandung, Jawa Barat 40162',
             'waktu_operasional'=> 'Senin - Minggu (10:00 - 22:00)',
             'link_pendukung'=>'',
             'gambar'=> 'img/gardiencerink.png',
@@ -468,7 +468,7 @@ class DatabaseSeeder extends Seeder
         Wisata::create([
             'nama_tempat' => 'Margacinta Park',
             'kategori_id'=> 4,
-            'alamat' => 'Jl. Margacinta No.98, Cijaura, Kec. Buahbatu, Kota Bandung, Jawa Barat 40287',
+            'alamat' => 'Jl. Margacinta Nojpg, Cijaura, Kec. Buahbatu, Kota Bandung, Jawa Barat 40287',
             'waktu_operasional'=> '
             Waterpark 08:00-17:00
             Building 08:00-20:00
@@ -484,10 +484,10 @@ class DatabaseSeeder extends Seeder
         Wisata::create([
             'nama_tempat' => 'Kiara Artha Park',
             'kategori_id'=> 4,
-            'alamat' => 'Jl. Banten, Kebonwaru, Kec. Batununggal, Kota Bandung, Jawa Barat 40272',
+            'alamat' => 'Jl. Banten, Kebonjpgu, Kec. Batununggal, Kota Bandung, Jawa Barat 40272',
             'waktu_operasional'=> 'Setiap Hari 10:00-18.00',
             'link_pendukung'=>'',
-            'gambar'=> 'img/kiaraartapark.jpg',
+            'gambar'=> 'img/kiaraartapark.png',
             'sumber'=>'https://arthagraha.net/network-detail/kiara-artha-park#',
             'deskripsi'=> 'Kiara Artha Park merupakan taman di Bandung dengan luas yang mencapau 2,9 hektat. tampat ini tak hanya menjadi sebuah taman yang berhiaskan berbagai jenis bunga,
             namun lokasinya juga memadukan konspe hunian, bisnis, dan komersial. Menyajikan keindahan Dancing Fountian atau Air Mancur Menari. ',
@@ -497,7 +497,7 @@ class DatabaseSeeder extends Seeder
         Wisata::create([
             'nama_tempat' => 'Tepi Kota',
             'kategori_id'=> 4,
-            'alamat' => ' Jl. Padang Golf, Sukamiskin, Kec. Arcamanik, Kota Bandung, Jawa Barat 40293',
+            'alamat' => ' Jl. Padang Golf,jpgkamiskin, Kec. Arcamanik, Kota Bandung, Jawa Barat 40293',
             'waktu_operasional'=> 'Senin - Jumat 09.00 - 19.00
             Sabtu - Minggu 08.00 - 20.00',
             'link_pendukung'=>'',
@@ -513,7 +513,7 @@ class DatabaseSeeder extends Seeder
         Wisata::create([
             'nama_tempat' => 'Tani Kota',
             'kategori_id'=> 5,
-            'alamat' => ' Jl. Cisitu Indah VI, Dago, Kecamatan Coblong, Kota Bandung, Jawa Barat 40135',
+            'alamat' => ' Jl. Cisitu Indahjpg, Dago, Kecamatan Coblong, Kota Bandung, Jawa Barat 40135',
             'waktu_operasional'=> 'Setiap Hari (08.00-15.00 WIB)',
             'link_pendukung'=>'',
             'gambar'=> 'img/TaniKota.png',
@@ -529,7 +529,7 @@ class DatabaseSeeder extends Seeder
         Wisata::create([
             'nama_tempat' => 'Mesjid Raya Bandung',
             'kategori_id'=> 6,
-            'alamat' => ' Jl. Dalem Kaum No.14, Balonggede, Kec. Regol, Kota Bandung, Jawa Barat 40251',
+            'alamat' => ' Jl. Dalem Kaum Njpg4, Balonggede, Kec. Regol, Kota Bandung, Jawa Barat 40251',
             'waktu_operasional'=> 'setiap hari (24 jam)',
             'link_pendukung'=>'',
             'gambar'=> 'img/MasjidRayaBandung.png',
@@ -546,7 +546,7 @@ class DatabaseSeeder extends Seeder
         Wisata::create([
             'nama_tempat' => 'Mesjid Al-Jabbar',
             'kategori_id'=> 6,
-            'alamat' => ' Jl. Cimencrang No.14, Cimenerang, Kec. Gedebage, Kota Bandung, Jawa Barat 40292',
+            'alamat' => ' Jl. Cimencrang Njpg4, Cimenerang, Kec. Gedebage, Kota Bandung, Jawa Barat 40292',
             'waktu_operasional'=> 'setiap hari (24 jam)',
             'link_pendukung'=>'',
             'gambar'=> 'img/mesjidal-jabar.png',

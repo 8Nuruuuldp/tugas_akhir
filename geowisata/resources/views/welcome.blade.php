@@ -42,6 +42,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+
 </head>
 
 <body>
@@ -375,7 +376,7 @@
     </section>
 
     <section id="petawisata">
-        <div class="font-[Poppins] max-w-screen-xl mx-auto sm:p-8 md:p-8">
+        <div class="font-[Poppins] mx-auto sm:p-8 md:p-8 p-4">
             <h1 class="mb-2 font-bold md:text-2xl xl:text-4xl dark:text-slate-800">
                 Peta Wisata
             </h1>
@@ -384,26 +385,39 @@
                 pencarian dibawah ini. </p>
             <hr class="h-px my-4 bg-gray-200 border-0 dark:bg-gray-700">
 
-            <form class="mb-8 md:mb-12 ">
+            <div>
+                <form class="mb-8 md:mb-12">
                 <div class="flex flex-col md:flex-row gap-2 mb-4">
-                    <input type="text" id="searchInput"
-                        class="w-full md:w-100 px-3 md:px-3 py-2 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500"
-                        placeholder="Cari Tempat dan Alamat" oninput="onTyping(this)" />
-                    <label for="kategori">
-                        <select id="kategoriSelect"
+                    <div>
+                        <p class="mb-2">Cari Tempat Wisata</p>
+                        <div class="relative">
+                            <input type="text" id="searchInput"
                             class="w-full md:w-80 px-3 md:px-3 py-2 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500"
-                            onchange="onCategoryChange()">
-                            <option value="">Kategori Wisata</option>
-                            @foreach ($kategori as $kategoriItem)
-                            <option value="{{ $kategoriItem->id }}">{{ $kategoriItem->nama_kategori }}</option>
-                            @endforeach
-                        </select>
-                    </label>
-                    <button type="submit"
-                        class="bg-green-500 text-white rounded px-3 md:px-3 md:px-3 py-1 md:py-1">Search</button>
+                            placeholder="Cari Tempat Wisata" oninput="onTyping(this)" />
+                            <div class="absolute inset-y-0 right-4 pl-3 flex items-center pointer-events-none">
+                                <svg class="h-5 w-5 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="mb-2">Kategori</p>
+                        <label for="kategori">
+                            <select id="kategoriSelect"
+                                class="w-full md:w-80 px-3 md:px-3 py-2 h-10 rounded border-2 border-slate-300 focus:outline-none focus:border-sky-500"
+                                onchange="onCategoryChange()">
+                                <option value="">Kategori Wisata</option>
+                                @foreach ($kategori as $kategoriItem)
+                                <option value="{{ $kategoriItem->id }}">{{ $kategoriItem->nama_kategori }}</option>
+                                @endforeach
+                            </select>
+                        </label>
+                    </div>
                 </div>
                 <ul id="search-result"></ul>
             </form>
+            </div>
 
             <div id="map" class="z-10" style="width: 100%; height: 600px;"></div>
         </div>

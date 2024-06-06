@@ -112,7 +112,6 @@
                             </select>
                         </label>
                     </div>
-                    <button type="submit" class="btn btn-success mb-2">Search</button>
                     <ul id="search-result"></ul>
                 </form>
             </div>
