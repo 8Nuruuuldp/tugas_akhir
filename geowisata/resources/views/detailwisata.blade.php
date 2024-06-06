@@ -51,7 +51,7 @@
 
     <!--content-->
     <section>
-        <div class="container mx-auto w-full max-w-screen-xl px-4 py-8">
+        <div class="container mx-auto w-full max-w-screen-xl px-4 py-8 font-[Poppins]">
             <div class="flex flex-wrap">
                 <div class="mr-10 ml-10 flex items-center">
                     @if ($wisata)
@@ -61,32 +61,36 @@
 
 " src="{{ asset('img/' . $wisata->gambar) }}"
                                     alt="Foto Objek Wisata">
-                                <p class="text-center mt-2">{{$wisata->nama_tempat}}</p>
+                                <p class="text-center ">{{ $wisata->nama_tempat }}</p>
                                 <p class="text-center mt-2 mb-4">Sumber : {{ $wisata->sumber }}</p>
                             </div>
                             <div class="space-y-1">
-                                <h1 class="text-gray-900 font-bold text-5xl"> {{ $wisata->nama_tempat }}
+                                <h1 class="text-gray-900 font-bold text-5xl mt-5 border-t">
+                                    {{ $wisata->nama_tempat }}
                                 </h1>
                                 <h3 class="text-gray-900 font-regular text-lg">{{ $wisata->alamat }}</h3>
                                 <div class="border-t border-b">
-                                    <h3>Deskripsi:</h3><br>
+                                    <h3 class="font-bold">Deskripsi:</h3>
                                     <p>{{ $wisata->deskripsi }}</p>
-                                </div>
+                                </div><br>
                                 <div class="border-b">
-                                    <h3>Waktu Operasional:</h3><br>
+                                    <h3 class="font-bold">Waktu Operasional:</h3>
                                     <p>{{ $wisata->waktu_operasional }}</p>
-                                </div>
+                                </div><br>
                                 <div>
-                                    <h3>Cari info lebih banyak tentang {{ $wisata->nama_tempat }}?</h3><br>
+                                    <h3 class="font-bold border-b">Cari info lebih banyak tentang
+                                        {{ $wisata->nama_tempat }}?</h3>
                                     <p>{{ $wisata->link_pendukung }}</p>
                                 </div>
                                 <div class="flex">
                                     <button
-                                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                                        Tunjukkan Arah
+                                        class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                        <a
+                                            href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination={{ $wisata->latitude }},{{ $wisata->longitude }}">
+                                            Tunjukkan Arah </a>
                                     </button>
                                     <button id="openContactForm"
-                                        class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ml-4">
+                                        class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ml-4">
                                         Beri Ulasan
                                     </button>
                                 </div>
@@ -175,7 +179,7 @@
     <!--data ulasan-->
     <section class="mt-20 mr-20 ml-20">
         <h2 class="text-3xl text-gray-800 text-bold">Ulasan</h2>
-        <hr class="border-t border-gray-300 my-4">
+        <hr class="border-t border-gray-300 my-4 animate-pulse">
         <div>
             @foreach ($ulasan as $ulasan)
                 <div class="bg-white p-6 rounded-lg shadow-md mb-4">
@@ -216,55 +220,57 @@
                 </div>
                 <!-- Column 2 -->
                 <div>
-                    <h2 class="mb-0 font-semibold text-gray-900">Kontak Kami</h2>
+                    <h2 class="mb-5 font-semibold text-gray-900">Kontak Kami</h2>
                     <ul class="text-gray-700 text-sm">
-                        <li class="mb-1">
-                            <a href="https://mail.google.com/" class="hover:underline"><i
-                                    class="fas fa-envelope"></i>&nbsp; Email: bdgwisata@gmail.com</a>
+                        <li class="mb-3">
+                            <a href="mailto:bgeowisata@gmail.com" target="_blank" class="hover:underline"><i
+                                    class="fas fa-envelope"></i>&nbsp; Email: bgeowisata@gmail.com</a>
                         </li>
-                        <li class="mb-1">
-                            <a href="https://wa.me/082123456789?text=Hallo%20Admin%20mohon%20bantu%20Saya%20perihal"
-                                class="hover:underline"><i class="fas fa-phone"></i>&nbsp; Phone Number:
-                                0821-2345-6789</a>
+                        <li class="mb-3">
+                            <a href="https://wa.me/085182619614?text=Hallo%20Admin%20mohon%20bantu%20Saya%20perihal"
+                                target="_blank" class="hover:underline"><i class="fas fa-phone"></i>&nbsp; Phone
+                                Number:
+                                +62 851-8261-9614</a>
                         </li>
                     </ul>
                 </div>
                 <!-- Column 3 -->
                 <div>
-                    <h2 class="mb-0 font-semibold text-gray-900">Media Sosial</h2>
+                    <h2 class="mb-5 font-semibold text-gray-900">Media Sosial</h2>
                     <ul class="text-gray-700 text-sm">
-                        <li class="mb-1">
-                            <a href="https://www.instagram.com/" class="hover:underline"><i
-                                    class="fab fa-instagram"></i>&nbsp; Instagram: @bandunggeowisata</a>
+                        <li class="mb-3">
+                            <a href="https://www.instagram.com/bgeowisata" target="_blank" class="hover:underline"><i
+                                    class="fab fa-instagram"></i>&nbsp; Instagram: @bgeowisata</a>
                         </li>
-                        <li class="mb-1">
-                            <a href="https://www.twitter.com/" class="hover:underline"><i
-                                    class="fab fa-twitter"></i>&nbsp; Twitter: @bandunggeowisata</a>
+                        <li class="mb-3">
+                            <a href="https://www.twitter.com/bgeowisata" target="_blank" class="hover:underline"><i
+                                    class="fab fa-twitter"></i>&nbsp; Twitter: @bgeowisata</a>
                         </li>
-                        <li class="mb-1">
-                            <a href="https://www.facebook.com/" class="hover:underline"><i
-                                    class="fab fa-facebook"></i>&nbsp; Facebook: Bandung Geowisata</a>
+                        <li class="mb-3">
+                            <a href="https://www.facebook.com/profile.php?id=61560469682604&mibextid=ZbWKwL"
+                                class="hover:underline"><i class="fab fa-facebook"></i>&nbsp; Facebook: Bandung
+                                Geowisata</a>
                         </li>
                     </ul>
                 </div>
                 <!-- Column 4 -->
                 <div>
-                    <h2 class="mb-0 font-semibold text-gray-900">Menu Cepat</h2>
+                    <h2 class="mb-5 font-semibold text-gray-900">Menu Cepat</h2>
                     <ul class="text-gray-700 text-sm">
-                        <li class="mb-1">
-                            <a href="#beranda" class="hover:underline">Beranda</a>
+                        <li class="mb-3">
+                            <a href="/" class="hover:underline">Beranda</a>
                         </li>
-                        <li class="mb-1">
-                            <a href="#tentang" class="hover:underline">Tentang</a>
+                        <li class="mb-3">
+                            <a href="/#tentang" class="hover:underline">Tentang</a>
                         </li>
-                        <li class="mb-1">
-                            <a href="#rekomendasi" class="hover:underline">Rekomendasi</a>
+                        <li class="mb-3">
+                            <a href="/#rekomendasi" class="hover:underline">Rekomendasi</a>
                         </li>
-                        <li class="mb-1">
-                            <a href="#petawisata" class="hover:underline">Peta Wisata</a>
+                        <li class="mb-3">
+                            <a href="/#petawisata" class="hover:underline">Peta Wisata</a>
                         </li>
-                        <li class="mb-1">
-                            <a href="#kontak" class="hover:underline">Kontak</a>
+                        <li class="mb-3">
+                            <a href="/#kontak" class="hover:underline">Kontak</a>
                         </li>
                     </ul>
                 </div>
