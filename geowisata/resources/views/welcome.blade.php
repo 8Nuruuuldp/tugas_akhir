@@ -173,19 +173,19 @@
                             </div>
                             <div class="carousel col-start-1 row-start-1" x-ref="carousel">
                                 <div class="w-full px-2 flex-none md:w-3/5">
-                                    <img src="./img/gedungmerdeka.png">
+                                    <img src="./img/gedungmerdeka.png" >
                                 </div>
                                 <div class="w-full px-2 flex-none md:w-3/5 ">
-                                    <img src="./img/asiaafrika.png">
+                                    <img src="./img/asiaafrika.png" >
                                 </div>
                                 <div class="w-full px-2 flex-none md:w-3/5 ">
-                                    <img src="./img/pasarbaru.png">
+                                    <img src="./img/pasarbaru.png" >
                                 </div>
                                 <div class="w-full px-2 flex-none md:w-3/5 ">
-                                    <img src="./img/jembatanasiaafrika.jpg">
+                                    <img src="./img/jembatanasiaafrika.jpg" >
                                 </div>
                                 <div class="w-full px-2 flex-none md:w-3/5 ">
-                                    <img src="./img/jl.Kusumaatmaja.jpg">
+                                    <img src="./img/jl.Kusumaatmaja.jpg" >
                                 </div>
                             </div>
                         </div>
@@ -597,7 +597,7 @@
                     icon: iconMap
                 }).addTo(map);
                 let popupContent = `<div class"min-h-screen flex items-center justify-center">
-                            <img class="h-48 w-full object-cover object-end" src="${n.gambar}" alt="${n.nama_tempat}">
+                            <img class="h-48 w-full object-cover object-end" src="./img/${n.gambar}" alt="${n.nama_tempat}">
                             <div class="p-6">
                             <h4 class="mt-2 font-bold text-lg truncate">${n.nama_tempat}</h4>
                             <div class=""> <br>${n.alamat}</div>
