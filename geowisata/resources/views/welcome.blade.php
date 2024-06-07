@@ -207,7 +207,7 @@
                     <div class="max-w-sm bg-white rounded-lg shadow">
                         <a href="#">
                             <img class="rounded-t-lg"
-                                src="{{ asset('.img/' . $wisata->gambar) }}"
+                                src="{{ asset('img/' . $wisata->gambar) }}"
                                 alt="" />
                         </a>
                         <div class="p-3">
@@ -260,15 +260,16 @@
     </section>
 
     <section id="petawisata">
-        <div class="font-[Poppins] mx-auto sm:p-8 md:p-8 p-4">
+        <div class="font-[Poppins] mx-auto p-4 sm:p-8 md:p-8 lg:p-12 xl:p-16">
             <h1 class="mb-2 font-bold text-2xl xl:text-4xl dark:text-slate-800">
                 Peta Wisata
             </h1>
-            <p class=" inline-flex font-light text-slate-700 md:text-lg lg:text-xl dark:text-slate-800">
+            <p class="inline-flex font-light text-slate-700 md:text-lg lg:text-xl xl:text-2xl dark:text-slate-800">
                 Temukan destinasi wisata favorit Anda dan ciptakan kenangan indah di Kota Kembang dengan melakukan
-                pencarian dibawah ini. </p>
+                pencarian dibawah ini.
+            </p>
             <hr class="h-px my-4 bg-gray-200 border-0 dark:bg-gray-700">
-
+    
             <div>
                 <form class="mb-8 md:mb-12">
                 <div class="flex flex-col md:flex-row gap-2 mb-4">
@@ -302,7 +303,7 @@
                 <ul id="search-result"></ul>
             </form>
             </div>
-
+    
             <div id="map" class="z-10" style="width: 100%; height: 600px;"></div>
         </div>
     </section>
