@@ -173,19 +173,19 @@
                             </div>
                             <div class="carousel col-start-1 row-start-1" x-ref="carousel">
                                 <div class="w-full px-2 flex-none md:w-3/5">
-                                    <img src="./img/gedungmerdeka.png" loading="lazy">
+                                    <img src="./img/gedungmerdeka.png">
                                 </div>
                                 <div class="w-full px-2 flex-none md:w-3/5 ">
-                                    <img src="./img/asiaafrika.png" loading="lazy">
+                                    <img src="./img/asiaafrika.png">
                                 </div>
                                 <div class="w-full px-2 flex-none md:w-3/5 ">
-                                    <img src="./img/pasarbaru.png" loading="lazy">
+                                    <img src="./img/pasarbaru.png">
                                 </div>
                                 <div class="w-full px-2 flex-none md:w-3/5 ">
-                                    <img src="./img/jembatanasiaafrika.jpg" loading="lazy">
+                                    <img src="./img/jembatanasiaafrika.jpg">
                                 </div>
                                 <div class="w-full px-2 flex-none md:w-3/5 ">
-                                    <img src="./img/jl.Kusumaatmaja.jpg" loading="lazy">
+                                    <img src="./img/jl.Kusumaatmaja.jpg">
                                 </div>
                             </div>
                         </div>
