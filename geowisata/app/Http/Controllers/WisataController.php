@@ -177,8 +177,6 @@ class WisataController extends Controller
             $results=$this->Wisata->kategoriAll();
             return view('welcome',['kategori'=>$results]);
 
-            $wisata = Wisata::orderByRaw("RAND()")->first();
-
     }
     // foreach search petawisata
     public function petawisata()
@@ -203,11 +201,4 @@ class WisataController extends Controller
     $result = $wisata->get();
     return response()->json($result);
 }
-
-public function getRandomWisata()
-{
-    $wisata = Wisata::inRandomOrder()->limit(4)->get();
-    return $wisata;
-}
-
 }

@@ -199,50 +199,37 @@
             @php
             $wisata = App\Models\Wisata::orderByRaw("RAND()")->take(4)->get();
             @endphp
-            @foreach($wisata as $wisata)
         <div class="container-fluid bg-green-900">
 
             <div class="font-[Poppins] max-w-screen-xl mx-auto sm:p-10 md:p-16 bg-green-900">
-                <div class="grid">
-                    <div class="max-w-sm bg-white rounded-lg shadow">
-                        <a href="#">
-                            <img class="rounded-t-lg"
-                                src="{{ asset('img/' . $wisata->gambar) }}"
-                                alt="" />
-                        </a>
-                        <div class="p-3">
-                            <h5 class="font-[Poppins] mb-2  text-slate-800 font-bold tracking-tight text-gray-900">
+                <div class="grid xl:grid-cols-4 md:grid-cols-4 grid-cols-1 gap-3">
+                    @foreach($wisata as $wisata)
+                      <div class="max-w-sm bg-white rounded-lg shadow-md">
+                        <img class="rounded-t-lg w-full h-38" src="{{ asset('img/'. $wisata->gambar) }}" alt="" />
+                        <div class="p-2 md:p-6 lg:p-8">
+                            <h5 class="font-[Poppins] mb-2 text-slate-800 font-bold tracking-tight text-gray-900">
                             {{ $wisata->nama_tempat }}
                             </h5>
                             <div class="flex items-center mb-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500"
-                                    viewBox="0 0 20 20" fill="currentColor">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
-                                <p class="text-gray-600 font-semibold text-sm ml-1">
-                                    4.96
-                                    <span class="text-gray-500 font-normal">(76 reviews)</span>
-                                </p>
+                                {{App\Models\Ulasan::count()}}
+                                <span class="text-gray-500 font-sm"> Ulasan</span>
                             </div>
-                            <p class="text-sm">
-                                {{ $wisata->alamat }}</p>
-                            <p class="text-slate-900 text-xs pt-2 pb-2">
-                                {{ $wisata->deskripsi }}
-                            </p>
-                            <a href="detailwisata/{{$wisata->id}}"
-                                class="inline-flex items-center justify-center w-full px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                Lihat selengkapnya
-                                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                                </svg>
-                            </a>
-
+                          <p class="text-sm mb-2">
+                            {{ $wisata->alamat }}
+                          </p>
+                          <p class="text-slate-900 text-xs pt-2 pb-2">
+                            {{ $wisata->deskripsi }}
+                          </p>
+                          <a href="detailwisata/{{$wisata->id}}" class="inline-flex items-center justify-center w-full px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                            Lihat selengkapnya
+                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                              <!-- arrow icon -->
+                            </svg>
+                          </a>
                         </div>
-                    </div>
+                      </div>
                     @endforeach
+                  </div>
                 </div>
 
                 <h1
