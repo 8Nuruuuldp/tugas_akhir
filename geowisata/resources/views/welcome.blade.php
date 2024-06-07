@@ -106,7 +106,7 @@
         <div class="grid items-center py-8 px-12 mx-auto lg:gap-8 xl:gap-0 lg:py-16 ">
             <div class="">
                 <div class="text-center">
-                    <h1 class=" text-center mb-8 text-2xl font-extrabold leading-none md:text-4xl xl:text-5xl">
+                    <h1 class=" text-center mb-8 text-2xl font-extrabold md:text-4xl xl:text-5xl">
                         Tentang Kota Bandung </h1>
                     <p
                         class=" inline-flex items-center mb-6 font-light text-slate-700 lg:mb-8 md:text-lg lg:text-xl dark:text-slate-800">
@@ -261,7 +261,7 @@
 
     <section id="petawisata">
         <div class="font-[Poppins] mx-auto sm:p-8 md:p-8 p-4">
-            <h1 class="mb-2 font-bold md:text-2xl xl:text-4xl dark:text-slate-800">
+            <h1 class="mb-2 font-bold text-2xl xl:text-4xl dark:text-slate-800">
                 Peta Wisata
             </h1>
             <p class=" inline-flex font-light text-slate-700 md:text-lg lg:text-xl dark:text-slate-800">
