@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>PETA WISATA</title>
+    <title>Tunjukkan Arah {{ $wisata->nama_tempat }}</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -55,7 +55,17 @@
 <body>
 
     <div class="map rounded" id="map">
-
+        <div class="search-sidebar">
+            <div
+                class="formBlock bg-body text-dark w-25 position-absolute top-10 left-5  border shadow p-3 bg-white rounded">
+                <form>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Search..." oninput="onTyping(event)" />
+                    </div>
+                    <ul id="search-result"></ul>
+                </form>
+            </div>
+        </div>
     </div>
 
     <style>
