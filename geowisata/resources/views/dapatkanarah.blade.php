@@ -85,7 +85,8 @@
         }).addTo(map);
 
         L.marker([{{ $wisata->latitude }}, {{ $wisata->longitude }}]).addTo(map)
-            .openPopup();
+            .bindPopup('{{ $wisata->nama_tempat }}').openPopup();
+
 
 
         // Minta izin kepada pengguna untuk mengakses lokasi mereka
@@ -102,6 +103,7 @@
                     ],
                     routeWhileDragging: true
                 }).addTo(map);
+
             });
         } else {
             alert("Geolocation tidak didukung oleh browser ini.");
