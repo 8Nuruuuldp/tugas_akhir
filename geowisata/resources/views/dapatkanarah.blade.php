@@ -55,17 +55,6 @@
 <body>
 
     <div class="map rounded" id="map">
-        <div class="search-sidebar">
-            <div
-                class="formBlock bg-body text-dark w-25 position-absolute top-10 left-5  border shadow p-3 bg-white rounded">
-                <form>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Search..." oninput="onTyping(event)" />
-                    </div>
-                    <ul id="search-result"></ul>
-                </form>
-            </div>
-        </div>
     </div>
 
     <style>
