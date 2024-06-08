@@ -15,6 +15,7 @@ use App\Http\Controllers\UlasanController;
 use App\Http\Controllers\PetawisataController;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\DetailWisataController;
+use App\Http\Controllers\DirectionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,7 @@ Route::get('/', function () {
 Route::get('/', [WisataController::class, 'welcome']);
 Route::get('/search', [WisataController::class, 'search']);
 Route::get('/petawisata', [WisataController::class, 'petawisata']);
+
 
 
 Route::get('point/json', [WisataController::class, 'wisata']);
@@ -96,3 +98,6 @@ Route::get('/kontak/{id}/delete', [KontakController::class, 'destroy'])->middlew
 //Detail Wisata
 Route::get('/detailwisata/{id}', [DetailWisataController::class, 'detailwisata'])->name('detailwisata');
 //Route::post('/detailwisata/{id}', [DetailWisataController::class, 'detailwisata'])->name('detailwisata.store');
+
+//Dapatkanarah
+Route::get('/dapatkanarah/{id}', [DirectionController::class, 'dapatkanarah'])->name('dapatkanarah');
