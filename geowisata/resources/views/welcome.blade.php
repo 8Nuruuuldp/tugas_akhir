@@ -205,15 +205,11 @@
                 <div class="grid xl:grid-cols-4 md:grid-cols-4 grid-cols-1 gap-3">
                     @foreach($wisata as $wisata)
                       <div class="max-w-sm bg-white rounded-lg shadow-md">
-                        <img class="rounded-t-lg w-full h-38" src="{{ asset('img/'. $wisata->gambar) }}" alt="" />
+                        <img class="object-cover rounded-t-lg w-full h-38" src="{{ asset('img/'. $wisata->gambar) }}" alt="" />
                         <div class="p-2 md:p-6 lg:p-8">
                             <h5 class="font-[Poppins] mb-2 text-slate-800 font-bold tracking-tight text-gray-900">
                             {{ $wisata->nama_tempat }}
                             </h5>
-                            <div class="flex items-center mb-2">
-                                {{App\Models\Ulasan::count()}}
-                                <span class="text-gray-500 font-sm"> Ulasan</span>
-                            </div>
                           <p class="text-sm mb-2">
                             {{ $wisata->alamat }}
                           </p>
@@ -230,10 +226,8 @@
                       </div>
                     @endforeach
                   </div>
-                </div>
-
                 <h1
-                    class="font-[Poppins] text-center mb-8 text-2xl font-extrabold leading-none md:text-4xl xl:text-5xl text-white">
+                    class="font-[Poppins] text-center  mt-6 mb-8 text-2xl font-extrabold leading-none md:text-4xl xl:text-5xl text-white">
                     Rekomendasi Destinasi
                 </h1>
                 <p class="font-[Poppins] text-center pb-2 text-white">
@@ -241,6 +235,8 @@
                     ciptakan
                     kenangan indah di Kota Kembang. Berikut ekomendasi yang dapat Anda kunjungi.
                 </p>
+                </div>
+
 
             </div>
         </div>
